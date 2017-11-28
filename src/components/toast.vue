@@ -22,9 +22,9 @@ export default {
         }
     },
     computed: mapState({
-        success: state => state.common.showSuccess,
-        fail: state => state.common.showFail,
-        toastMsg: state => state.common.toastMsg
+        success: state => state.com.showSuccess,
+        fail: state => state.com.showFail,
+        toastMsg: state => state.com.toastMsg
     })
 }
 </script>

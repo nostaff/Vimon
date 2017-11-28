@@ -43,9 +43,9 @@
     import Tabbar from './components/TabBar'
     import TabbarItem from './components/TabBarItem'
     import Badge from './components/Badge'
-    import toast from './components/Toast'
-    import alert from './components/Alert'
-    import loading from './components/Loading'
+    import toast from './components/toast'
+    import alert from './components/alert'
+    import loading from './components/loading'
 
     import { mapGetters, mapActions } from 'vuex'
 
