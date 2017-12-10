@@ -1,12 +1,32 @@
 {
   "name": "vimo",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "eric.w <nostaff@sina.com>",
-  "private": true,
+  "description": "A Vue2.x UI Project For Mobile & HyBrid",
+  "author": "nostaff <nostaff@sina.com>, xiangsongtao <280304286@163.com>",
+  "homepage": "https://github.com/nostaff/vimon",
+  "license": "MIT",
+  "keywords": [
+    "vimon",
+    "vue",
+    "vue.js",
+    "component",
+    "components",
+    "H5",
+    "mobile",
+    "hybrid",
+    "ui",
+    "framework"
+  ],
+  "private": false,
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
   "scripts": {
-    "demo:dev": "node demos/build/dev-server.js",
-    "demo:build": "node demos/build/build.js",
+    "demo:dev": "cross-env BABEL_ENV=demo node demos/build/dev-server.js",
+    "demo:build": "cross-env BABEL_ENV=demo node demos/build/build.js",
     "docs:dev": "gulp default --gulpfile build/doc-builder/gulpfile.js",
     "docs:build": "gulp build --gulpfile build/doc-builder/gulpfile.js",
     "pub:entry": "cross-env BABEL_ENV=lib node build/lib-builder/build-entry.js",
@@ -44,11 +64,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:nostaff/vue-ionic.git"
+    "url": "git@github.com:nostaff/vimon.git"
   },
   "demo": {
     "type": "git",
-    "url": "git@github.com:nostaff/vue-ionic-demo.git"
+    "url": "git@github.com:nostaff/vimon-demo.git"
   },
   "dependencies": {
     "es6-promise": "^4.1.1",
