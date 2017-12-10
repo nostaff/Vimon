@@ -36,7 +36,7 @@
  * // require styles
  * import 'swiper/dist/css/swiper.css'
  *
- * import { Swiper, SwiperSlide } from 'vimo'
+ * import { Swiper, SwiperSlide } from 'vimon'
  *
  * export default {
  *   components: {
