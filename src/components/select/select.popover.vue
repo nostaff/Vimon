@@ -1,6 +1,6 @@
 <template>
   <ion-list radio-group v-model="checkedValue" @onChange="onRadioChecked($event)">
-    <ion-item v-for="option in options" key="idx">
+    <ion-item v-for="option in options" :key="option">
       <ion-label slot="item-label">{{option.text}}</ion-label>
       <ion-radio slot="item-content" :value="option.value" :disabled="option.disabled"></ion-radio>
     </ion-item>
@@ -8,10 +8,10 @@
 </template>
 <script type="text/javascript">
   import Popover from '../popover/index'
-  import IonList from '../list/list.vue'
-  import IonItem from '../item/item.vue'
-  import IonLabel from '../label/label.vue'
-  import IonRadio from '../radio/radio.vue'
+  import IonList from '../list'
+  import IonItem from '../item'
+  import IonLabel from '../label'
+  import IonRadio from '../radio'
 
   export default {
     name: 'ion-select-popover',

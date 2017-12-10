@@ -1,3 +1,5 @@
+/* eslint-disable no-undef,no-unused-expressions */
+
 import {
   addClass,
   docReady,

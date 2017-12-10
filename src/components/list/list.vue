@@ -7,7 +7,7 @@
 <script>
   import {isBlank} from '../../util/util'
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonListHeader from './list-header'
+  import IonListHeader from '../list-header'
 
   export default {
     name: 'ion-list',

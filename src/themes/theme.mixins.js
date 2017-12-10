@@ -4,7 +4,6 @@
 export default {
   data () {
     return {
-      eleId: 'ion-' + Math.random().toString(36).substring(3, 8),
       roleName: this.$options.name.replace('ion-', '')
     }
   },

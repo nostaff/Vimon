@@ -47,8 +47,8 @@
 <script>
   import {isUndefined} from '../../util/util'
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonReorder from './item-reorder.vue'
-  import IonLabel from '../label/index'
+  import IonReorder from '../item-reorder'
+  import IonLabel from '../label'
 
   export default {
     components: {

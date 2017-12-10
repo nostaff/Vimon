@@ -18,12 +18,12 @@
 
 <script>
 import ThemeMixins from '../themes/theme.mixins'
-import IonHeader from '../components/page/header'
-import IonToolbar from '../components/toolbar/toolbar'
-import IonButtons from '../components/toolbar/toolbar-buttons'
+import IonHeader from '../components/header'
+import IonToolbar from '../components/toolbar'
+import IonButtons from '../components/buttons'
 import IonIcon from '../components/icon/icon'
-import IonTitle from '../components/toolbar/toolbar-title'
-import IonButton from '../components/button/button'
+import IonTitle from '../components/title'
+import IonButton from '../components/button'
 
 export default {
   components: {
@@ -115,7 +115,7 @@ export default {
 
 
 <style lang="scss">
-  @import '../components/toolbar/toolbar-buttons';
+  @import '../components/buttons/toolbar-buttons';
   @import '../components/toolbar/toolbar';
   @import '../components/toolbar/toolbar.ios';
   @import '../components/toolbar/toolbar.md';
