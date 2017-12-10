@@ -6,8 +6,8 @@ import PLATFORM_CONFIGS from './config/platform-configs'
 import router from './router'
 
 // 导入所有组件
-import Vimo from 'vimo'
-Vue.use(Vimo, {
+import Vimon from 'vimon'
+Vue.use(Vimon, {
   custConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
@@ -16,14 +16,14 @@ Vue.use(Vimo, {
 // 按需导入组件
 /*
 // 平台基础安装
-import Vimo from 'vimo/core'
-Vue.use(Vimo, {
+import Vimon from 'vimnm/core'
+Vue.use(Vimon, {
   custConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
 })
 
-import { App, Content, Footer, Header, Page, Navigation } from 'vimo'
+import { App, Content, Footer, Header, Page, Navigation } from 'vimon'
 
 // 全局注册的组件(核心组件)
 Vue.component(App.name, App)
@@ -68,10 +68,6 @@ new Vue({
       console.error(`Platform Ready && Init Info: ${data}`)
       // alert(`Platform Ready && Init Info: ${data}`)
     })
-
-    window.setTimeout(() => {
-      // alert(`window.WebViewJavascriptBridge: ${JSON.stringify(Object.keys(window.WebViewJavascriptBridge))}`)
-    }, 1000)
   },
   components: {AppRoot}
 })

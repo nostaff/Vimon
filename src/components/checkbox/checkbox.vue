@@ -1,10 +1,10 @@
 <template>
-    <div :class="[themeClass, colorClass, {'checkbox-disabled':disabled}]">
-        <div :class="['checkbox-icon', {'checkbox-checked':isChecked}]">
-            <div class="checkbox-inner"></div>
-        </div>
-        <ion-button role="checkbox" :disabled="disabled" @click.native="onChecked"></ion-button>
+  <div :class="[themeClass, colorClass, {'checkbox-disabled':disabled}]">
+    <div :class="['checkbox-icon', {'checkbox-checked':isChecked}]">
+      <div class="checkbox-inner"></div>
     </div>
+    <ion-button role="checkbox" :disabled="disabled" @click.native="onChecked"></ion-button>
+  </div>
 </template>
 <script>
 /**
@@ -20,7 +20,7 @@
  * ### 如何引入
  * ```
  * // 引入
- * import {Checkbox} from 'vimo'
+ * import {Checkbox} from 'vimon'
  * // 安装
  * Vue.component(Checkbox.name, Checkbox)
  * // 或者
@@ -96,12 +96,14 @@ export default {
         this.$emit('onChange', this.isChecked)
         this.$emit('input', this.isChecked)
 
-        this.itemCmp && this.itemCmp.setElementClass('item-checkbox-checked', this.isChecked)
+        this.itemCmp &&
+          this.itemCmp.setElementClass('item-checkbox-checked', this.isChecked)
       }
     },
     setDisabled (disabled) {
       this.isDisabled = disabled
-      this.itemCmp && this.itemCmp.setElementClass('item-checkbox-disabled', this.isDisabled)
+      this.itemCmp &&
+        this.itemCmp.setElementClass('item-checkbox-disabled', this.isDisabled)
     },
     onChecked (ev) {
       ev.preventDefault()
