@@ -500,27 +500,23 @@
       <h5>Lazy Loading Images<span>（图片延迟加载）</span></h5>
       <swiper class="lazy" :options="lazyLoadingOption">
         <swiper-slide>
-          <img data-src="/static/background/1.jpg" class="swiper-lazy">
+          <img data-src="http://lorempixel.com/1600/1200/nature/1" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </swiper-slide>
         <swiper-slide>
-            <img data-src="/static/background/2.jpg" class="swiper-lazy">
+            <img data-src="http://lorempixel.com/1600/1200/nature/2" class="swiper-lazy">
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </swiper-slide>
         <swiper-slide>
-          <img data-src="/static/background/3.jpg" class="swiper-lazy">
+          <img data-src="http://lorempixel.com/1600/1200/nature/3" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </swiper-slide>
         <swiper-slide>
-          <img data-src="/static/background/4.jpg" class="swiper-lazy">
+          <img data-src="http://lorempixel.com/1600/1200/nature/4" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </swiper-slide>
         <swiper-slide>
-          <img data-src="/static/background/5.jpg" class="swiper-lazy">
-          <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
-        <swiper-slide>
-          <img data-src="/static/background/6.jpg" class="swiper-lazy">
+          <img data-src="http://lorempixel.com/1600/1200/nature/5" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -564,17 +560,17 @@
       <swiper :options="zoomOption">
         <swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="/static/background/6.jpg">
+            <img src="../../static/background/6.jpg">
           </div>
         </swiper-slide>
         <swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="/static/background/1.jpg">
+            <img src="../../static/background/1.jpg">
           </div>
         </swiper-slide>
         <swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="/static/background/3.jpg">
+            <img src="../../static/background/3.jpg">
           </div>
         </swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
@@ -599,7 +595,7 @@
 </template>
 
 <script type="text/javascript">
-import { Slides, Slide } from 'vimo'
+import { Slides, Slide } from 'vimon'
 export default {
   name: 'SwiperDemo',
   components: {
@@ -1088,23 +1084,23 @@ export default {
     align-items: center;
 
     &.slide-1 {
-        background-image:url('/static/background/1.jpg');
+        background-image:url('../../static/background/1.jpg');
       }
 
       &.slide-2 {
-        background-image:url('/static/background/2.jpg');
+        background-image:url('../../static/background/2.jpg');
       }
 
       &.slide-3 {
-        background-image:url('/static/background/3.jpg');
+        background-image:url('../../static/background/3.jpg');
       }
 
       &.slide-4 {
-        background-image:url('/static/background/4.jpg');
+        background-image:url('../../static/background/4.jpg');
       }
 
       &.slide-5 {
-        background-image:url('/static/background/5.jpg');
+        background-image:url('../../static/background/5.jpg');
       }
   }
 
@@ -1244,7 +1240,7 @@ export default {
       -webkit-background-size: cover;
       background-size: cover;
       background-position: center;
-      background-image: url(/static/background/2.jpg);
+      background-image: url(../../static/background/2.jpg);
     }
     .swiper-slide .title {
       font-size: 41px;
