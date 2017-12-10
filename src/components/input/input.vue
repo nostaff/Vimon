@@ -108,7 +108,7 @@
  * <Input placeholder="请输入至少4位" type="securityCode" check clearInput></Input>
  * <Input placeholder="XX-XX-XXX格式" type="text" check :regex=/\d{2}-\d{2}-\d{3}/ clearInput></Input>
  */
-import {isPresent, isTrueProperty} from '../../util/util'
+import {isTrueProperty} from '../../util/util'
 import {hasFocus} from '../../util/dom'
 import ThemeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
