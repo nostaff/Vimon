@@ -39,7 +39,7 @@
 </template>
 
 <script>
-  import Loading from '../../../src/components/loading'
+  import Loading from 'vimon/components/loading'
   export default {
     methods: {
       showLoading (name, duration) {

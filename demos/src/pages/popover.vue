@@ -29,7 +29,7 @@
   </ion-page>
 </template>
 <script>
-  import Popage from './Popage.vue'
+  import Popage from './popage.vue'
 
   export default {
     methods: {

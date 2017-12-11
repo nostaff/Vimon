@@ -15,7 +15,7 @@
                 <ion-item>
                     <ion-label slot="item-label">Hair Color</ion-label>
                     <ion-select slot="item-content" v-model="hairColor" okText="Okay" cancelText="Dismiss" @onChange="onChange">
-                        <ion-option v-for="o in hairColorData" key="idx" :value="o.value">{{o.text}}</ion-option>
+                        <ion-option v-for="o in hairColorData" :key="o.value" :value="o.value">{{o.text}}</ion-option>
                     </ion-select>
                 </ion-item>
 
@@ -150,14 +150,14 @@
                 <ion-item>
                     <ion-label slot="item-label">Pets</ion-label>
                     <ion-select slot="item-content" v-model="pets" multiple="true" :selectOptions="petAlertOpts" @onChange="onChange">
-                        <ion-option v-for="o in petData" key="idx" :value="o.value">{{o.text}}</ion-option>
+                        <ion-option v-for="o in petData" :key="o.value" :value="o.value">{{o.text}}</ion-option>
                     </ion-select>
                 </ion-item>
 
                 <ion-item>
                     <ion-label slot="item-label">Skittles</ion-label>
                     <ion-select slot="item-content" v-model="skittles" multiple="true" okText="Okay" cancelText="Dismiss" @onChange="onChange">
-                        <ion-option v-for="o in skittlesData" key="idx" :value="o.value">{{o.text}}</ion-option>
+                        <ion-option v-for="o in skittlesData" :key="o.value" :value="o.value">{{o.text}}</ion-option>
                     </ion-select>
                 </ion-item>
 

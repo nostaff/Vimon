@@ -31,7 +31,7 @@
     </ion-page>
 </template>
 <script>
-    import ModalPage from './ModalPage.vue'
+    import ModalPage from './modal-page.vue'
 
     export default {
       data () {

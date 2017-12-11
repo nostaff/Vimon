@@ -1,7 +1,7 @@
 <template>
   <ion-page v-nav="{title: '浮动按钮'}">
     <ion-content fullscreen>
-      <div v-for="i in array">{{i}}</div>
+      <div :key="i" v-for="i in array">{{i}}</div>
       <section slot="fixed">
         <ion-fab top right edge>
           <ion-fab-button mini @click="clickMainFAB()">

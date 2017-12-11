@@ -1,99 +1,53 @@
 /**
  * 路由配置表
  **/
-
-// pages
-import DemoHome from '../pages/Home'
-
-// Components
-import DemoButton from '../pages/Button'
-import DemoChip from '../pages/Chip'
-import DemoInput from '../pages/Input'
-import DemoTextarea from '../pages/TextArea'
-import DemoSearch from '../pages/Search'
-import DemoSelect from '../pages/Select'
-import DemoRadio from '../pages/Radio'
-import DemoCheckbox from '../pages/Checkbox'
-import DemoToggle from '../pages/Toggle'
-import DemoRange from '../pages/Range'
-import DemoBadge from '../pages/Badge'
-import DemoIcon from '../pages/Icon'
-import DemoFabs from '../pages/FABs'
-import DemoSpinner from '../pages/Spinner'
-import DemoDatetime from '../pages/Datetime'
-
-// Layout
-import DemoToolbar from '../pages/Toolbar'
-import DemoPage from '../pages/Page'
-import DemoGrid from '../pages/Grid'
-import DemoTabs from '../pages/Tabs'
-import DemoSegment from '../pages/Segment'
-import DemoMenu from '../pages/Menu'
-
-// List
-import DemoList from '../pages/List'
-import DemoRefresher from '../pages/Refresher'
-import DemoInfiniteScroll from '../pages/InfiniteScroll'
-
-// Advanced
-import DemoActionSheet from '../pages/ActionSheet'
-import DemoDialog from '../pages/Dialog'
-import DemoToast from '../pages/Toast'
-import DemoSwiper from '../pages/Swiper'
-import DemoPicker from '../pages/Picker'
-import DemoPopup from '../pages/Popup'
-import DemoPopover from '../pages/Popover'
-import DemoModal from '../pages/Modal'
-
-import NotFound from '../pages/NotFound'
-
 const routes = [
-  { path: '/', name: 'demo.index', component: DemoHome },
+
+  { path: '/', name: 'demo.index', component: resolve => require(['@/pages/component.vue'], resolve) },
 
   // Components
-  { path: '/demo/button', name: 'demo.button', component: DemoButton },
-  { path: '/demo/chip', component: DemoChip },
-  { path: '/demo/badge', component: DemoBadge },
-  { path: '/demo/fabs', component: DemoFabs },
-  { path: '/demo/icons', component: DemoIcon },
-  { path: '/demo/spinner', component: DemoSpinner },
-  { path: '/demo/datetime', component: DemoDatetime },
+  { path: '/demo/button', name: 'demo.button', component: resolve => require(['@/pages/button.vue'], resolve) },
+  { path: '/demo/chip', component: resolve => require(['@/pages/chip.vue'], resolve) },
+  { path: '/demo/badge', component: resolve => require(['@/pages/badge.vue'], resolve) },
+  { path: '/demo/fabs', component: resolve => require(['@/pages/fabs.vue'], resolve) },
+  { path: '/demo/icons', component: resolve => require(['@/pages/icon.vue'], resolve) },
+  { path: '/demo/spinner', component: resolve => require(['@/pages/spinner.vue'], resolve) },
+  { path: '/demo/datetime', component: resolve => require(['@/pages/datetime.vue'], resolve) },
 
   // Form
-  { path: '/demo/input', component: DemoInput },
-  { path: '/demo/textarea', component: DemoTextarea },
-  { path: '/demo/search', component: DemoSearch },
-  { path: '/demo/select', component: DemoSelect },
-  { path: '/demo/radio', component: DemoRadio },
-  { path: '/demo/checkbox', component: DemoCheckbox },
-  { path: '/demo/toggle', component: DemoToggle },
-  { path: '/demo/range', component: DemoRange },
+  { path: '/demo/input', component: resolve => require(['@/pages/input.vue'], resolve) },
+  { path: '/demo/textarea', component: resolve => require(['@/pages/textarea.vue'], resolve) },
+  { path: '/demo/search', component: resolve => require(['@/pages/search.vue'], resolve) },
+  { path: '/demo/select', component: resolve => require(['@/pages/select.vue'], resolve) },
+  { path: '/demo/radio', component: resolve => require(['@/pages/radio.vue'], resolve) },
+  { path: '/demo/checkbox', component: resolve => require(['@/pages/checkbox.vue'], resolve) },
+  { path: '/demo/toggle', component: resolve => require(['@/pages/toggle.vue'], resolve) },
+  { path: '/demo/range', component: resolve => require(['@/pages/range.vue'], resolve) },
 
   // Layout
-  { path: '/demo/toolbar', component: DemoToolbar },
-  { path: '/demo/page', component: DemoPage },
-  { path: '/demo/list', component: DemoList },
-  { path: '/demo/grid', component: DemoGrid },
-  { path: '/demo/tabs', component: DemoTabs },
-  { path: '/demo/segment', component: DemoSegment },
-  { path: '/demo/menu', component: DemoMenu },
+  { path: '/demo/toolbar', component: resolve => require(['@/pages/toolbar.vue'], resolve) },
+  { path: '/demo/page', component: resolve => require(['@/pages/page.vue'], resolve) },
+  { path: '/demo/list', component: resolve => require(['@/pages/list.vue'], resolve) },
+  { path: '/demo/grid', component: resolve => require(['@/pages/grid.vue'], resolve) },
+  { path: '/demo/tabs', component: resolve => require(['@/pages/tabs.vue'], resolve) },
+  { path: '/demo/segment', component: resolve => require(['@/pages/segment.vue'], resolve) },
+  { path: '/demo/menu', component: resolve => require(['@/pages/menu.vue'], resolve) },
 
   // Data
-  { path: '/demo/refresher', component: DemoRefresher },
-  { path: '/demo/infinite-scroll', component: DemoInfiniteScroll },
+  { path: '/demo/refresher', component: resolve => require(['@/pages/refresher.vue'], resolve) },
+  { path: '/demo/infinite-scroll', component: resolve => require(['@/pages/infinite-scroll.vue'], resolve) },
 
   // Advanced
-  { path: '/demo/action-sheet', component: DemoActionSheet },
-  { path: '/demo/dialog', component: DemoDialog },
-  { path: '/demo/toast', component: DemoToast },
-  { path: '/demo/swiper', component: DemoSwiper },
-  { path: '/demo/popup', component: DemoPopup },
-  { path: '/demo/popover', component: DemoPopover },
-  { path: '/demo/actionSheet', component: DemoActionSheet },
-  { path: '/demo/modal', component: DemoModal },
-  { path: '/demo/picker', component: DemoPicker },
+  { path: '/demo/action-sheet', component: resolve => require(['@/pages/action-sheet.vue'], resolve) },
+  { path: '/demo/dialog', component: resolve => require(['@/pages/dialog.vue'], resolve) },
+  { path: '/demo/toast', component: resolve => require(['@/pages/toast.vue'], resolve) },
+  { path: '/demo/swiper', component: resolve => require(['@/pages/swiper.vue'], resolve) },
+  { path: '/demo/popup', component: resolve => require(['@/pages/popup.vue'], resolve) },
+  { path: '/demo/popover', component: resolve => require(['@/pages/popover.vue'], resolve) },
+  { path: '/demo/modal', component: resolve => require(['@/pages/modal.vue'], resolve) },
+  { path: '/demo/picker', component: resolve => require(['@/pages/picker.vue'], resolve) },
 
-  { path: '*', component: NotFound }
+  { path: '*', component: resolve => require(['@/pages/not-found.vue'], resolve) }
 
 ]
 

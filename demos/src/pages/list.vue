@@ -168,7 +168,7 @@
             </ion-list>
 
             <ion-list title="item sliding">
-                <ion-item-sliding v-for="chat in chats" key="index">
+                <ion-item-sliding :key="index" v-for="(chat, index) in chats" key="index">
                     <ion-item>
                         <ion-avatar slot="item-start">
                             <img :src="chat.img">
@@ -208,7 +208,7 @@
                     <ion-button slot="item-end" outline @click.native="toggleEdit()">{{editButton}}</ion-button>
                 </ion-list-header>
                 <ion-item-group reorder="true" :reorderEnabled="editing" @onItemReorder="reorderData($event)">
-                    <ion-item v-for="song in songs" key="index">
+                    <ion-item :key="song" v-for="song in songs">
                         <h2>{{ song.title }}</h2>
                         <p>{{ song.band }} • {{ song.album }}</p>
                     </ion-item>
@@ -226,7 +226,7 @@
 
 
 <script>
-    import { reorderArray } from '../../../src/util/util'
+    import { reorderArray } from 'vimon/util/util'
     export default{
       data () {
         return {

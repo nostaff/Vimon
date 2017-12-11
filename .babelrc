@@ -25,7 +25,7 @@
         [
           "import",
           {
-            "libraryName": "vimo",
+            "libraryName": "vimon",
             "libraryDirectory": "components"
           }
         ]

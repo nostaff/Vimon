@@ -25,7 +25,7 @@
         <ion-content class="outer-content">
             <ion-list>
                 <ion-list-header>{{ appType }}</ion-list-header>
-                <ion-item v-for="item in getItems(appType)" key="index">
+                <ion-item v-for="(item, index) in getItems(appType)" :key="index">
                     {{ item.name }}
                     <ion-button outline slot="item-end">{{ item.price }}</ion-button>
                 </ion-item>
@@ -48,7 +48,7 @@
                         </ion-segment-button>
                     </ion-segment>
                     <ion-list style="margin: 0" inset>
-                        <ion-item v-for="sItem in getSafariItems(safari)" key="index">
+                        <ion-item v-for="(sItem,index) in getSafariItems(safari)" :key="index">
                             <ion-icon slot="item-start" :name="sItem.icon" color="primary"></ion-icon>
                             {{ sItem.name }}
                         </ion-item>
