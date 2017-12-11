@@ -30,7 +30,7 @@
     "docs:dev": "gulp default --gulpfile build/doc-builder/gulpfile.js",
     "docs:build": "gulp build --gulpfile build/doc-builder/gulpfile.js",
     "pub:entry": "cross-env BABEL_ENV=lib node build/lib-builder/build-entry.js",
-    "pub:lib": "cross-env BABEL_ENV=lib node build/lib-builder/index.js",
+    "pub:lib": "cross-env BABEL_ENV=lib node build/lib-builder/build-lib.js",
     "pub": "npm run pub:entry && npm run pub:lib",
     "test": "cross-env BABEL_ENV=test jest",
     "test:-u": "cross-env BABEL_ENV=test npm test -- -u",

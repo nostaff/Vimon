@@ -25,8 +25,8 @@ cd('./demos/dist')
 touch('.nojekyll')
 exec('git init')
 exec('git add .')
-exec('git config user.name "xiangsongtao"')
-exec('git config user.email "280304286@163.com"')
+exec('git config user.name "nostaff"')
+exec('git config user.email "nostaff@sina.com"')
 exec('git commit -m "docs(demo): update demo"')
 exec(
   `git push --force --quiet "${remoteGitStore}" master:gh-pages`

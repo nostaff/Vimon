@@ -24,9 +24,14 @@ rm(`${config.libPath}`, err => {
           babel.transformFile(file, {
             presets: ['env', 'stage-2']
           }, (err, result) => {
+            if (err) {
+              throw err
+            }
             fs.createWriteStream(file)
             fs.writeFile(file, result.code, function (err) {
-              if (err) throw err
+              if (err) {
+                throw err
+              }
               var component = file.split('lib')[1]
               console.log(chalk.cyan(`    (${index}/${total - 1}) ${component}`))
               if (index >= total - 1) {
