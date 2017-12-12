@@ -1,5 +1,5 @@
 <template>
-  <ion-page class="page has-navbar has-tabbar" v-nav="{title: '徽章'}">
+  <ion-page v-nav="{title: 'Badge'}">
     <ion-content padding>
         <ion-badge>2</ion-badge>
         <ion-badge color="danger">35</ion-badge>

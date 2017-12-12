@@ -1,5 +1,5 @@
 <template>
-  <ion-page v-nav="{title: '列表'}">
+  <ion-page v-nav="{title: 'Spinner'}">
     <ion-content>
 
       <ion-list title="Spinner Loading Indicators">

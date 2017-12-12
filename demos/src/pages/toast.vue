@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: 'Toast', showMoreButton: true}">
+    <ion-page v-nav="{title: 'Toast'}">
 
         <ion-content padding>
 

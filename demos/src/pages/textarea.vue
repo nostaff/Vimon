@@ -1,5 +1,6 @@
 <template>
-    <ion-page v-nav="{title: '多行输入框'}">
+    <ion-page v-nav="{title: 'Textarea'}">
+
         <ion-content class="outer-content">
 
             <ion-list title="Textarea">

@@ -6,7 +6,7 @@ import PLATFORM_CONFIGS from './config/platform-configs'
 import router from './router'
 
 // 导入所有组件
-import Vimon from 'vimon'
+import Vimon from 'vimon/index.js' // demo环境需要带index.js
 Vue.use(Vimon, {
   custConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
@@ -16,14 +16,14 @@ Vue.use(Vimon, {
 // 按需导入组件
 /*
 // 平台基础安装
-import Vimon from 'vimnm/core'
+import Vimon from 'vimon/core'
+import { App, Content, Footer, Header, Page, Navigation } from 'vimon'
+
 Vue.use(Vimon, {
   custConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
 })
-
-import { App, Content, Footer, Header, Page, Navigation } from 'vimon'
 
 // 全局注册的组件(核心组件)
 Vue.component(App.name, App)
@@ -34,8 +34,8 @@ Vue.component(Footer.name, Footer)
 
 // Directive
 Vue.directive(Navigation.name, Navigation)
-
 */
+
 // Vue.use(vmGeo, {
 //   enableHighAccuracy: true, // 是否要求高精度地理位置信息
 //   maximumAge: 10000,         // 设置缓存时间为1s，1s后重新获取地理位置信息

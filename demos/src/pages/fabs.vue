@@ -1,5 +1,5 @@
 <template>
-  <ion-page v-nav="{title: '浮动按钮'}">
+  <ion-page v-nav="{title: 'FABs'}">
     <ion-content fullscreen>
       <div :key="i" v-for="i in array">{{i}}</div>
       <section slot="fixed">

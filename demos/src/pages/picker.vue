@@ -1,5 +1,5 @@
 <template>
-  <ion-page v-nav="{title: '选择器'}">
+  <ion-page v-nav="{title: 'Picker'}">
     <ion-content>
 
       <ion-list title="Datetime">

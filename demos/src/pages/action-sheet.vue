@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '操作列表'}">
+    <ion-page v-nav="{title: 'Action Sheet'}">
         <ion-content padding>
             <div class="action-sheets-basic-page">
                 <ion-button block @click.native="normal()">点击背景关闭</ion-button>

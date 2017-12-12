@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: 'InfiniteScroll'}">
+    <ion-page v-nav="{title: 'Infinite Scroll'}">
         <ion-content>
             <ion-list>
                 <ion-item v-for="(item,index) in items" :key="index">{{item}}</ion-item>

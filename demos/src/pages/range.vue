@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '滑块'}">
+    <ion-page v-nav="{title: 'Range'}">
         <ion-content class="padding-top outer-content">
 
             <ion-list>

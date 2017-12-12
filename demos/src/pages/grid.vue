@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '栅格'}">
+    <ion-page v-nav="{title: 'Grid'}">
 
         <ion-content class="content-padded  grid-demos">
 

@@ -1,10 +1,5 @@
 <template>
-    <ion-page>
-        <ion-header>
-            <ion-navbar>
-                <ion-title>Swiper</ion-title>
-            </ion-navbar>
-        </ion-header>
+    <ion-page v-nav="{title: 'Swiper'}">
         <ion-content padding class="outer-content SlidesPage">
             <h1>跑马灯组件</h1>
             <p>Slides组件是 <strong>Swiper插件</strong>

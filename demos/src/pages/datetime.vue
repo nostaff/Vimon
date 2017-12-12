@@ -1,5 +1,5 @@
 <template>
-  <ion-page>
+  <ion-page v-nav="{title: 'Datetime'}">
     <ion-header>
 
       <ion-navbar>

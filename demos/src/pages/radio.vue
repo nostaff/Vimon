@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '单选框'}">
+    <ion-page v-nav="{title: 'Radio'}">
         <ion-content>
 
             <ion-radio-group title="请选择性别" :options="genderOptions" v-model="gender" @onChange="change"></ion-radio-group>

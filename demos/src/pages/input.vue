@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '输入框'}">
+    <ion-page v-nav="{title: 'Input'}">
         <ion-content class="outer-content">
 
             <ion-list title="有标签-定宽">

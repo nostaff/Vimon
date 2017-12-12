@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '复选框'}">
+    <ion-page v-nav="{title: 'Checkbox'}">
         <ion-content>
 
             <ion-checkbox-group title="选择感兴趣的板块:" :options="topics" v-model="chosenTopics" @onChange="change"></ion-checkbox-group>

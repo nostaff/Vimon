@@ -1,5 +1,5 @@
 <template>
-    <ion-page v-nav="{title: '下拉选择框'}">
+    <ion-page v-nav="{title: 'Select'}">
         <ion-content>
 
             <ion-list>

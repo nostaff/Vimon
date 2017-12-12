@@ -1,17 +1,5 @@
 <template>
-  <ion-page>
-
-    <ion-header>
-
-      <ion-navbar>
-        <ion-buttons slot="item-end">
-          <ion-button @click.native="dismiss()">Close</ion-button>
-        </ion-buttons>
-        <ion-title>Modals</ion-title>
-      </ion-navbar>
-
-    </ion-header>
-
+  <ion-page v-nav="{title:'Modal Page', showMoreButton: true, onMoreButtonClick:'dismiss()'}">
 
     <ion-content padding>
       <div v-if="myParam">

@@ -1,5 +1,6 @@
 <template>
-    <ion-page v-nav="{title: '选项卡'}">
+    <ion-page v-nav="{title: 'Tabs'}">
+
         <ion-content class="tabs-demo">
             <!-- Text -->
             <ion-tabs tabs-only>
