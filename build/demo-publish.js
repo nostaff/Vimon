@@ -29,7 +29,7 @@ exec('git config user.name "nostaff"')
 exec('git config user.email "nostaff@sina.com"')
 exec('git commit -m "docs(demo): update demo"')
 exec(
-  `git push --force --quiet "${remoteGitStore}" master:gh-pages`
+  `git push --force --quiet "${remoteGitStore}" master`
 )
 
 console.log(chalk.cyan('---------------'))
