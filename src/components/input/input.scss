@@ -110,7 +110,7 @@ input.text-input:-webkit-autofill {
 // Clear Input Icon
 // --------------------------------------------------
 
-.text-input-clear-icon {
+.ion-input .text-input-clear-icon {
   @include margin(0);
   @include padding(0);
   @include background-position(center);
