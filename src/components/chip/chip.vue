@@ -1,14 +1,14 @@
 <template>
-  <div class="ion-chip" :class="[themeClass, colorClass]">
+  <div class="ion-chip" :class="[modeClass, colorClass]">
     <slot></slot>
   </div>
 </template>
 
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-chip',
-  mixins: [ThemeMixins]
+  mixins: [ModeMixins]
 }
 </script>
 

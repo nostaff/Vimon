@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-buttons" :class="[themeClass]">
+  <div class="ion-buttons" :class="[modeClass]">
     <slot></slot>
   </div>
 </template>
@@ -36,10 +36,10 @@
  * @see component:Toolbar
  *
  */
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-buttons',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   data () {
     return {
       componentName: 'ionButtons',

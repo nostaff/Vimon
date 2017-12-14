@@ -1,5 +1,5 @@
 <template>
-  <div role="dialog" :class="['ion-toast', themeClass, cssClass]" :style="{'z-index': zIndex}">
+  <div role="dialog" :class="['ion-toast', modeClass, cssClass]" :style="{'z-index': zIndex}">
     <transition :name="'toast-fade-'+position">
       <div class="toast-wrapper" :class="['toast-'+position]" v-show="activated">
         <div class="toast-container">
@@ -14,13 +14,13 @@
   import {urlChange} from '../../util/dom'
   import {isFunction, isNumber, isTrueProperty} from '../../util/util'
   import objectAssign from 'object-assign'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import IonButton from '../button'
 
   let zIndex = 20001
   export default {
     name: 'ion-toast',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       IonButton
     },

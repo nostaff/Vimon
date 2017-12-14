@@ -1,15 +1,15 @@
 <template>
-    <span class="ion-note" :class="[themeClass]">
+    <span class="ion-note" :class="[modeClass]">
         <slot></slot>
     </span>
 </template>
 
 <script>
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   export default {
     name: 'ion-note',
-    mixins: [ThemeMixins]
+    mixins: [ModeMixins]
   }
 </script>
 

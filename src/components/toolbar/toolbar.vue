@@ -1,19 +1,19 @@
 <template>
-  <div class="ion-toolbar" :class="[themeClass, colorClass]">
-    <div class="toolbar-background" :class="['toolbar-background-'+theme]"></div>
+  <div class="ion-toolbar" :class="[modeClass, colorClass]">
+    <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
     <slot name="item-start"></slot>
     <slot name="item-end"></slot>
-    <div class="toolbar-content" :class="['toolbar-content-'+theme]">
+    <div class="toolbar-content" :class="['toolbar-content-'+mode]">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-toolbar',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   provide () {
     const _this = this
     return {

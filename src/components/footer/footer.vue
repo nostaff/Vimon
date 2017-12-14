@@ -1,5 +1,5 @@
 <template>
-  <footer class="ion-footer" :class="[themeClass,{'hide-bar':isHide}]" :style="style">
+  <footer class="ion-footer" :class="[modeClass,{'hide-bar':isHide}]" :style="style">
     <slot></slot>
   </footer>
 </template>
@@ -22,10 +22,10 @@
  * @demo #/content
  *
  **/
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-footer',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     pageComponent: {
       from: 'pageComponent',

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[themeClass, colorClass, {'radio-disabled':disabled}]">
+  <div :class="[modeClass, colorClass, {'radio-disabled':disabled}]">
     <div :class="['radio-icon', {'radio-checked':isChecked}]">
       <div class="radio-inner"></div>
     </div>
@@ -70,12 +70,12 @@
  *
  **/
 import { isTrueProperty, isPresent } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
 
 export default {
   name: 'ion-radio',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonButton
   },
@@ -126,7 +126,7 @@ export default {
         this.isChecked = isChecked
 
         this.itemCmp.setElementClass('item-radio-checked', this.isChecked)
-        this.itemCmp.setElementClass(`item-radio-${this.theme}-${this.color}`, this.isChecked && isPresent(this.color))
+        this.itemCmp.setElementClass(`item-radio-${this.mode}-${this.color}`, this.isChecked && isPresent(this.color))
       }
     },
 

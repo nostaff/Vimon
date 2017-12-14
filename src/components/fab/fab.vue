@@ -5,11 +5,11 @@
   </div>
 </template>
 <script>
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   export default {
     name: 'ion-fab',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     provide () {
       let _this = this
       return {

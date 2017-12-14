@@ -103,7 +103,7 @@
   *  // ....
   */
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonSpinner from '../spinner'
 
 const STATE_ENABLED = 'enabled'
@@ -112,7 +112,7 @@ const STATE_LOADING = 'loading'
 
 export default {
   name: 'ion-infinite-scroll',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonSpinner
   },

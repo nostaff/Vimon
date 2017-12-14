@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-popover" :class="[themeClass, cssClass]" style="z-index: 9999;">
+  <div class="ion-popover" :class="[modeClass, cssClass]" style="z-index: 9999;">
     <ion-backdrop
         :enableBackdropDismiss="enableBackdropDismiss"
         v-if="showBackdrop" v-show="activated" @click.native="bdClick()"></ion-backdrop>
@@ -86,7 +86,7 @@
 import {isTrueProperty} from '../../util/util'
 import {urlChange} from '../../util/dom'
 import objectAssign from 'object-assign'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonBackdrop from '../backdrop'
 
 const POPOVER_IOS_BODY_PADDING = 2
@@ -94,7 +94,7 @@ const POPOVER_MD_BODY_PADDING = 12
 
 export default {
   name: 'ion-popover',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonBackdrop
   },
@@ -296,7 +296,7 @@ export default {
     },
 
     updatePositionView () {
-      if (this.theme === 'ios') {
+      if (this.mode === 'ios') {
         this.iosPositionView()
       } else {
         this.mdPositionView()

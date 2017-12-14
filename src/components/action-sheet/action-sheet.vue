@@ -1,5 +1,5 @@
 <template>
-  <div role="dialog" :class="['ion-action-sheet', themeClass, cssClass]" style="z-index: 10001;">
+  <div role="dialog" :class="['ion-action-sheet', modeClass, cssClass]" style="z-index: 10001;">
     <ion-backdrop @click.native="bdClick()" :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated"></ion-backdrop>
     <transition name="action-sheet-fade"
         @before-enter="beforeEnter"
@@ -32,14 +32,14 @@
 <script>
 import {urlChange, focusOutActiveElement} from '../../util/dom'
 import objectAssign from 'object-assign'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonBackdrop from '../backdrop'
 import IonButton from '../button'
 import IonIcon from '../icon'
 
 export default {
   name: 'ion-action-sheet',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonButton,
     IonBackdrop,

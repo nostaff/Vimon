@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-alert" :class="['alert-'+theme, cssClass]" role="dialog" style="z-index: 9999;">
+  <div class="ion-alert" :class="['alert-'+mode, cssClass]" role="dialog" style="z-index: 9999;">
     <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" @click.native="bdClick()"></ion-backdrop>
     <transition name="ion-alert-fadeup">
       <div class="alert-wrapper" v-show="activated">
@@ -34,13 +34,13 @@
   import {isTrueProperty} from '../../util/util'
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import IonBackdrop from '../backdrop'
   import IonButton from '../button'
 
   export default {
     name: 'ion-alert-radio',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       IonButton,
       IonBackdrop

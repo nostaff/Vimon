@@ -8,20 +8,20 @@ export default {
     }
   },
   props: {
-    theme: {
+    mode: {
       type: String,
       default () {
-        return this.$config && this.$config.get('theme') || 'ios'
+        return this.$config && this.$config.get('mode') || 'ios'
       }
     },
     color: String
   },
   computed: {
-    themeClass () {
-      return `${this.roleName} ${this.roleName}-${this.theme}`
+    modeClass () {
+      return `${this.roleName} ${this.roleName}-${this.mode}`
     },
     colorClass () {
-      return this.color ? (`${this.roleName}-${this.theme}-${this.color}`) : ''
+      return this.color ? (`${this.roleName}-${this.mode}-${this.color}`) : ''
     }
   },
   methods: {

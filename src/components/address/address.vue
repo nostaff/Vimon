@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-address" :class="[themeClass, disabled?'address-disabled':'']" @click.prevent="btnClick">
+  <div class="ion-address" :class="[modeClass, disabled?'address-disabled':'']" @click.prevent="btnClick">
     <div v-if="!text" class="datetime-text datetime-placeholder">{{placeholder}}</div>
     <div v-if="text" class="datetime-text">{{text}}</div>
     <ion-button role="item-cover" :aria-disabled="disabled"></ion-button>
@@ -7,14 +7,14 @@
 </template>
 <script>
   import objectAssign from 'object-assign'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import IonButton from '../button'
   import IonPicker from '../picker'
   import ChinaAddressData from './china_address.json'
 
   export default {
     name: 'ion-address',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       IonButton,
       IonPicker

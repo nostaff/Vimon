@@ -16,14 +16,14 @@
   </ion-list>
 </template>
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import {isPresent} from '../../util/util'
 import IonList from '../list'
 import IonItem from '../item'
 
 export default {
   name: 'ion-radio-group',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonItem,
     IonList

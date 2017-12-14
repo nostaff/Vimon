@@ -30,12 +30,12 @@
  * </template>
  *
  **/
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 let initPageZIndex = 1000
 export default {
   name: 'ion-page',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     // Modal 组件可能包裹 Page 组件, 则使用Box布局
     modalComponent: {

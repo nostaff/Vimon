@@ -89,7 +89,7 @@
  */
 import { pointerCoord, registerListener } from '../../util/dom'
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonIcon from '../icon'
 import IonSpinner from '../spinner'
 
@@ -102,7 +102,7 @@ const STATE_COMPLETING = 'completing'
 
 export default {
   name: 'ion-refresher',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: ['contentComponent', 'appComponent'],
   components: {
     IonSpinner,

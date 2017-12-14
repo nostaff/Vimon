@@ -27,11 +27,11 @@
  * @see component:Segment
  */
 import {isTrueProperty, isPresent} from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 export default {
   name: 'ion-segment-button',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     segmentComponent: {
       from: 'segmentComponent',

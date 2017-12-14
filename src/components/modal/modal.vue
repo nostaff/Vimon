@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-modal show-page" :class="[themeClass, cssClass]" role="dialog" style="z-index: 10010;">
+  <div class="ion-modal show-page" :class="[modeClass, cssClass]" role="dialog" style="z-index: 10010;">
     <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   v-if="showBackdrop"
                   v-show="activated"
@@ -15,12 +15,12 @@
   import {isFunction, isTrueProperty} from '../../util/util'
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import IonBackdrop from '../backdrop'
 
   export default {
     name: 'ion-modal',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       IonBackdrop
     },

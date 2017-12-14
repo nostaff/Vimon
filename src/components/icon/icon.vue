@@ -1,14 +1,14 @@
 <template>
-  <i class="ion-icon" role="img" :class="[themeClass, colorClass]"></i>
+  <i class="ion-icon" role="img" :class="[modeClass, colorClass]"></i>
 </template>
 <script>
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import 'ionicons/dist/css/ionicons.css'
 
 export default {
   name: 'ion-icon',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     itemComponent: {
       from: 'itemComponent',
@@ -27,7 +27,7 @@ export default {
     ios: String,
     md: String,
     isActive: [String, Boolean],
-    theme: {
+    mode: {
       type: String,
       default () {
         return (this.$config && this.$config.get('iconMode')) || 'ios'
@@ -65,7 +65,7 @@ export default {
       if (!(/^md-|^ios-|^logo-|^icon-/.test(val))) {
         // this does not have one of the defaults
         // so lets auto add in the mode prefix for them
-        return this.theme + '-' + val
+        return this.mode + '-' + val
       } else {
         return val
       }
@@ -83,9 +83,9 @@ export default {
         this.iconName = this.iconName(this.name)
       }
 
-      if (this.ios && this.theme === 'ios') {
+      if (this.ios && this.mode === 'ios') {
         iconName = this.ios
-      } else if (this.md && this.theme === 'md') {
+      } else if (this.md && this.mode === 'md') {
         iconName = this.md
       } else {
         iconName = this.iconName

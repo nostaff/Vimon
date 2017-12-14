@@ -1,17 +1,17 @@
 <template>
-  <div class="ion-list" :class="[themeClass]">
+  <div class="ion-list" :class="[modeClass]">
     <ion-list-header v-if="title">{{title}}</ion-list-header>
     <slot></slot>
   </div>
 </template>
 <script>
   import {isBlank} from '../../util/util'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import IonListHeader from '../list-header'
 
   export default {
     name: 'ion-list',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       IonListHeader
     },

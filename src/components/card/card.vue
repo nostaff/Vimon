@@ -1,14 +1,14 @@
 <template>
-  <div class="ion-card" :class="[themeClass, colorClass]">
+  <div class="ion-card" :class="[modeClass, colorClass]">
     <slot></slot>
   </div>
 </template>
 <script>
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   export default {
     name: 'ion-card',
-    mixins: [ThemeMixins]
+    mixins: [ModeMixins]
   }
 </script>
 

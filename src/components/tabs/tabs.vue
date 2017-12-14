@@ -1,6 +1,6 @@
 <template>
   <div class="ion-tabs"
-       :class="[themeClass, colorClass]"
+       :class="[modeClass, colorClass]"
        :id="id"
        :tabsLayout="tabsLayout"
        :tabsHighlight="tabsHighlight"
@@ -81,13 +81,13 @@
  *
  */
 import {isBlank} from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 let tabIds = -1
 
 export default {
   name: 'ion-tabs',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   provide () {
     const _this = this
     return {

@@ -14,7 +14,7 @@
 <script type="text/javascript">
   import {pointerCoord} from '../../util/dom'
   import {swipeShouldReset} from '../../util/util'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   const SWIPE_MARGIN = 30
   const ELASTIC_FACTOR = 0.55
@@ -37,7 +37,7 @@
 
   export default {
     name: 'ion-item-sliding',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     data () {
       return {
         openAmount: 0,

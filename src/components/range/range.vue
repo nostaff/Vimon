@@ -1,6 +1,6 @@
 <template>
   <div :id="_uid" class="ion-range range"
-       :class="[themeClass, colorClass, {'range-has-pin':pin, 'range-pressed':pressed, 'range-disabled': disabled}]"
+       :class="[modeClass, colorClass, {'range-has-pin':pin, 'range-pressed':pressed, 'range-disabled': disabled}]"
        @touchstart="pointerDown($event)"
        @touchmove="pointerMove($event)"
        @touchend="pointerUp($event)"
@@ -68,10 +68,10 @@
  * </List>
  *
  */
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-range',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   data () {
     return {
       ticks: [],

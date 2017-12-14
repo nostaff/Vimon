@@ -1,7 +1,7 @@
 <template>
-  <div :class="['ion-textarea', themeClass]" @click="setFocus()">
+  <div :class="['ion-textarea', modeClass]" @click="setFocus()">
     <textarea ref="textarea"
-      :class="['text-input', 'text-input-'+theme]"
+      :class="['text-input', 'text-input-'+mode]"
       :value="currentValue"
       :placeholder="placeholder"
       :disabled="isDisabled"
@@ -19,11 +19,11 @@
 <script>
 import { isPresent, isTrueProperty } from '../../util/util'
 import { hasFocus } from '../../util/dom'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 export default {
   name: 'ion-textarea',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   data () {
     return {
       itemCmp: null,

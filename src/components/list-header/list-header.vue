@@ -1,5 +1,5 @@
 <template>
-  <div :class="['ion-list-header item', themeClass]">
+  <div :class="['ion-list-header item', modeClass]">
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
@@ -12,13 +12,13 @@
   </div>
 </template>
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonLabel from '../label'
 
 export default {
   name: 'ion-list-header',
   components: { IonLabel },
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
 
   data () {
     return {

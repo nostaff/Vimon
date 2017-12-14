@@ -17,13 +17,13 @@
 
 <script type="text/javascript">
 import { isTrueProperty, isBlank } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonIcon from '../icon'
 import IonBadge from '../badge'
 
 export default {
   name: 'ion-tab',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: ['tabsComponent'],
   components: {
     IonIcon,

@@ -5,7 +5,7 @@
 export default {
   core: {
     settings: {
-      theme: 'ios',
+      mode: 'ios',
       imgRequestBuffer: 1400,
       imgRenderBuffer: 600,
       imgVelocityMax: 3
@@ -13,7 +13,7 @@ export default {
   },
   mobile: {
     settings: {
-      theme: 'ios', // 默认使用IOS样式
+      mode: 'ios', // 默认使用IOS样式
       recordPosition: false, // Content组件是否记录滚动位置
       indicatorPresentMinTime: 200 + 16 * 8, // Indicator最短开启时间 一般是 328ms
       indicatorMaxDuration: 5000 // Indicator开启的最大时间
@@ -24,7 +24,7 @@ export default {
     subsets: [], // 平台支持列表, 由 setupPlatform() 完成
     settings: {
       toolbarMinHeight: 56, // toolbar的默认最小高度
-      theme: 'md', // 模式
+      mode: 'md', // 模式
       backButtonText: '返回', // 后退按钮文字
       backButtonIcon: 'arrow-back', // 后退图标
       onPullIcon: 'icon-md-arrow-down',
@@ -56,7 +56,7 @@ export default {
     subsets: [], // 平台支持列表, 由 setupPlatform() 完成
     settings: {
       toolbarMinHeight: 44,
-      theme: 'ios',
+      mode: 'ios',
       backButtonText: '返回',
       backButtonIcon: 'arrow-back', // 后退图标
       onPullIcon: 'icon-ios-arrow-down',

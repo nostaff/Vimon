@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-app" :version="version" :class="[themeClass,hoverClass,{'disable-scroll':isScrollDisabled}]">
+  <div class="ion-app" :version="version" :class="[modeClass,hoverClass,{'disable-scroll':isScrollDisabled}]">
     <div class="app-viewport"></div>
     <!--app-root start-->
     <div class="app-root">
@@ -18,7 +18,7 @@
 <script type="text/javascript">
 import { isString, isPresent } from '../../util/util'
 import { setElementClass } from '../../util/dom'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import ClickBlock from './click-block'
 
 const CLICK_BLOCK_BUFFER_IN_MILLIS = 64 // click_blcok等待时间
@@ -28,7 +28,7 @@ const clickBlockInstance = new ClickBlock()
 let scrollDisTimer = null // 计时器
 export default {
   name: 'ion-app',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   data () {
     return {
       // ----------- App -----------
@@ -44,8 +44,8 @@ export default {
     }
   },
   computed: {
-    themeClass () {
-      return `app-root app-root-${this.theme} ${this.theme} platform-${this.theme}`
+    modeClass () {
+      return `app-root app-root-${this.mode} ${this.mode} platform-${this.mode}`
     },
     hoverClass () {
       let _isMobile = navigator.userAgent.match(/AppleWebKit.*Mobile.*/)

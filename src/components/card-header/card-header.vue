@@ -1,14 +1,14 @@
 <template>
-  <div class="ion-card-header" :class="[themeClass,colorClass]">
+  <div class="ion-card-header" :class="[modeClass,colorClass]">
     <slot></slot>
   </div>
 </template>
 <script>
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
 export default {
     name: 'ion-card-header',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     created () {
       if (!this.$parent || this.$parent.$options.name !== 'ion-card') {
         console.error('Card-header component must combine with Card')

@@ -1,8 +1,8 @@
 <template>
   <div class="ion-spinner" :class="[
-        themeClass,
+        modeClass,
         'spinner-'+name,
-        'spinner-'+theme+'-'+name,
+        'spinner-'+mode+'-'+name,
         {'spinner-paused':paused}
         ]">
     <svg viewBox="0 0 64 64" v-for="i in circles" :key="i" :style="i.style">
@@ -59,7 +59,7 @@
  * <Spinner duration="3000" name="dots"></Spinner>
  * <Spinner :paused="true" name="ios"></Spinner>
  */
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 const SPINNERS = {
   ios: {
@@ -166,7 +166,7 @@ const SPINNERS = {
 
 export default {
   name: 'ion-spinner',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   props: {
     name: {
       type: String,

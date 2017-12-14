@@ -1,21 +1,21 @@
 <template>
-  <div class="ion-navbar" :class="[themeClass, colorClass]">
-    <div class="toolbar-background" :class="['toolbar-background-'+theme]"></div>
+  <div class="ion-navbar" :class="[modeClass, colorClass]">
+    <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
     <slot name="item-start">
-      <ion-button role="bar-button" :class="['back-button','back-button-'+theme,'show-back-button']" :icon-only="!backButtonText" @click.native="backButtonClickHandler" v-if="isShowBackButton">
-        <ion-icon :class="['back-button-icon','back-button-icon-'+theme]" :name="backButtonIcon" v-if="backButtonIcon"></ion-icon>
-        <span :class="['back-button-text','back-button-text-'+theme]" v-if="backButtonText && theme ==='ios'" v-text="backButtonText"></span>
+      <ion-button role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click.native="backButtonClickHandler" v-if="isShowBackButton">
+        <ion-icon :class="['back-button-icon','back-button-icon-'+mode]" :name="backButtonIcon" v-if="backButtonIcon"></ion-icon>
+        <span :class="['back-button-text','back-button-text-'+mode]" v-if="backButtonText && mode ==='ios'" v-text="backButtonText"></span>
       </ion-button>
     </slot>
     <slot name="item-end">
       <ion-buttons v-if="showMoreButton">
         <ion-button :icon-only="!moreButtonText" @click.native="moreButtonClickHandler">
-          <ion-icon :class="['more-button-icon','more-button-icon-'+theme]" :name="moreButtonIcon" v-if="moreButtonIcon"></ion-icon>
-          <span :class="['more-button-text','more-button-text-'+theme]" v-if="moreButtonText" v-text="moreButtonText"></span>
+          <ion-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></ion-icon>
+          <span :class="['more-button-text','more-button-text-'+mode]" v-if="moreButtonText" v-text="moreButtonText"></span>
         </ion-button>
       </ion-buttons>
     </slot>
-    <div class="toolbar-content" :class="['toolbar-content-'+theme]">
+    <div class="toolbar-content" :class="['toolbar-content-'+mode]">
       <slot>
         <ion-title v-if="title">{{title}}</ion-title>
       </slot>
@@ -25,7 +25,7 @@
 
 <script>
 import { isTrueProperty, isFunction } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButtons from '../buttons'
 import IonIcon from '../icon'
 import IonTitle from '../title'
@@ -33,7 +33,7 @@ import IonButton from '../button'
 
 export default {
   name: 'ion-navbar',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonButton,
     IonTitle,

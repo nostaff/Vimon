@@ -1,5 +1,5 @@
 <template>
-  <button class="disable-hover ion-button" :class="[themeClass, itemClass]" @click="clickHandler($event)">
+  <button class="disable-hover ion-button" :class="[modeClass, itemClass]" @click="clickHandler($event)">
     <slot name="backup"></slot>
     <span class="button-inner">
             <slot></slot>
@@ -9,11 +9,11 @@
 </template>
 <script>
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 export default {
   name: 'ion-button',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   props: {
     role: {
       type: String,
@@ -111,7 +111,7 @@ export default {
       let role = this.roleName
       if (role) {
         this.setElementClass(role, assignCssClass) // button
-        this.setElementClass(`${role}-${this.theme}`, assignCssClass) // button
+        this.setElementClass(`${role}-${this.mode}`, assignCssClass) // button
 
         this.setClass(this.style, assignCssClass) // button-clear
         this.setClass(this.shape, assignCssClass) // button-round
@@ -129,7 +129,7 @@ export default {
         type = type.toLocaleLowerCase()
         this.setElementClass(`${this.roleName}-${type}`, assignCssClass)
         this.setElementClass(
-          `${this.roleName}-${type}-${this.theme}`,
+          `${this.roleName}-${type}-${this.mode}`,
           assignCssClass
         )
       }
@@ -154,7 +154,7 @@ export default {
             : ''
 
         if (color !== null && color !== '') {
-          this.setElementClass(`${className}-${this.theme}-${color}`, isAdd)
+          this.setElementClass(`${className}-${this.mode}-${color}`, isAdd)
         }
       }
     },

@@ -59,7 +59,7 @@
   * @props {Number} [min]                      - 设置最小值, 1. type=number时限制输入数字的大小; 2. type=text时限制输入字符的长度
   * @props {Number} [decimal=2]                - 设置数字的小数位, 默认为2
   * @props {Number} [step]                     - 设置数字变化的阶梯值, 只对type=number有效
-  * @props {String} [theme='ios']              - 当前平台
+  * @props {String} [mode ='ios']              - 当前平台
   * @props {String} [placeholder]              - 占位文字
   * @props {Boolean} [readonly]                - 只读模式, 不能修改
   * @props {String} [type='text']              - 输入的类型: "text", "password", "email", "number", "search", "tel", or "url"

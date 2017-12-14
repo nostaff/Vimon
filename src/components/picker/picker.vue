@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-picker-cmp" :class="[themeClass,cssClass]">
+  <div class="ion-picker-cmp" :class="[modeClass,cssClass]">
     <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive"
                   :bdClick="bdClick"></ion-backdrop>
@@ -106,7 +106,7 @@
    **/
 import { isString, isPresent, isNumber, isFunction } from '../../util/util'
 import { urlChange } from '../../util/dom'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonBackdrop from '../backdrop'
 import IonButton from '../button'
 import IonPickerCol from './picker-col'
@@ -115,7 +115,7 @@ const NOOP = () => {}
 
 export default {
   name: 'ion-picker',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonPickerCol,
     IonButton,

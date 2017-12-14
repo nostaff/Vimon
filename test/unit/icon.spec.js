@@ -5,7 +5,7 @@ import Icon from '../../src/components/icon'
 
 let options = {
   propsData: {
-    theme: 'ios',
+    mode: 'ios',
     color: 'danger',
     name: 'star',
     activeName: 'star-outline',

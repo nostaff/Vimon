@@ -1,5 +1,5 @@
 <template>
-  <div :class="[themeClass, colorClass, {'toggle-checked':checked, 'toggle-disabled':disabled}]" @click="onToggle()">
+  <div :class="[modeClass, colorClass, {'toggle-checked':checked, 'toggle-disabled':disabled}]" @click="onToggle()">
     <div class="toggle-icon">
       <div class="toggle-inner"></div>
     </div>
@@ -71,12 +71,12 @@
  * </List>
  *```
  */
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
 
 export default {
   name: 'ion-toggle',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: { IonButton },
   inject: {
     itemComponent: {

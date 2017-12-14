@@ -1,6 +1,6 @@
 <template>
   <div class="ion-searchbar" :class="[
-         themeClass,colorClass,
+         modeClass,colorClass,
          {'searchbar-has-focus':sbHasFocus},
          {'searchbar-has-value':theValue},
          {'searchbar-animated':shouldAnimated},
@@ -10,19 +10,19 @@
          ]">
     <div class="searchbar-input-container" @touchstart="setFocus">
       <!--在md模式下，md的取消按钮是在这里的，当点击inputs输入时，返回按钮将覆盖search按钮-->
-      <ion-button theme="md" @click.native="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" role="button">
-        <ion-icon theme="md" name="md-arrow-back"></ion-icon>
+      <ion-button mode="md" @click.native="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" role="button">
+        <ion-icon mode="md" name="md-arrow-back"></ion-icon>
       </ion-button>
 
       <!--input左边的search按钮-->
       <div ref="searchbarIcon" class="searchbar-search-icon"></div>
       <input ref="searchbarInput" class="searchbar-input" id="searchbarInput" @input="onInputHandler($event)" @blur="onBlurHandler($event)" @focus="onFocusHandler($event)" :value="theValue" :placeholder="placeholder" :type="type" :autocomplete="autocompleteValue" :autocorrect="autocorrectValue" :spellcheck="spellcheckValue">
       <!--input右边的关闭按钮-->
-      <ion-button clear class="searchbar-clear-icon" :theme="theme" @click.native="clearInput($event)" role="button"></ion-button>
+      <ion-button clear class="searchbar-clear-icon" :mode="mode" @click.native="clearInput($event)" role="button"></ion-button>
     </div>
 
     <!--取消按钮，点击input时出现，只对IOS，md在search icon位置显示，wp没有-->
-    <ion-button ref="cancelButton" theme="ios" clear @click.native="cancelSearchbar($event)" class="searchbar-ios-cancel" role="button">
+    <ion-button ref="cancelButton" mode="ios" clear @click.native="cancelSearchbar($event)" class="searchbar-ios-cancel" role="button">
       {{cancelButtonText}}
     </ion-button>
   </div>
@@ -105,13 +105,13 @@
    * </template>
    */
 import { isNumber, isBoolean } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
 import IonIcon from '../icon'
 
 export default {
   name: 'ion-searchbar',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonButton,
     IonIcon
@@ -368,7 +368,7 @@ export default {
         this.sbHasFocus === true
       this.shouldAlignLeft = shouldAlignLeft
 
-      if (this.theme !== 'ios') {
+      if (this.mode !== 'ios') {
         return
       }
 

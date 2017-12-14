@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-select" :class="[themeClass, {'select-disabled':isDisabled}]">
+  <div class="ion-select" :class="[modeClass, {'select-disabled':isDisabled}]">
     <div v-if="!text" class="select-placeholder select-text">{{placeholder}}</div>
     <div v-else class="select-text">{{selectedText || text}}</div>
     <div class="select-icon">
@@ -72,14 +72,14 @@
  * </Item>
  */
 import { isTrueProperty, isBlank, isArray, isCheckedProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import Popover from '../popover'
 import IonButton from '../button'
 import SelectPopover from './select.popover.vue'
 
 export default {
   name: 'ion-select',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: { IonButton },
   inject: {
     itemComponent: {

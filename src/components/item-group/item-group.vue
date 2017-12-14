@@ -8,12 +8,12 @@
 </template>
 <script>
   import { isTrueProperty } from '../../util/util'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import ItemDivider from '../item-divider'
 
   export default {
     name: 'ion-item-group',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {
       'ion-item-divider': ItemDivider
     },

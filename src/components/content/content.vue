@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-content" :class="[themeClass, {'has-refresher':hasRefresher}]">
+  <div class="ion-content" :class="[modeClass, {'has-refresher':hasRefresher}]">
     <div ref="fixedElement" class="fixed-content">
       <slot name="fixed"></slot>
       <slot name="fixedTop"></slot>
@@ -15,11 +15,11 @@
   import {assert, isPresent, removeArrayItem, parsePxUnit, cssFormat} from '../../util/util'
   import {transitionEnd, hasClass} from '../../util/dom'
   import {ScrollView} from './scroll-view'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   export default {
     name: 'ion-content',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     props: {
       fullscreen: Boolean,
       scrollDownOnLoad: Boolean

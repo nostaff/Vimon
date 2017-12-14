@@ -1,6 +1,6 @@
 <template>
   <div class="ion-datetime"
-       :class="[themeClass, colorClass]"
+       :class="[modeClass, colorClass]"
        @click="clickHandler($event)"
        :displayFormat="displayFormat"
        :pickerFormat="pickerFormat"
@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
   import { isBlank, isPresent, isTrueProperty, isArray, isString } from '../../util/util'
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
   import Picker from '../picker'
   import IonButton from '../button'
   import {
@@ -40,7 +40,7 @@
   // const DEFAULT_FORMAT = 'YYYY/MM/DD'
   export default {
     name: 'ion-datetime',
-    mixins: [ThemeMixins],
+    mixins: [ModeMixins],
     components: {IonButton},
     data () {
       return {

@@ -8,7 +8,7 @@ import Badge from '../../src/components/badge'
 let options = {
   propsData: {
     color: 'primary',
-    theme: 'ios'
+    mode: 'ios'
   },
   slots: {
     default: '<span>Test</span>'
@@ -20,7 +20,7 @@ describe('Badge', function () {
   it('@base: renders the correct markup', function () {
     let opts = deepAssign(cloneDeep(options), {
       propsData: {
-        theme: 'md'
+        mode: 'md'
       }
     })
 
@@ -68,7 +68,7 @@ describe('Badge', function () {
     let opts = deepAssign(cloneDeep(options), {
       propsData: {
         color: 'danger',
-        theme: 'md'
+        mode: 'md'
       },
       slots: {
         default: '<span>color</span>'
@@ -78,20 +78,20 @@ describe('Badge', function () {
     expect(wrapper.hasClass('badge-md-danger')).toBeTruthy()
   })
 
-  it('@props: theme', function () {
+  it('@props: mode', function () {
     let opts = deepAssign(cloneDeep(options), {
       propsData: {
-        theme: 'md'
+        mode: 'md'
       },
       slots: {
-        default: '<span>theme</span>'
+        default: '<span>mode</span>'
       }
     })
     let wrapper = mount(Badge, opts)
     expect(wrapper.hasClass('badge-md')).toBeTruthy()
   })
 
-  it('@props: theme(default)', function () {
+  it('@props: mode(default)', function () {
     let wrapper = mount(Badge)
     expect(wrapper.hasClass('badge-ios')).toBeTruthy()
   })

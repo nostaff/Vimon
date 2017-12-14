@@ -5,11 +5,11 @@
 </template>
 <script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 export default {
   name: 'ion-fab-list',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     fabComponent: {
       from: 'fabComponent',
@@ -51,7 +51,7 @@ export default {
       this.fabButtons.push(fab)
 
       setTimeout(() => {
-        const className = `fab-${this.theme}-in-list`
+        const className = `fab-${this.mode}-in-list`
         this.fabButtons.forEach(fab => {
           fab.setElementClass('fab-in-list', true)
           fab.setElementClass(className, true)

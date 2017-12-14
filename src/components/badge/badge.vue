@@ -1,15 +1,15 @@
 <template>
-    <span class="ion-badge" :class="[themeClass, colorClass]">
+    <span class="ion-badge" :class="[modeClass, colorClass]">
         <slot></slot>
     </span>
 </template>
 
 <script>
-  import ThemeMixins from '../../themes/theme.mixins'
+  import ModeMixins from '../../themes/theme.mixins'
 
   export default {
     name: 'ion-badge',
-    mixins: [ThemeMixins]
+    mixins: [ModeMixins]
   }
 </script>
 

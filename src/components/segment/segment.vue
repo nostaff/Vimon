@@ -1,5 +1,5 @@
 <template>
-  <div :class="['ion-segment', themeClass, colorClass]">
+  <div :class="['ion-segment', modeClass, colorClass]">
     <slot></slot>
   </div>
 </template>
@@ -67,13 +67,13 @@
  *
  */
 import { isBlank, isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 let tabIds = -1
 
 export default {
   name: 'ion-segment',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   provide () {
     let _this = this
     return {

@@ -13,14 +13,14 @@
   </ion-list>
 </template>
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonList from '../list'
 import IonItem from '../item'
 import IonCheckbox from '../checkbox'
 
 export default {
   name: 'ion-checkbox-group',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonItem,
     IonList,

@@ -6,7 +6,7 @@
 
 <script>
 import { isTrueProperty, timeout } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 const preventDefault = e => {
   e.preventDefault()
@@ -14,7 +14,7 @@ const preventDefault = e => {
 
 export default {
   name: 'ion-backdrop',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
 
   data () {
     return {

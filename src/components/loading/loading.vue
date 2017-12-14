@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-loading" :class="[themeClass, cssClass]" role="dialog">
+  <div class="ion-loading" :class="[modeClass, cssClass]" role="dialog">
     <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" v-if="showBackdrop" @click.native="bdClick()"></ion-backdrop>
     <transition name="loading-fade">
       <div class="loading-wrapper" v-show="activated">
@@ -13,13 +13,13 @@
 </template>
 <script>
 import objectAssign from 'object-assign'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonBackdrop from '../backdrop'
 import IonSpinner from '../spinner'
 
 export default {
   name: 'ion-loading',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonBackdrop,
     IonSpinner

@@ -1,6 +1,6 @@
 <template>
   <ion-page v-nav="{title: 'Spinner'}">
-    <ion-content>
+    <ion-content class="outer-content">
 
       <ion-list title="Spinner Loading Indicators">
         <ion-item detail-push @click.native="showLoading('ios', 3000)">

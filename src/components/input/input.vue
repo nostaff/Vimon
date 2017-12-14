@@ -1,7 +1,7 @@
 <template>
-  <div :class="['ion-input',themeClass]" @click="setFocus()">
+  <div :class="['ion-input',modeClass]" @click="setFocus()">
     <input ref="input"
-           :class="['text-input', 'text-input-'+theme]"
+           :class="['text-input', 'text-input-'+mode]"
            :value="currentValue"
            :type="type"
            :placeholder="placeholder"
@@ -26,12 +26,12 @@
 <script>
 import {isTrueProperty} from '../../util/util'
 import {hasFocus} from '../../util/dom'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
 
 export default {
   name: 'ion-input',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     itemComponent: {
       from: 'itemComponent',

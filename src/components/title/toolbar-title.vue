@@ -1,16 +1,16 @@
 <template>
-  <div class="ion-title" :class="[themeClass, colorClass]">
-    <div class="toolbar-title" :class="['toolbar-title-'+theme]">
+  <div class="ion-title" :class="[modeClass, colorClass]">
+    <div class="toolbar-title" :class="['toolbar-title-'+mode]">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-title',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     appComponent: {
       from: 'appComponent',

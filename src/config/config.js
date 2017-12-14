@@ -10,7 +10,7 @@
  * 获取过一次的配置会被缓存在实例中, 便于后续快速使用. 此外, 在业务中可用过this.$config获取已定义的变量, 比如:
  *
  * ```
- * this.$config.get('theme') => 'ios/md'
+ * this.$config.get('mode') => 'ios/md'
  * ```
  *
  * config的初始化Vimo安装的时候就搞定了, 实例会在`window.VM.config`中也留一份, 便于外部业务能访问到.
@@ -34,7 +34,7 @@
  *    domain: '',
  *    platforms: {
  *        ios: {
- *          theme: 'md'
+ *          mode: 'md'
  *        }
  *    }
  * }
@@ -43,7 +43,7 @@
  * 在src/config/app-configs.js中根属性中设置
  * export default {
  *    domain: '',
- *    theme: 'ios'
+ *    mode: 'ios'
  * }
  *
  * 第四优先级(Platform):
@@ -52,7 +52,7 @@
  * export default {
  *    wechat: {
  *        settings: {
- *          theme: 'md'
+ *          mode: 'md'
  *        }
  *    }
  * }
@@ -63,7 +63,7 @@
  * export default {
  *    ios: {
  *        settings: {
- *          theme: 'md'
+ *          mode: 'md'
  *        }
  *    }
  * }
@@ -73,7 +73,7 @@
  *
  * 参数 / params      | 默认值 / IOS      | 默认值 / Android   | 描述 / Description
  * -----------------|----------------|-----------------|------------------
- * theme            | ios            | md              | 模式
+ * mode             | ios            | md              | 模式
  * hideNavBar       | false          | false           | 是否隐藏navbar
  * toolbarMinHeight | 44             | 56              | toolbar的最小高度
  * iconMode         | ios            | md              | icon的模式

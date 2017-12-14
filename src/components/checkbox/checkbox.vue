@@ -1,5 +1,5 @@
 <template>
-  <div :class="[themeClass, colorClass, {'checkbox-disabled':disabled}]">
+  <div :class="[modeClass, colorClass, {'checkbox-disabled':disabled}]">
     <div :class="['checkbox-icon', {'checkbox-checked':isChecked}]">
       <div class="checkbox-inner"></div>
     </div>
@@ -8,11 +8,11 @@
 </template>
 <script>
 import { isTrueProperty } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonButton from '../button'
 export default {
   name: 'ion-checkbox',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonButton
   },

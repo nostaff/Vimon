@@ -1,5 +1,5 @@
 <template>
-  <div class="item item-divider ion-item-divider" :class="['item-'+theme, themeClass, colorClass]">
+  <div class="item item-divider ion-item-divider" :class="['item-'+mode, modeClass, colorClass]">
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonItem from '../item'
 
 export default {
   name: 'ion-item-divider',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   components: {
     IonItem
   },

@@ -1,5 +1,5 @@
 <template>
-  <router-link v-if="!!link" class="item-block" :class="[themeClass]" :to="link">
+  <router-link v-if="!!link" class="item-block" :class="[modeClass]" :to="link">
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
@@ -13,7 +13,7 @@
     </div>
   </router-link>
 
-  <button v-else-if="!!isLink" class="item-block" :class="[themeClass]">
+  <button v-else-if="!!isLink" class="item-block" :class="[modeClass]">
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
@@ -28,7 +28,7 @@
     <div class="button-effect"></div>
   </button>
 
-  <div v-else class="item-block" :class="[themeClass]">
+  <div v-else class="item-block" :class="[modeClass]">
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
@@ -46,7 +46,7 @@
 </template>
 <script>
 import { isUndefined } from '../../util/util'
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 import IonReorder from '../item-reorder'
 import IonLabel from '../label'
 
@@ -56,7 +56,7 @@ export default {
     IonReorder
   },
   name: 'ion-item',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   provide () {
     const that = this
     return {

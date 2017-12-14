@@ -1,6 +1,6 @@
 <template>
   <div class="ion-label"
-      :class="[themeClass, colorClass]"
+      :class="[modeClass, colorClass]"
       :fixed="fixed"
       :floating="floating"
       :stacked="stacked"
@@ -36,10 +36,10 @@
  * @see component:Input
  * @demo #/input-normal
  */
-import ThemeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'ion-label',
-  mixins: [ThemeMixins],
+  mixins: [ModeMixins],
   inject: {
     itemComponent: {
       from: 'itemComponent',
