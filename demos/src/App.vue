@@ -1,13 +1,13 @@
 <template>
-    <ion-app>
-        <router-view></router-view>
-    </ion-app>
+  <ion-app>
+    <ion-nav>
+      <router-view></router-view>
+    </ion-nav>
+  </ion-app>
 </template>
 <script type="text/javascript">
-  export default {
-    name: 'app-root',
-    mounted () {
-
-    }
-  }
+export default {
+  name: 'app-root',
+  mounted () {}
+}
 </script>

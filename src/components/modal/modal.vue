@@ -16,7 +16,7 @@
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop/index'
+  import IonBackdrop from '../backdrop'
 
   export default {
     name: 'ion-modal',

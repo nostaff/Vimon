@@ -10,13 +10,13 @@
           {{ message }}
         </div>
         <template v-if="buttons.length > 2">
-          <div class="alert-button-group" key="idx" v-for="(button, index) in buttons">
+          <div class="alert-button-group" :key="index" v-for="(button, index) in buttons">
             <ion-button role="alert-button" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</ion-button>
           </div>
         </template>
         <template v-else>
           <div class="alert-button-group">
-            <ion-button role="alert-button" key="idx" v-for="(button, index) in buttons" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</ion-button>
+            <ion-button role="alert-button" :key="index" v-for="(button, index) in buttons" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</ion-button>
           </div>
         </template>
       </div>
@@ -28,8 +28,8 @@
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop/index'
-  import IonButton from '../button/index'
+  import IonBackdrop from '../backdrop'
+  import IonButton from '../button'
 
   export default {
     name: 'ion-alert',

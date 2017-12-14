@@ -13,7 +13,7 @@
  *
  * Header和Footer组件结构类似, 都是提供一个包裹容器, 不同的是一个固定在上面, 一个固定在下面.
  *
- * Header组件是Vimo页面的的三个主要构成之一, 主要是为Toolbar/Navbar/自定义结构提供一个容器,
+ * Header组件是Vimon页面的的三个主要构成之一, 主要是为Toolbar/Navbar/自定义结构提供一个容器,
  * 该组件将始终固定在页面顶部, Content组件会根据Header的高度自动设定`margin`值, 或者`padding`值.
  *
  * ### 可用的样式属性
@@ -84,7 +84,7 @@ export default {
      * @function toggle
      * @description
      * Toggle显示Footer
-     * */
+     */
     toggle () {
       this.isHide = !this.isHide
     },
@@ -95,7 +95,7 @@ export default {
      * @see https://cn.vuejs.org/v2/guide/class-and-style.html#对象语法-1
      * @description
      * 设置Footer的样式
-     * */
+     */
     setStyle (style) {
       this.style = style
     }

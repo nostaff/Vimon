@@ -327,14 +327,14 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
   transform: translateZ(0);
 }
 
-.back-button-icon-ios {
+.back-button-icon-ios.ion-icon {
   @include margin(-1px, 0, 0, 0);
 
   display: inherit;
 
   min-width: 18px;
 
-  font-size: 3.4rem !important;
+  font-size: 3.4rem;
 }
 
 .back-button-text-ios {

@@ -20,7 +20,7 @@
  *
  * ### 如何引入
  * ```
- * import CityPicker from 'vimo/lib/city-picker'
+ * import CityPicker from 'vimon'
  * ```
  *
  * @props {Array} selectedCity - 默认选中的值, 这个也对应组件是两级还是三级的标志, 可以是数据: ['',''] ['','',''], 默认显示北京
@@ -69,7 +69,7 @@
  *
  */
 import { isArray } from '../../util/util'
-import Picker from '../picker/index'
+import Picker from '../picker'
 
 const CityPicker = {
   present (options) {
@@ -148,7 +148,7 @@ const CityPicker = {
     /**
      * 根据code从data中找他的位置
      * @private
-     * */
+     */
     function getCodeIndex (code = '', data) {
       code = code.toString()
       if (code) {
@@ -165,7 +165,7 @@ const CityPicker = {
     /**
      * 初始化Picker
      * @private
-     * */
+     */
     function initPicker (columns) {
       if (columns.length > 2) {
         columns.forEach(column => {
@@ -202,7 +202,7 @@ const CityPicker = {
     /**
      * Picker选择时触发
      * @private
-     * */
+     */
     function onSelectHandler (data) {
       if (data.columnIndex === 0) {
         fetchData(data.value).then(data => {

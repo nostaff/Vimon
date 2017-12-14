@@ -339,12 +339,12 @@ $toolbar-button-md-strong-font-weight:   bold !default;
   box-shadow: none;
 }
 
-.back-button-icon-md {
+.back-button-icon-md.ion-icon {
   @include margin(0);
   @include padding(0, 6px);
   @include text-align(start);
 
-  font-size: 2.4rem !important;
+  font-size: 2.4rem;
   font-weight: normal;
 }
 

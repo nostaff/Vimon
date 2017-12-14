@@ -72,7 +72,7 @@
  *```
  */
 import ThemeMixins from '../../themes/theme.mixins'
-import IonButton from '../button/index'
+import IonButton from '../button'
 
 export default {
   name: 'ion-toggle',

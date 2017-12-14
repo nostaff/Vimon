@@ -4,7 +4,7 @@
     <transition name="popup-fade">
       <div class="popup-wrapper" v-show="activated">
         <div class="popup-toolbar" v-if="buttons">
-          <div v-for="(button, index) in buttons" class="popup-toolbar-button" :class="button.cssRole">
+          <div v-for="(button, index) in buttons" :key="index" class="popup-toolbar-button" :class="button.cssRole">
             <ion-button @click.native="btnClick(button)" :class="button.cssClass" class="popup-button" clear>
               {{button.text}}
             </ion-button>
@@ -26,8 +26,8 @@
 </template>
 <script>
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop/index'
-  import IonButton from '../button/index'
+  import IonBackdrop from '../backdrop'
+  import IonButton from '../button'
 
   export default {
     name: 'ion-popup',

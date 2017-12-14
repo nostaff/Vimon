@@ -9,41 +9,50 @@ import 'ionicons/dist/css/ionicons.css'
 export default {
   name: 'ion-icon',
   mixins: [ThemeMixins],
+  inject: {
+    itemComponent: {
+      from: 'itemComponent',
+      default: null
+    }
+  },
   data () {
     return {
       css: '',
-      isActive: isTrueProperty(this.active)
+      isActived: isTrueProperty(this.isActive),
+      hidden: false
     }
   },
   props: {
     name: String,
     ios: String,
     md: String,
-    active: [String, Boolean]
-  },
-  computed: {
-    iconName () {
-      let name = this.name
-      if (!/^md-|^ios-|^logo-/.test(name)) {
-        // this does not have one of the defaults
-        // so lets auto add in the theme prefix for them
-        return this.theme + '-' + name
+    isActive: [String, Boolean],
+    theme: {
+      type: String,
+      default () {
+        return (this.$config && this.$config.get('iconMode')) || 'ios'
       }
-      return name
     }
   },
   watch: {
-    active (val) {
-      this.isActive = isTrueProperty(val)
-
+    name (val) {
+      this.update()
+    },
+    isActive (val) {
+      this.isActived = isTrueProperty(val)
+      this.update()
+    },
+    ios () {
+      this.update()
+    },
+    md () {
       this.update()
     }
   },
   mounted () {
-    if (this.$parent && this.$parent.$data.componentName === 'ionItem') {
+    if (this.itemComponent) {
       this.setElementClass('item-icon', true)
     }
-
     this.update()
   },
   destroyed () {
@@ -52,8 +61,27 @@ export default {
     }
   },
   methods: {
+    iconName (val) {
+      if (!(/^md-|^ios-|^logo-|^icon-/.test(val))) {
+        // this does not have one of the defaults
+        // so lets auto add in the mode prefix for them
+        return this.theme + '-' + val
+      } else {
+        return val
+      }
+    },
     update () {
+      let hidden = (this.hidden = this.name === null)
+      if (hidden) {
+        return
+      }
+
       let iconName
+      if (this.isActive && this.activeName) {
+        this.iconName = this.iconName(this.activeName)
+      } else {
+        this.iconName = this.iconName(this.name)
+      }
 
       if (this.ios && this.theme === 'ios') {
         iconName = this.ios
@@ -66,14 +94,23 @@ export default {
       let iconMode = iconName.split('-', 2)[0]
       if (
         iconMode === 'ios' &&
-        this.isActive &&
+        !this.isActive &&
         iconName.indexOf('logo-') < 0 &&
         iconName.indexOf('-outline') < 0
       ) {
         iconName += '-outline'
       }
 
-      let css = 'ion-' + iconName
+      // ios-star-outline -> ion-ios-star-outline
+      // ios-star -> ion-ios-star-outline
+      // icon-star -> icon-star
+      let css
+      if (iconMode === 'icon') {
+        css = iconName
+      } else {
+        css = 'ion-' + iconName
+      }
+
       if (this.css === css) {
         return
       }

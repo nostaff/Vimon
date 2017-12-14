@@ -39,8 +39,8 @@
   </ion-content>
 </template>
 <script type="text/javascript">
-import Modal from '../modal/index'
-import Content from '../../components/content/content.vue'
+import Modal from '../modal'
+import Content from '../content'
 import { pointerCoord, clamp } from '../../util/util'
 
 export default {
@@ -78,7 +78,7 @@ export default {
     /**
        * 触摸开始和移动
        * @private
-       * */
+       */
     onTouchShortcut (ev) {
       ev.preventDefault()
       ev.stopPropagation()
@@ -96,7 +96,7 @@ export default {
 
     /**
        * 由数据初始化 cityShortcut
-       * */
+       */
     initShortCut () {
       if (this.showHotCities) {
         this.shortcutList.push({
@@ -116,7 +116,7 @@ export default {
     /**
        * 根据传入的ev值获取当前在Shortcut上点击的是第几个item
        * @private
-       * */
+       */
     getSelectedIndex (ev) {
       let point = pointerCoord(ev)
       let index = ((point.y - this.shortcutTop) / 16) >> 0
@@ -127,7 +127,7 @@ export default {
     /**
        * 点击选择城市
        * @private
-       * */
+       */
     selectCity (result) {
       if (result.city && result.adCode) {
         Modal.dismiss(result)
@@ -137,7 +137,7 @@ export default {
     /**
        * 获取当前位置
        * @private
-       * */
+       */
     getCurrentLocation () {
       function getScript (mapJsUrl) {
         return new Promise((resolve, reject) => {
@@ -188,7 +188,7 @@ export default {
                    * @param {boolean} [posOptions.enableHighAccuracy=true] - 是否使用高精度定位，默认:true
                    * @param {number} [posOptions.timeout=10000] - 超过10秒后停止定位，默认：无穷大
                    * @param {number} 9posOptions.maximumAge=00 - 定位结果缓存0毫秒，默认：0
-                   * */
+                   */
                   getCurrentPosition()
                 })
               }, 100)
@@ -206,7 +206,7 @@ export default {
     /**
        * 将传入的一维数据按照首字母整理，用于显示
        * @private
-       * */
+       */
     sortCityList (cities) {
       // hash object for filter
       let store = {}
@@ -232,7 +232,7 @@ export default {
     /**
        * 初始化获取当前城市
        * @private
-       * */
+       */
     initLocatedCity () {
       if (this.showLocatedCity) {
         this.getCurrentLocation().then(

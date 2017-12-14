@@ -14,7 +14,7 @@
    *
    * @see component:Grid
    *
-   * */
+   */
   export default {
     name: 'ion-col'
   }

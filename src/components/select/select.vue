@@ -73,7 +73,7 @@
  */
 import { isTrueProperty, isBlank, isArray, isCheckedProperty } from '../../util/util'
 import ThemeMixins from '../../themes/theme.mixins'
-import Popover from '../popover/index'
+import Popover from '../popover'
 import IonButton from '../button'
 import SelectPopover from './select.popover.vue'
 

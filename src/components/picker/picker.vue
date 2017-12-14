@@ -107,8 +107,8 @@
 import { isString, isPresent, isNumber, isFunction } from '../../util/util'
 import { urlChange } from '../../util/dom'
 import ThemeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop/backdrop'
-import IonButton from '../button/button'
+import IonBackdrop from '../backdrop'
+import IonButton from '../button'
 import IonPickerCol from './picker-col'
 
 const NOOP = () => {}

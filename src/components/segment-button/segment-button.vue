@@ -25,7 +25,6 @@
  *
  * @fires component:Segment#onSelect
  * @see component:Segment
- *
  */
 import {isTrueProperty, isPresent} from '../../util/util'
 import ThemeMixins from '../../themes/theme.mixins'

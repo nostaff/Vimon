@@ -7,7 +7,7 @@
   </ion-list>
 </template>
 <script type="text/javascript">
-  import Popover from '../popover/index'
+  import Popover from '../popover'
   import IonList from '../list'
   import IonItem from '../item'
   import IonLabel from '../label'

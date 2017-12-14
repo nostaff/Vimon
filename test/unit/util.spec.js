@@ -31,7 +31,7 @@ import {
   isPlainObject,
   isPresent,
   isPrimitive,
-  isRegexp,
+  isRegExp,
   isString,
   isTrueProperty,
   isUndefined
@@ -87,8 +87,8 @@ describe('util', function () {
     expect(isDate(new Date())).toBeTruthy()
   })
 
-  it('isRegexp()', function () {
-    expect(isRegexp(/w/)).toBeTruthy()
+  it('isRegExp()', function () {
+    expect(isRegExp(/w/)).toBeTruthy()
   })
 
   it('isArray()', function () {

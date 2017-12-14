@@ -10,7 +10,7 @@
                 <ion-row>
                     <ion-col class="box"></ion-col>
                     <ion-col class="box arrow">
-                        <icon name="arrow-dropup"></icon>
+                        <ion-icon name="arrow-dropup"></ion-icon>
                     </ion-col>
                     <ion-col class="box"></ion-col>
                 </ion-row>

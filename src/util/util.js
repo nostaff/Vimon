@@ -131,7 +131,7 @@ export const isDate = val =>
     .match(/^(\[object )(\w+)\]$/i)[2]
     .toLowerCase() === 'date'
 
-export const isRegexp = val =>
+export const isRegExp = val =>
   Object.prototype.toString
     .call(val)
     .match(/^(\[object )(\w+)\]$/i)[2]

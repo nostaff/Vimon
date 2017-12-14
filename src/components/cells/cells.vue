@@ -1,8 +1,8 @@
 <template>
     <div class="cells">
-        <div class="row" v-for="(r, index) in rows">
+        <div class="row" :key="index" v-for="(r, index) in rows">
             <div v-if="(index != 0 && (innerBorder == true || innerBorder == 'true')) || outerBorder == true || outerBorder == 'true'" class="hairline-top"></div>
-            <div class="col" v-for="c in cols" @click="cellClicked(r*cols.length + c)">
+            <div class="col" :key="c" v-for="c in cols" @click="cellClicked(r*cols.length + c)">
                 <div class="hairline-left" v-if="(innerBorder == true || innerBorder == 'true') && c > 0"></div>
                 <div class="col-inner" v-html="items[r*cols.length + c]"></div>
             </div>

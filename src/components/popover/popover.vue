@@ -87,7 +87,7 @@ import {isTrueProperty} from '../../util/util'
 import {urlChange} from '../../util/dom'
 import objectAssign from 'object-assign'
 import ThemeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop/index'
+import IonBackdrop from '../backdrop'
 
 const POPOVER_IOS_BODY_PADDING = 2
 const POPOVER_MD_BODY_PADDING = 12

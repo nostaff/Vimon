@@ -139,39 +139,39 @@ export default {
   props: {
     /**
        * Set the the cancel button text. Default: "Cancel".
-       * */
+       */
     cancelButtonText: {
       type: String,
       default: 'Cancel'
     },
     /**
        * Whether to show the cancel button or not. Default: "false".
-       * */
+       */
     showCancelButton: [Boolean],
     /**
        * How long, in milliseconds, to wait to trigger the onInput event after each keystroke. Default 250.
-       * */
+       */
     debounce: {
       type: Number,
       default: 0
     },
     /**
        * Set the input's placeholder. Default "Search".
-       * */
+       */
     placeholder: {
       type: String,
       default: 'Search'
     },
     /**
        * Set the input's autocomplete property. Values: "on", "off". Default "off".
-       * */
+       */
     autocomplete: {
       type: String,
       default: 'off'
     },
     /**
        * Set the input's autocorrect property. Values: "on", "off". Default "off".
-       * */
+       */
     autocorrect: {
       type: String,
       default: 'off'
@@ -180,28 +180,28 @@ export default {
     autofocus: [Boolean, Number],
     /**
        * Set the input's spellcheck property. Values: true, false. Default false.
-       * */
+       */
     spellcheck: {
       type: [String, Boolean],
       default: false
     },
     /**
        * Set the type of the input. Values: "text", "password", "email", "number", "search", "tel", "url". Default "search".
-       * */
+       */
     type: {
       type: String,
       default: 'search'
     },
     /**
        * Configures if the searchbar is animated or no. By default, animation is false.
-       * */
+       */
     animated: {
       type: Boolean,
       default: false
     },
     /**
        * Set the input value.
-       * */
+       */
     value: String
   },
   watch: {

@@ -45,79 +45,82 @@
   </div>
 </template>
 <script>
-  import {isUndefined} from '../../util/util'
-  import ThemeMixins from '../../themes/theme.mixins'
-  import IonReorder from '../item-reorder'
-  import IonLabel from '../label'
+import { isUndefined } from '../../util/util'
+import ThemeMixins from '../../themes/theme.mixins'
+import IonReorder from '../item-reorder'
+import IonLabel from '../label'
 
-  export default {
-    components: {
-      IonLabel,
-      IonReorder
+export default {
+  components: {
+    IonLabel,
+    IonReorder
+  },
+  name: 'ion-item',
+  mixins: [ThemeMixins],
+  provide () {
+    const that = this
+    return {
+      itemComponent: that
+    }
+  },
+  props: {
+    link: {
+      type: String,
+      default: ''
     },
-    name: 'ion-item',
-    mixins: [ThemeMixins],
-    provide () {
-      const that = this
-      return {
-        itemComponent: that
-      }
-    },
-    props: {
-      link: {
-        type: String,
-        default: ''
-      },
-      isLink: {
-        type: Boolean,
-        default: false
-      }
-    },
-    data () {
-      return {
-        componentName: 'ionItem',
+    isLink: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data () {
+    return {
+      componentName: 'ionItem',
 
-        noItemLabel: false,
-        hasReorder: false
-      }
-    },
-    created () {
-      this.noItemLabel = isUndefined(this.$slots['item-label'])
+      noItemLabel: false,
+      hasReorder: false
+    }
+  },
+  created () {
+    this.noItemLabel = isUndefined(this.$slots['item-label'])
 
-      this.hasReorder = this.$parent.$data.componentName === 'ionItemGroup' && this.$parent.allowReorder
-    },
-    mounted () {
-      if (this.$el.classList.contains('item-divider')) {
-        this.setElementClass('item-block', false)
-      }
+    this.hasReorder =
+      this.$parent.$data.componentName === 'ionItemGroup' &&
+      this.$parent.allowReorder
+  },
+  mounted () {
+    if (this.$el.classList.contains('item-divider')) {
+      this.setElementClass('item-block', false)
+    }
 
-      if (this.$slots['item-start']) {
-        this.$slots['item-start'].forEach(function (item) {
-          item.elm.setAttribute('item-start', '')
-        })
+    if (this.$slots['item-start']) {
+      this.$slots['item-start'].forEach(function (item) {
+        item.elm.setAttribute('item-start', '')
+      })
+    }
+    if (this.$slots['item-end']) {
+      this.$slots['item-end'].forEach(function (item) {
+        item.elm.setAttribute('item-end', '')
+      })
+    }
+  },
+  methods: {
+    getLabelText () {
+      if (this.$refs.label && this.$refs.label.$el.length !== 0) {
+        // 空==0，不为空 != 0 ，非大于0
+        return this.$refs.label.$el.innerText
+      } else if (this.$slots['item-label']) {
+        return this.$slots['item-label'][0].elm.innerText
       }
-      if (this.$slots['item-end']) {
-        this.$slots['item-end'].forEach(function (item) {
-          item.elm.setAttribute('item-end', '')
-        })
-      }
-    },
-    methods: {
-      getLabelText () {
-        if (this.$refs.label && this.$refs.label.$el.length !== 0) { // 空==0，不为空 != 0 ，非大于0
-          return this.$refs.label.$el.innerText
-        } else if (this.$slots['item-label']) {
-          return this.$slots['item-label'][0].elm.innerText
-        }
-        return ''
-      }
+      return ''
     }
   }
+}
 </script>
 
 <style lang="scss">
-  @import 'item';
-  @import 'item-media';
-  @import 'item.ios';
-  @import 'item.md';
+@import "item";
+@import "item-media";
+@import "item.ios";
+@import "item.md";
 </style>

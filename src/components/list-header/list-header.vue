@@ -13,7 +13,7 @@
 </template>
 <script>
 import ThemeMixins from '../../themes/theme.mixins'
-import IonLabel from '../label/index'
+import IonLabel from '../label'
 
 export default {
   name: 'ion-list-header',

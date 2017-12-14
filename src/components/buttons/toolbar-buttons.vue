@@ -17,7 +17,7 @@
  *
  * ```
  * // 引入
- * import { Toolbar, Buttons, Title } from 'vimo/lib/toolbar'
+ * import { Toolbar, Buttons, Title } from 'vimon'
  * // 安装
  * Vue.component(Toolbar.name, Toolbar)
  * Vue.component(Title.name, Title)

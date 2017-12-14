@@ -8,8 +8,8 @@
 <script>
   import objectAssign from 'object-assign'
   import ThemeMixins from '../../themes/theme.mixins'
-  import IonButton from '../button/index'
-  import IonPicker from '../picker/picker'
+  import IonButton from '../button'
+  import IonPicker from '../picker'
   import ChinaAddressData from './china_address.json'
 
   export default {

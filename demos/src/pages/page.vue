@@ -8,6 +8,9 @@
             <ion-radio-group title="Navbar Color" :options="colors" v-model="color"></ion-radio-group>
 
             <div>Selected Color: {{color}}</div>
+
+<router-link to="/page">Goto Page</router-link>
+<router-link to="/page2">Goto Page2</router-link>
         </ion-content>
 
         <ion-footer>

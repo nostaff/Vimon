@@ -68,7 +68,7 @@
    *
    * ```
    * // 引入
-   * import { Column, Grid, Row } from 'vimo/lib/grid'
+   * import { Column, Grid, Row } from 'vimon'
    * // 安装
    * Vue.component(Grid.name, Grid)
    * Vue.component(Row.name, Row)
@@ -90,7 +90,7 @@
    *        </Column>
    *    </Row>
    * </Grid>
-   * */
+   */
   export default {
     name: 'ion-grid'
   }

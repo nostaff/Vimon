@@ -284,7 +284,6 @@
 
             // ******** DOM READ ****************
             this._hdrHeight = ele.clientHeight
-            console.log('_hdrHeight', this._hdrHeight, ele)
           } else if (hasClass(ele, 'ion-footer')) {
             scrollEvent.footerElement = ele
 

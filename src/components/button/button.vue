@@ -60,8 +60,7 @@ export default {
     // 如果是在组件 buttons 下则修改前缀为 bar-button-
     if (
       parentName === 'ionButtons' ||
-      parentName === 'ionToolbar' ||
-      parentName === 'ionNavbar'
+      parentName === 'ionToolbar'
     ) {
       this.roleName = 'bar-button'
     }

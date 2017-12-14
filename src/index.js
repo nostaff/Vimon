@@ -5,6 +5,7 @@ import Footer from './components/footer/index.js'
 import Header from './components/header/index.js'
 import Page from './components/page/index.js'
 import Buttons from './components/buttons/index.js'
+import Nav from './components/nav/index.js'
 import Navbar from './components/navbar/index.js'
 import Title from './components/title/index.js'
 import Toolbar from './components/toolbar/index.js'
@@ -89,8 +90,6 @@ import Toast from './components/toast'
 // directives
 import Navigation from './directives/navigation.js'
 
-const version = '1.0.1'
-
 // Componnets
 const components = {
   App,
@@ -98,6 +97,8 @@ const components = {
   Header,
   Content,
   Page,
+  Nav,
+  Navbar,
 
   Address,
   Avatar,
@@ -139,7 +140,6 @@ const components = {
   // Menu,
   Note,
   // Noticebar,
-  Navbar,
   // PopSheet,
   Radio,
   RadioGroup,
@@ -172,52 +172,49 @@ const directives = {
   Navigation
 }
 
-const VuePlugin = {
-  install: function (Vue, options = {}) {
-    /* istanbul ignore if */
-    if (this.installed) return
+const install = function (Vue, options = {}) {
+  core(Vue, options)
 
-    core(Vue, options)
+  // components
+  for (let component in components) {
+    let name = components[component].name || component
+    Vue.component(name, components[component])
+  }
 
-    // components
-    for (let component in components) {
-      let name = components[component].name || component
-      Vue.component(name, components[component])
-    }
+  // directives
+  for (let directive in directives) {
+    let name = directives[directive].name || directive
+    Vue.directive(name, directives[directive])
+  }
 
-    // directives
-    for (let directive in directives) {
-      let name = directives[directive].name || directive
-      Vue.directive(name, directives[directive])
-    }
+  // plugins
+  Vue.prototype.$actionSheet = ActionSheet
+  Vue.prototype.$dialog = Alert
+  Vue.prototype.$loading = Loading
+  Vue.prototype.$modal = Modal
+  Vue.prototype.$picker = Picker
+  Vue.prototype.$popover = Popover
+  Vue.prototype.$popup = Popup
+  Vue.prototype.$toast = Toast
 
-    // plugins
-    Vue.prototype.$actionSheet = ActionSheet
-    Vue.prototype.$dialog = Alert
-    Vue.prototype.$loading = Loading
-    Vue.prototype.$modal = Modal
-    Vue.prototype.$picker = Picker
-    Vue.prototype.$popover = Popover
-    Vue.prototype.$popup = Popup
-    Vue.prototype.$toast = Toast
+  var ENV = process.env.NODE_ENV
+  if (ENV && ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefined' && console.warn && typeof window !== 'undefined') {
+    console.warn('You are using a whole package of vimo, ' + 'please read docs https://vm-component.github.io/vimo/ to reduce app bundle size.')
   }
 }
 
-/* istanbul ignore if */
-if (typeof window !== 'undefined' && window.Vue) {
-  VuePlugin.install(window.Vue)
-}
+export default install
 
 export {
-  version,
-
   // Componnets
   App,
   Footer,
   Header,
   Content,
   Page,
-  // Nav,
+  Nav,
+  Navbar,
+
   Address,
   Avatar,
   Backdrop,
@@ -258,7 +255,6 @@ export {
   // Menu,
   Note,
   // Noticebar,
-  Navbar,
   // PopSheet,
   Radio,
   RadioGroup,
@@ -302,5 +298,3 @@ export {
   // Directives
   Navigation
 }
-
-export default VuePlugin

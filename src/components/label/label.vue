@@ -1,7 +1,10 @@
 <template>
   <div class="ion-label"
-       :class="[themeClass, colorClass]"
-       v-if="viewLabel">
+      :class="[themeClass, colorClass]"
+      :fixed="fixed"
+      :floating="floating"
+      :stacked="stacked"
+      v-if="viewLabel">
     <slot></slot>
   </div>
 </template>
@@ -24,9 +27,9 @@
  *
  * @props {String} mode - 模式
  * @props {String} color - 颜色
- * @props {String} fixed - 固定在input旁边
- * @props {String} floating - 浮动在input上面, 点击input时浮动到上面
- * @props {String} stacked - 永远在input的上面
+ * @props {Boolean} fixed - 固定在input旁边
+ * @props {Boolean} floating - 浮动在input上面, 点击input时浮动到上面
+ * @props {Boolean} stacked - 永远在input的上面
  *
  * @slot 空 - 可以嵌入任何结构
  * @see component:Item
@@ -48,6 +51,12 @@ export default {
       viewLabel: true
     }
   },
+  props: {
+    // label格式
+    fixed: Boolean,
+    floating: Boolean,
+    stacked: Boolean
+  },
   created () {
     // 如果slot 没有值 则隐藏该label 不管任何label 的是
     if (typeof (this.$slots.default) === 'undefined') {
@@ -56,19 +65,21 @@ export default {
   },
   mounted () {
     if (this.itemComponent) {
-      this.itemComponent.setElementClass('item-label-fixed', this.hasAttribute('fixed'))
-      this.itemComponent.setElementClass('item-label-floating', this.hasAttribute('floating'))
-      this.itemComponent.setElementClass('item-label-stacked', this.hasAttribute('stacked'))
+      this.itemComponent.setElementClass('item-label-fixed', this.fixed)
+      this.itemComponent.setElementClass('item-label-floating', this.floating)
+      this.itemComponent.setElementClass('item-label-stacked', this.stacked)
       this.itemComponent.labelComponent = this
     }
   },
   methods: {
     hasAttribute (name) {
+      console.log(this.$el)
       return this.$el.hasAttribute(name)
     }
   }
 }
 </script>
+
 <style lang="scss">
   @import 'label';
   @import 'label.ios';

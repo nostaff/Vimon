@@ -1,6 +1,5 @@
 <template>
-  <button @click="clickHandler"
-          :class="[themeClass,colorClass]">
+  <button @click="clickHandler" :class="[themeClass,colorClass]">
     <ion-icon name="close" class="fab-close-icon" v-if="isMainButton"></ion-icon>
     <span class="button-inner">
       <slot></slot>
@@ -8,64 +7,64 @@
   </button>
 </template>
 <script type="text/javascript">
-  import ThemeMixins from '../../themes/theme.mixins'
-  import IonIcon from '../icon/icon'
+import ThemeMixins from '../../themes/theme.mixins'
+import IonIcon from '../icon/icon'
 
-  export default {
-    name: 'ion-fab-button',
-    mixins: [ThemeMixins],
-    components: {
-      IonIcon
-    },
-    inject: {
-      fabComponent: {
-        from: 'fabComponent',
-        default () {
-          if (process.env.NODE_ENV !== 'production') {
-            console.error('[Component] FabButton组件 需要与 Fab组件 组合使用!')
-          }
-          return null
+export default {
+  name: 'ion-fab-button',
+  mixins: [ThemeMixins],
+  components: {
+    IonIcon
+  },
+  inject: {
+    fabComponent: {
+      from: 'fabComponent',
+      default () {
+        if (process.env.NODE_ENV !== 'production') {
+          console.error('[Component] FabButton组件 需要与 Fab组件 组合使用!')
         }
-      },
-      fabListComponent: {
-        from: 'fabListComponent',
-        default: null
+        return null
       }
     },
-    data () {
-      return {
-        roleName: 'fab'
-      }
-    },
-    computed: {
-      isMainButton () {
-        return !this.fabListComponent && !!this.fabComponent
-      }
-    },
-    created () {
-      if (!this.isMainButton) {
-        this.fabListComponent && this.fabListComponent.setFabButton(this)
-      } else {
-        this.fabComponent.mainButton = this
-      }
-    },
+    fabListComponent: {
+      from: 'fabListComponent',
+      default: null
+    }
+  },
+  data () {
+    return {
+      roleName: 'fab'
+    }
+  },
+  computed: {
+    isMainButton () {
+      return !this.fabListComponent && !!this.fabComponent
+    }
+  },
+  created () {
+    if (!this.isMainButton) {
+      this.fabListComponent && this.fabListComponent.setFabButton(this)
+    } else {
+      this.fabComponent.mainButton = this
+    }
+  },
 
-    methods: {
-      /**
+  methods: {
+    /**
        * 按钮点击处理函数, 如果是主button, 则Fab组件改写此方法
        * @private
        **/
-      clickHandler () {
-        this.$emit('click', this.fabComponent)
-        this.isMainButton && this.fabComponent.toggleClicked()
-      },
+    clickHandler () {
+      this.$emit('click', this.fabComponent)
+      this.isMainButton && this.fabComponent.toggleClicked()
+    },
 
-      /**
+    /**
        * @hidden
        */
-      setActiveClose (closeVisible) {
-        this.setElementClass('fab-close-active', closeVisible)
-      }
+    setActiveClose (closeVisible) {
+      this.setElementClass('fab-close-active', closeVisible)
     }
   }
+}
 </script>

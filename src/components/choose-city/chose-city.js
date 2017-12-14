@@ -15,7 +15,7 @@
  * @demo #/choose-city
  *
  * @usage
- * import ChooseCity from 'vimo/lib/choose-city'
+ * import ChooseCity from 'vimon'
  *
  * function openCitySelector () {
  *    let _this = this
@@ -27,7 +27,7 @@
  *    })
  *  }
  */
-import Modal from '../modal/index'
+import Modal from '../modal'
 import cityComponent from './city.vue'
 
 const ChooseCity = {
@@ -52,7 +52,7 @@ const ChooseCity = {
    * @param {Boolean}   [options.isH5=false']             - 是否强制使用H5模式，默认是自动的
    * @param {String}    [options.ak='8d1b...90a2']- 如果是H5模式并且开启了'当前定位城市'，则使用高德地图定位，这个是AK
    * @param {Function}  [options.onDismiss]               - 当选择点击后的回调，传入参数是当前选择的城市
-   * */
+   */
   present (options) {
     let finalOptions = {}
     let defaultOptions = {

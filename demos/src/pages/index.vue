@@ -29,16 +29,23 @@
               <a class="star" href="#"><img src="https://img.shields.io/github/forks/nostaff/vimon.svg?style=social&label=Fork" alt="Fork"></a>
             </ion-col>
           </ion-row>
-          <ion-row class="vimo__btns">
-            <ion-button block solid @click="$router.push({'name':'component','meta':{newWindow:true}})">
-              Component
-            </ion-button>
-            <ion-button block solid @click="onDocsClickHandler()">
-              Docs
-            </ion-button>
-          </ion-row>
         </ion-grid>
+
       </div>
+      <ion-list>
+          <ion-item link="/component">
+            <ion-icon slot="item-start" name="watch"></ion-icon>
+            Live Demo
+          </ion-item>
+          <ion-item link="http://github.io/nostaff/vimon">
+            <ion-icon slot="item-start" name="book"></ion-icon>
+            Docs
+          </ion-item>
+          <ion-item link="http://github.com/nostaff/vimon">
+            <ion-icon slot="item-start" name="logo-github"></ion-icon>
+            Github
+          </ion-item>
+        </ion-list>
     </ion-content>
     <ion-footer class="index inspired">
       <p class="inspired__name">INSPIRED BY</p>
@@ -68,7 +75,7 @@ export default {
       alert('你点击了标题')
     },
     onDocsClickHandler () {
-      window.open('https://nostaff.github.io/vimon-demo/')
+      window.open('https://nostaff.github.io/vimon/')
     }
   },
   created () {},
@@ -78,22 +85,11 @@ export default {
 
 <style scoped lang="scss">
 .index.scrollContent {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   .vimo {
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    padding-bottom: 45px;
     .vimo__logo {
       flex: 110px 0 0; /*no*/
       .vimo__logo--img {

@@ -13,21 +13,14 @@
 
 <script>
 /**
- * @component Swiper SwiperSlide
+ * @component Slides
  * @description
  *
- * Vue-Awesome-Swiper
+ * ## 轮播组件 / Slides
+ *
+ * Inspired by [Vue-Awesome-Swiper](https://surmon-china.github.io/vue-awesome-swiper)
  *
  * 基于 [Swiper4](http://www.swiper.com.cn)、适用于 Vue 的轮播组件，支持服务端渲染和单页应用。
- *
- * 如果需要回退到 Swiper3，请使用 [v2.6.7](https://github.com/surmon-china/vue-awesome-swiper/tree/v2.6.7) 版本。
- *
- *
- * # Example
- *
- * [Demo Page](https://surmon-china.github.io/vue-awesome-swiper)
- *
- * [mobile fullpage example code](https://github.com/surmon-china/vue-awesome-swiper/blob/master/examples/44-mobile-fullpage-example.vue)
  *
  *
  * ### Mount
@@ -36,12 +29,12 @@
  * // require styles
  * import 'swiper/dist/css/swiper.css'
  *
- * import { Swiper, SwiperSlide } from 'vimon'
+ * import { Slides, Slide } from 'vimon'
  *
  * export default {
  *   components: {
- *     swiper,
- *     swiperSlide
+ *     Slides,
+ *     Slide
  *   }
  * }
  * ```
@@ -154,8 +147,8 @@
  * - [CN Swiper4 documents](http://www.swiper.com.cn/api/index2.html)
  * - [EN Swiper4 documents](http://idangero.us/swiper/api/)
  *
- * # Author
- * [Surmon](https://surmon.me)
+ * @demo #/slides
+ * @see http://idangero.us/swiper/api/
  **/
 import objectAssign from 'object-assign'
 import _Swiper from 'swiper'

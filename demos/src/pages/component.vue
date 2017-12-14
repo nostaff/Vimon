@@ -17,7 +17,7 @@
           徽章
           <ion-note slot="item-end">Badge</ion-note>
         </ion-item>
-        <ion-item detail-push @click.native="onClicked('/icons')">
+        <ion-item detail-push @click.native="onClicked('/icon')">
           图标
           <ion-note slot="item-end">Icons</ion-note>
         </ion-item>
@@ -176,7 +176,6 @@
     },
     methods: {
       onClicked (urlPath) {
-        console.log(urlPath)
         this.$router.push({'path': urlPath})
       }
     }
