@@ -9,7 +9,7 @@
 <script>
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-title',
+  name: 'vm-title',
   mixins: [ModeMixins],
   inject: {
     appComponent: {

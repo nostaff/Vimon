@@ -3,7 +3,7 @@ import ActionSheet from './action-sheet.vue'
 
 import {createElement} from '../../util/util'
 
-class IonActionSheet {
+class VmActionSheet {
   constructor () {
     this._vm = undefined
   }
@@ -22,4 +22,4 @@ class IonActionSheet {
   }
 }
 
-export default new IonActionSheet()
+export default new VmActionSheet()

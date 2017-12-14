@@ -8,9 +8,9 @@
            'tab-disabled':isDisabled,
            'tab-hidden':isHidden,
        }">
-    <ion-icon v-if="tabIcon" :name="tabIcon" class="tab-button-icon"></ion-icon>
+    <vm-icon v-if="tabIcon" :name="tabIcon" class="tab-button-icon"></vm-icon>
     <span v-if="tabTitle" class="tab-button-text">{{tabTitle}}</span>
-    <ion-badge v-if="tabBadge" class="tab-badge" :color="tabBadgeStyle">{{tabBadge}}</ion-badge>
+    <vm-badge v-if="tabBadge" class="tab-badge" :color="tabBadgeStyle">{{tabBadge}}</vm-badge>
     <div class="button-effect"></div>
   </a>
 </template>
@@ -18,16 +18,16 @@
 <script type="text/javascript">
 import { isTrueProperty, isBlank } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonIcon from '../icon'
-import IonBadge from '../badge'
+import VmIcon from '../icon'
+import VmBadge from '../badge'
 
 export default {
-  name: 'ion-tab',
+  name: 'vm-tab',
   mixins: [ModeMixins],
   inject: ['tabsComponent'],
   components: {
-    IonIcon,
-    IonBadge
+    VmIcon,
+    VmBadge
   },
   props: {
     tabUrlPath: String,

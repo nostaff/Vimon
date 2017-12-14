@@ -1,9 +1,9 @@
 <template>
   <div class="ion-modal show-page" :class="[modeClass, cssClass]" role="dialog" style="z-index: 10010;">
-    <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss"
+    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   v-if="showBackdrop"
                   v-show="activated"
-                  @click.native="bdClick"></ion-backdrop>
+                  @click.native="bdClick"></vm-backdrop>
     <transition name="modal-fade">
       <div class="modal-wrapper" v-show="activated">
         <div class="modal-viewport" ref="viewPort"></div>
@@ -16,13 +16,13 @@
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
   import ModeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop'
+  import VmBackdrop from '../backdrop'
 
   export default {
-    name: 'ion-modal',
+    name: 'vm-modal',
     mixins: [ModeMixins],
     components: {
-      IonBackdrop
+      VmBackdrop
     },
     data () {
       return {

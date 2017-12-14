@@ -3,7 +3,7 @@ import Modal from './modal.vue'
 
 import {isObject, isString, createElement} from '../../util/util'
 
-class IonModal {
+class VmModal {
   constructor () {
     this._vm = undefined
   }
@@ -46,4 +46,4 @@ class IonModal {
   }
 }
 
-export default new IonModal()
+export default new VmModal()

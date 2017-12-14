@@ -5,7 +5,7 @@
     <div class="select-icon">
       <div class="select-icon-inner"></div>
     </div>
-    <ion-button role="select" ref="button" :disabled="isDisabled" @click.native="onClickHandler"></ion-button>
+    <vm-button role="select" ref="button" :disabled="isDisabled" @click.native="onClickHandler"></vm-button>
     <slot></slot>
   </div>
 </template>
@@ -74,13 +74,13 @@
 import { isTrueProperty, isBlank, isArray, isCheckedProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import Popover from '../popover'
-import IonButton from '../button'
+import VmButton from '../button'
 import SelectPopover from './select.popover.vue'
 
 export default {
-  name: 'ion-select',
+  name: 'vm-select',
   mixins: [ModeMixins],
-  components: { IonButton },
+  components: { VmButton },
   inject: {
     itemComponent: {
       from: 'itemComponent',

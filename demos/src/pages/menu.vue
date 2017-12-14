@@ -1,32 +1,32 @@
 <template>
-    <ion-page>
-        <ion-header>
+    <vm-page>
+        <vm-header>
 
-            <ion-navbar>
-                <ion-button menuToggle @click.native="toggleMenu()">
-                    <ion-icon name="menu"></ion-icon>
-                </ion-button>
-                <ion-title>
+            <vm-navbar>
+                <vm-button menuToggle @click.native="toggleMenu()">
+                    <vm-icon name="menu"></vm-icon>
+                </vm-button>
+                <vm-title>
                     Menu
-                </ion-title>
-            </ion-navbar>
+                </vm-title>
+            </vm-navbar>
 
-        </ion-header>
+        </vm-header>
 
-        <ion-content padding>
+        <vm-content padding>
 
             <h4>Active Menu: <b color="primary">{{ (activeMenu == 'menu1') ? 'Menu 1' : 'Menu 2' }}</b></h4>
 
             <p>This page has two menus with different id's, but only one is active at a time.</p>
 
-            <ion-button block color="secondary" @click.native="menu1Active()">Make Menu 1 Active</ion-button>
+            <vm-button block color="secondary" @click.native="menu1Active()">Make Menu 1 Active</vm-button>
 
-            <ion-button block color="danger" @click.native="menu2Active()">Make Menu 2 Active</ion-button>
+            <vm-button block color="danger" @click.native="menu2Active()">Make Menu 2 Active</vm-button>
 
-            <ion-button block menuToggle @click.native="toggleMenu()">Toggle Menu</ion-button>
+            <vm-button block menuToggle @click.native="toggleMenu()">Toggle Menu</vm-button>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default {

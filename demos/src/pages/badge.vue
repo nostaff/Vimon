@@ -1,11 +1,11 @@
 <template>
-  <ion-page v-nav="{title: 'Badge'}">
-    <ion-content padding>
-        <ion-badge>2</ion-badge>
-        <ion-badge color="danger">35</ion-badge>
-        <ion-badge color="dark">99</ion-badge>
-    </ion-content>
-  </ion-page>
+  <vm-page v-nav="{title: 'Badge'}">
+    <vm-content padding>
+        <vm-badge>2</vm-badge>
+        <vm-badge color="danger">35</vm-badge>
+        <vm-badge color="dark">99</vm-badge>
+    </vm-content>
+  </vm-page>
 </template>
 
 <script>

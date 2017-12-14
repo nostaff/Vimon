@@ -38,7 +38,7 @@
  */
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-buttons',
+  name: 'vm-buttons',
   mixins: [ModeMixins],
   data () {
     return {

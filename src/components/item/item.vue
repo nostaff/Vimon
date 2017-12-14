@@ -4,9 +4,9 @@
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
-        <ion-label ref="label" v-if="noItemLabel">
+        <vm-label ref="label" v-if="noItemLabel">
           <slot></slot>
-        </ion-label>
+        </vm-label>
         <slot name="item-content"></slot>
       </div>
       <slot name="item-end"></slot>
@@ -18,9 +18,9 @@
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
-        <ion-label ref="label" v-if="noItemLabel">
+        <vm-label ref="label" v-if="noItemLabel">
           <slot></slot>
-        </ion-label>
+        </vm-label>
         <slot name="item-content"></slot>
       </div>
       <slot name="item-end"></slot>
@@ -33,13 +33,13 @@
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
-        <ion-label ref="label" v-if="noItemLabel">
+        <vm-label ref="label" v-if="noItemLabel">
           <slot></slot>
-        </ion-label>
+        </vm-label>
         <slot name="item-content"></slot>
       </div>
       <slot name="item-end">
-        <ion-reorder v-if="hasReorder"></ion-reorder>
+        <vm-reorder v-if="hasReorder"></vm-reorder>
       </slot>
     </div>
   </div>
@@ -47,15 +47,15 @@
 <script>
 import { isUndefined } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonReorder from '../item-reorder'
-import IonLabel from '../label'
+import VmReorder from '../item-reorder'
+import VmLabel from '../label'
 
 export default {
   components: {
-    IonLabel,
-    IonReorder
+    VmLabel,
+    VmReorder
   },
-  name: 'ion-item',
+  name: 'vm-item',
   mixins: [ModeMixins],
   provide () {
     const that = this

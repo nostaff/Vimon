@@ -1,38 +1,38 @@
 <template>
-    <ion-page v-nav="{title: 'Button'}">
-        <ion-content text-center>
+    <vm-page v-nav="{title: 'Button'}">
+        <vm-content text-center>
             <h4>Colors</h4>
-            <ion-button>Default</ion-button>
-            <ion-button color="secondary">Secondary</ion-button>
-            <ion-button color="danger">Danger</ion-button>
-            <ion-button color="light">Light</ion-button>
-            <ion-button color="dark">Dark</ion-button>
+            <vm-button>Default</vm-button>
+            <vm-button color="secondary">Secondary</vm-button>
+            <vm-button color="danger">Danger</vm-button>
+            <vm-button color="light">Light</vm-button>
+            <vm-button color="dark">Dark</vm-button>
             <h4>Shapes</h4>
-            <ion-button full>Full ion-button</ion-button>
-            <ion-button block>Block ion-button</ion-button>
-            <ion-button round>Round ion-button</ion-button>
+            <vm-button full>Full ion-button</vm-button>
+            <vm-button block>Block ion-button</vm-button>
+            <vm-button round>Round ion-button</vm-button>
             <h4>Outlines</h4>
-            <ion-button color="secondary" full outline>Outline + Full</ion-button>
-            <ion-button color="secondary" block outline>Outline + Block</ion-button>
-            <ion-button color="secondary" round outline>Outline + Round</ion-button>
+            <vm-button color="secondary" full outline>Outline + Full</vm-button>
+            <vm-button color="secondary" block outline>Outline + Block</vm-button>
+            <vm-button color="secondary" round outline>Outline + Round</vm-button>
             <h4>Icons</h4>
-            <ion-button icon-start color="dark">
-                <ion-icon name="star"></ion-icon>
+            <vm-button icon-start color="dark">
+                <vm-icon name="star"></vm-icon>
                 Left Icon
-            </ion-button>
-            <ion-button icon-end color="dark">
+            </vm-button>
+            <vm-button icon-end color="dark">
                 Right Icon
-                <ion-icon name="star"></ion-icon>
-            </ion-button>
-            <ion-button icon-only color="dark">
-                <ion-icon name="star"></ion-icon>
-            </ion-button>
+                <vm-icon name="star"></vm-icon>
+            </vm-button>
+            <vm-button icon-only color="dark">
+                <vm-icon name="star"></vm-icon>
+            </vm-button>
             <h4>Sizes</h4>
-            <ion-button color="light" large>Large</ion-button>
-            <ion-button color="light">Default</ion-button>
-            <ion-button color="light" small>Small</ion-button>
-        </ion-content>
-    </ion-page>
+            <vm-button color="light" large>Large</vm-button>
+            <vm-button color="light">Default</vm-button>
+            <vm-button color="light" small>Small</vm-button>
+        </vm-content>
+    </vm-page>
 </template>
 
 <script>

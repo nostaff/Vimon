@@ -1,5 +1,5 @@
 <template>
-  <ion-content class="outer-content ion-city-selector" ref="content">
+  <vm-content class="outer-content ion-city-selector" ref="content">
     <div class="city-selector">
       <!--定位服务-->
       <div class="city-selector__group" v-if="showLocatedCity">
@@ -36,7 +36,7 @@
     <div slot="fixedTop" class="ion-city-shortcut city-shortcut" ref="cityShortcut" @touchstart="onTouchShortcut" @touchmove="onTouchShortcut">
       <div class="shortcut__item" :data-id="item.name" :key="item" v-for="item in shortcutList">{{item.name}}</div>
     </div>
-  </ion-content>
+  </vm-content>
 </template>
 <script type="text/javascript">
 import Modal from '../modal'

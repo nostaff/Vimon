@@ -1,16 +1,16 @@
 <template>
-    <ion-page v-nav="{title: 'Searchbar'}">
-        <ion-content>
+    <vm-page v-nav="{title: 'Searchbar'}">
+        <vm-content>
 
-            <ion-searchbar v-model="keywords" placeholder="输入关键字" :onChange="onChange"
-                           :on-cancel="onCancel"></ion-searchbar>
+            <vm-searchbar v-model="keywords" placeholder="输入关键字" :onChange="onChange"
+                           :on-cancel="onCancel"></vm-searchbar>
 
             <div class="item" v-show="searching">
                 searching for '{{keywords}}'.
             </div>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default{

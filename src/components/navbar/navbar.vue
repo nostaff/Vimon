@@ -2,22 +2,22 @@
   <div class="ion-navbar" :class="[modeClass, colorClass]">
     <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
     <slot name="item-start">
-      <ion-button role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click.native="backButtonClickHandler" v-if="isShowBackButton">
-        <ion-icon :class="['back-button-icon','back-button-icon-'+mode]" :name="backButtonIcon" v-if="backButtonIcon"></ion-icon>
+      <vm-button role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click.native="backButtonClickHandler" v-if="isShowBackButton">
+        <vm-icon :class="['back-button-icon','back-button-icon-'+mode]" :name="backButtonIcon" v-if="backButtonIcon"></vm-icon>
         <span :class="['back-button-text','back-button-text-'+mode]" v-if="backButtonText && mode ==='ios'" v-text="backButtonText"></span>
-      </ion-button>
+      </vm-button>
     </slot>
     <slot name="item-end">
-      <ion-buttons v-if="showMoreButton">
-        <ion-button :icon-only="!moreButtonText" @click.native="moreButtonClickHandler">
-          <ion-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></ion-icon>
+      <vm-buttons v-if="showMoreButton">
+        <vm-button :icon-only="!moreButtonText" @click.native="moreButtonClickHandler">
+          <vm-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></vm-icon>
           <span :class="['more-button-text','more-button-text-'+mode]" v-if="moreButtonText" v-text="moreButtonText"></span>
-        </ion-button>
-      </ion-buttons>
+        </vm-button>
+      </vm-buttons>
     </slot>
     <div class="toolbar-content" :class="['toolbar-content-'+mode]">
       <slot>
-        <ion-title v-if="title">{{title}}</ion-title>
+        <vm-title v-if="title">{{title}}</vm-title>
       </slot>
     </div>
   </div>
@@ -26,19 +26,19 @@
 <script>
 import { isTrueProperty, isFunction } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonButtons from '../buttons'
-import IonIcon from '../icon'
-import IonTitle from '../title'
-import IonButton from '../button'
+import VmButtons from '../buttons'
+import VmIcon from '../icon'
+import VmTitle from '../title'
+import VmButton from '../button'
 
 export default {
-  name: 'ion-navbar',
+  name: 'vm-navbar',
   mixins: [ModeMixins],
   components: {
-    IonButton,
-    IonTitle,
-    IonIcon,
-    IonButtons
+    VmButton,
+    VmTitle,
+    VmIcon,
+    VmButtons
   },
   data () {
     return {

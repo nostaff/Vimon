@@ -1,15 +1,15 @@
 <template>
-    <ion-page v-nav="{title: 'Action Sheet'}">
-        <ion-content padding>
+    <vm-page v-nav="{title: 'Action Sheet'}">
+        <vm-content padding>
             <div class="action-sheets-basic-page">
-                <ion-button block @click.native="normal()">点击背景关闭</ion-button>
+                <vm-button block @click.native="normal()">点击背景关闭</vm-button>
                 <p></p>
-                <ion-button block color="secondary" @click.native="disableBackdrop()">背景不可点击</ion-button>
+                <vm-button block color="secondary" @click.native="disableBackdrop()">背景不可点击</vm-button>
 
                 <span>根据浏览器自动变换样式</span>
             </div>
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
 const isMd = /Android/.test(navigator.userAgent)

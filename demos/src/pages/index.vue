@@ -1,53 +1,53 @@
 <template>
-  <ion-page>
-    <ion-header>
-      <ion-navbar hide-back-button>
-        <ion-buttons right slot="buttons">
-          <ion-button @click="$menu.toggle('menu')" role="bar-button" menutoggle>
-            <ion-icon name="more"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title @onTitleClick="onTitleClickHandler">Aha!</ion-title>
-      </ion-navbar>
-    </ion-header>
-    <ion-content>
+  <vm-page>
+    <vm-header>
+      <vm-navbar hide-back-button>
+        <vm-buttons right slot="buttons">
+          <vm-button @click="$menu.toggle('menu')" role="bar-button" menutoggle>
+            <vm-icon name="more"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-title @onTitleClick="onTitleClickHandler">Aha!</vm-title>
+      </vm-navbar>
+    </vm-header>
+    <vm-content>
       <div class="index scrollContent" padding>
-        <ion-grid class="vimo">
-          <ion-row class="vimo__logo">
-            <ion-col text-center no-padding>
+        <vm-grid class="vimo">
+          <vm-row class="vimo__logo">
+            <vm-col text-center no-padding>
               <div class="vimo__logo--img">
                 <img src="../assets/vimo.png">
               </div>
-            </ion-col>
-          </ion-row>
-          <ion-row class="vimo__text">
-            <ion-col text-center>
+            </vm-col>
+          </vm-row>
+          <vm-row class="vimo__text">
+            <vm-col text-center>
               <h1>VIMON</h1>
               <p>v{{vimo.version}}</p>
               <p class="message">Mobile UI components for Vue.js</p>
               <a class="star" href="#"><img src="https://img.shields.io/github/stars/nostaff/vimon.svg?style=social&label=Star" alt="Star"></a>
               <a class="star" href="#"><img src="https://img.shields.io/github/forks/nostaff/vimon.svg?style=social&label=Fork" alt="Fork"></a>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+            </vm-col>
+          </vm-row>
+        </vm-grid>
 
       </div>
-      <ion-list>
-          <ion-item link="/component">
-            <ion-icon slot="item-start" name="watch"></ion-icon>
+      <vm-list>
+          <vm-item link="/component">
+            <vm-icon slot="item-start" name="watch"></vm-icon>
             Live Demo
-          </ion-item>
-          <ion-item link="http://github.io/nostaff/vimon">
-            <ion-icon slot="item-start" name="book"></ion-icon>
+          </vm-item>
+          <vm-item link="http://github.io/nostaff/vimon">
+            <vm-icon slot="item-start" name="book"></vm-icon>
             Docs
-          </ion-item>
-          <ion-item link="http://github.com/nostaff/vimon">
-            <ion-icon slot="item-start" name="logo-github"></ion-icon>
+          </vm-item>
+          <vm-item link="http://github.com/nostaff/vimon">
+            <vm-icon slot="item-start" name="logo-github"></vm-icon>
             Github
-          </ion-item>
-        </ion-list>
-    </ion-content>
-    <ion-footer class="index inspired">
+          </vm-item>
+        </vm-list>
+    </vm-content>
+    <vm-footer class="index inspired">
       <p class="inspired__name">INSPIRED BY</p>
       <div class="inspired__logos">
         <section>
@@ -58,8 +58,8 @@
           <span>Vue.js</span>
         </section>
       </div>
-    </ion-footer>
-  </ion-page>
+    </vm-footer>
+  </vm-page>
 </template>
 
 <script type="text/javascript">

@@ -5,7 +5,7 @@
 </template>
 <script>
     export default {
-      name: 'ion-item-options',
+      name: 'vm-item-options',
       data () {
         return {
           componentName: 'ionItemOptions'

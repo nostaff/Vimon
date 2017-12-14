@@ -36,7 +36,7 @@
   const MAX_DELTAX = 20
 
   export default {
-    name: 'ion-item-sliding',
+    name: 'vm-item-sliding',
     mixins: [ModeMixins],
     data () {
       return {

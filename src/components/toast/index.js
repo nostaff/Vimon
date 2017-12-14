@@ -3,7 +3,7 @@ import Toast from './toast.vue'
 
 import {createElement, uuid} from '../../util/util'
 
-class IonToast {
+class VmToast {
   constructor () {
     this._vm = undefined
   }
@@ -31,4 +31,4 @@ class IonToast {
   }
 }
 
-export default new IonToast()
+export default new VmToast()

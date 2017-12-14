@@ -4,21 +4,21 @@
 
 ## 使用
 ```html
-<ion-header>
-     <ion-toolbar color="primary">
-          <ion-buttons slot="buttons">
-              <ion-button color="secondary" small clear  icon-only>
-                  <ion-icon name="home"></ion-icon>
-               </ion-button>
-          </ion-buttons>
-          <ion-title>header primary</ion-title>
-          <ion-buttons slot="buttons" end>
-                <ion-button color="danger" small clear  icon-only>
-                   <ion-icon name="heart"></ion-icon>
-                </ion-button>
-          </ion-buttons>
-     </ion-toolbar>
- </ion-header>
+<vm-header>
+     <vm-toolbar color="primary">
+          <vm-buttons slot="buttons">
+              <vm-button color="secondary" small clear  icon-only>
+                  <vm-icon name="home"></vm-icon>
+               </vm-button>
+          </vm-buttons>
+          <vm-title>header primary</vm-title>
+          <vm-buttons slot="buttons" end>
+                <vm-button color="danger" small clear  icon-only>
+                   <vm-icon name="heart"></vm-icon>
+                </vm-button>
+          </vm-buttons>
+     </vm-toolbar>
+ </vm-header>
 ```
 ## toolbar
 >You can also change the toolbar __color__ the same way. This will allow you to have a different color toolbar per page in your app

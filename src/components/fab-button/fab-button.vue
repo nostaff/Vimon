@@ -1,6 +1,6 @@
 <template>
   <button @click="clickHandler" :class="[modeClass,colorClass]">
-    <ion-icon name="close" class="fab-close-icon" v-if="isMainButton"></ion-icon>
+    <vm-icon name="close" class="fab-close-icon" v-if="isMainButton"></vm-icon>
     <span class="button-inner">
       <slot></slot>
     </span>
@@ -8,13 +8,13 @@
 </template>
 <script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
-import IonIcon from '../icon/icon'
+import VmIcon from '../icon/icon'
 
 export default {
-  name: 'ion-fab-button',
+  name: 'vm-fab-button',
   mixins: [ModeMixins],
   components: {
-    IonIcon
+    VmIcon
   },
   inject: {
     fabComponent: {

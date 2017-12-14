@@ -4,7 +4,7 @@
       <div class="ion-infinite-scroll-content">
         <div class="infinite-loading">
           <div class="infinite-loading-spinner" v-if="loadingSpinner">
-            <ion-spinner :name="loadingSpinner"></ion-spinner>
+            <vm-spinner :name="loadingSpinner"></vm-spinner>
           </div>
           <div class="infinite-loading-text" v-html="loadingText" v-if="loadingText"></div>
         </div>
@@ -104,17 +104,17 @@
   */
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonSpinner from '../spinner'
+import VmSpinner from '../spinner'
 
 const STATE_ENABLED = 'enabled'
 const STATE_DISABLED = 'disabled'
 const STATE_LOADING = 'loading'
 
 export default {
-  name: 'ion-infinite-scroll',
+  name: 'vm-infinite-scroll',
   mixins: [ModeMixins],
   components: {
-    IonSpinner
+    VmSpinner
   },
   inject: {
     contentComponent: {

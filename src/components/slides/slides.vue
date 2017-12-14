@@ -157,7 +157,7 @@ import 'swiper/dist/css/swiper.css'
 const Swiper = window.Swiper || _Swiper
 
 export default {
-  name: 'ion-slides',
+  name: 'vm-slides',
   props: {
     options: {
       type: Object,

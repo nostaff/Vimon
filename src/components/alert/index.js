@@ -6,7 +6,7 @@ import AlertCheckbox from './alert.checkbox.vue'
 
 import {createElement, uuid} from '../../util/util'
 
-class IonDialog {
+class VmDialog {
   constructor () {
     this._vm = undefined
   }
@@ -66,4 +66,4 @@ class IonDialog {
   }
 }
 
-export default new IonDialog()
+export default new VmDialog()

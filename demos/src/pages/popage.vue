@@ -1,58 +1,58 @@
 <template>
-    <ion-content>
-        <ion-list radio-group v-model="fontFamily" @onChange="changeFontFamily()">
-            <ion-row>
-                <ion-col>
-                    <ion-item isLink @click.native="changeFontSize('smaller')" detail-none class="popover-text-button popover-text-smaller">A</ion-item>
-                </ion-col>
-                <ion-col>
-                    <ion-item isLink @click.native="changeFontSize('larger')" detail-none class="popover-text-button popover-text-larger">A</ion-item>
-                </ion-col>
-            </ion-row>
-            <ion-row class="popover-row-dots">
-                <ion-col>
-                    <ion-button @click.native="changeBackground('white')" role="popover-dot" class="popover-dot-white" :class="{selected: background == 'white'}"></ion-button>
-                </ion-col>
-                <ion-col>
-                    <ion-button @click.native="changeBackground('tan')" role="popover-dot" class="popover-dot-tan" :class="{selected: background == 'tan'}"></ion-button>
-                </ion-col>
-                <ion-col>
-                    <ion-button @click.native="changeBackground('grey')" role="popover-dot" class="popover-dot-grey" :class="{selected: background == 'grey'}"></ion-button>
-                </ion-col>
-                <ion-col>
-                    <ion-button @click.native="changeBackground('black')" role="popover-dot" class="popover-dot-black" :class="{selected: background == 'black'}"></ion-button>
-                </ion-col>
-            </ion-row>
-            <ion-item class="popover-text-athelas">
-                <ion-label slot="item-label">Athelas</ion-label>
-                <ion-radio slot="item-content" value="Athelas"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-charter">
-                <ion-label slot="item-label">Charter</ion-label>
-                <ion-radio slot="item-content" value="Charter"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-iowan">
-                <ion-label slot="item-label">Iowan</ion-label>
-                <ion-radio slot="item-content" value="Iowan"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-palatino">
-                <ion-label slot="item-label">Palatino</ion-label>
-                <ion-radio slot="item-content" value="Palatino"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-san-francisco">
-                <ion-label slot="item-label">San Francisco</ion-label>
-                <ion-radio slot="item-content" value="San Francisco"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-seravek">
-                <ion-label slot="item-label">Seravek</ion-label>
-                <ion-radio slot="item-content" value="Seravek"></ion-radio>
-            </ion-item>
-            <ion-item class="popover-text-times-new-roman">
-                <ion-label slot="item-label">Times New Roman</ion-label>
-                <ion-radio slot="item-content" value="Times New Roman"></ion-radio>
-            </ion-item>
-        </ion-list>
-    </ion-content>
+    <vm-content>
+        <vm-list radio-group v-model="fontFamily" @onChange="changeFontFamily()">
+            <vm-row>
+                <vm-col>
+                    <vm-item isLink @click.native="changeFontSize('smaller')" detail-none class="popover-text-button popover-text-smaller">A</vm-item>
+                </vm-col>
+                <vm-col>
+                    <vm-item isLink @click.native="changeFontSize('larger')" detail-none class="popover-text-button popover-text-larger">A</vm-item>
+                </vm-col>
+            </vm-row>
+            <vm-row class="popover-row-dots">
+                <vm-col>
+                    <vm-button @click.native="changeBackground('white')" role="popover-dot" class="popover-dot-white" :class="{selected: background == 'white'}"></vm-button>
+                </vm-col>
+                <vm-col>
+                    <vm-button @click.native="changeBackground('tan')" role="popover-dot" class="popover-dot-tan" :class="{selected: background == 'tan'}"></vm-button>
+                </vm-col>
+                <vm-col>
+                    <vm-button @click.native="changeBackground('grey')" role="popover-dot" class="popover-dot-grey" :class="{selected: background == 'grey'}"></vm-button>
+                </vm-col>
+                <vm-col>
+                    <vm-button @click.native="changeBackground('black')" role="popover-dot" class="popover-dot-black" :class="{selected: background == 'black'}"></vm-button>
+                </vm-col>
+            </vm-row>
+            <vm-item class="popover-text-athelas">
+                <vm-label slot="item-label">Athelas</vm-label>
+                <vm-radio slot="item-content" value="Athelas"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-charter">
+                <vm-label slot="item-label">Charter</vm-label>
+                <vm-radio slot="item-content" value="Charter"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-iowan">
+                <vm-label slot="item-label">Iowan</vm-label>
+                <vm-radio slot="item-content" value="Iowan"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-palatino">
+                <vm-label slot="item-label">Palatino</vm-label>
+                <vm-radio slot="item-content" value="Palatino"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-san-francisco">
+                <vm-label slot="item-label">San Francisco</vm-label>
+                <vm-radio slot="item-content" value="San Francisco"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-seravek">
+                <vm-label slot="item-label">Seravek</vm-label>
+                <vm-radio slot="item-content" value="Seravek"></vm-radio>
+            </vm-item>
+            <vm-item class="popover-text-times-new-roman">
+                <vm-label slot="item-label">Times New Roman</vm-label>
+                <vm-radio slot="item-content" value="Times New Roman"></vm-radio>
+            </vm-item>
+        </vm-list>
+    </vm-content>
 </template>
 
 <script>

@@ -1,123 +1,123 @@
 <template>
-  <ion-page v-nav="{title: 'FABs'}">
-    <ion-content fullscreen>
+  <vm-page v-nav="{title: 'FABs'}">
+    <vm-content fullscreen>
       <div :key="i" v-for="i in array">{{i}}</div>
       <section slot="fixed">
-        <ion-fab top right edge>
-          <ion-fab-button mini @click="clickMainFAB()">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list>
-            <ion-fab-button @click="openSocial($event, 'facebook')">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'twitter')">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'vimeo')">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'googleplus')">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+        <vm-fab top right edge>
+          <vm-fab-button mini @click="clickMainFAB()">
+            <vm-icon name="add"></vm-icon>
+          </vm-fab-button>
+          <vm-fab-list>
+            <vm-fab-button @click="openSocial($event, 'facebook')">
+              <vm-icon name="logo-facebook"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'twitter')">
+              <vm-icon name="logo-twitter"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'vimeo')">
+              <vm-icon name="logo-vimeo"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'googleplus')">
+              <vm-icon name="logo-googleplus"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+        </vm-fab>
 
-        <ion-fab right bottom>
-          <ion-fab-button color="light">
-            <ion-icon name="arrow-dropleft"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="left">
-            <ion-fab-button @click="openSocial($event, 'facebook')">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'twitter')">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'vimeo')">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'googleplus')">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+        <vm-fab right bottom>
+          <vm-fab-button color="light">
+            <vm-icon name="arrow-dropleft"></vm-icon>
+          </vm-fab-button>
+          <vm-fab-list side="left">
+            <vm-fab-button @click="openSocial($event, 'facebook')">
+              <vm-icon name="logo-facebook"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'twitter')">
+              <vm-icon name="logo-twitter"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'vimeo')">
+              <vm-icon name="logo-vimeo"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'googleplus')">
+              <vm-icon name="logo-googleplus"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+        </vm-fab>
 
-        <ion-fab left top>
-          <ion-fab-button color="secondary">
-            <ion-icon name="arrow-dropright"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="right">
-            <ion-fab-button @click="openSocial($event, 'facebook')">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'twitter')">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'vimeo')">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'googleplus')">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+        <vm-fab left top>
+          <vm-fab-button color="secondary">
+            <vm-icon name="arrow-dropright"></vm-icon>
+          </vm-fab-button>
+          <vm-fab-list side="right">
+            <vm-fab-button @click="openSocial($event, 'facebook')">
+              <vm-icon name="logo-facebook"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'twitter')">
+              <vm-icon name="logo-twitter"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'vimeo')">
+              <vm-icon name="logo-vimeo"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'googleplus')">
+              <vm-icon name="logo-googleplus"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+        </vm-fab>
 
-        <ion-fab left bottom>
-          <ion-fab-button color="dark">
-            <ion-icon name="arrow-dropup"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="top">
-            <ion-fab-button @click="openSocial($event, 'facebook')">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'twitter')">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'vimeo')">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-            <ion-fab-button @click="openSocial($event, 'googleplus')">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+        <vm-fab left bottom>
+          <vm-fab-button color="dark">
+            <vm-icon name="arrow-dropup"></vm-icon>
+          </vm-fab-button>
+          <vm-fab-list side="top">
+            <vm-fab-button @click="openSocial($event, 'facebook')">
+              <vm-icon name="logo-facebook"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'twitter')">
+              <vm-icon name="logo-twitter"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'vimeo')">
+              <vm-icon name="logo-vimeo"></vm-icon>
+            </vm-fab-button>
+            <vm-fab-button @click="openSocial($event, 'googleplus')">
+              <vm-icon name="logo-googleplus"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+        </vm-fab>
 
-        <ion-fab center middle>
-          <ion-fab-button color="danger" @click="clickMainFAB()">
-            <ion-icon name="md-share"></ion-icon>
-          </ion-fab-button>
-          <ion-fab-list side="top">
-            <ion-fab-button @click="openSocial($event, 'vimeo')" color="primary">
-              <ion-icon name="logo-vimeo"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="bottom">
-            <ion-fab-button @click="openSocial($event, 'facebook')" color="secondary">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="left">
-            <ion-fab-button @click="openSocial($event, 'googleplus')" color="light">
-              <ion-icon name="logo-googleplus"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-          <ion-fab-list side="right">
-            <ion-fab-button @click="openSocial($event, 'twitter')" color="dark">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </ion-fab-button>
-          </ion-fab-list>
-        </ion-fab>
+        <vm-fab center middle>
+          <vm-fab-button color="danger" @click="clickMainFAB()">
+            <vm-icon name="md-share"></vm-icon>
+          </vm-fab-button>
+          <vm-fab-list side="top">
+            <vm-fab-button @click="openSocial($event, 'vimeo')" color="primary">
+              <vm-icon name="logo-vimeo"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+          <vm-fab-list side="bottom">
+            <vm-fab-button @click="openSocial($event, 'facebook')" color="secondary">
+              <vm-icon name="logo-facebook"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+          <vm-fab-list side="left">
+            <vm-fab-button @click="openSocial($event, 'googleplus')" color="light">
+              <vm-icon name="logo-googleplus"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+          <vm-fab-list side="right">
+            <vm-fab-button @click="openSocial($event, 'twitter')" color="dark">
+              <vm-icon name="logo-twitter"></vm-icon>
+            </vm-fab-button>
+          </vm-fab-list>
+        </vm-fab>
 
-        <ion-fab right middle>
-          <ion-fab-button color="danger" @click="add()">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
+        <vm-fab right middle>
+          <vm-fab-button color="danger" @click="add()">
+            <vm-icon name="add"></vm-icon>
+          </vm-fab-button>
+        </vm-fab>
 
       </section>
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 <script>
   export default {

@@ -1,19 +1,19 @@
 <template>
   <div class="ion-list" :class="[modeClass]">
-    <ion-list-header v-if="title">{{title}}</ion-list-header>
+    <vm-list-header v-if="title">{{title}}</vm-list-header>
     <slot></slot>
   </div>
 </template>
 <script>
   import {isBlank} from '../../util/util'
   import ModeMixins from '../../themes/theme.mixins'
-  import IonListHeader from '../list-header'
+  import VmListHeader from '../list-header'
 
   export default {
-    name: 'ion-list',
+    name: 'vm-list',
     mixins: [ModeMixins],
     components: {
-      IonListHeader
+      VmListHeader
     },
     props: {
       title: String,

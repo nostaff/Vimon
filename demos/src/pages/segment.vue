@@ -1,81 +1,81 @@
 <template>
-    <ion-page>
-        <ion-header>
+    <vm-page>
+        <vm-header>
 
-            <ion-navbar no-border-bottom>
-                <ion-title>Segment</ion-title>
-            </ion-navbar>
+            <vm-navbar no-border-bottom>
+                <vm-title>Segment</vm-title>
+            </vm-navbar>
 
-            <ion-toolbar no-border-top>
-                <ion-segment v-model="appType">
-                    <ion-segment-button value="Paid">
+            <vm-toolbar no-border-top>
+                <vm-segment v-model="appType">
+                    <vm-segment-button value="Paid">
                         Paid
-                    </ion-segment-button>
-                    <ion-segment-button value="Free">
+                    </vm-segment-button>
+                    <vm-segment-button value="Free">
                         Free
-                    </ion-segment-button>
-                    <ion-segment-button value="Top">
+                    </vm-segment-button>
+                    <vm-segment-button value="Top">
                         Top
-                    </ion-segment-button>
-                </ion-segment>
-            </ion-toolbar>
+                    </vm-segment-button>
+                </vm-segment>
+            </vm-toolbar>
 
-        </ion-header>
+        </vm-header>
 
-        <ion-content class="outer-content">
-            <ion-list>
-                <ion-list-header>{{ appType }}</ion-list-header>
-                <ion-item v-for="(item, index) in getItems(appType)" :key="index">
+        <vm-content class="outer-content">
+            <vm-list>
+                <vm-list-header>{{ appType }}</vm-list-header>
+                <vm-item v-for="(item, index) in getItems(appType)" :key="index">
                     {{ item.name }}
-                    <ion-button outline slot="item-end">{{ item.price }}</ion-button>
-                </ion-item>
-            </ion-list>
+                    <vm-button outline slot="item-end">{{ item.price }}</vm-button>
+                </vm-item>
+            </vm-list>
 
-            <ion-card>
-                <ion-card-header>
+            <vm-card>
+                <vm-card-header>
                     {{ safari }}
-                </ion-card-header>
-                <ion-card-content>
-                    <ion-segment v-model="safari" color="dark">
-                        <ion-segment-button value="Bookmarks">
-                            <ion-icon name="book"></ion-icon>
-                        </ion-segment-button>
-                        <ion-segment-button value="Reading List">
-                            <ion-icon ios="ios-glasses-outline" md="md-glasses"></ion-icon>
-                        </ion-segment-button>
-                        <ion-segment-button value="Shared Links">
-                            <ion-icon ios="ios-at-outline" md="md-at"></ion-icon>
-                        </ion-segment-button>
-                    </ion-segment>
-                    <ion-list style="margin: 0" inset>
-                        <ion-item v-for="(sItem,index) in getSafariItems(safari)" :key="index">
-                            <ion-icon slot="item-start" :name="sItem.icon" color="primary"></ion-icon>
+                </vm-card-header>
+                <vm-card-content>
+                    <vm-segment v-model="safari" color="dark">
+                        <vm-segment-button value="Bookmarks">
+                            <vm-icon name="book"></vm-icon>
+                        </vm-segment-button>
+                        <vm-segment-button value="Reading List">
+                            <vm-icon ios="ios-glasses-outline" md="md-glasses"></vm-icon>
+                        </vm-segment-button>
+                        <vm-segment-button value="Shared Links">
+                            <vm-icon ios="ios-at-outline" md="md-at"></vm-icon>
+                        </vm-segment-button>
+                    </vm-segment>
+                    <vm-list style="margin: 0" inset>
+                        <vm-item v-for="(sItem,index) in getSafariItems(safari)" :key="index">
+                            <vm-icon slot="item-start" :name="sItem.icon" color="primary"></vm-icon>
                             {{ sItem.name }}
-                        </ion-item>
-                    </ion-list>
-                </ion-card-content>
-            </ion-card>
-        </ion-content>
+                        </vm-item>
+                    </vm-list>
+                </vm-card-content>
+            </vm-card>
+        </vm-content>
 
-        <ion-footer>
-            <ion-toolbar no-border-bottom>
-                <ion-title>
+        <vm-footer>
+            <vm-toolbar no-border-bottom>
+                <vm-title>
                     Weather: {{ weather == 'sunny' ? '96' : '77' }}°
-                    <ion-icon :name="weather" color="danger"></ion-icon>
-                </ion-title>
-            </ion-toolbar>
-            <ion-toolbar no-border-top no-border-bottom>
-                <ion-segment v-model="weather" color="danger">
-                    <ion-segment-button value="sunny">
+                    <vm-icon :name="weather" color="danger"></vm-icon>
+                </vm-title>
+            </vm-toolbar>
+            <vm-toolbar no-border-top no-border-bottom>
+                <vm-segment v-model="weather" color="danger">
+                    <vm-segment-button value="sunny">
                         Sunny
-                    </ion-segment-button>
-                    <ion-segment-button value="rainy" checked>
+                    </vm-segment-button>
+                    <vm-segment-button value="rainy" checked>
                         Rainy
-                    </ion-segment-button>
-                </ion-segment>
-            </ion-toolbar>
-        </ion-footer>
-    </ion-page>
+                    </vm-segment-button>
+                </vm-segment>
+            </vm-toolbar>
+        </vm-footer>
+    </vm-page>
 </template>
 
 <script>

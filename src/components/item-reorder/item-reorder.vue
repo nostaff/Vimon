@@ -7,21 +7,21 @@
        @touchmove="onDragMove"
        @mousemove="onDragMove"
        @click="onClick">
-    <ion-icon name="reorder" role="img" aria-label="reorder"></ion-icon>
+    <vm-icon name="reorder" role="img" aria-label="reorder"></vm-icon>
   </div>
 </template>
 <script>
   import {pointerCoord, hasClass} from '../../util/dom'
-  import IonIcon from '../icon'
+  import VmIcon from '../icon'
 
   const AUTO_SCROLL_MARGIN = 60
   const SCROLL_JUMP = 10
   const ITEM_REORDER_ACTIVE = 'reorder-active'
 
   export default {
-    name: 'ion-reorder',
+    name: 'vm-reorder',
     components: {
-      IonIcon
+      VmIcon
     },
     data () {
       return {

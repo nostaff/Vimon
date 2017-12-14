@@ -1,8 +1,8 @@
 <template>
   <div class="ion-picker-cmp" :class="[modeClass,cssClass]">
-    <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss"
+    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive"
-                  :bdClick="bdClick"></ion-backdrop>
+                  :bdClick="bdClick"></vm-backdrop>
     <transition
         name="picker-fade"
         @before-enter="beforeEnter"
@@ -15,16 +15,16 @@
                :key="index"
                class="picker-toolbar-button"
                :class="[b.cssRole]">
-            <ion-button @click="btnClick(b)" :class="b.cssClass" class="picker-button" clear>{{b.text}}</ion-button>
+            <vm-button @click="btnClick(b)" :class="b.cssClass" class="picker-button" clear>{{b.text}}</vm-button>
           </div>
         </div>
         <div class="picker-columns">
           <div class="picker-above-highlight"></div>
-          <ion-picker-col v-for="(c,index) in columns"
+          <vm-picker-col v-for="(c,index) in columns"
                          :index="index"
                          :key="c.name"
                          :col="c"
-                         @onChange="colChange"></ion-picker-col>
+                         @onChange="colChange"></vm-picker-col>
           <div class="picker-below-highlight"></div>
         </div>
       </div>
@@ -107,19 +107,19 @@
 import { isString, isPresent, isNumber, isFunction } from '../../util/util'
 import { urlChange } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop'
-import IonButton from '../button'
-import IonPickerCol from './picker-col'
+import VmBackdrop from '../backdrop'
+import VmButton from '../button'
+import VmPickerCol from './picker-col'
 
 const NOOP = () => {}
 
 export default {
-  name: 'ion-picker',
+  name: 'vm-picker',
   mixins: [ModeMixins],
   components: {
-    IonPickerCol,
-    IonButton,
-    IonBackdrop
+    VmPickerCol,
+    VmButton,
+    VmBackdrop
   },
   data () {
     return {

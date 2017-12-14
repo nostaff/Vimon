@@ -31,7 +31,7 @@
   const MAX_PICKER_SPEED = 60
 
   export default {
-    name: 'ion-picker-col',
+    name: 'vm-picker-col',
     data () {
       return {
         isInit: false,

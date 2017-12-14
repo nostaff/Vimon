@@ -1,16 +1,16 @@
 <template>
-    <ion-page v-nav="{title: 'Popup'}">
-        <ion-content>
+    <vm-page v-nav="{title: 'Popup'}">
+        <vm-content>
 
-            <ion-item  is-link @click.native="showCustomPopup()">
+            <vm-item  is-link @click.native="showCustomPopup()">
                 Custom Popup
-            </ion-item>
-            <ion-item is-link @click.native="showCustomPopup2()">
+            </vm-item>
+            <vm-item is-link @click.native="showCustomPopup2()">
                 Custom Popup 2
-            </ion-item>
+            </vm-item>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default {

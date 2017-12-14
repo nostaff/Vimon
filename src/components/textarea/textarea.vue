@@ -22,7 +22,7 @@ import { hasFocus } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-  name: 'ion-textarea',
+  name: 'vm-textarea',
   mixins: [ModeMixins],
   data () {
     return {

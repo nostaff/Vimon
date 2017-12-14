@@ -1,78 +1,78 @@
 <template>
-  <ion-page v-nav="{title: 'Picker'}">
-    <ion-content>
+  <vm-page v-nav="{title: 'Picker'}">
+    <vm-content>
 
-      <ion-list title="Datetime">
-        <ion-item>
-          <ion-label slot="item-label">Time</ion-label>
-          <ion-datetime slot="item-content" displayFormat="HH:mm" v-model="time"
-                        placeholder="time"></ion-datetime>
-        </ion-item>
+      <vm-list title="Datetime">
+        <vm-item>
+          <vm-label slot="item-label">Time</vm-label>
+          <vm-datetime slot="item-content" displayFormat="HH:mm" v-model="time"
+                        placeholder="time"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Time</ion-label>
-          <ion-datetime slot="item-content" displayFormat="hh:mm A" v-model="time"
-                        placeholder="time"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Time</vm-label>
+          <vm-datetime slot="item-content" displayFormat="hh:mm A" v-model="time"
+                        placeholder="time"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Birthday</ion-label>
-          <ion-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
-                        displayFormat="YYYY-MM-DD"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Birthday</vm-label>
+          <vm-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
+                        displayFormat="YYYY-MM-DD"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Birthday</ion-label>
-          <ion-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
-                        displayFormat="DD/MM/YY"></ion-datetime>
-        </ion-item>
-      </ion-list>
+        <vm-item>
+          <vm-label slot="item-label">Birthday</vm-label>
+          <vm-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
+                        displayFormat="DD/MM/YY"></vm-datetime>
+        </vm-item>
+      </vm-list>
       <div padding-horizontal>
-        <ion-button block @click.native="setDate()" color="secondary">设置日期为 2012-06-25</ion-button>
+        <vm-button block @click.native="setDate()" color="secondary">设置日期为 2012-06-25</vm-button>
       </div>
       <br>
       <br>
       <p><span>当前日期为：{{birthday}} 当前时间为：{{time}}</span></p>
       <br>
-      <ion-list title="Address">
-        <ion-item>
-          <ion-label slot="item-label">Value</ion-label>
-          <ion-note slot="item-content">{{areaValue}}</ion-note>
-        </ion-item>
+      <vm-list title="Address">
+        <vm-item>
+          <vm-label slot="item-label">Value</vm-label>
+          <vm-note slot="item-content">{{areaValue}}</vm-note>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Text</ion-label>
-          <ion-address slot="item-content" :level="2" v-model="areaValue" placeholder="Select Address"></ion-address>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Text</vm-label>
+          <vm-address slot="item-content" :level="2" v-model="areaValue" placeholder="Select Address"></vm-address>
+        </vm-item>
 
-        <ion-item>
-        </ion-item>
-        <ion-item>
-          <ion-label slot="item-label">Value</ion-label>
-          <ion-note slot="item-content">{{areaValue1}}</ion-note>
-        </ion-item>
+        <vm-item>
+        </vm-item>
+        <vm-item>
+          <vm-label slot="item-label">Value</vm-label>
+          <vm-note slot="item-content">{{areaValue1}}</vm-note>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Text</ion-label>
-          <ion-address slot="item-content" :level="3" v-model="areaValue1" placeholder="Select Address"></ion-address>
-        </ion-item>
-      </ion-list>
+        <vm-item>
+          <vm-label slot="item-label">Text</vm-label>
+          <vm-address slot="item-content" :level="3" v-model="areaValue1" placeholder="Select Address"></vm-address>
+        </vm-item>
+      </vm-list>
 
       <div padding-horizontal>
-        <ion-button block @click.native="setAddress()" color="secondary">设置地址为 ['广东省', '深圳市', '南山区']</ion-button>
+        <vm-button block @click.native="setAddress()" color="secondary">设置地址为 ['广东省', '深圳市', '南山区']</vm-button>
         <br>
         <br>
         <br>
-        <ion-button block @click.native="normal()">点我弹出</ion-button>
+        <vm-button block @click.native="normal()">点我弹出</vm-button>
         <br>
-        <ion-button block @click.native="chain()">地址联动</ion-button>
+        <vm-button block @click.native="chain()">地址联动</vm-button>
         <br>
         <br>
         <br>
       </div>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 <script>
   const buttonItems = [

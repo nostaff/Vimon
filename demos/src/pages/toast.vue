@@ -1,18 +1,18 @@
 <template>
-    <ion-page v-nav="{title: 'Toast'}">
+    <vm-page v-nav="{title: 'Toast'}">
 
-        <ion-content padding>
+        <vm-content padding>
 
-            <ion-button block @click.native="showToast('bottom')">Show Toast Bottom Position</ion-button>
-            <ion-button block @click.native="showToast('top')">Show Toast Top Position</ion-button>
-            <ion-button block @click.native="showToast('middle')">Show Toast Middle Position</ion-button>
-            <ion-button block margin-bottom @click.native="showLongToast()">Show Long Toast</ion-button>
+            <vm-button block @click.native="showToast('bottom')">Show Toast Bottom Position</vm-button>
+            <vm-button block @click.native="showToast('top')">Show Toast Top Position</vm-button>
+            <vm-button block @click.native="showToast('middle')">Show Toast Middle Position</vm-button>
+            <vm-button block margin-bottom @click.native="showLongToast()">Show Long Toast</vm-button>
 
-            <ion-button block @click.native="showDismissDurationToast()">Show Custom Duration Toast</ion-button>
-            <ion-button block @click.native="showToastWithCloseButton()">Show Close Button Toast</ion-button>
+            <vm-button block @click.native="showDismissDurationToast()">Show Custom Duration Toast</vm-button>
+            <vm-button block @click.native="showToastWithCloseButton()">Show Close Button Toast</vm-button>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default {

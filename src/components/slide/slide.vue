@@ -20,7 +20,7 @@
  */
 
 export default {
-  name: 'ion-slide',
+  name: 'vm-slide',
   data () {
     return {
       slideClass: 'swiper-slide'

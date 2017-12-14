@@ -19,7 +19,7 @@
  * @demo #/thumbnailList
  */
 export default {
-  name: 'ion-thumbnail',
+  name: 'vm-thumbnail',
   props: {
     src: {
       type: String,

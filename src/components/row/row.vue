@@ -16,7 +16,7 @@
  *
  */
 export default {
-  name: 'ion-row'
+  name: 'vm-row'
 }
 </script>
 

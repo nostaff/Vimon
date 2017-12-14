@@ -1,39 +1,39 @@
 <template>
-    <ion-page v-nav="{title: 'Textarea'}">
+    <vm-page v-nav="{title: 'Textarea'}">
 
-        <ion-content class="outer-content">
+        <vm-content class="outer-content">
 
-            <ion-list title="Textarea">
-                <ion-item>
-                    <ion-label slot="item-label" color="primary">Inline Label</ion-label>
-                    <ion-textarea slot="item-content" placeholder="Textarea"></ion-textarea>
-                </ion-item>
+            <vm-list title="Textarea">
+                <vm-item>
+                    <vm-label slot="item-label" color="primary">Inline Label</vm-label>
+                    <vm-textarea slot="item-content" placeholder="Textarea"></vm-textarea>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label" color="primary" fixed>Fixed Label</ion-label>
-                    <ion-textarea slot="item-content" placeholder="Textarea"></ion-textarea>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label" color="primary" fixed>Fixed Label</vm-label>
+                    <vm-textarea slot="item-content" placeholder="Textarea"></vm-textarea>
+                </vm-item>
 
-                <ion-item>
-                    <ion-textarea placeholder="Textarea with no label"></ion-textarea>
-                </ion-item>
+                <vm-item>
+                    <vm-textarea placeholder="Textarea with no label"></vm-textarea>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label" color="primary" stacked>Stacked Label</ion-label>
-                    <ion-textarea slot="item-content" placeholder="Textarea"></ion-textarea>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label" color="primary" stacked>Stacked Label</vm-label>
+                    <vm-textarea slot="item-content" placeholder="Textarea"></vm-textarea>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label" color="primary" floating>Floating Label</ion-label>
-                    <ion-textarea slot="item-content"></ion-textarea>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label" color="primary" floating>Floating Label</vm-label>
+                    <vm-textarea slot="item-content"></vm-textarea>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label" color="primary" stacked>With MaxLenth</ion-label>
-                    <ion-textarea slot="item-content" maxlength="10" placeholder="Textarea with MaxLenth"></ion-textarea>
-                </ion-item>
-            </ion-list>
+                <vm-item>
+                    <vm-label slot="item-label" color="primary" stacked>With MaxLenth</vm-label>
+                    <vm-textarea slot="item-content" maxlength="10" placeholder="Textarea with MaxLenth"></vm-textarea>
+                </vm-item>
+            </vm-list>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>

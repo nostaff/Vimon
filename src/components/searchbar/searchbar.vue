@@ -10,21 +10,21 @@
          ]">
     <div class="searchbar-input-container" @touchstart="setFocus">
       <!--在md模式下，md的取消按钮是在这里的，当点击inputs输入时，返回按钮将覆盖search按钮-->
-      <ion-button mode="md" @click.native="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" role="button">
-        <ion-icon mode="md" name="md-arrow-back"></ion-icon>
-      </ion-button>
+      <vm-button mode="md" @click.native="cancelSearchbar($event)" clear color="dark" class="searchbar-md-cancel" role="button">
+        <vm-icon mode="md" name="md-arrow-back"></vm-icon>
+      </vm-button>
 
       <!--input左边的search按钮-->
       <div ref="searchbarIcon" class="searchbar-search-icon"></div>
       <input ref="searchbarInput" class="searchbar-input" id="searchbarInput" @input="onInputHandler($event)" @blur="onBlurHandler($event)" @focus="onFocusHandler($event)" :value="theValue" :placeholder="placeholder" :type="type" :autocomplete="autocompleteValue" :autocorrect="autocorrectValue" :spellcheck="spellcheckValue">
       <!--input右边的关闭按钮-->
-      <ion-button clear class="searchbar-clear-icon" :mode="mode" @click.native="clearInput($event)" role="button"></ion-button>
+      <vm-button clear class="searchbar-clear-icon" :mode="mode" @click.native="clearInput($event)" role="button"></vm-button>
     </div>
 
     <!--取消按钮，点击input时出现，只对IOS，md在search icon位置显示，wp没有-->
-    <ion-button ref="cancelButton" mode="ios" clear @click.native="cancelSearchbar($event)" class="searchbar-ios-cancel" role="button">
+    <vm-button ref="cancelButton" mode="ios" clear @click.native="cancelSearchbar($event)" class="searchbar-ios-cancel" role="button">
       {{cancelButtonText}}
-    </ion-button>
+    </vm-button>
   </div>
 </template>
 
@@ -106,15 +106,15 @@
    */
 import { isNumber, isBoolean } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonButton from '../button'
-import IonIcon from '../icon'
+import VmButton from '../button'
+import VmIcon from '../icon'
 
 export default {
-  name: 'ion-searchbar',
+  name: 'vm-searchbar',
   mixins: [ModeMixins],
   components: {
-    IonButton,
-    IonIcon
+    VmButton,
+    VmIcon
   },
   data () {
     return {

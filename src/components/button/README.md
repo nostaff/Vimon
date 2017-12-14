@@ -5,32 +5,32 @@
 >The __color__ property sets the color of the button. Ionic includes a number of default colors which can be easily overridden 
 
 ```html
-<ion-button> default</ion-button>
-<ion-button color="secondary">secondary</ion-button>
-<ion-button color="danger">danger</ion-button>
+<vm-button> default</vm-button>
+<vm-button color="secondary">secondary</vm-button>
+<vm-button color="danger">danger</vm-button>
 ```
 
 ### type Buttons
 > 主题 默认是default 具有:Outline Style Clear Style    
 ```html
-<ion-button color="light" outline> default</ion-button><br/>
-<ion-button outline> default</ion-button><br/>
-<ion-button clear> default</ion-button><br/>
+<vm-button color="light" outline> default</vm-button><br/>
+<vm-button outline> default</vm-button><br/>
+<vm-button clear> default</vm-button><br/>
 ```
 
 ### Round Buttons
 >To create a button with rounded corners, just add the round property  
 ```html
-<ion-button round> round default</ion-button>
+<vm-button round> round default</vm-button>
 ```
 
 ### Icon Buttons
 >To add icons to a button, add an icon component inside of it and a position attribute:  
 ```html
- <ion-button color="dark" icon-left>
-     <ion-icon name="home"></ion-icon>
+ <vm-button color="dark" icon-left>
+     <vm-icon name="home"></vm-icon>
       button
-  </ion-button>
+  </vm-button>
 ```
 
 ### IonButton 指令 Attributes

@@ -12,7 +12,7 @@ import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-  name: 'ion-button',
+  name: 'vm-button',
   mixins: [ModeMixins],
   props: {
     role: {

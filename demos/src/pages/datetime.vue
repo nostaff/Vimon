@@ -1,80 +1,80 @@
 <template>
-  <ion-page v-nav="{title: 'Datetime'}">
-    <ion-header>
+  <vm-page v-nav="{title: 'Datetime'}">
+    <vm-header>
 
-      <ion-navbar>
-        <ion-title>DateTime</ion-title>
-      </ion-navbar>
+      <vm-navbar>
+        <vm-title>DateTime</vm-title>
+      </vm-navbar>
 
-    </ion-header>
+    </vm-header>
 
-    <ion-content class="outer-content">
+    <vm-content class="outer-content">
 
-      <ion-list>
-        <ion-list-header>Web Release Dates</ion-list-header>
+      <vm-list>
+        <vm-list-header>Web Release Dates</vm-list-header>
 
-        <ion-item>
-          <ion-label slot="item-label">World Wide Web</ion-label>
-          <ion-datetime slot="item-content" displayFormat="YYYY" min="1981" max="2002" v-model="wwwReleased"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">World Wide Web</vm-label>
+          <vm-datetime slot="item-content" displayFormat="YYYY" min="1981" max="2002" v-model="wwwReleased"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Netscape</ion-label>
-          <ion-datetime slot="item-content" displayFormat="MMMM YY" min="1989" max="2004" v-model="netscapeReleased"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Netscape</vm-label>
+          <vm-datetime slot="item-content" displayFormat="MMMM YY" min="1989" max="2004" v-model="netscapeReleased"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Opera</ion-label>
-          <ion-datetime slot="item-content" displayFormat="DDD DD.MM.YY" min="1990" max="2000" :dayShortNames="operaShortDay" v-model="operaReleased"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Opera</vm-label>
+          <vm-datetime slot="item-content" displayFormat="DDD DD.MM.YY" min="1990" max="2000" :dayShortNames="operaShortDay" v-model="operaReleased"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Webkit</ion-label>
-          <ion-datetime slot="item-content" displayFormat="D MMM YYYY" min="1990-02" max="2010-10" v-model="webkitReleased"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Webkit</vm-label>
+          <vm-datetime slot="item-content" displayFormat="D MMM YYYY" min="1990-02" max="2010-10" v-model="webkitReleased"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Firefox</ion-label>
-          <ion-datetime slot="item-content" displayFormat="MMM DD, YYYY" min="1994-03-14" max="2012-12-09" v-model="firefoxReleased"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Firefox</vm-label>
+          <vm-datetime slot="item-content" displayFormat="MMM DD, YYYY" min="1994-03-14" max="2012-12-09" v-model="firefoxReleased"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Chrome</ion-label>
-          <ion-datetime slot="item-content" displayFormat="DDDD MMM D, YYYY" min="2005" max="2016" v-model="chromeReleased"></ion-datetime>
-        </ion-item>
-      </ion-list>
+        <vm-item>
+          <vm-label slot="item-label">Chrome</vm-label>
+          <vm-datetime slot="item-content" displayFormat="DDDD MMM D, YYYY" min="2005" max="2016" v-model="chromeReleased"></vm-datetime>
+        </vm-item>
+      </vm-list>
 
-      <ion-list>
-        <ion-list-header>World Times</ion-list-header>
+      <vm-list>
+        <vm-list-header>World Times</vm-list-header>
 
-        <ion-item>
-          <ion-label slot="item-label">Tokyo</ion-label>
-          <ion-datetime slot="item-content" displayFormat="hh:mm A" v-model="tokyoTime"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Tokyo</vm-label>
+          <vm-datetime slot="item-content" displayFormat="hh:mm A" v-model="tokyoTime"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Paris</ion-label>
-          <ion-datetime slot="item-content" displayFormat="HH:mm" v-model="parisTime"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Paris</vm-label>
+          <vm-datetime slot="item-content" displayFormat="HH:mm" v-model="parisTime"></vm-datetime>
+        </vm-item>
 
-        <ion-item>
-          <ion-label slot="item-label">Madison</ion-label>
-          <ion-datetime slot="item-content" displayFormat="h:mm a" v-model="madisonTime"></ion-datetime>
-        </ion-item>
+        <vm-item>
+          <vm-label slot="item-label">Madison</vm-label>
+          <vm-datetime slot="item-content" displayFormat="h:mm a" v-model="madisonTime"></vm-datetime>
+        </vm-item>
 
-      </ion-list>
+      </vm-list>
 
-      <ion-list>
-        <ion-list-header>Set Alarm</ion-list-header>
+      <vm-list>
+        <vm-list-header>Set Alarm</vm-list-header>
 
-        <ion-item>
-          <ion-label slot="item-label">Alert</ion-label>
-          <ion-datetime slot="item-content" displayFormat="mm" minuteValues="0,15,30,45" v-model="alertTime"></ion-datetime>
-        </ion-item>
-      </ion-list>
+        <vm-item>
+          <vm-label slot="item-label">Alert</vm-label>
+          <vm-datetime slot="item-content" displayFormat="mm" minuteValues="0,15,30,45" v-model="alertTime"></vm-datetime>
+        </vm-item>
+      </vm-list>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 <script>
   export default {

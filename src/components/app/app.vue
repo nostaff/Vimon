@@ -27,7 +27,7 @@ const clickBlockInstance = new ClickBlock()
 
 let scrollDisTimer = null // 计时器
 export default {
-  name: 'ion-app',
+  name: 'vm-app',
   mixins: [ModeMixins],
   data () {
     return {

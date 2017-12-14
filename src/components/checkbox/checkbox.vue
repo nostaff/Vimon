@@ -3,18 +3,18 @@
     <div :class="['checkbox-icon', {'checkbox-checked':isChecked}]">
       <div class="checkbox-inner"></div>
     </div>
-    <ion-button role="checkbox" :disabled="disabled" @click.native="onChecked"></ion-button>
+    <vm-button role="checkbox" :disabled="disabled" @click.native="onChecked"></vm-button>
   </div>
 </template>
 <script>
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonButton from '../button'
+import VmButton from '../button'
 export default {
-  name: 'ion-checkbox',
+  name: 'vm-checkbox',
   mixins: [ModeMixins],
   components: {
-    IonButton
+    VmButton
   },
   data () {
     return {

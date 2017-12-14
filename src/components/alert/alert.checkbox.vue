@@ -1,13 +1,13 @@
 <template>
   <div class="ion-alert" :class="['alert-'+mode, cssClass]" role="dialog" style="z-index: 9999;">
-    <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" @click.native="bdClick()"></ion-backdrop>
+    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" @click.native="bdClick()"></vm-backdrop>
     <transition name="ion-alert-fadeup">
       <div class="alert-wrapper" v-show="activated">
         <div class="alert-head">
           <h2 class="alert-title">{{title}}</h2>
         </div>
         <div class="alert-checkbox-group">
-          <ion-button class="alert-tappable" role="alert-checkbox" :key="index" v-for="(input, index) in inputs"
+          <vm-button class="alert-tappable" role="alert-checkbox" :key="index" v-for="(input, index) in inputs"
                       :value="input.value"
                       :aria-checked="getChecked(input.value)"
                       :disabled="input.disabled"
@@ -17,13 +17,13 @@
               <div class="alert-checkbox-inner"></div>
             </div>
             <div class="alert-checkbox-label">{{input.label}}</div>
-          </ion-button>
+          </vm-button>
         </div>
         <div class="alert-button-group">
-          <ion-button role="alert-button" :key="index" v-for="(button, index) in buttons"
+          <vm-button role="alert-button" :key="index" v-for="(button, index) in buttons"
                       :class="button.cssClass" @click.native="dismiss(index)">
             {{button.text}}
-          </ion-button>
+          </vm-button>
         </div>
       </div>
     </transition>
@@ -35,15 +35,15 @@
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
   import ModeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop'
-  import IonButton from '../button'
+  import VmBackdrop from '../backdrop'
+  import VmButton from '../button'
 
   export default {
-    name: 'ion-alert-checkbox',
+    name: 'vm-alert-checkbox',
     mixins: [ModeMixins],
     components: {
-      IonButton,
-      IonBackdrop
+      VmButton,
+      VmBackdrop
     },
     data () {
       return {

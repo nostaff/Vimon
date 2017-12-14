@@ -12,9 +12,9 @@ The content area can also implement pull-to-refresh with the
 
 @usage
 ```html
-<ion-content>
+<vm-content>
   Add your content here!
-</ion-content>
+</vm-content>
 ```
 
 To get a reference to the content component from a Page's logic,
@@ -46,14 +46,14 @@ a `zone.run()`
 import { Component, NgZone } from '@angular/core';
 @Component({
   template: `
-    <ion-header>
-      <ion-navbar>
-        <ion-title>{{scrollAmount}}</ion-title>
-      </ion-navbar>
-    </ion-header>
-    <ion-content (ionScroll)="scrollHandler($event)">
+    <vm-header>
+      <vm-navbar>
+        <vm-title>{{scrollAmount}}</vm-title>
+      </vm-navbar>
+    </vm-header>
+    <vm-content (ionScroll)="scrollHandler($event)">
        <p> Some realllllllly long content </p>
-    </ion-content>
+    </vm-content>
 `})
 class E2EPage {
  public scrollAmount = 0;
@@ -81,17 +81,17 @@ layout of `Content`.
 ```ts
 @Component({
   template: `
-    <ion-header>
-      <ion-navbar>
-        <ion-title>Main Navbar</ion-title>
-      </ion-navbar>
-      <ion-toolbarngIf="showToolbar">
-        <ion-title>Dynamic Toolbar</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
+    <vm-header>
+      <vm-navbar>
+        <vm-title>Main Navbar</vm-title>
+      </vm-navbar>
+      <vm-toolbarngIf="showToolbar">
+        <vm-title>Dynamic Toolbar</vm-title>
+      </vm-toolbar>
+    </vm-header>
+    <vm-content>
       <button ion-button (click)="toggleToolbar()">Toggle Toolbar</button>
-    </ion-content>
+    </vm-content>
 `})
 
 class E2EPage {
@@ -113,9 +113,9 @@ import { Component, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
 
 @Component({
-  template: `<ion-content>
+  template: `<vm-content>
                <button ion-button (click)="scrollTo()">Down 500px</button>
-             </ion-content>`
+             </vm-content>`
 )}
 export class MyPage{
   @ViewChild(Content) content: Content;

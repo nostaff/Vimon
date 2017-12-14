@@ -3,7 +3,7 @@
     <div :class="['radio-icon', {'radio-checked':isChecked}]">
       <div class="radio-inner"></div>
     </div>
-    <ion-button role="radio" :disabled="disabled" @click.native="onChecked"></ion-button>
+    <vm-button role="radio" :disabled="disabled" @click.native="onChecked"></vm-button>
   </div>
 </template>
 <script>
@@ -71,13 +71,13 @@
  **/
 import { isTrueProperty, isPresent } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonButton from '../button'
+import VmButton from '../button'
 
 export default {
-  name: 'ion-radio',
+  name: 'vm-radio',
   mixins: [ModeMixins],
   components: {
-    IonButton
+    VmButton
   },
   data () {
     return {

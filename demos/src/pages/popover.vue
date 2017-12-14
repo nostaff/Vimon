@@ -1,9 +1,9 @@
 <template>
-  <ion-page v-nav="{title: 'Popover', showMoreButton: true, onMoreButtonClick: pageSetting}">
-    <ion-content ref="content">
+  <vm-page v-nav="{title: 'Popover', showMoreButton: true, onMoreButtonClick: pageSetting}">
+    <vm-content ref="content">
 
       <div padding>
-        <ion-button block @click.native="showPopover($event)">Popover with template</ion-button>
+        <vm-button block @click.native="showPopover($event)">Popover with template</vm-button>
 
         <div>Lorem ipsum dolor sit amet, <span class="highlightText" @click="popupText($event, 'consectetur')">consectetur</span> adipiscing elit. Mauris vel ipsum in purus mollis dictum eget vitae purus. Nulla ultrices est odio, a maximus velit pretium ac. Donec vel elementum mi. Proin elementum pulvinar neque, in lacinia nibh tempus auctor. Nam sapien velit, <span class="highlightText" @click="popupText($event, 'commodo')">commodo</span> ac nibh a, maximus ullamcorper nunc. Integer luctus
           tortor dignissim, dictum neque at, scelerisque purus. Vivamus nec erat vel magna posuere euismod. Sed ac augue eu tellus tincidunt fermentum eget sit amet nunc. Donec sit amet mi libero. Cras nunc arcu, ultrices nec sapien eu, convallis posuere libero. Pellentesque vulputate lacus eros, at lobortis lorem egestas et. Vestibulum tempus quam in efficitur lobortis. Maecenas consectetur consequat sem pharetra aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -25,8 +25,8 @@
         </div>
       </div>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 <script>
   import Popage from './popage.vue'
@@ -35,13 +35,13 @@
     methods: {
       showPopover (ev) {
         let template = `
-                      <ion-list>
-                        <ion-list-header>Ionic</ion-list-header>
-                        <ion-item @click.native="itemClick()">Learn Ionic</ion-item>
-                        <ion-item @click.native="itemClick()">Documentation</ion-item>
-                        <ion-item @click.native="itemClick()">Showcase</ion-item>
-                        <ion-item @click.native="itemClick()">GitHub Repo</ion-item>
-                      </ion-list>
+                      <vm-list>
+                        <vm-list-header>Ionic</vm-list-header>
+                        <vm-item @click.native="itemClick()">Learn Ionic</vm-item>
+                        <vm-item @click.native="itemClick()">Documentation</vm-item>
+                        <vm-item @click.native="itemClick()">Showcase</vm-item>
+                        <vm-item @click.native="itemClick()">GitHub Repo</vm-item>
+                      </vm-list>
                     `
         this.$popover.present({
           ev: ev,

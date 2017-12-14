@@ -13,7 +13,7 @@ const preventDefault = e => {
 }
 
 export default {
-  name: 'ion-backdrop',
+  name: 'vm-backdrop',
   mixins: [ModeMixins],
 
   data () {

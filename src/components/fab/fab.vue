@@ -8,7 +8,7 @@
   import ModeMixins from '../../themes/theme.mixins'
 
   export default {
-    name: 'ion-fab',
+    name: 'vm-fab',
     mixins: [ModeMixins],
     provide () {
       let _this = this

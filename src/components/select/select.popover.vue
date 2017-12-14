@@ -1,25 +1,25 @@
 <template>
-  <ion-list radio-group v-model="checkedValue" @onChange="onRadioChecked($event)">
-    <ion-item v-for="option in options" :key="option">
-      <ion-label slot="item-label">{{option.text}}</ion-label>
-      <ion-radio slot="item-content" :value="option.value" :disabled="option.disabled"></ion-radio>
-    </ion-item>
-  </ion-list>
+  <vm-list radio-group v-model="checkedValue" @onChange="onRadioChecked($event)">
+    <vm-item v-for="option in options" :key="option">
+      <vm-label slot="item-label">{{option.text}}</vm-label>
+      <vm-radio slot="item-content" :value="option.value" :disabled="option.disabled"></vm-radio>
+    </vm-item>
+  </vm-list>
 </template>
 <script type="text/javascript">
   import Popover from '../popover'
-  import IonList from '../list'
-  import IonItem from '../item'
-  import IonLabel from '../label'
-  import IonRadio from '../radio'
+  import VmList from '../list'
+  import VmItem from '../item'
+  import VmLabel from '../label'
+  import VmRadio from '../radio'
 
   export default {
-    name: 'ion-select-popover',
+    name: 'vm-select-popover',
     components: {
-      IonRadio,
-      IonLabel,
-      IonItem,
-      IonList
+      VmRadio,
+      VmLabel,
+      VmItem,
+      VmList
     },
     data () {
       return {

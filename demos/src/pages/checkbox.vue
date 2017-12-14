@@ -1,95 +1,95 @@
 <template>
-    <ion-page v-nav="{title: 'Checkbox'}">
-        <ion-content>
+    <vm-page v-nav="{title: 'Checkbox'}">
+        <vm-content>
 
-            <ion-checkbox-group title="选择感兴趣的板块:" :options="topics" v-model="chosenTopics" @onChange="change"></ion-checkbox-group>
+            <vm-checkbox-group title="选择感兴趣的板块:" :options="topics" v-model="chosenTopics" @onChange="change"></vm-checkbox-group>
 
             <p class="padding">
                 chosen Topics: {{ chosenTopics }}
             </p>
 
-            <ion-checkbox-group title="去过的省份:" label-position="left" color="secondary" :options="lists" v-model="chosenAreas" @onChange="change"></ion-checkbox-group>
+            <vm-checkbox-group title="去过的省份:" label-position="left" color="secondary" :options="lists" v-model="chosenAreas" @onChange="change"></vm-checkbox-group>
 
             <p class="padding">
                 chosen Areas: {{ chosenAreas }}
             </p>
 
-            <ion-checkbox-group title="设置选项的颜色:" :options="lists2" v-model="chosenAreas2" @onChange="change"></ion-checkbox-group>
+            <vm-checkbox-group title="设置选项的颜色:" :options="lists2" v-model="chosenAreas2" @onChange="change"></vm-checkbox-group>
 
             <p class="padding">
                 chosen Areas: {{ chosenAreas2 }}
             </p>
 
-            <ion-list title="Data">
+            <vm-list title="Data">
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.jon"></ion-checkbox>
-                    <ion-label slot="item-label">Jon Snow</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.jon"></vm-checkbox>
+                    <vm-label slot="item-label">Jon Snow</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.daenerys" color="danger"></ion-checkbox>
-                    <ion-label slot="item-label">Daenerys Targaryen</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.daenerys" color="danger"></vm-checkbox>
+                    <vm-label slot="item-label">Daenerys Targaryen</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.arya" disabled></ion-checkbox>
-                    <ion-label slot="item-label">Arya Stark</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.arya" disabled></vm-checkbox>
+                    <vm-label slot="item-label">Arya Stark</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.tyroin" color="secondary"></ion-checkbox>
-                    <ion-label slot="item-label">Tyrion Lannister</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.tyroin" color="secondary"></vm-checkbox>
+                    <vm-label slot="item-label">Tyrion Lannister</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.sansa" color="danger"></ion-checkbox>
-                    <ion-label slot="item-label">Sansa Stark</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.sansa" color="danger"></vm-checkbox>
+                    <vm-label slot="item-label">Sansa Stark</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.khal"></ion-checkbox>
-                    <ion-label slot="item-label">Khal Drogo</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.khal"></vm-checkbox>
+                    <vm-label slot="item-label">Khal Drogo</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.cersei" color="dark"></ion-checkbox>
-                    <ion-label slot="item-label">Cersei Lannister</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.cersei" color="dark"></vm-checkbox>
+                    <vm-label slot="item-label">Cersei Lannister</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.stannis"></ion-checkbox>
-                    <ion-label slot="item-label">Stannis Baratheon</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.stannis"></vm-checkbox>
+                    <vm-label slot="item-label">Stannis Baratheon</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.petyr" disabled></ion-checkbox>
-                    <ion-label slot="item-label">Petyr Baelish</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.petyr" disabled></vm-checkbox>
+                    <vm-label slot="item-label">Petyr Baelish</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.hodor" color="dark"></ion-checkbox>
-                    <ion-label slot="item-label">Hodor</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.hodor" color="dark"></vm-checkbox>
+                    <vm-label slot="item-label">Hodor</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.catelyn" color="secondary"></ion-checkbox>
-                    <ion-label slot="item-label">Catelyn Stark</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.catelyn" color="secondary"></vm-checkbox>
+                    <vm-label slot="item-label">Catelyn Stark</vm-label>
+                </vm-item>
 
-                <ion-item>
-                    <ion-checkbox slot="item-start" v-model="data.bronn" color="danger"></ion-checkbox>
-                    <ion-label slot="item-label">Bronn</ion-label>
-                </ion-item>
+                <vm-item>
+                    <vm-checkbox slot="item-start" v-model="data.bronn" color="danger"></vm-checkbox>
+                    <vm-label slot="item-label">Bronn</vm-label>
+                </vm-item>
 
-            </ion-list>
+            </vm-list>
 
             <p class="padding">
                 chosen Data: {{ data }}
             </p>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default{

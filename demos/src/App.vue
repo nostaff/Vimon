@@ -1,9 +1,9 @@
 <template>
-  <ion-app>
-    <ion-nav>
+  <vm-app>
+    <vm-nav>
       <router-view></router-view>
-    </ion-nav>
-  </ion-app>
+    </vm-nav>
+  </vm-app>
 </template>
 <script type="text/javascript">
 export default {

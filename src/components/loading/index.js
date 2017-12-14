@@ -3,7 +3,7 @@ import Loading from './loading.vue'
 
 import {createElement, uuid} from '../../util/util'
 
-class IonLoading {
+class VmLoading {
   constructor () {
     this._vm = undefined
   }
@@ -36,4 +36,4 @@ class IonLoading {
   }
 }
 
-export default new IonLoading()
+export default new VmLoading()

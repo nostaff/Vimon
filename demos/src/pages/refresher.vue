@@ -1,22 +1,22 @@
 <template>
-    <ion-page v-nav="{title: 'Refresher'}">
-        <ion-content>
-            <ion-refresher slot="refresher"
+    <vm-page v-nav="{title: 'Refresher'}">
+        <vm-content>
+            <vm-refresher slot="refresher"
                            :enabled="enabled"
                            pullingText="Pull to refresh..." r
                            efreshingText="Refreshing..."
                            @onRefresh="doRefresh($event)"
                            @onStart="doStart($event)"
-                           @onPull="doPulling($event)"></ion-refresher>
+                           @onPull="doPulling($event)"></vm-refresher>
             <div padding class="state" text-center>
                 <p>状态: {{enabled}}</p>
-                <ion-button small outline @click.native="toggleDisabled">禁用/启用</ion-button>
+                <vm-button small outline @click.native="toggleDisabled">禁用/启用</vm-button>
             </div>
-            <ion-list>
-                <ion-item v-for="(item,index) in items" :key="index">{{item}}</ion-item>
-            </ion-list>
-        </ion-content>
-    </ion-page>
+            <vm-list>
+                <vm-item v-for="(item,index) in items" :key="index">{{item}}</vm-item>
+            </vm-list>
+        </vm-content>
+    </vm-page>
 </template>
 <style scoped lang="scss">
     .state {

@@ -3,7 +3,7 @@
     <div class="toggle-icon">
       <div class="toggle-inner"></div>
     </div>
-    <ion-button role="checkbox" :disabled="disabled" :checked="checked"></ion-button>
+    <vm-button role="checkbox" :disabled="disabled" :checked="checked"></vm-button>
   </div>
 </template>
 
@@ -72,12 +72,12 @@
  *```
  */
 import ModeMixins from '../../themes/theme.mixins'
-import IonButton from '../button'
+import VmButton from '../button'
 
 export default {
-  name: 'ion-toggle',
+  name: 'vm-toggle',
   mixins: [ModeMixins],
-  components: { IonButton },
+  components: { VmButton },
   inject: {
     itemComponent: {
       from: 'itemComponent',

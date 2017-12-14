@@ -1,323 +1,323 @@
 <template>
-    <ion-page v-nav="{title: 'Grid'}">
+    <vm-page v-nav="{title: 'Grid'}">
 
-        <ion-content class="content-padded  grid-demos">
+        <vm-content class="content-padded  grid-demos">
 
             <p padding="">
                 Nine Soduku
             </p>
-            <ion-grid no-padding class="nine" sudoku>
-                <ion-row>
-                    <ion-col class="box"></ion-col>
-                    <ion-col class="box arrow">
-                        <ion-icon name="arrow-dropup"></ion-icon>
-                    </ion-col>
-                    <ion-col class="box"></ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col class="box arrow">
-                        <ion-icon name="arrow-dropleft"></ion-icon>
-                    </ion-col>
-                    <ion-col class="box arrow">
-                        <ion-icon name="logo-javascript"></ion-icon>
-                    </ion-col>
-                    <ion-col class="box arrow">
-                        <ion-icon name="arrow-dropright"></ion-icon>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col class="box"></ion-col>
-                    <ion-col class="box arrow">
-                        <ion-icon name="arrow-dropdown"></ion-icon>
-                    </ion-col>
-                    <ion-col class="box"></ion-col>
-                </ion-row>
-            </ion-grid>
+            <vm-grid no-padding class="nine" sudoku>
+                <vm-row>
+                    <vm-col class="box"></vm-col>
+                    <vm-col class="box arrow">
+                        <vm-icon name="arrow-dropup"></vm-icon>
+                    </vm-col>
+                    <vm-col class="box"></vm-col>
+                </vm-row>
+                <vm-row>
+                    <vm-col class="box arrow">
+                        <vm-icon name="arrow-dropleft"></vm-icon>
+                    </vm-col>
+                    <vm-col class="box arrow">
+                        <vm-icon name="logo-javascript"></vm-icon>
+                    </vm-col>
+                    <vm-col class="box arrow">
+                        <vm-icon name="arrow-dropright"></vm-icon>
+                    </vm-col>
+                </vm-row>
+                <vm-row>
+                    <vm-col class="box"></vm-col>
+                    <vm-col class="box arrow">
+                        <vm-icon name="arrow-dropdown"></vm-icon>
+                    </vm-col>
+                    <vm-col class="box"></vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Equal-width columns
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
+            <vm-grid>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
+                    </vm-col>
+                </vm-row>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 3</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 3</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Setting one column width
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
+            <vm-grid>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 3</div>
-                    </ion-col>
-                    <ion-col col-6>
+                    </vm-col>
+                    <vm-col col-6>
                         <div class="col-demo">2 of 3 (wider)</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col col-6>
+                    </vm-col>
+                </vm-row>
+                <vm-row>
+                    <vm-col col-6>
                         <div class="col-demo">1 of 3 (wider)</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 3</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Variable-width columns
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
+            <vm-grid>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 3</div>
-                    </ion-col>
-                    <ion-col col-auto>
+                    </vm-col>
+                    <vm-col col-auto>
                         <div class="col-demo">Variable width content</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
+                    </vm-col>
+                </vm-row>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 4</div>
-                    </ion-col>
-                    <ion-col col-auto>
-                        <div class="col-demo"><ion-icon name="globe" role="img" class="icon icon-ios ion-ios-globe" aria-label="globe"></ion-icon></div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col col-auto>
+                        <div class="col-demo"><vm-icon name="globe" role="img" class="icon icon-ios ion-ios-globe" aria-label="globe"></vm-icon></div>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Offsetting columns
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
+            <vm-grid>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col offset-4>
+                    </vm-col>
+                    <vm-col offset-4>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row>
-                    <ion-col offset-4>
+                <vm-row>
+                    <vm-col offset-4>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Push and pull
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col col-9 push-3>
+            <vm-grid>
+                <vm-row>
+                    <vm-col col-9 push-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3 pull-9>
+                    </vm-col>
+                    <vm-col col-3 pull-9>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row>
-                    <ion-col col-6 push-3>
+                <vm-row>
+                    <vm-col col-6 push-3>
                         <div class="col-demo">1 of 3</div>
-                    </ion-col>
-                    <ion-col col-3 push-3>
+                    </vm-col>
+                    <vm-col col-3 push-3>
                         <div class="col-demo">2 of 3</div>
-                    </ion-col>
-                    <ion-col col-3 pull-9>
+                    </vm-col>
+                    <vm-col col-3 pull-9>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Setting all column widths<br>
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col col-4>
+            <vm-grid>
+                <vm-row>
+                    <vm-col col-4>
                         <div class="col-demo">1 of 3</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 3</div>
-                    </ion-col>
-                    <ion-col col-5>
+                    </vm-col>
+                    <vm-col col-5>
                         <div class="col-demo">3 of 3</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Vertical alignment
             </p>
-            <ion-grid>
-                <ion-row>
-                    <ion-col>
+            <vm-grid>
+                <vm-row>
+                    <vm-col>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 4 <br>#</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 4 <br>#<br>#</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4 <br>#<br>#<br>#</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row align-items-start>
-                    <ion-col>
+                <vm-row align-items-start>
+                    <vm-col>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4 <br>#<br>#<br>#</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row align-items-center>
-                    <ion-col>
+                <vm-row align-items-center>
+                    <vm-col>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4 <br>#<br>#<br>#</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row align-items-end>
-                    <ion-col>
+                <vm-row align-items-end>
+                    <vm-col>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">2 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">3 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4 <br>#<br>#<br>#</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
-            <ion-grid>
-                <ion-row>
-                    <ion-col align-self-start>
+            <vm-grid>
+                <vm-row>
+                    <vm-col align-self-start>
                         <div class="col-demo">1 of 4</div>
-                    </ion-col>
-                    <ion-col align-self-center>
+                    </vm-col>
+                    <vm-col align-self-center>
                         <div class="col-demo">2 of 4</div>
-                    </ion-col>
-                    <ion-col align-self-end>
+                    </vm-col>
+                    <vm-col align-self-end>
                         <div class="col-demo">3 of 4</div>
-                    </ion-col>
-                    <ion-col>
+                    </vm-col>
+                    <vm-col>
                         <div class="col-demo">4 of 4 <br>#<br>#<br>#</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
             <p padding>
                 Horizontal Alignment
             </p>
-            <ion-grid>
-                <ion-row justify-content-start>
-                    <ion-col col-3>
+            <vm-grid>
+                <vm-row justify-content-start>
+                    <vm-col col-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row justify-content-center>
-                    <ion-col col-3>
+                <vm-row justify-content-center>
+                    <vm-col col-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row justify-content-end>
-                    <ion-col col-3>
+                <vm-row justify-content-end>
+                    <vm-col col-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row justify-content-around>
-                    <ion-col col-3>
+                <vm-row justify-content-around>
+                    <vm-col col-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
+                    </vm-col>
+                </vm-row>
 
-                <ion-row justify-content-between>
-                    <ion-col col-3>
+                <vm-row justify-content-between>
+                    <vm-col col-3>
                         <div class="col-demo">1 of 2</div>
-                    </ion-col>
-                    <ion-col col-3>
+                    </vm-col>
+                    <vm-col col-3>
                         <div class="col-demo">2 of 2</div>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
+                    </vm-col>
+                </vm-row>
+            </vm-grid>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 
 <style lang="scss">

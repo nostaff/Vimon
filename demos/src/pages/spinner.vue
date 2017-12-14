@@ -1,41 +1,41 @@
 <template>
-  <ion-page v-nav="{title: 'Spinner'}">
-    <ion-content class="outer-content">
+  <vm-page v-nav="{title: 'Spinner'}">
+    <vm-content class="outer-content">
 
-      <ion-list title="Spinner Loading Indicators">
-        <ion-item detail-push @click.native="showLoading('ios', 3000)">
-          <ion-spinner slot="item-start" name="ios"></ion-spinner>
+      <vm-list title="Spinner Loading Indicators">
+        <vm-item detail-push @click.native="showLoading('ios', 3000)">
+          <vm-spinner slot="item-start" name="ios"></vm-spinner>
           Show iOS
-        </ion-item>
-        <ion-item detail-push @click.native="showLoading('ios-small', 3000)">
-          <ion-spinner slot="item-start" name="ios-small"></ion-spinner>
+        </vm-item>
+        <vm-item detail-push @click.native="showLoading('ios-small', 3000)">
+          <vm-spinner slot="item-start" name="ios-small"></vm-spinner>
           Show iOS Small
-        </ion-item>
-        <ion-item detail-push @click.native="showLoading('dots', 3000)">
-          <ion-spinner slot="item-start" name="dots"></ion-spinner>
+        </vm-item>
+        <vm-item detail-push @click.native="showLoading('dots', 3000)">
+          <vm-spinner slot="item-start" name="dots"></vm-spinner>
           Show Dots
-        </ion-item>
-        <ion-item detail-push @click.native="showLoading('bubbles', 3000)">
-          <ion-spinner slot="item-start" name="bubbles"></ion-spinner>
+        </vm-item>
+        <vm-item detail-push @click.native="showLoading('bubbles', 3000)">
+          <vm-spinner slot="item-start" name="bubbles"></vm-spinner>
           Show Bubbles
-        </ion-item>
-        <ion-item detail-push @click.native="showLoading('circles', 3000)">
-          <ion-spinner slot="item-start" name="circles"></ion-spinner>
+        </vm-item>
+        <vm-item detail-push @click.native="showLoading('circles', 3000)">
+          <vm-spinner slot="item-start" name="circles"></vm-spinner>
           Show Circles
-        </ion-item>
-        <ion-item detail-push @click.native="showLoading('crescent', 3000)">
-          <ion-spinner slot="item-start" name="crescent"></ion-spinner>
+        </vm-item>
+        <vm-item detail-push @click.native="showLoading('crescent', 3000)">
+          <vm-spinner slot="item-start" name="crescent"></vm-spinner>
           Show Crescent
-        </ion-item>
-      </ion-list>
+        </vm-item>
+      </vm-list>
 
-      <ion-list title="Custom Loading Indicators">
-        <ion-item detail-push @click.native="showCustomLoading()">Show Custom</ion-item>
-        <ion-item detail-push @click.native="showLoadingText()">Show Text Only</ion-item>
-      </ion-list>
+      <vm-list title="Custom Loading Indicators">
+        <vm-item detail-push @click.native="showCustomLoading()">Show Custom</vm-item>
+        <vm-item detail-push @click.native="showLoadingText()">Show Text Only</vm-item>
+      </vm-list>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 
 <script>

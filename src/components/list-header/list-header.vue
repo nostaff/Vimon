@@ -3,9 +3,9 @@
     <div class="item-inner">
       <div class="input-wrapper">
         <slot name="item-label"></slot>
-        <ion-label ref="label" v-if="noItemLabel">
+        <vm-label ref="label" v-if="noItemLabel">
           <slot></slot>
-        </ion-label>
+        </vm-label>
       </div>
       <slot name="item-end"></slot>
     </div>
@@ -13,11 +13,11 @@
 </template>
 <script>
 import ModeMixins from '../../themes/theme.mixins'
-import IonLabel from '../label'
+import VmLabel from '../label'
 
 export default {
-  name: 'ion-list-header',
-  components: { IonLabel },
+  name: 'vm-list-header',
+  components: { VmLabel },
   mixins: [ModeMixins],
 
   data () {

@@ -7,7 +7,7 @@
   import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-    name: 'ion-card-content',
+    name: 'vm-card-content',
     mixins: [ModeMixins],
     created () {
       if (!this.$parent || this.$parent.$options.name !== 'ion-card') {

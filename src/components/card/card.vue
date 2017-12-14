@@ -7,7 +7,7 @@
   import ModeMixins from '../../themes/theme.mixins'
 
   export default {
-    name: 'ion-card',
+    name: 'vm-card',
     mixins: [ModeMixins]
   }
 </script>

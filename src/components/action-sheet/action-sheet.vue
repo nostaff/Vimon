@@ -1,6 +1,6 @@
 <template>
   <div role="dialog" :class="['ion-action-sheet', modeClass, cssClass]" style="z-index: 10001;">
-    <ion-backdrop @click.native="bdClick()" :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated"></ion-backdrop>
+    <vm-backdrop @click.native="bdClick()" :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated"></vm-backdrop>
     <transition name="action-sheet-fade"
         @before-enter="beforeEnter"
         @after-enter="afterEnter"
@@ -13,16 +13,16 @@
               <span>{{title}}</span>
               <div class="action-sheet-sub-title">{{subTitle}}</div>
             </div>
-            <ion-button role="action-sheet-button" :key="index" v-for="(button, index) in buttons" :disabled="button.disabled" :class="button.cssClass" @click.native="dismiss(index, button.disabled)">
-              <ion-icon class="action-sheet-icon icon" :name="button.icon" v-if="button.icon"></ion-icon>
+            <vm-button role="action-sheet-button" :key="index" v-for="(button, index) in buttons" :disabled="button.disabled" :class="button.cssClass" @click.native="dismiss(index, button.disabled)">
+              <vm-icon class="action-sheet-icon icon" :name="button.icon" v-if="button.icon"></vm-icon>
               {{button.text}}
-            </ion-button>
+            </vm-button>
           </div>
           <div class="action-sheet-group">
-            <ion-button role="action-sheet-button" class="action-sheet-cancel" :class="cancelButton.cssClass" :disabled="cancelButton.disabled" @click.native="dismiss(-1, cancelButton.disabled)">
-              <ion-icon class="action-sheet-icon icon" :name="cancelButton.icon" v-if="cancelButton.icon"></ion-icon>
+            <vm-button role="action-sheet-button" class="action-sheet-cancel" :class="cancelButton.cssClass" :disabled="cancelButton.disabled" @click.native="dismiss(-1, cancelButton.disabled)">
+              <vm-icon class="action-sheet-icon icon" :name="cancelButton.icon" v-if="cancelButton.icon"></vm-icon>
               {{cancelButton.text}}
-            </ion-button>
+            </vm-button>
           </div>
         </div>
       </div>
@@ -33,17 +33,17 @@
 import {urlChange, focusOutActiveElement} from '../../util/dom'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop'
-import IonButton from '../button'
-import IonIcon from '../icon'
+import VmBackdrop from '../backdrop'
+import VmButton from '../button'
+import VmIcon from '../icon'
 
 export default {
-  name: 'ion-action-sheet',
+  name: 'vm-action-sheet',
   mixins: [ModeMixins],
   components: {
-    IonButton,
-    IonBackdrop,
-    IonIcon
+    VmButton,
+    VmBackdrop,
+    VmIcon
   },
   data () {
     return {

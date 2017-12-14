@@ -1,227 +1,227 @@
 <template>
-    <ion-page v-nav="{title: 'List'}">
-        <ion-content class="outer-content">
+    <vm-page v-nav="{title: 'List'}">
+        <vm-content class="outer-content">
 
-            <ion-list>
-                <ion-list-header>
+            <vm-list>
+                <vm-list-header>
                     Settings
-                    <ion-button clear icon-only slot="item-end">
-                        <ion-icon name="cog"></ion-icon>
-                    </ion-button>
-                </ion-list-header>
-                <ion-item-group>
-                <ion-item>
-                    <ion-icon name="plane" slot="item-start" color="danger"></ion-icon>
-                    <ion-label slot="item-label">Airplane Mode</ion-label>
-                    <ion-toggle slot="item-end" color="secondary"></ion-toggle>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="wifi" slot="item-start" color="primary"></ion-icon>
-                    <ion-label slot="item-label">Wi-Fi</ion-label>
-                    <ion-note slot="item-end">The Interwebz</ion-note>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="bluetooth" slot="item-start" color="primary"></ion-icon>
-                    <ion-label slot="item-label">Bluetooth</ion-label>
-                    <ion-note slot="item-end">Off</ion-note>
-                </ion-item>
-                </ion-item-group>
-                <ion-item-divider color="primary">
+                    <vm-button clear icon-only slot="item-end">
+                        <vm-icon name="cog"></vm-icon>
+                    </vm-button>
+                </vm-list-header>
+                <vm-item-group>
+                <vm-item>
+                    <vm-icon name="plane" slot="item-start" color="danger"></vm-icon>
+                    <vm-label slot="item-label">Airplane Mode</vm-label>
+                    <vm-toggle slot="item-end" color="secondary"></vm-toggle>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="wifi" slot="item-start" color="primary"></vm-icon>
+                    <vm-label slot="item-label">Wi-Fi</vm-label>
+                    <vm-note slot="item-end">The Interwebz</vm-note>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="bluetooth" slot="item-start" color="primary"></vm-icon>
+                    <vm-label slot="item-label">Bluetooth</vm-label>
+                    <vm-note slot="item-end">Off</vm-note>
+                </vm-item>
+                </vm-item-group>
+                <vm-item-divider color="primary">
                     Other Settings
-                    <ion-button slot="item-end" outline color="light">Clear</ion-button>
-                </ion-item-divider>
-                <ion-item>
-                    <ion-icon name="call" slot="item-start" color="secondary"></ion-icon>
-                    <ion-label slot="item-label">Cellular</ion-label>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="link" slot="item-start" color="secondary"></ion-icon>
-                    <ion-label slot="item-label">Personal Hotspot</ion-label>
-                    <ion-note slot="item-end">Off</ion-note>
-                </ion-item>
-            </ion-list>
-            <ion-list radio-group>
-                <ion-list-header>
+                    <vm-button slot="item-end" outline color="light">Clear</vm-button>
+                </vm-item-divider>
+                <vm-item>
+                    <vm-icon name="call" slot="item-start" color="secondary"></vm-icon>
+                    <vm-label slot="item-label">Cellular</vm-label>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="link" slot="item-start" color="secondary"></vm-icon>
+                    <vm-label slot="item-label">Personal Hotspot</vm-label>
+                    <vm-note slot="item-end">Off</vm-note>
+                </vm-item>
+            </vm-list>
+            <vm-list radio-group>
+                <vm-list-header>
                     Silence Phone
-                </ion-list-header>
-                <ion-item>
-                    <ion-label slot="item-label" color="dark">Always</ion-label>
-                    <ion-radio slot="item-content" value="always" checked></ion-radio>
-                </ion-item>
-                <ion-item>
-                    <ion-label slot="item-label" color="dark">Only while phone is locked</ion-label>
-                    <ion-radio slot="item-content" value="locked"></ion-radio>
-                </ion-item>
-            </ion-list>
-            <ion-list>
-                <ion-list-header>
+                </vm-list-header>
+                <vm-item>
+                    <vm-label slot="item-label" color="dark">Always</vm-label>
+                    <vm-radio slot="item-content" value="always" checked></vm-radio>
+                </vm-item>
+                <vm-item>
+                    <vm-label slot="item-label" color="dark">Only while phone is locked</vm-label>
+                    <vm-radio slot="item-content" value="locked"></vm-radio>
+                </vm-item>
+            </vm-list>
+            <vm-list>
+                <vm-list-header>
                     Apps Installed
-                </ion-list-header>
-                <ion-item>
-                    <ion-icon name="ionic" slot="item-start" color="primary"></ion-icon>
-                    <ion-label slot="item-label">Ionic View</ion-label>
-                    <ion-button outline slot="item-end">Uninstall</ion-button>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="brush" slot="item-start" color="primary"></ion-icon>
-                    <ion-label slot="item-label">Ionic Creator</ion-label>
-                    <ion-button outline slot="item-end">Uninstall</ion-button>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="logo-octocat" slot="item-start" color="dark"></ion-icon>
-                    <ion-label slot="item-label">Hubstruck</ion-label>
-                    <ion-button outline slot="item-end">Uninstall</ion-button>
-                </ion-item>
-                <ion-item>
-                    <ion-icon name="paw" slot="item-start" color="danger"></ion-icon>
-                    <ion-label slot="item-label">Barkpark</ion-label>
-                    <ion-button outline slot="item-end">Uninstall</ion-button>
-                </ion-item>
-            </ion-list>
+                </vm-list-header>
+                <vm-item>
+                    <vm-icon name="ionic" slot="item-start" color="primary"></vm-icon>
+                    <vm-label slot="item-label">Ionic View</vm-label>
+                    <vm-button outline slot="item-end">Uninstall</vm-button>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="brush" slot="item-start" color="primary"></vm-icon>
+                    <vm-label slot="item-label">Ionic Creator</vm-label>
+                    <vm-button outline slot="item-end">Uninstall</vm-button>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="logo-octocat" slot="item-start" color="dark"></vm-icon>
+                    <vm-label slot="item-label">Hubstruck</vm-label>
+                    <vm-button outline slot="item-end">Uninstall</vm-button>
+                </vm-item>
+                <vm-item>
+                    <vm-icon name="paw" slot="item-start" color="danger"></vm-icon>
+                    <vm-label slot="item-label">Barkpark</vm-label>
+                    <vm-button outline slot="item-end">Uninstall</vm-button>
+                </vm-item>
+            </vm-list>
 
 
-            <ion-list title="Item Group">
-                <ion-item-group title="A" color="primary">
-                    <ion-item>
-                        <ion-label slot="item-label">AngolaAngola00000</ion-label>
-                    </ion-item>
-                    <ion-item>Angola</ion-item>
-                    <ion-item>Argentina</ion-item>
-                </ion-item-group>
+            <vm-list title="Item Group">
+                <vm-item-group title="A" color="primary">
+                    <vm-item>
+                        <vm-label slot="item-label">AngolaAngola00000</vm-label>
+                    </vm-item>
+                    <vm-item>Angola</vm-item>
+                    <vm-item>Argentina</vm-item>
+                </vm-item-group>
 
-                <ion-item-group title="B" color="secondary">
-                    <ion-item>Angola</ion-item>
-                    <ion-item>Argentina</ion-item>
-                    <ion-item>Angola</ion-item>
-                </ion-item-group>
-            </ion-list>
+                <vm-item-group title="B" color="secondary">
+                    <vm-item>Angola</vm-item>
+                    <vm-item>Argentina</vm-item>
+                    <vm-item>Angola</vm-item>
+                </vm-item-group>
+            </vm-list>
 
-            <ion-list title="Inset" inset>
-                <ion-item>Terminator II</ion-item>
-                <ion-item>The Empire Strikes Back</ion-item>
-                <ion-item>Blade Runner</ion-item>
-            </ion-list>
+            <vm-list title="Inset" inset>
+                <vm-item>Terminator II</vm-item>
+                <vm-item>The Empire Strikes Back</vm-item>
+                <vm-item>Blade Runner</vm-item>
+            </vm-list>
 
-            <ion-list title="no lines" no-lines>
-                <ion-item>
+            <vm-list title="no lines" no-lines>
+                <vm-item>
                     小标题
-                </ion-item>
-                <ion-item>
+                </vm-item>
+                <vm-item>
                     正文
-                    <ion-note slot="item-end">note</ion-note>
-                </ion-item>
-                <ion-item  detail-push>
+                    <vm-note slot="item-end">note</vm-note>
+                </vm-item>
+                <vm-item  detail-push>
                     文字
-                    <ion-note slot="item-end">note</ion-note>
-                </ion-item>
-                <ion-item link="/home">
+                    <vm-note slot="item-end">note</vm-note>
+                </vm-item>
+                <vm-item link="/home">
                     带link的文字
-                    <ion-note slot="item-end">note</ion-note>
-                </ion-item>
+                    <vm-note slot="item-end">note</vm-note>
+                </vm-item>
 
-                <ion-item>
+                <vm-item>
                     带badge的文字
-                    <ion-badge slot="item-end" color="primary">5</ion-badge>
-                </ion-item>
-            </ion-list>
+                    <vm-badge slot="item-end" color="primary">5</vm-badge>
+                </vm-item>
+            </vm-list>
 
-            <ion-list>
-                <ion-item>
-                    <ion-icon slot="item-start" name="leaf"></ion-icon>
+            <vm-list>
+                <vm-item>
+                    <vm-icon slot="item-start" name="leaf"></vm-icon>
                     Herbology
-                    <ion-icon slot="item-end" name="rose"></ion-icon>
-                </ion-item>
-            </ion-list>
+                    <vm-icon slot="item-end" name="rose"></vm-icon>
+                </vm-item>
+            </vm-list>
 
-            <ion-list title="Multi Lines">
-                <ion-item detail-push>
-                    <ion-avatar slot="item-start">
+            <vm-list title="Multi Lines">
+                <vm-item detail-push>
+                    <vm-avatar slot="item-start">
                         <img src="http://ionicframework.com/dist/preview-app/www/assets/img/spengler.jpg">
-                    </ion-avatar>
+                    </vm-avatar>
                     <h2>Cher</h2>
                     <p>Ugh. As if.</p>
-                </ion-item>
-                <ion-item>
-                    <ion-avatar slot="item-start">
+                </vm-item>
+                <vm-item>
+                    <vm-avatar slot="item-start">
                         <img src="http://ionicframework.com/dist/preview-app/www/assets/img/spengler.jpg">
-                    </ion-avatar>
+                    </vm-avatar>
                     <h2>Finn</h2>
                     <h3>Don't Know What To Do!</h3>
                     <p>I've had a pretty messed up day. If we just...</p>
-                </ion-item>
-                <ion-item>
-                    <ion-thumbnail slot="item-start">
+                </vm-item>
+                <vm-item>
+                    <vm-thumbnail slot="item-start">
                         <img src="http://ionicframework.com/dist/preview-app/www/assets/img/thumbnail-rotla.png">
-                    </ion-thumbnail>
+                    </vm-thumbnail>
                     <h2>My Neighbor Totoro</h2>
                     <p>Hayao Miyazaki • 1988</p>
-                    <ion-button slot="item-end">View</ion-button>
-                </ion-item>
-                <ion-item is-link>
-                    <ion-thumbnail slot="item-start">
+                    <vm-button slot="item-end">View</vm-button>
+                </vm-item>
+                <vm-item is-link>
+                    <vm-thumbnail slot="item-start">
                         <img src="http://ionicframework.com/img/docs/siamese-dream.jpg">
-                    </ion-thumbnail>
+                    </vm-thumbnail>
                     <h2>Pretty Hate Machine</h2>
                     <p>Nine Inch Nails</p>
-                    <ion-button slot="item-end" clear>View</ion-button>
-                </ion-item>
-            </ion-list>
+                    <vm-button slot="item-end" clear>View</vm-button>
+                </vm-item>
+            </vm-list>
 
-            <ion-list title="item sliding">
-                <ion-item-sliding :key="index" v-for="(chat, index) in chats" key="index">
-                    <ion-item>
-                        <ion-avatar slot="item-start">
+            <vm-list title="item sliding">
+                <vm-item-sliding :key="index" v-for="(chat, index) in chats" key="index">
+                    <vm-item>
+                        <vm-avatar slot="item-start">
                             <img :src="chat.img">
-                        </ion-avatar>
+                        </vm-avatar>
                         <h2>{{chat.name}}</h2>
                         <p>{{chat.message}}</p>
-                        <ion-note  slot="item-end">
+                        <vm-note  slot="item-end">
                             {{chat.time}}
-                        </ion-note>
-                    </ion-item>
-                    <ion-item-options>
-                        <ion-button color="secondary" @click.native="optionClicked($event)">
-                            <ion-icon name="menu"></ion-icon>
+                        </vm-note>
+                    </vm-item>
+                    <vm-item-options>
+                        <vm-button color="secondary" @click.native="optionClicked($event)">
+                            <vm-icon name="menu"></vm-icon>
                             More
-                        </ion-button>
-                        <ion-button color="dark" @click.native="optionClicked($event)">
-                            <ion-icon name="volume-off"></ion-icon>
+                        </vm-button>
+                        <vm-button color="dark" @click.native="optionClicked($event)">
+                            <vm-icon name="volume-off"></vm-icon>
                             Mute
-                        </ion-button>
-                        <ion-button color="danger" @click.native="optionClicked($event)">
-                            <ion-icon name="trash"></ion-icon>
+                        </vm-button>
+                        <vm-button color="danger" @click.native="optionClicked($event)">
+                            <vm-icon name="trash"></vm-icon>
                             Delete
-                        </ion-button>
-                    </ion-item-options>
-                    <ion-item-options side="left">
-                        <ion-button color="primary" @click.native="optionClicked($event)">
-                            <ion-icon name="archive"></ion-icon>
+                        </vm-button>
+                    </vm-item-options>
+                    <vm-item-options side="left">
+                        <vm-button color="primary" @click.native="optionClicked($event)">
+                            <vm-icon name="archive"></vm-icon>
                             Archive
-                        </ion-button>
-                    </ion-item-options>
-                </ion-item-sliding>
-            </ion-list>
+                        </vm-button>
+                    </vm-item-options>
+                </vm-item-sliding>
+            </vm-list>
 
-            <ion-list class="chat-sliding-demo">
-                <ion-list-header>
+            <vm-list class="chat-sliding-demo">
+                <vm-list-header>
                     Reorder
-                    <ion-button slot="item-end" outline @click.native="toggleEdit()">{{editButton}}</ion-button>
-                </ion-list-header>
-                <ion-item-group reorder="true" :reorderEnabled="editing" @onItemReorder="reorderData($event)">
-                    <ion-item :key="song" v-for="song in songs">
+                    <vm-button slot="item-end" outline @click.native="toggleEdit()">{{editButton}}</vm-button>
+                </vm-list-header>
+                <vm-item-group reorder="true" :reorderEnabled="editing" @onItemReorder="reorderData($event)">
+                    <vm-item :key="song" v-for="song in songs">
                         <h2>{{ song.title }}</h2>
                         <p>{{ song.band }} • {{ song.album }}</p>
-                    </ion-item>
-                </ion-item-group>
-            </ion-list>
-        </ion-content>
+                    </vm-item>
+                </vm-item-group>
+            </vm-list>
+        </vm-content>
 
-        <ion-footer>
-            <ion-toolbar>
-                <ion-title>Scrolls with the content</ion-title>
-            </ion-toolbar>
-        </ion-footer>
-    </ion-page>
+        <vm-footer>
+            <vm-toolbar>
+                <vm-title>Scrolls with the content</vm-title>
+            </vm-toolbar>
+        </vm-footer>
+    </vm-page>
 </template>
 
 

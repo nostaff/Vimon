@@ -4,7 +4,7 @@
 export default {
   data () {
     return {
-      roleName: this.$options.name.replace('ion-', '')
+      roleName: this.$options.name.replace('vm-', '')
     }
   },
   props: {

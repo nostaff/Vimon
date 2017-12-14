@@ -4,7 +4,7 @@
       <div class="toast-wrapper" :class="['toast-'+position]" v-show="activated">
         <div class="toast-container">
           <div class="toast-message" v-if="message">{{message}}</div>
-          <ion-button class="toast-button" clear v-if="showCloseButton" @click.native="closeButtonClick()">{{closeButtonText}}</ion-button>
+          <vm-button class="toast-button" clear v-if="showCloseButton" @click.native="closeButtonClick()">{{closeButtonText}}</vm-button>
         </div>
       </div>
     </transition>
@@ -15,14 +15,14 @@
   import {isFunction, isNumber, isTrueProperty} from '../../util/util'
   import objectAssign from 'object-assign'
   import ModeMixins from '../../themes/theme.mixins'
-  import IonButton from '../button'
+  import VmButton from '../button'
 
   let zIndex = 20001
   export default {
-    name: 'ion-toast',
+    name: 'vm-toast',
     mixins: [ModeMixins],
     components: {
-      IonButton
+      VmButton
     },
     data () {
       return {

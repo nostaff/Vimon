@@ -30,7 +30,7 @@ import {isTrueProperty, isPresent} from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-  name: 'ion-segment-button',
+  name: 'vm-segment-button',
   mixins: [ModeMixins],
   inject: {
     segmentComponent: {
@@ -61,7 +61,7 @@ export default {
   },
   created () {
     if (!isPresent(this.value)) {
-      console.warn('<ion-segment-button> requires a "value" attribute')
+      console.warn('<vm-segment-button> requires a "value" attribute')
     }
 
     if (!isPresent(this.segmentComponent)) {

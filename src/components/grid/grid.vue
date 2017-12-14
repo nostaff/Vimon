@@ -92,7 +92,7 @@
    * </Grid>
    */
   export default {
-    name: 'ion-grid'
+    name: 'vm-grid'
   }
 </script>
 

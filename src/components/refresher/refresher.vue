@@ -4,13 +4,13 @@
       <div class="ion-refresher-content">
         <div class="refresher-pulling">
           <div class="refresher-pulling-icon" v-if="pullingIcon">
-            <ion-icon :name="pullingIcon"></ion-icon>
+            <vm-icon :name="pullingIcon"></vm-icon>
           </div>
           <div class="refresher-pulling-text" v-html="pullingText" v-if="pullingText"></div>
         </div>
         <div class="refresher-refreshing">
           <div class="refresher-refreshing-icon">
-            <ion-spinner :name="refreshingSpinner"></ion-spinner>
+            <vm-spinner :name="refreshingSpinner"></vm-spinner>
           </div>
           <div class="refresher-refreshing-text" v-html="refreshingText" v-if="refreshingText"></div>
         </div>
@@ -90,8 +90,8 @@
 import { pointerCoord, registerListener } from '../../util/dom'
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-import IonIcon from '../icon'
-import IonSpinner from '../spinner'
+import VmIcon from '../icon'
+import VmSpinner from '../spinner'
 
 const STATE_INACTIVE = 'inactive'
 const STATE_PULLING = 'pulling'
@@ -101,12 +101,12 @@ const STATE_CANCELLING = 'cancelling'
 const STATE_COMPLETING = 'completing'
 
 export default {
-  name: 'ion-refresher',
+  name: 'vm-refresher',
   mixins: [ModeMixins],
   inject: ['contentComponent', 'appComponent'],
   components: {
-    IonSpinner,
-    IonIcon
+    VmSpinner,
+    VmIcon
   },
   data () {
     return {

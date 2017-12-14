@@ -8,7 +8,7 @@
   import ModeMixins from '../../themes/theme.mixins'
 
   export default {
-    name: 'ion-badge',
+    name: 'vm-badge',
     mixins: [ModeMixins]
   }
 </script>

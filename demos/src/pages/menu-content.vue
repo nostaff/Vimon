@@ -1,15 +1,15 @@
 <template>
-  <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-title>Menu 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <vm-header>
+    <vm-toolbar color="secondary">
+      <vm-title>Menu 1</vm-title>
+    </vm-toolbar>
+  </vm-header>
 
-  <ion-content>
-    <ion-list>
-      <ion-button ion-item menuClose="menu1" detail-none>
+  <vm-content>
+    <vm-list>
+      <vm-button ion-item menuClose="menu1" detail-none>
         Close Menu 1
-      </ion-button>
-    </ion-list>
-  </ion-content>
+      </vm-button>
+    </vm-list>
+  </vm-content>
 </template>

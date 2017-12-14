@@ -12,7 +12,7 @@
 <script>
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-toolbar',
+  name: 'vm-toolbar',
   mixins: [ModeMixins],
   provide () {
     const _this = this

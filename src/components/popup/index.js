@@ -10,7 +10,7 @@ const extend = (target, source) => {
   return target
 }
 
-class IonPopup {
+class VmPopup {
   constructor () {
     this._vm = undefined
   }
@@ -82,4 +82,4 @@ class IonPopup {
   }
 }
 
-export default new IonPopup()
+export default new VmPopup()

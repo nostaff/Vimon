@@ -1,14 +1,12 @@
 <template>
   <div class="ion-item" :class="[itemClass, itemTypeClass, colorClass]" @click="clickHandler($event)">
-    <!--以下组件显示在此处：[item-start],ion-checkbox:not([item-end])-->
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
         <slot></slot>
       </div>
-      <!--以下组件显示在此处：[item-end],ion-radio,ion-toggle-->
       <slot name="item-end">
-        <ion-reorder v-if="hasReorder"></ion-reorder>
+        <template v-if="hasReorder"></slot>
       </slot>
     </div>
   </div>
@@ -16,8 +14,21 @@
 
 <script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
+import VmReorder from '../item-reorder'
+import VmLabel from '../label'
+
 export default {
   mixins: [ModeMixins],
+  components: {
+    VmLabel,
+    VmReorder
+  },
+  provide () {
+    const _this = this
+    return {
+      itemComponent: _this
+    }
+  },
   data () {
     return {
       hasReorder: false

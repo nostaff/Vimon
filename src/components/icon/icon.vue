@@ -7,7 +7,7 @@ import ModeMixins from '../../themes/theme.mixins'
 import 'ionicons/dist/css/ionicons.css'
 
 export default {
-  name: 'ion-icon',
+  name: 'vm-icon',
   mixins: [ModeMixins],
   inject: {
     itemComponent: {

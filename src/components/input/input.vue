@@ -16,10 +16,10 @@
            @focus="onFocus($event)"
            @input="onInput($event)">
 
-    <ion-button v-if="isClearInput"
+    <vm-button v-if="isClearInput"
                 class="text-input-clear-icon"
                 @click.native="clearTextInput($event)"
-                clear></ion-button>
+                clear></vm-button>
   </div>
 </template>
 
@@ -27,10 +27,10 @@
 import {isTrueProperty} from '../../util/util'
 import {hasFocus} from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
-import IonButton from '../button'
+import VmButton from '../button'
 
 export default {
-  name: 'ion-input',
+  name: 'vm-input',
   mixins: [ModeMixins],
   inject: {
     itemComponent: {
@@ -39,7 +39,7 @@ export default {
     }
   },
   components: {
-    IonButton
+    VmButton
   },
   data () {
     return {

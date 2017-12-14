@@ -1,17 +1,17 @@
 <template>
-    <ion-page v-nav="{title: 'Infinite Scroll'}">
-        <ion-content>
-            <ion-list>
-                <ion-item v-for="(item,index) in items" :key="index">{{item}}</ion-item>
-            </ion-list>
+    <vm-page v-nav="{title: 'Infinite Scroll'}">
+        <vm-content>
+            <vm-list>
+                <vm-item v-for="(item,index) in items" :key="index">{{item}}</vm-item>
+            </vm-list>
 
-            <ion-infinite-scroll @onInfinite="doInfinite($event)"
+            <vm-infinite-scroll @onInfinite="doInfinite($event)"
                                  threshold="100px"
                                  loadingSpinner="bubbles"
                                  loadingText="Loading more data...">
-            </ion-infinite-scroll>
-        </ion-content>
-    </ion-page>
+            </vm-infinite-scroll>
+        </vm-content>
+    </vm-page>
 </template>
 
 <script type="text/javascript">

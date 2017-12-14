@@ -165,7 +165,7 @@ const SPINNERS = {
 }
 
 export default {
-  name: 'ion-spinner',
+  name: 'vm-spinner',
   mixins: [ModeMixins],
   props: {
     name: {

@@ -8,7 +8,7 @@
        @mousemove="pointerMove($event)"
        @mouseup="pointerUp($event)">
     <slot name="range-left">
-      <ion-label range-left>{{min}}</ion-label>
+      <vm-label range-left>{{min}}</vm-label>
     </slot>
     <div class="range-slider">
       <div class="range-tick" :class="{'range-tick-active':tick.active}" role="presentation" v-for="(tick, index) in ticks" :key="index" :style="'left:'+tick.left" v-if="snaps"></div>
@@ -24,7 +24,7 @@
       </div>
     </div>
     <slot name="range-right">
-      <ion-label range-right>{{max}}</ion-label>
+      <vm-label range-right>{{max}}</vm-label>
     </slot>
   </div>
 </template>
@@ -70,7 +70,7 @@
  */
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-range',
+  name: 'vm-range',
   mixins: [ModeMixins],
   data () {
     return {

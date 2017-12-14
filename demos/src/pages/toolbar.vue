@@ -1,138 +1,138 @@
 <template>
-  <ion-page v-nav="{title: 'Toolbar'}">
+  <vm-page v-nav="{title: 'Toolbar'}">
 
-    <ion-content>
-      <ion-toolbar no-border-top>
-        <ion-title>Long title that never ends. It just goes on and on my friend.</ion-title>
-      </ion-toolbar>
+    <vm-content>
+      <vm-toolbar no-border-top>
+        <vm-title>Long title that never ends. It just goes on and on my friend.</vm-title>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-buttons slot="item-start">
-          <ion-button icon-only>
-            <ion-icon name="contact"></ion-icon>
-          </ion-button>
-          <ion-button icon-only>
-            <ion-icon name="search"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="item-end">
-          <ion-button icon-only>
-            <ion-icon name="more"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Default Buttons</ion-title>
-      </ion-toolbar>
+      <vm-toolbar no-border-top>
+        <vm-buttons slot="item-start">
+          <vm-button icon-only>
+            <vm-icon name="contact"></vm-icon>
+          </vm-button>
+          <vm-button icon-only>
+            <vm-icon name="search"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-buttons slot="item-end">
+          <vm-button icon-only>
+            <vm-icon name="more"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-title>Default Buttons</vm-title>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-buttons slot="item-start">
-          <ion-button icon-only color="danger">
-            <ion-icon name="contact"></ion-icon>
-          </ion-button>
-          <ion-button icon-only color="secondary">
-            <ion-icon name="search"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="item-end">
-          <ion-button icon-only color="dark">
-            <ion-icon name="more"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Colored Buttons</ion-title>
-      </ion-toolbar>
+      <vm-toolbar no-border-top>
+        <vm-buttons slot="item-start">
+          <vm-button icon-only color="danger">
+            <vm-icon name="contact"></vm-icon>
+          </vm-button>
+          <vm-button icon-only color="secondary">
+            <vm-icon name="search"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-buttons slot="item-end">
+          <vm-button icon-only color="dark">
+            <vm-icon name="more"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-title>Colored Buttons</vm-title>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-buttons slot="item-start">
-          <ion-button icon-only solid>
-            <ion-icon name="contact"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Solid</ion-title>
-        <ion-buttons slot="item-end">
-          <ion-button icon-end solid color="secondary">
+      <vm-toolbar no-border-top>
+        <vm-buttons slot="item-start">
+          <vm-button icon-only solid>
+            <vm-icon name="contact"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-title>Solid</vm-title>
+        <vm-buttons slot="item-end">
+          <vm-button icon-end solid color="secondary">
             Help
-            <ion-icon name="help-circle"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </ion-toolbar>
+            <vm-icon name="help-circle"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-buttons slot="item-start">
-          <ion-button icon-only outline>
-            <ion-icon name="contact"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="item-end">
-          <ion-button icon-end outline color="secondary">
+      <vm-toolbar no-border-top>
+        <vm-buttons slot="item-start">
+          <vm-button icon-only outline>
+            <vm-icon name="contact"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-buttons slot="item-end">
+          <vm-button icon-end outline color="secondary">
             Help
-            <ion-icon name="help-circle"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>Outline</ion-title>
-      </ion-toolbar>
+            <vm-icon name="help-circle"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-title>Outline</vm-title>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-button icon-only menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </ion-button>
-        <ion-title>Left Menu</ion-title>
-      </ion-toolbar>
+      <vm-toolbar no-border-top>
+        <vm-button icon-only menuToggle>
+          <vm-icon name="menu"></vm-icon>
+        </vm-button>
+        <vm-title>Left Menu</vm-title>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-title>Right Menu</ion-title>
-        <ion-button menuToggle slot="item-end">
-          <ion-icon name="menu"></ion-icon>
-        </ion-button>
-      </ion-toolbar>
+      <vm-toolbar no-border-top>
+        <vm-title>Right Menu</vm-title>
+        <vm-button menuToggle slot="item-end">
+          <vm-icon name="menu"></vm-icon>
+        </vm-button>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-buttons end>
-          <ion-button icon-only>
-            <ion-icon name="search"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-segment color="danger" v-model="favorites">
-          <ion-segment-button value="featured">
+      <vm-toolbar no-border-top>
+        <vm-buttons end>
+          <vm-button icon-only>
+            <vm-icon name="search"></vm-icon>
+          </vm-button>
+        </vm-buttons>
+        <vm-segment color="danger" v-model="favorites">
+          <vm-segment-button value="featured">
             Featured
-          </ion-segment-button>
-          <ion-segment-button value="recent">
+          </vm-segment-button>
+          <vm-segment-button value="recent">
             Recent
-          </ion-segment-button>
-        </ion-segment>
-      </ion-toolbar>
+          </vm-segment-button>
+        </vm-segment>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-segment v-model="apps">
-          <ion-segment-button value="paid">
+      <vm-toolbar no-border-top>
+        <vm-segment v-model="apps">
+          <vm-segment-button value="paid">
             Paid
-          </ion-segment-button>
-          <ion-segment-button value="free">
+          </vm-segment-button>
+          <vm-segment-button value="free">
             Free
-          </ion-segment-button>
-          <ion-segment-button value="top">
+          </vm-segment-button>
+          <vm-segment-button value="top">
             Top
-          </ion-segment-button>
-        </ion-segment>
-      </ion-toolbar>
+          </vm-segment-button>
+        </vm-segment>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top>
-        <ion-searchbar></ion-searchbar>
-      </ion-toolbar>
+      <vm-toolbar no-border-top>
+        <vm-searchbar></vm-searchbar>
+      </vm-toolbar>
 
-      <ion-toolbar no-border-top color="primary">
-        <ion-searchbar></ion-searchbar>
-      </ion-toolbar>
+      <vm-toolbar no-border-top color="primary">
+        <vm-searchbar></vm-searchbar>
+      </vm-toolbar>
 
-    </ion-content>
+    </vm-content>
 
-    <ion-footer>
+    <vm-footer>
 
-      <ion-toolbar>
-        <ion-title>I'm a footer</ion-title>
-      </ion-toolbar>
+      <vm-toolbar>
+        <vm-title>I'm a footer</vm-title>
+      </vm-toolbar>
 
-    </ion-footer>
+    </vm-footer>
 
-  </ion-page>
+  </vm-page>
 </template>
 <script>
 export default {

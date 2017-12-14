@@ -7,7 +7,7 @@
 <script>
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-chip',
+  name: 'vm-chip',
   mixins: [ModeMixins]
 }
 </script>

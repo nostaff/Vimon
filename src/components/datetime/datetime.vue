@@ -8,11 +8,11 @@
        :max="max">
     <div v-if="!text" class="datetime-text datetime-placeholder">{{placeholder}}</div>
     <div v-if="text" class="datetime-text">{{text}}</div>
-    <ion-button type="button"
+    <vm-button type="button"
                :id="_uid"
                role="item-cover"
                class="item-cover">
-    </ion-button>
+    </vm-button>
   </div>
 </template>
 
@@ -20,7 +20,7 @@
   import { isBlank, isPresent, isTrueProperty, isArray, isString } from '../../util/util'
   import ModeMixins from '../../themes/theme.mixins'
   import Picker from '../picker'
-  import IonButton from '../button'
+  import VmButton from '../button'
   import {
     dateValueRange,
     renderDateTime,
@@ -39,9 +39,9 @@
   const DEFAULT_FORMAT = 'MMM D, YYYY'
   // const DEFAULT_FORMAT = 'YYYY/MM/DD'
   export default {
-    name: 'ion-datetime',
+    name: 'vm-datetime',
     mixins: [ModeMixins],
-    components: {IonButton},
+    components: {VmButton},
     data () {
       return {
         itemComponent: null, // 父组件Item实例

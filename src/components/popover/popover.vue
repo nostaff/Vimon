@@ -1,8 +1,8 @@
 <template>
   <div class="ion-popover" :class="[modeClass, cssClass]" style="z-index: 9999;">
-    <ion-backdrop
+    <vm-backdrop
         :enableBackdropDismiss="enableBackdropDismiss"
-        v-if="showBackdrop" v-show="activated" @click.native="bdClick()"></ion-backdrop>
+        v-if="showBackdrop" v-show="activated" @click.native="bdClick()"></vm-backdrop>
     <transition name="popover-fade">
       <div class="popover-wrapper" v-show="activated">
         <div class="popover-arrow" ref="popoverArrow"></div>
@@ -87,16 +87,16 @@ import {isTrueProperty} from '../../util/util'
 import {urlChange} from '../../util/dom'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop'
+import VmBackdrop from '../backdrop'
 
 const POPOVER_IOS_BODY_PADDING = 2
 const POPOVER_MD_BODY_PADDING = 12
 
 export default {
-  name: 'ion-popover',
+  name: 'vm-popover',
   mixins: [ModeMixins],
   components: {
-    IonBackdrop
+    VmBackdrop
   },
   data () {
     return {

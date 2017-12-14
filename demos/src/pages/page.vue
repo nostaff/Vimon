@@ -1,24 +1,24 @@
 <template>
-    <ion-page>
-        <ion-header>
-            <ion-navbar :color="color" title="Page"></ion-navbar>
-        </ion-header>
+    <vm-page>
+        <vm-header>
+            <vm-navbar :color="color" title="Page"></vm-navbar>
+        </vm-header>
 
-        <ion-content>
-            <ion-radio-group title="Navbar Color" :options="colors" v-model="color"></ion-radio-group>
+        <vm-content>
+            <vm-radio-group title="Navbar Color" :options="colors" v-model="color"></vm-radio-group>
 
             <div>Selected Color: {{color}}</div>
 
 <router-link to="/page">Goto Page</router-link>
 <router-link to="/page2">Goto Page2</router-link>
-        </ion-content>
+        </vm-content>
 
-        <ion-footer>
-            <ion-toolbar>
-                <ion-title>I'm a footer</ion-title>
-            </ion-toolbar>
-        </ion-footer>
-    </ion-page>
+        <vm-footer>
+            <vm-toolbar>
+                <vm-title>I'm a footer</vm-title>
+            </vm-toolbar>
+        </vm-footer>
+    </vm-page>
 </template>
 <script>
     export default {

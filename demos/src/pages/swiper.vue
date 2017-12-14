@@ -1,6 +1,6 @@
 <template>
-    <ion-page v-nav="{title: 'Swiper'}">
-        <ion-content padding class="outer-content SlidesPage">
+    <vm-page v-nav="{title: 'Swiper'}">
+        <vm-content padding class="outer-content SlidesPage">
             <h1>跑马灯组件</h1>
             <p>Slides组件是 <strong>Swiper插件</strong>
                的移植和拓展, Swiper初始化传递的属性对应Vue组件的props, Swiper属性中定义的钩子事件对应Vue组件的事件系统. 两者无缝对接, 使用上没有差异.</p>
@@ -411,12 +411,12 @@
       </swiper>
 
       <h5>Dynamic Slides<span>（动态加载 Slides）</span></h5>
-      <ion-row>
-        <ion-button @click.native="prependSlide" small>Prepend Slide</ion-button>
-        <ion-button @click.native="appendSlide" small>Append Slide</ion-button>
-        <ion-button @click.native="popSlide" small>Pop Slide</ion-button>
-        <ion-button @click.native="shiftSlide" small>Shift Slide</ion-button>
-      </ion-row>
+      <vm-row>
+        <vm-button @click.native="prependSlide" small>Prepend Slide</vm-button>
+        <vm-button @click.native="appendSlide" small>Append Slide</vm-button>
+        <vm-button @click.native="popSlide" small>Pop Slide</vm-button>
+        <vm-button @click.native="shiftSlide" small>Shift Slide</vm-button>
+      </vm-row>
       <swiper :options="dynamicSlidesOption">
         <swiper-slide v-for="slide in swiperSlides" :key="slide">Slide {{ slide }}</swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -575,9 +575,9 @@
 
       <h5>Virtual Slides<span>（虚拟 Slides）</span></h5>
       <div>
-        <ion-button @click.native="toSlide(0)" small>To Slide 1</ion-button>
-        <ion-button @click.native="toSlide(249)" small>To Slide 250</ion-button>
-        <ion-button @click.native="toSlide(499)" small>To Slide 500</ion-button>
+        <vm-button @click.native="toSlide(0)" small>To Slide 1</vm-button>
+        <vm-button @click.native="toSlide(249)" small>To Slide 250</vm-button>
+        <vm-button @click.native="toSlide(499)" small>To Slide 500</vm-button>
       </div>
       <swiper :options="virtualOption" ref="mySwiper">
         <div class="swiper-pagination" slot="pagination"></div>
@@ -585,8 +585,8 @@
         <div class="swiper-button-next" slot="button-next"></div>
       </swiper>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 
 <script type="text/javascript">

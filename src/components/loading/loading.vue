@@ -1,10 +1,10 @@
 <template>
   <div class="ion-loading" :class="[modeClass, cssClass]" role="dialog">
-    <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" v-if="showBackdrop" @click.native="bdClick()"></ion-backdrop>
+    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" v-if="showBackdrop" @click.native="bdClick()"></vm-backdrop>
     <transition name="loading-fade">
       <div class="loading-wrapper" v-show="activated">
         <div v-if="spinner" class="loading-spinner">
-          <ion-spinner :name="spinner"></ion-spinner>
+          <vm-spinner :name="spinner"></vm-spinner>
         </div>
         <div v-if="content" v-html="content" class="loading-content"></div>
       </div>
@@ -14,15 +14,15 @@
 <script>
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
-import IonBackdrop from '../backdrop'
-import IonSpinner from '../spinner'
+import VmBackdrop from '../backdrop'
+import VmSpinner from '../spinner'
 
 export default {
-  name: 'ion-loading',
+  name: 'vm-loading',
   mixins: [ModeMixins],
   components: {
-    IonBackdrop,
-    IonSpinner
+    VmBackdrop,
+    VmSpinner
   },
   data () {
     return {

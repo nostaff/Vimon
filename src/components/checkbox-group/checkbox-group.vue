@@ -1,30 +1,30 @@
 <template>
-  <ion-list>
-    <ion-list-header v-if="title">{{title}}</ion-list-header>
-    <ion-item :key="option.value" v-for="option in processOptions">
-      <ion-label slot="item-label">{{option.label}}</ion-label>
-      <ion-checkbox
+  <vm-list>
+    <vm-list-header v-if="title">{{title}}</vm-list-header>
+    <vm-item :key="option.value" v-for="option in processOptions">
+      <vm-label slot="item-label">{{option.label}}</vm-label>
+      <vm-checkbox
         :slot="labelPosition==='right'?'item-start':'item-end'"
         :disabled="option.disabled"
         :value="getChecked(option.value)"
         :color="getColor(option.color)"
-        @onChange="onChangeHandler(option.value)"></ion-checkbox>
-    </ion-item>
-  </ion-list>
+        @onChange="onChangeHandler(option.value)"></vm-checkbox>
+    </vm-item>
+  </vm-list>
 </template>
 <script>
 import ModeMixins from '../../themes/theme.mixins'
-import IonList from '../list'
-import IonItem from '../item'
-import IonCheckbox from '../checkbox'
+import VmList from '../list'
+import VmItem from '../item'
+import VmCheckbox from '../checkbox'
 
 export default {
-  name: 'ion-checkbox-group',
+  name: 'vm-checkbox-group',
   mixins: [ModeMixins],
   components: {
-    IonItem,
-    IonList,
-    IonCheckbox
+    VmItem,
+    VmList,
+    VmCheckbox
   },
   props: {
     title: String,

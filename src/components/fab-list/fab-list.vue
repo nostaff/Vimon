@@ -8,7 +8,7 @@ import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-  name: 'ion-fab-list',
+  name: 'vm-fab-list',
   mixins: [ModeMixins],
   inject: {
     fabComponent: {

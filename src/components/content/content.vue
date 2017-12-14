@@ -18,7 +18,7 @@
   import ModeMixins from '../../themes/theme.mixins'
 
   export default {
-    name: 'ion-content',
+    name: 'vm-content',
     mixins: [ModeMixins],
     props: {
       fullscreen: Boolean,

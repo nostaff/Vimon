@@ -1,8 +1,8 @@
 <template>
     <div class="ion-item-group" :class="[reorderEnabled?'reorder-enabled reorder-visible':'']">
-        <ion-item-divider :color="color" v-if="title">
+        <vm-item-divider :color="color" v-if="title">
             {{title}}
-        </ion-item-divider>
+        </vm-item-divider>
         <slot></slot>
     </div>
 </template>
@@ -12,7 +12,7 @@
   import ItemDivider from '../item-divider'
 
   export default {
-    name: 'ion-item-group',
+    name: 'vm-item-group',
     mixins: [ModeMixins],
     components: {
       'ion-item-divider': ItemDivider

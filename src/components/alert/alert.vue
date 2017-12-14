@@ -1,6 +1,6 @@
 <template>
   <div class="ion-alert" :class="['alert-'+mode, cssClass]" role="dialog" style="z-index: 10010;">
-    <ion-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" @click.native="bdClick()"></ion-backdrop>
+    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" @click.native="bdClick()"></vm-backdrop>
     <transition name="ion-alert-fadeup">
       <div class="alert-wrapper" v-show="activated">
         <div class="alert-head">
@@ -11,12 +11,12 @@
         </div>
         <template v-if="buttons.length > 2">
           <div class="alert-button-group" :key="index" v-for="(button, index) in buttons">
-            <ion-button role="alert-button" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</ion-button>
+            <vm-button role="alert-button" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</vm-button>
           </div>
         </template>
         <template v-else>
           <div class="alert-button-group">
-            <ion-button role="alert-button" :key="index" v-for="(button, index) in buttons" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</ion-button>
+            <vm-button role="alert-button" :key="index" v-for="(button, index) in buttons" :class="button.cssClass" @click.native="dismiss(index)">{{button.text}}</vm-button>
           </div>
         </template>
       </div>
@@ -28,15 +28,15 @@
   import {urlChange} from '../../util/dom'
   import objectAssign from 'object-assign'
   import ModeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop'
-  import IonButton from '../button'
+  import VmBackdrop from '../backdrop'
+  import VmButton from '../button'
 
   export default {
-    name: 'ion-alert',
+    name: 'vm-alert',
     mixins: [ModeMixins],
     components: {
-      IonButton,
-      IonBackdrop
+      VmButton,
+      VmBackdrop
     },
     data () {
       return {

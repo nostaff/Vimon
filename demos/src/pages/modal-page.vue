@@ -1,7 +1,7 @@
 <template>
-  <ion-page v-nav="{title:'Modal Page', showMoreButton: true, onMoreButtonClick:'dismiss()'}">
+  <vm-page v-nav="{title:'Modal Page', showMoreButton: true, onMoreButtonClick:'dismiss()'}">
 
-    <ion-content padding>
+    <vm-content padding>
       <div v-if="myParam">
         <h5>Parameters passed:</h5>
         <pre style="background-color: #f8f8f8">selections: {{myParam}}</pre>
@@ -9,10 +9,10 @@
       <div v-else>
         <p>No parameters passed.</p>
       </div>
-      <ion-button color="danger" full @click.native="dismiss()">Close Modal</ion-button>
+      <vm-button color="danger" full @click.native="dismiss()">Close Modal</vm-button>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 
 <script>

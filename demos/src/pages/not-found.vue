@@ -1,11 +1,11 @@
 <template>
-    <ion-page>
-        <ion-header>
-            <ion-navbar>
-                <ion-title>404</ion-title>
-            </ion-navbar>
-        </ion-header>
-        <ion-content padding class="outer-content">
+    <vm-page>
+        <vm-header>
+            <vm-navbar>
+                <vm-title>404</vm-title>
+            </vm-navbar>
+        </vm-header>
+        <vm-content padding class="outer-content">
             <h1>NOT FOUND</h1>
             <br>
             <p>这么私密的地方....</p>
@@ -14,8 +14,8 @@
             <br>
             <br>
             <h1>舅服你!</h1>
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script type="text/javascript">
   export default {

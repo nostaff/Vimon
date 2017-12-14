@@ -86,7 +86,7 @@ import ModeMixins from '../../themes/theme.mixins'
 let tabIds = -1
 
 export default {
-  name: 'ion-tabs',
+  name: 'vm-tabs',
   mixins: [ModeMixins],
   provide () {
     const _this = this

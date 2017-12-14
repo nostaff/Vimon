@@ -3,7 +3,7 @@ import Popover from './popover.vue'
 
 import {createElement, isObject, isString} from '../../util/util'
 
-class IonPopover {
+class VmPopover {
   constructor () {
     this._vm = undefined
   }
@@ -46,4 +46,4 @@ class IonPopover {
   }
 }
 
-export default new IonPopover()
+export default new VmPopover()

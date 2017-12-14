@@ -1,6 +1,6 @@
 <template>
-  <ion-header v-show="activated">
-    <ion-navbar
+  <vm-header v-show="activated">
+    <vm-navbar
           :title="title"
 
           :hide-back-button="hideBackButton"
@@ -12,21 +12,21 @@
           :more-button-text="moreButtonText"
           @onBackButtonClick="onBackButtonClick"
           @onMoreButtonClick="onMoreButtonClick">
-    </ion-navbar>
-  </ion-header>
+    </vm-navbar>
+  </vm-header>
 </template>
 
 <script>
-import IonHeader from '../components/header'
-import IonNavbar from '../components/navbar'
+import VmHeader from '../components/header'
+import VmNavbar from '../components/navbar'
 
 const NOOP = () => {}
 
 export default {
-  name: 'ion-navigation',
+  name: 'vm-navigation',
   components: {
-    IonNavbar,
-    IonHeader
+    VmNavbar,
+    VmHeader
   },
   data () {
     return {

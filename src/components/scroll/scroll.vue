@@ -13,14 +13,14 @@
  *
  * @usage
  * ```html
- * <ion-scroll scrollX="true">
- * </ion-scroll>
+ * <vm-scroll scrollX="true">
+ * </vm-scroll>
  *
- * <ion-scroll scrollY="true">
- * </ion-scroll>
+ * <vm-scroll scrollY="true">
+ * </vm-scroll>
  *
- * <ion-scroll scrollX="true" scrollY="true">
- * </ion-scroll>
+ * <vm-scroll scrollX="true" scrollY="true">
+ * </vm-scroll>
  * ```
  * @demo /scroll/
  */

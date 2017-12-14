@@ -6,7 +6,7 @@
 </template>
 <script>
     export default {
-      name: 'ion-avatar',
+      name: 'vm-avatar',
       props: {
         src: {
           type: String,

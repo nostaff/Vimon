@@ -1,164 +1,164 @@
 <template>
-  <ion-page v-nav="{title: 'Components'}">
+  <vm-page v-nav="{title: 'Components'}">
 
-    <ion-content class="outer-content">
+    <vm-content class="outer-content">
       <!-- Basic -->
-      <ion-list>
-        <ion-list-header>组件</ion-list-header>
-        <ion-item detail-push @click.native="onClicked('/button')">
+      <vm-list>
+        <vm-list-header>组件</vm-list-header>
+        <vm-item detail-push @click.native="onClicked('/button')">
           按钮
-          <ion-note slot="item-end">Button</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/chip')">
+          <vm-note slot="item-end">Button</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/chip')">
           Chip
-          <ion-note slot="item-end">Chip</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/badge')">
+          <vm-note slot="item-end">Chip</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/badge')">
           徽章
-          <ion-note slot="item-end">Badge</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/icon')">
+          <vm-note slot="item-end">Badge</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/icon')">
           图标
-          <ion-note slot="item-end">Icons</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/fabs')">
+          <vm-note slot="item-end">Icons</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/fabs')">
           浮动按钮
-          <ion-note slot="item-end">FABs</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/spinner')">
+          <vm-note slot="item-end">FABs</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/spinner')">
           加载提示
-          <ion-note slot="item-end">Spinner</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/datetime')">
+          <vm-note slot="item-end">Spinner</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/datetime')">
           日期时间
-          <ion-note slot="item-end">Datetime</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/address')">
+          <vm-note slot="item-end">Datetime</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/address')">
           地址联动
-          <ion-note slot="item-end">Address</ion-note>
-        </ion-item>
-      </ion-list>
+          <vm-note slot="item-end">Address</vm-note>
+        </vm-item>
+      </vm-list>
 
-      <ion-list>
-        <ion-list-header>Form表单</ion-list-header>
-        <ion-item detail-push @click.native="onClicked('/input')">
+      <vm-list>
+        <vm-list-header>Form表单</vm-list-header>
+        <vm-item detail-push @click.native="onClicked('/input')">
           输入框
-          <ion-note slot="item-end">Input</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/textarea')">
+          <vm-note slot="item-end">Input</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/textarea')">
           多行输入
-          <ion-note slot="item-end">Textarea</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/search')">
+          <vm-note slot="item-end">Textarea</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/search')">
           搜索框
-          <ion-note slot="item-end">SearchBar</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/select')">
+          <vm-note slot="item-end">SearchBar</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/select')">
           选择框
-          <ion-note slot="item-end">Select</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/radio')">
+          <vm-note slot="item-end">Select</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/radio')">
           单选框
-          <ion-note slot="item-end">Radio</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/checkbox')">
+          <vm-note slot="item-end">Radio</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/checkbox')">
           复选框
-          <ion-note slot="item-end">Checkbox</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/toggle')">
+          <vm-note slot="item-end">Checkbox</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/toggle')">
           开关
-          <ion-note slot="item-end">Toggle</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/range')">
+          <vm-note slot="item-end">Toggle</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/range')">
           滑块
-          <ion-note slot="item-end">Range</ion-note>
-        </ion-item>
-      </ion-list>
+          <vm-note slot="item-end">Range</vm-note>
+        </vm-item>
+      </vm-list>
 
-      <ion-list title="布局">
-        <ion-item detail-push @click.native="onClicked('/page')">
+      <vm-list title="布局">
+        <vm-item detail-push @click.native="onClicked('/page')">
           页面
-          <ion-note slot="item-end">Page</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/list')">
+          <vm-note slot="item-end">Page</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/list')">
           列表
-          <ion-note slot="item-end">List</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/toolbar')">
+          <vm-note slot="item-end">List</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/toolbar')">
           工具条
-          <ion-note slot="item-end">Toolbar</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/grid')">
+          <vm-note slot="item-end">Toolbar</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/grid')">
           栅格
-          <ion-note slot="item-end">Grid</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/tabs')">
+          <vm-note slot="item-end">Grid</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/tabs')">
           Tab选项卡
-          <ion-note slot="item-end">Tabs</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/segment')">
+          <vm-note slot="item-end">Tabs</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/segment')">
           分段选项卡
-          <ion-note slot="item-end">Segment</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/menu')">
+          <vm-note slot="item-end">Segment</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/menu')">
           侧边栏/菜单
-          <ion-note slot="item-end">Menu</ion-note>
-        </ion-item>
-      </ion-list>
+          <vm-note slot="item-end">Menu</vm-note>
+        </vm-item>
+      </vm-list>
 
-      <ion-list title="数据加载">
-        <ion-item detail-push @click.native="onClicked('/refresher')">
+      <vm-list title="数据加载">
+        <vm-item detail-push @click.native="onClicked('/refresher')">
           下拉刷新
-          <ion-note slot="item-end">Refresher</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/infinite-scroll')">
+          <vm-note slot="item-end">Refresher</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/infinite-scroll')">
           无限加载
-          <ion-note slot="item-end">InfiniteScroll</ion-note>
-        </ion-item>
-      </ion-list>
+          <vm-note slot="item-end">InfiniteScroll</vm-note>
+        </vm-item>
+      </vm-list>
 
       <!-- advanced -->
-      <ion-list title="插件">
-        <ion-item detail-push @click.native="onClicked('/action-sheet')">
+      <vm-list title="插件">
+        <vm-item detail-push @click.native="onClicked('/action-sheet')">
           操作列表
-          <ion-note slot="item-end">ActionSheet</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/dialog')">
+          <vm-note slot="item-end">ActionSheet</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/dialog')">
           对话框
-          <ion-note slot="item-end">Dialog</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/toast')">
+          <vm-note slot="item-end">Dialog</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/toast')">
           文字提示
-          <ion-note slot="item-end">Toast</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/spinner')">
+          <vm-note slot="item-end">Toast</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/spinner')">
           加载提示
-          <ion-note slot="item-end">Spinner</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/swiper')">
+          <vm-note slot="item-end">Spinner</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/swiper')">
           轮播
-          <ion-note slot="item-end">Swiper</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/popup')">
+          <vm-note slot="item-end">Swiper</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/popup')">
           弹层
-          <ion-note slot="item-end">Popup</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/picker')">
+          <vm-note slot="item-end">Popup</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/picker')">
           选择器
-          <ion-note slot="item-end">Picker</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/popover')">
+          <vm-note slot="item-end">Picker</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/popover')">
           弹出框
-          <ion-note slot="item-end">Popover</ion-note>
-        </ion-item>
-        <ion-item detail-push @click.native="onClicked('/modal')">
+          <vm-note slot="item-end">Popover</vm-note>
+        </vm-item>
+        <vm-item detail-push @click.native="onClicked('/modal')">
           模态窗
-          <ion-note slot="item-end">Modal</ion-note>
-        </ion-item>
-      </ion-list>
+          <vm-note slot="item-end">Modal</vm-note>
+        </vm-item>
+      </vm-list>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 
 <script>

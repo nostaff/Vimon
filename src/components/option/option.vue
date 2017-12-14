@@ -13,7 +13,7 @@
 import { isBlank, isTrueProperty } from '../../util/util'
 
 export default {
-  name: 'ion-option',
+  name: 'vm-option',
   inject: {
     selectComponent: {
       from: 'selectComponent',

@@ -1,8 +1,8 @@
 <template>
-    <ion-page v-nav="{title: 'Radio'}">
-        <ion-content>
+    <vm-page v-nav="{title: 'Radio'}">
+        <vm-content>
 
-            <ion-radio-group title="请选择性别" :options="genderOptions" v-model="gender" @onChange="change"></ion-radio-group>
+            <vm-radio-group title="请选择性别" :options="genderOptions" v-model="gender" @onChange="change"></vm-radio-group>
 
             <p class="padding">
                 option gender: {{ gender }}<br>
@@ -10,41 +10,41 @@
                 option selected: {{ selected2 }}
             </p>
 
-            <ion-radio-group title="设置整个Radio的颜色" :options="list" v-model="selected" color="danger" @onChange="change"></ion-radio-group>
-            <ion-radio-group title="设置每个Option的颜色" :options="list2" v-model="selected2" @onChange="change"></ion-radio-group>
+            <vm-radio-group title="设置整个Radio的颜色" :options="list" v-model="selected" color="danger" @onChange="change"></vm-radio-group>
+            <vm-radio-group title="设置每个Option的颜色" :options="list2" v-model="selected2" @onChange="change"></vm-radio-group>
 
 
-            <ion-list radio-group v-model="language">
-                <ion-list-header>
+            <vm-list radio-group v-model="language">
+                <vm-list-header>
                     Language
-                </ion-list-header>
+                </vm-list-header>
 
-                <ion-item>
-                    <ion-label slot="item-label">Python</ion-label>
-                    <ion-radio slot="item-content" value="Python" checked="true" color="danger"></ion-radio>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label">Python</vm-label>
+                    <vm-radio slot="item-content" value="Python" checked="true" color="danger"></vm-radio>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label">Ruby</ion-label>
-                    <ion-radio slot="item-content" value="Ruby" disabled color="secondary"></ion-radio>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label">Ruby</vm-label>
+                    <vm-radio slot="item-content" value="Ruby" disabled color="secondary"></vm-radio>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label">Java</ion-label>
-                    <ion-radio slot="item-content" value="Java"></ion-radio>
-                </ion-item>
+                <vm-item>
+                    <vm-label slot="item-label">Java</vm-label>
+                    <vm-radio slot="item-content" value="Java"></vm-radio>
+                </vm-item>
 
-                <ion-item>
-                    <ion-label slot="item-label">PHP</ion-label>
-                    <ion-radio slot="item-content" value="PHP"></ion-radio>
-                </ion-item>
-            </ion-list>
+                <vm-item>
+                    <vm-label slot="item-label">PHP</vm-label>
+                    <vm-radio slot="item-content" value="PHP"></vm-radio>
+                </vm-item>
+            </vm-list>
             <p class="padding">
                 Language : {{ language }}<br>
             </p>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     export default{

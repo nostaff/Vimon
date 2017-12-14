@@ -38,7 +38,7 @@
  */
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-label',
+  name: 'vm-label',
   mixins: [ModeMixins],
   inject: {
     itemComponent: {

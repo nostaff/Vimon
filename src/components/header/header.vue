@@ -24,7 +24,7 @@
  **/
 import ModeMixins from '../../themes/theme.mixins'
 export default {
-  name: 'ion-header',
+  name: 'vm-header',
   mixins: [ModeMixins],
   inject: {
     pageComponent: {

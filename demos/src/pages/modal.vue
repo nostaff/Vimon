@@ -1,34 +1,34 @@
 <template>
-    <ion-page v-nav="{title: 'Modal'}">
-        <ion-content class="page-content padding">
+    <vm-page v-nav="{title: 'Modal'}">
+        <vm-content class="page-content padding">
 
             <div padding>
-                <ion-button block @click.native="openBasicModal()">Open Basic Modal</ion-button>
+                <vm-button block @click.native="openBasicModal()">Open Basic Modal</vm-button>
             </div>
 
-            <ion-list no-margin>
-                <ion-list-header>
+            <vm-list no-margin>
+                <vm-list-header>
                     Enter Parameters to Pass to the Modal
-                </ion-list-header>
-                <ion-item>
-                    <ion-label slot="item-label">Parameters</ion-label>
-                    <ion-select slot="item-content" v-model="myParam" multiple="true">
-                        <ion-option value="nes">NES</ion-option>
-                        <ion-option value="n64">Nintendo64</ion-option>
-                        <ion-option value="ps">PlayStation</ion-option>
-                        <ion-option value="genesis">Sega Genesis</ion-option>
-                        <ion-option value="saturn">Sega Saturn</ion-option>
-                        <ion-option value="snes">SNES</ion-option>
-                    </ion-select>
-                </ion-item>
-            </ion-list>
+                </vm-list-header>
+                <vm-item>
+                    <vm-label slot="item-label">Parameters</vm-label>
+                    <vm-select slot="item-content" v-model="myParam" multiple="true">
+                        <vm-option value="nes">NES</vm-option>
+                        <vm-option value="n64">Nintendo64</vm-option>
+                        <vm-option value="ps">PlayStation</vm-option>
+                        <vm-option value="genesis">Sega Genesis</vm-option>
+                        <vm-option value="saturn">Sega Saturn</vm-option>
+                        <vm-option value="snes">SNES</vm-option>
+                    </vm-select>
+                </vm-item>
+            </vm-list>
 
             <div padding>
-                <ion-button block color="danger" @click.native="openModalWithParams()">Open with Parameters</ion-button>
+                <vm-button block color="danger" @click.native="openModalWithParams()">Open with Parameters</vm-button>
             </div>
 
-        </ion-content>
-    </ion-page>
+        </vm-content>
+    </vm-page>
 </template>
 <script>
     import ModalPage from './modal-page.vue'

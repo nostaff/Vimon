@@ -1,32 +1,32 @@
 <template>
-  <ion-list :title="title" radio-group>
-    <ion-item
+  <vm-list :title="title" radio-group>
+    <vm-item
         :key="option.value"
         v-for="option in processOptions"
       >
-      <ion-label slot="item-label">{{option.label}}</ion-label>
-      <ion-radio slot="item-content"
+      <vm-label slot="item-label">{{option.label}}</vm-label>
+      <vm-radio slot="item-content"
         :disabled="option.disabled"
         :value="option.value"
         :checked="getChecked(option.value)"
         :color="getColor(option.color)"
         @onSelect="onSelectHandler(option.value)"
-        ></ion-radio>
-    </ion-item>
-  </ion-list>
+        ></vm-radio>
+    </vm-item>
+  </vm-list>
 </template>
 <script>
 import ModeMixins from '../../themes/theme.mixins'
 import {isPresent} from '../../util/util'
-import IonList from '../list'
-import IonItem from '../item'
+import VmList from '../list'
+import VmItem from '../item'
 
 export default {
-  name: 'ion-radio-group',
+  name: 'vm-radio-group',
   mixins: [ModeMixins],
   components: {
-    IonItem,
-    IonList
+    VmItem,
+    VmList
   },
   props: {
     title: String,

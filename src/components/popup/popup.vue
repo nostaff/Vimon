@@ -1,13 +1,13 @@
 <template>
   <div role="dialog" class="ion-popup" :class="[modeClass, cssClass]" style="z-index: 9999;">
-    <ion-backdrop @click.native="bdClick()" :isActive="activated"></ion-backdrop>
+    <vm-backdrop @click.native="bdClick()" :isActive="activated"></vm-backdrop>
     <transition name="popup-fade">
       <div class="popup-wrapper" v-show="activated">
         <div class="popup-toolbar" v-if="buttons">
           <div v-for="(button, index) in buttons" :key="index" class="popup-toolbar-button" :class="button.cssRole">
-            <ion-button @click.native="btnClick(button)" :class="button.cssClass" class="popup-button" clear>
+            <vm-button @click.native="btnClick(button)" :class="button.cssClass" class="popup-button" clear>
               {{button.text}}
-            </ion-button>
+            </vm-button>
           </div>
         </div>
         <div v-if="title" class="popup-head">
@@ -16,9 +16,9 @@
 
         <div class="popup-body" :class="{'no-content': state == 0}">
           <slot></slot>
-          <ion-button v-if="showClose == 'true'" @click.native="dismiss(-1)">
+          <vm-button v-if="showClose == 'true'" @click.native="dismiss(-1)">
             <i class="ion-ios-close-empty"></i>
-          </ion-button>
+          </vm-button>
         </div>
       </div>
     </transition>
@@ -26,15 +26,15 @@
 </template>
 <script>
   import ModeMixins from '../../themes/theme.mixins'
-  import IonBackdrop from '../backdrop'
-  import IonButton from '../button'
+  import VmBackdrop from '../backdrop'
+  import VmButton from '../button'
 
   export default {
-    name: 'ion-popup',
+    name: 'vm-popup',
     mixins: [ModeMixins],
     components: {
-      IonButton,
-      IonBackdrop
+      VmButton,
+      VmBackdrop
     },
     props: {
       effect: {

@@ -1,16 +1,16 @@
 <template>
-  <ion-page v-nav="{title: 'Dialog'}">
-    <ion-content padding>
+  <vm-page v-nav="{title: 'Dialog'}">
+    <vm-content padding>
 
-      <ion-button block @click.native="doAlert()">Basic Alert</ion-button>
-      <ion-button block @click.native="doAlert2()">Basic Alert with Buttons</ion-button>
-      <ion-button color="light" block @click.native="doConfirm()">Confirm Alert</ion-button>
-      <ion-button color="secondary" block @click.native="doPrompt()">Prompt Alert</ion-button>
-      <ion-button color="danger" block @click.native="doRadio()">Radio Alert</ion-button>
-      <ion-button color="dark" block @click.native="doCheckbox()">Checkbox Alert</ion-button>
+      <vm-button block @click.native="doAlert()">Basic Alert</vm-button>
+      <vm-button block @click.native="doAlert2()">Basic Alert with Buttons</vm-button>
+      <vm-button color="light" block @click.native="doConfirm()">Confirm Alert</vm-button>
+      <vm-button color="secondary" block @click.native="doPrompt()">Prompt Alert</vm-button>
+      <vm-button color="danger" block @click.native="doRadio()">Radio Alert</vm-button>
+      <vm-button color="dark" block @click.native="doCheckbox()">Checkbox Alert</vm-button>
 
-    </ion-content>
-  </ion-page>
+    </vm-content>
+  </vm-page>
 </template>
 <script>
   export default {

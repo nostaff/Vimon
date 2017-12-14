@@ -17,16 +17,16 @@
  *
  * @usage
  * <template>
- *    <ion-age>
- *        <ion-header>
- *            <ion-navbar>
- *                <ion-title>Demo</ion-title>
- *            </ion-navbar>
- *        </ion-header>
- *        <ion-content>
+ *    <vm-age>
+ *        <vm-header>
+ *            <vm-navbar>
+ *                <vm-title>Demo</vm-title>
+ *            </vm-navbar>
+ *        </vm-header>
+ *        <vm-content>
  *            <h1>这里是内容</h1>
- *        </ion-content>
- *    </ion-page>
+ *        </vm-content>
+ *    </vm-page>
  * </template>
  *
  **/
@@ -34,7 +34,7 @@ import ModeMixins from '../../themes/theme.mixins'
 
 let initPageZIndex = 1000
 export default {
-  name: 'ion-page',
+  name: 'vm-page',
   mixins: [ModeMixins],
   inject: {
     // Modal 组件可能包裹 Page 组件, 则使用Box布局

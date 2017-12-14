@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 export default {
-  name: 'ion-nav',
+  name: 'vm-nav',
   props: {
     // 转场动画名称
     // ios-transition/fade-bottom-transition/zoom-transition/fade-right-transition/fade-transition
