@@ -29,6 +29,6 @@ describe('Icon', function () {
 
   it('@base: have the right className', function () {
     let wrapper = mount(Icon, options)
-    expect(wrapper.hasClass('vm-icon')).toBeTruthy()
+    expect(wrapper.hasClass('ion-icon')).toBeTruthy()
   })
 })

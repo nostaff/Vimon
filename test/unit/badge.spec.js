@@ -56,7 +56,7 @@ describe('Badge', function () {
       }
     })
     let wrapper = mount(Badge, opts)
-    expect(wrapper.hasClass('vm-badge')).toBeTruthy()
+    expect(wrapper.hasClass('ion-badge')).toBeTruthy()
   })
 
   // it('@base: matches snapshot', () => {
