@@ -24,11 +24,11 @@ describe('Icon', function () {
 
   it('@base: component must have a name', function () {
     let wrapper = mount(Icon, options)
-    expect(wrapper.name()).toEqual('ion-icon')
+    expect(wrapper.name()).toEqual('vm-icon')
   })
 
   it('@base: have the right className', function () {
     let wrapper = mount(Icon, options)
-    expect(wrapper.hasClass('ion-icon')).toBeTruthy()
+    expect(wrapper.hasClass('vm-icon')).toBeTruthy()
   })
 })

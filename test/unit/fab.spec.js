@@ -19,11 +19,11 @@ describe('Fab', function () {
 
   it('@base: component must have a name', function () {
     wrapper = mount(Fab, options)
-    expect(wrapper.name()).toEqual('ion-fab')
+    expect(wrapper.name()).toEqual('vm-fab')
   })
 
   it('@base: have the right className', function () {
     wrapper = mount(Fab, options)
-    expect(wrapper.hasClass('ion-fab')).toBeTruthy()
+    expect(wrapper.hasClass('vm-fab')).toBeTruthy()
   })
 })

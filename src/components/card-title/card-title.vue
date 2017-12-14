@@ -10,7 +10,7 @@ export default {
     name: 'vm-card-title',
     mixins: [ModeMixins],
     created () {
-      if (!this.$parent || this.$parent.$options.name !== 'ion-card') {
+      if (!this.$parent || this.$parent.$options.name !== 'vm-card') {
         console.error('Card-title component must combine with Card')
       }
     }

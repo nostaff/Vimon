@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-page show-page" :box="isBox" :style="{zIndex:pageZIndex}" :class="{'ion-box':isBox}">
+  <div class="ion-page show-page" :box="isBox" :style="{zIndex:pageZIndex}" :class="{'vm-box':isBox}">
     <slot></slot>
   </div>
 </template>

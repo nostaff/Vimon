@@ -1,5 +1,5 @@
 <template>
-  <div :class="['ion-input',modeClass]" @click="setFocus()">
+  <div :class="['vm-input',modeClass]" @click="setFocus()">
     <input ref="input"
            :class="['text-input', 'text-input-'+mode]"
            :value="currentValue"

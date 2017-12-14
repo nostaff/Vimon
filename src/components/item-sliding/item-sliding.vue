@@ -314,7 +314,7 @@
   }
   //
   // function clickedOptionButton(ev) {
-  //   let ele = ev.target.closest('ion-item-options>button')
+  //   let ele = ev.target.closest('vm-item-options>button')
   //   return !!ele
   // }
 </script>

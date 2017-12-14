@@ -57,7 +57,7 @@
         }
 
         let reorderElement = ev.target
-        if (!hasClass(reorderElement, 'ion-reorder')) {
+        if (!hasClass(reorderElement, 'vm-reorder')) {
           return false
         }
 

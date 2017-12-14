@@ -15,7 +15,7 @@
     name: 'vm-item-group',
     mixins: [ModeMixins],
     components: {
-      'ion-item-divider': ItemDivider
+      'vm-item-divider': ItemDivider
     },
     props: {
       title: String,

@@ -46,7 +46,7 @@ import { pointerCoord, clamp } from '../../util/util'
 export default {
   name: 'cityList',
   components: {
-    'ion-content': Content
+    'vm-content': Content
   },
   data () {
     return {
