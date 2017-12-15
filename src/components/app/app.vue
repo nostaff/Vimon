@@ -80,22 +80,22 @@ export default {
     if (window.VM) {
       window.VM.$app = this
       // 用于判断组件是否在VM的组件树中
-      window.VM.$root = this.$root
+      window.VM.$events = this.$events
     }
   },
   methods: {
     /**
-       * @function setEnabled
-       * @description
-       * 设置当前页面是否能点击滑动, 一般使用在像ActionSheet/Alert/Modal等弹出会出现transition动画,
-       * 当transition动画进行中，页面是锁定的不能点击，因此使用该函数设定App的状态, 保证动画过程中, 用户不会操作页面
-       * @param {boolean} isEnabled  - `true` for enabled, `false` for disabled
-       * @param {number} duration - isEnabled=false的过期时间 当 `isEnabled` 设置为`false`, 则duration之后，`isEnabled`将自动设为`true`
-       *
-       * @example
-       * this.$app && this.$app.setEnabled(false, 400) -> 400ms内页面不可点击, 400ms过后可正常使用
-       * this.$app && this.$app.setEnabled(true) -> 64ms后解除锁定
-       **/
+     * @function setEnabled
+     * @description
+     * 设置当前页面是否能点击滑动, 一般使用在像ActionSheet/Alert/Modal等弹出会出现transition动画,
+     * 当transition动画进行中，页面是锁定的不能点击，因此使用该函数设定App的状态, 保证动画过程中, 用户不会操作页面
+     * @param {boolean} isEnabled  - `true` for enabled, `false` for disabled
+     * @param {number} duration - isEnabled=false的过期时间 当 `isEnabled` 设置为`false`, 则duration之后，`isEnabled`将自动设为`true`
+     *
+     * @example
+     * this.$app && this.$app.setEnabled(false, 400) -> 400ms内页面不可点击, 400ms过后可正常使用
+     * this.$app && this.$app.setEnabled(true) -> 64ms后解除锁定
+     **/
     setEnabled (isEnabled, duration = CLICK_BLOCK_DURATION_IN_MILLIS) {
       this.disabledTimeRecord = isEnabled ? 0 : Date.now() + duration
       this.isEnabled = isEnabled

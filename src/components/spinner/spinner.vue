@@ -5,11 +5,11 @@
         'spinner-'+mode+'-'+name,
         {'spinner-paused':paused}
         ]">
-    <svg viewBox="0 0 64 64" v-for="i in circles" :key="i" :style="i.style">
-      <circle :r="i.r" transform="translate(32,32)"></circle>
+    <svg viewBox="0 0 64 64" v-for="(circle, index) in circles" :key="index" :style="circle.style">
+      <circle :r="circle.r" transform="translate(32,32)"></circle>
     </svg>
-    <svg viewBox="0 0 64 64" v-for="i in lines" :key="i" :style="i.style">
-      <line :y1="i.y1" :y2="i.y2" transform="translate(32,32)"></line>
+    <svg viewBox="0 0 64 64" v-for="(line, index) in lines" :key="index" :style="line.style">
+      <line :y1="line.y1" :y2="line.y2" transform="translate(32,32)"></line>
     </svg>
   </div>
 </template>
@@ -66,8 +66,7 @@ const SPINNERS = {
     duration: 1000,
     lines: 12,
     fn: function (dur, index, total) {
-      const transform =
-        'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)'
+      const transform = 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)'
       const animationDelay = -(dur - dur / total * index) + 'ms'
       return {
         y1: 17,
@@ -86,8 +85,7 @@ const SPINNERS = {
     duration: 1000,
     lines: 12,
     fn: function (dur, index, total) {
-      const transform =
-        'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)'
+      const transform = 'rotate(' + (30 * index + (index < 6 ? 180 : -180)) + 'deg)'
       const animationDelay = -(dur - dur / total * index) + 'ms'
       return {
         y1: 12,

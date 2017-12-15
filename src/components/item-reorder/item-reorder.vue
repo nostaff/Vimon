@@ -19,29 +19,38 @@
   const ITEM_REORDER_ACTIVE = 'reorder-active'
 
   export default {
-    name: 'vm-reorder',
+    name: 'vm-item-reorder',
+    inject: {
+      selectedItem: {
+        from: 'itemComponent',
+        default () {
+          if (process.env.NODE_ENV !== 'production') {
+            console.error('[Component] ItemReorder组件 需要与 Item组件 组合使用!')
+          }
+          return null
+        }
+      },
+      reorderItemGroup: {
+        from: 'itemGroupComponent',
+        default () {
+          if (process.env.NODE_ENV !== 'production') {
+            console.error('[Component] ItemReorder组件 需要与 ItemGroup组件 组合使用!')
+          }
+          return null
+        }
+      }
+    },
     components: {
       VmIcon
     },
     data () {
       return {
         selectedItemEle: null,
-        selectedItem: null,
-        reorderList: null,
         selectedItemHeight: 0,
         lastYcoord: 0,
         lastToIndex: -1,
         lastScrollPosition: 0,
         offset: {x: 0, y: 0}
-      }
-    },
-    created () {
-      if (this.$parent.$data.componentName === 'ionItem') {
-        this.selectedItem = this.$parent
-
-        if (this.selectedItem.$parent.$data.componentName === 'ionItemGroup') {
-          this.reorderList = this.selectedItem.$parent
-        }
       }
     },
     methods: {
@@ -57,11 +66,11 @@
         }
 
         let reorderElement = ev.target
-        if (!hasClass(reorderElement, 'vm-reorder')) {
+        if (!hasClass(reorderElement, 'ion-reorder')) {
           return false
         }
 
-        this.reorderList.reorderPrepare()
+        this.reorderItemGroup.reorderPrepare()
 
         const item = this.selectedItem.getNativeElement()
         if (!item) {
@@ -77,13 +86,13 @@
         this.lastToIndex = indexForItem(item)
 
         this.windowHeight = document.documentElement.clientHeight - AUTO_SCROLL_MARGIN
-        this.lastScrollPosition = this.reorderList.scrollContent(0)
+        this.lastScrollPosition = this.reorderItemGroup.scrollContent(0)
 
         this.offset = pointerCoord(ev)
         this.offset.y += this.lastScrollPosition
 
         this.selectedItem.setElementClass(ITEM_REORDER_ACTIVE, true)
-        this.reorderList.reorderStart()
+        this.reorderItemGroup.reorderStart()
         return true
       },
 
@@ -111,7 +120,7 @@
               this.lastToIndex = toIndex
               this.lastYcoord = posY
               this.emptyZone = false
-              this.reorderList.reorderMove(fromIndex, toIndex, this.selectedItemHeight)
+              this.reorderItemGroup.reorderMove(fromIndex, toIndex, this.selectedItemHeight)
             }
           } else {
             this.emptyZone = true
@@ -147,7 +156,7 @@
         } else {
           reorderInactive()
         }
-        this.reorderList.reorderEmit(fromIndex, toIndex)
+        this.reorderItemGroup.reorderEmit(fromIndex, toIndex)
       },
 
       itemForCoord (coord) {
@@ -155,14 +164,14 @@
         const x = this.offset.x + sideOffset
         const y = coord.y
         const element = document.elementFromPoint(x, y)
-        return findReorderItem(element, this.reorderList.$el)
+        return findReorderItem(element, this.reorderItemGroup.$el)
       },
 
       scroll (posY) {
         if (posY < AUTO_SCROLL_MARGIN) {
-          this.lastScrollPosition = this.reorderList.scrollContent(-SCROLL_JUMP)
+          this.lastScrollPosition = this.reorderItemGroup.scrollContent(-SCROLL_JUMP)
         } else if (posY > this.windowHeight) {
-          this.lastScrollPosition = this.reorderList.scrollContent(SCROLL_JUMP)
+          this.lastScrollPosition = this.reorderItemGroup.scrollContent(SCROLL_JUMP)
         }
         return this.lastScrollPosition
       }

@@ -4,26 +4,26 @@
 
       <vm-list title="Datetime">
         <vm-item>
-          <vm-label slot="item-label">Time</vm-label>
-          <vm-datetime slot="item-content" displayFormat="HH:mm" v-model="time"
+          <vm-label>Time</vm-label>
+          <vm-datetime displayFormat="HH:mm" v-model="time"
                         placeholder="time"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Time</vm-label>
-          <vm-datetime slot="item-content" displayFormat="hh:mm A" v-model="time"
+          <vm-label>Time</vm-label>
+          <vm-datetime displayFormat="hh:mm A" v-model="time"
                         placeholder="time"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Birthday</vm-label>
-          <vm-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
+          <vm-label>Birthday</vm-label>
+          <vm-datetime v-model="birthday" placeholder="birthday" minDate="2002-02-01"
                         displayFormat="YYYY-MM-DD"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Birthday</vm-label>
-          <vm-datetime slot="item-content" v-model="birthday" placeholder="birthday" minDate="2002-02-01"
+          <vm-label>Birthday</vm-label>
+          <vm-datetime v-model="birthday" placeholder="birthday" minDate="2002-02-01"
                         displayFormat="DD/MM/YY"></vm-datetime>
         </vm-item>
       </vm-list>
@@ -36,25 +36,25 @@
       <br>
       <vm-list title="Address">
         <vm-item>
-          <vm-label slot="item-label">Value</vm-label>
-          <vm-note slot="item-content">{{areaValue}}</vm-note>
+          <vm-label>Value</vm-label>
+          <vm-note>{{areaValue}}</vm-note>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Text</vm-label>
-          <vm-address slot="item-content" :level="2" v-model="areaValue" placeholder="Select Address"></vm-address>
+          <vm-label>Text</vm-label>
+          <vm-address :level="2" v-model="areaValue" placeholder="Select Address"></vm-address>
         </vm-item>
 
         <vm-item>
         </vm-item>
         <vm-item>
-          <vm-label slot="item-label">Value</vm-label>
-          <vm-note slot="item-content">{{areaValue1}}</vm-note>
+          <vm-label>Value</vm-label>
+          <vm-note>{{areaValue1}}</vm-note>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Text</vm-label>
-          <vm-address slot="item-content" :level="3" v-model="areaValue1" placeholder="Select Address"></vm-address>
+          <vm-label>Text</vm-label>
+          <vm-address :level="3" v-model="areaValue1" placeholder="Select Address"></vm-address>
         </vm-item>
       </vm-list>
 

@@ -20,6 +20,19 @@
   export default {
     name: 'vm-content',
     mixins: [ModeMixins],
+    inject: {
+      pageComponent: {
+        from: 'pageComponent',
+        default: null
+      }
+    },
+
+    provide () {
+      let _this = this
+      return {
+        contentComponent: _this
+      }
+    },
     props: {
       fullscreen: Boolean,
       scrollDownOnLoad: Boolean

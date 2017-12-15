@@ -75,11 +75,11 @@
           if (item.$data.componentName === 'ionItem') {
             this.itemCmp = item
           }
-          if (item.$data.componentName === 'ionItemOptions' && item.side === 'left') {
+          if (item.$data.componentName === 'ItemSlidingOptions' && item.side === 'left') {
             this.leftOptions = item
             side |= this._getSides(item)
           }
-          if (item.$data.componentName === 'ionItemOptions' && item.side === 'right') {
+          if (item.$data.componentName === 'ItemSlidingOptions' && item.side === 'right') {
             this.rightOptions = item
             side |= this._getSides(item)
           }

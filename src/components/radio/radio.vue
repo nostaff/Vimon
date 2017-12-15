@@ -76,6 +76,16 @@ import VmButton from '../button'
 export default {
   name: 'vm-radio',
   mixins: [ModeMixins],
+  inject: {
+    itemComponent: {
+      from: 'itemComponent',
+      default: null
+    },
+    listComponent: {
+      from: 'listComponent',
+      default: null
+    }
+  },
   components: {
     VmButton
   },
@@ -83,8 +93,7 @@ export default {
     return {
       isChecked: isTrueProperty(this.checked),
       isDisabled: isTrueProperty(this.disabled),
-      itemCmp: null,
-      radioGroup: null
+      radioGroupCmp: null
     }
   },
   props: {
@@ -117,7 +126,7 @@ export default {
       this.setChecked(null)
       this.isDisabled = disabled
 
-      this.itemCmp.setElementClass('item-radio-disabled', disabled)
+      this.itemComponent.setElementClass('item-radio-disabled', disabled)
     },
 
     setChecked (checkedValue) {
@@ -125,8 +134,8 @@ export default {
       if (this.isChecked !== isChecked) {
         this.isChecked = isChecked
 
-        this.itemCmp.setElementClass('item-radio-checked', this.isChecked)
-        this.itemCmp.setElementClass(`item-radio-${this.mode}-${this.color}`, this.isChecked && isPresent(this.color))
+        this.itemComponent.setElementClass('item-radio-checked', this.isChecked)
+        this.itemComponent.setElementClass(`item-radio-${this.mode}-${this.color}`, this.isChecked && isPresent(this.color))
       }
     },
 
@@ -139,27 +148,21 @@ export default {
 
     init () {
       // if parent is item
-      if (this.$parent && this.$parent.$data.componentName === 'ionItem') {
-        this.itemCmp = this.$parent
-        this.itemCmp.setElementClass('item-radio', true)
-      }
+      this.itemComponent && this.itemComponent.setElementClass('item-radio', true)
 
       // if parent's parent is list
-      if (this.$parent && this.$parent.$parent && this.$parent.$parent.$data.componentName === 'ionList') {
-        let node = this.$parent.$parent
-        if (node.radioGroup) {
-          this.radioGroup = node
-          this.radioGroup.addRadioButton(this)
-        }
-        console.assert(this.radioGroup, 'Radio组件需要在List组件中加上`radio-group`属性才能正常使用v-model指令!')
+      if (this.listComponent && this.listComponent.radioGroup) {
+        this.radioGroupCmp = this.listComponent
+        this.radioGroupCmp.addRadioButton(this)
       }
+      console.assert(this.radioGroupCmp, 'Radio组件需要在List组件中加上`radio-group`属性才能正常使用v-model指令!')
 
       // 初始化禁用状态
       this.setDisabled(isTrueProperty(this.disabled))
     }
   },
   destroyed () {
-    this.radioGroup && this.radioGroup.removeRadioButton(this)
+    this.radioGroupCmp && this.radioGroupCmp.removeRadioButton(this)
   }
 }
 </script>

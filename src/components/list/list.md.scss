@@ -177,6 +177,24 @@ $list-md-header-color:           #757575 !default;
   color: $list-md-header-color;
 }
 
+
+.list-header-md .item-button {
+  @include padding(0, .6em);
+
+  height: 24px;
+
+  font-size: 1.2rem;
+}
+
+.list-header-md .item-button[icon-only] .ion-icon,
+.list-header-md .item-button[icon-only] {
+  @include padding(0, 1px);
+}
+
+.list-header-md [item-end] {
+  margin: 8px;
+}
+
 // Generate Material Design List Header Colors
 // --------------------------------------------------
 

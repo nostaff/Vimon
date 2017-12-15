@@ -2,7 +2,7 @@
   <vm-list>
     <vm-list-header v-if="title">{{title}}</vm-list-header>
     <vm-item :key="option.value" v-for="option in processOptions">
-      <vm-label slot="item-label">{{option.label}}</vm-label>
+      <vm-label>{{option.label}}</vm-label>
       <vm-checkbox
         :slot="labelPosition==='right'?'item-start':'item-end'"
         :disabled="option.disabled"

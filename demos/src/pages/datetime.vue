@@ -14,33 +14,33 @@
         <vm-list-header>Web Release Dates</vm-list-header>
 
         <vm-item>
-          <vm-label slot="item-label">World Wide Web</vm-label>
-          <vm-datetime slot="item-content" displayFormat="YYYY" min="1981" max="2002" v-model="wwwReleased"></vm-datetime>
+          <vm-label>World Wide Web</vm-label>
+          <vm-datetime displayFormat="YYYY" min="1981" max="2002" v-model="wwwReleased"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Netscape</vm-label>
-          <vm-datetime slot="item-content" displayFormat="MMMM YY" min="1989" max="2004" v-model="netscapeReleased"></vm-datetime>
+          <vm-label>Netscape</vm-label>
+          <vm-datetime displayFormat="MMMM YY" min="1989" max="2004" v-model="netscapeReleased"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Opera</vm-label>
-          <vm-datetime slot="item-content" displayFormat="DDD DD.MM.YY" min="1990" max="2000" :dayShortNames="operaShortDay" v-model="operaReleased"></vm-datetime>
+          <vm-label>Opera</vm-label>
+          <vm-datetime displayFormat="DDD DD.MM.YY" min="1990" max="2000" :dayShortNames="operaShortDay" v-model="operaReleased"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Webkit</vm-label>
-          <vm-datetime slot="item-content" displayFormat="D MMM YYYY" min="1990-02" max="2010-10" v-model="webkitReleased"></vm-datetime>
+          <vm-label>Webkit</vm-label>
+          <vm-datetime displayFormat="D MMM YYYY" min="1990-02" max="2010-10" v-model="webkitReleased"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Firefox</vm-label>
-          <vm-datetime slot="item-content" displayFormat="MMM DD, YYYY" min="1994-03-14" max="2012-12-09" v-model="firefoxReleased"></vm-datetime>
+          <vm-label>Firefox</vm-label>
+          <vm-datetime displayFormat="MMM DD, YYYY" min="1994-03-14" max="2012-12-09" v-model="firefoxReleased"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Chrome</vm-label>
-          <vm-datetime slot="item-content" displayFormat="DDDD MMM D, YYYY" min="2005" max="2016" v-model="chromeReleased"></vm-datetime>
+          <vm-label>Chrome</vm-label>
+          <vm-datetime displayFormat="DDDD MMM D, YYYY" min="2005" max="2016" v-model="chromeReleased"></vm-datetime>
         </vm-item>
       </vm-list>
 
@@ -48,18 +48,18 @@
         <vm-list-header>World Times</vm-list-header>
 
         <vm-item>
-          <vm-label slot="item-label">Tokyo</vm-label>
-          <vm-datetime slot="item-content" displayFormat="hh:mm A" v-model="tokyoTime"></vm-datetime>
+          <vm-label>Tokyo</vm-label>
+          <vm-datetime displayFormat="hh:mm A" v-model="tokyoTime"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Paris</vm-label>
-          <vm-datetime slot="item-content" displayFormat="HH:mm" v-model="parisTime"></vm-datetime>
+          <vm-label>Paris</vm-label>
+          <vm-datetime displayFormat="HH:mm" v-model="parisTime"></vm-datetime>
         </vm-item>
 
         <vm-item>
-          <vm-label slot="item-label">Madison</vm-label>
-          <vm-datetime slot="item-content" displayFormat="h:mm a" v-model="madisonTime"></vm-datetime>
+          <vm-label>Madison</vm-label>
+          <vm-datetime displayFormat="h:mm a" v-model="madisonTime"></vm-datetime>
         </vm-item>
 
       </vm-list>
@@ -68,8 +68,8 @@
         <vm-list-header>Set Alarm</vm-list-header>
 
         <vm-item>
-          <vm-label slot="item-label">Alert</vm-label>
-          <vm-datetime slot="item-content" displayFormat="mm" minuteValues="0,15,30,45" v-model="alertTime"></vm-datetime>
+          <vm-label>Alert</vm-label>
+          <vm-datetime displayFormat="mm" minuteValues="0,15,30,45" v-model="alertTime"></vm-datetime>
         </vm-item>
       </vm-list>
 

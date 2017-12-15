@@ -24,7 +24,18 @@ import VmBadge from '../badge'
 export default {
   name: 'vm-tab',
   mixins: [ModeMixins],
-  inject: ['tabsComponent'],
+  inject: {
+    tabsComponent: {
+      from: 'tabsComponent',
+      default () {
+        if (process.env.NODE_ENV !== 'production') {
+          console.error('[Component] Tab组件 需要与 Tabs组件 组合使用!')
+        }
+        return null
+      }
+    }
+  },
+
   components: {
     VmIcon,
     VmBadge

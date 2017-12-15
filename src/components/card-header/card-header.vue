@@ -4,15 +4,21 @@
   </div>
 </template>
 <script>
-  import ModeMixins from '../../themes/theme.mixins'
+import ModeMixins from '../../themes/theme.mixins'
 
 export default {
-    name: 'vm-card-header',
-    mixins: [ModeMixins],
-    created () {
-      if (!this.$parent || this.$parent.$options.name !== 'vm-card') {
-        console.error('Card-header component must combine with Card')
+  name: 'vm-card-header',
+  mixins: [ModeMixins],
+  inject: {
+    cardComponent: {
+      from: 'cardComponent',
+      default () {
+        if (process.env.NODE_ENV !== 'production') {
+          console.error('[Component] CardContent组件 需要与 Card组件 组合使用!')
+        }
+        return null
       }
     }
   }
+}
 </script>

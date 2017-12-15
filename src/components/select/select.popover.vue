@@ -1,8 +1,8 @@
 <template>
   <vm-list radio-group v-model="checkedValue" @onChange="onRadioChecked($event)">
     <vm-item v-for="option in options" :key="option">
-      <vm-label slot="item-label">{{option.text}}</vm-label>
-      <vm-radio slot="item-content" :value="option.value" :disabled="option.disabled"></vm-radio>
+      <vm-label>{{option.text}}</vm-label>
+      <vm-radio :value="option.value" :disabled="option.disabled"></vm-radio>
     </vm-item>
   </vm-list>
 </template>

@@ -1,17 +1,13 @@
 <template>
   <vm-list :title="title" radio-group>
-    <vm-item
-        :key="option.value"
-        v-for="option in processOptions"
-      >
-      <vm-label slot="item-label">{{option.label}}</vm-label>
-      <vm-radio slot="item-content"
+    <vm-item :key="index" v-for="(option, index) in processOptions">
+      <vm-label>{{option.label}}</vm-label>
+      <vm-radio
         :disabled="option.disabled"
         :value="option.value"
         :checked="getChecked(option.value)"
         :color="getColor(option.color)"
-        @onSelect="onSelectHandler(option.value)"
-        ></vm-radio>
+        @onSelect="onSelectHandler(option.value)"></vm-radio>
     </vm-item>
   </vm-list>
 </template>

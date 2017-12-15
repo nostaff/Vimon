@@ -12,6 +12,12 @@
   export default {
     name: 'vm-list',
     mixins: [ModeMixins],
+    provide () {
+      const _this = this
+      return {
+        listComponent: _this
+      }
+    },
     components: {
       VmListHeader
     },
@@ -22,8 +28,6 @@
     },
     data () {
       return {
-        componentName: 'ionList',
-
         checkedValue: this.value,
         radioButtons: [],
         timer: null,

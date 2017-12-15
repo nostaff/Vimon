@@ -13,30 +13,29 @@
             <vm-radio-group title="设置整个Radio的颜色" :options="list" v-model="selected" color="danger" @onChange="change"></vm-radio-group>
             <vm-radio-group title="设置每个Option的颜色" :options="list2" v-model="selected2" @onChange="change"></vm-radio-group>
 
-
             <vm-list radio-group v-model="language">
                 <vm-list-header>
                     Language
                 </vm-list-header>
 
                 <vm-item>
-                    <vm-label slot="item-label">Python</vm-label>
-                    <vm-radio slot="item-content" value="Python" checked="true" color="danger"></vm-radio>
+                    <vm-label>Python</vm-label>
+                    <vm-radio slot="item-end" value="Python" checked="true" color="danger"></vm-radio>
                 </vm-item>
 
                 <vm-item>
-                    <vm-label slot="item-label">Ruby</vm-label>
-                    <vm-radio slot="item-content" value="Ruby" disabled color="secondary"></vm-radio>
+                    <vm-label>Ruby</vm-label>
+                    <vm-radio slot="item-end" value="Ruby" disabled color="secondary"></vm-radio>
                 </vm-item>
 
                 <vm-item>
-                    <vm-label slot="item-label">Java</vm-label>
-                    <vm-radio slot="item-content" value="Java"></vm-radio>
+                    <vm-label>Java</vm-label>
+                    <vm-radio slot="item-end" value="Java"></vm-radio>
                 </vm-item>
 
                 <vm-item>
-                    <vm-label slot="item-label">PHP</vm-label>
-                    <vm-radio slot="item-content" value="PHP"></vm-radio>
+                    <vm-label>PHP</vm-label>
+                    <vm-radio slot="item-end" value="PHP"></vm-radio>
                 </vm-item>
             </vm-list>
             <p class="padding">

@@ -8,7 +8,13 @@
 
   export default {
     name: 'vm-card',
-    mixins: [ModeMixins]
+    mixins: [ModeMixins],
+    provide () {
+      let _this = this
+      return {
+        cardComponent: _this
+      }
+    }
   }
 </script>
 

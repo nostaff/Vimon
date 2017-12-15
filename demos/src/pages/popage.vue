@@ -24,32 +24,32 @@
                 </vm-col>
             </vm-row>
             <vm-item class="popover-text-athelas">
-                <vm-label slot="item-label">Athelas</vm-label>
-                <vm-radio slot="item-content" value="Athelas"></vm-radio>
+                <vm-label>Athelas</vm-label>
+                <vm-radio slot="item-end" value="Athelas"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-charter">
-                <vm-label slot="item-label">Charter</vm-label>
-                <vm-radio slot="item-content" value="Charter"></vm-radio>
+                <vm-label>Charter</vm-label>
+                <vm-radio slot="item-end" value="Charter"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-iowan">
-                <vm-label slot="item-label">Iowan</vm-label>
-                <vm-radio slot="item-content" value="Iowan"></vm-radio>
+                <vm-label>Iowan</vm-label>
+                <vm-radio slot="item-end" value="Iowan"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-palatino">
-                <vm-label slot="item-label">Palatino</vm-label>
-                <vm-radio slot="item-content" value="Palatino"></vm-radio>
+                <vm-label>Palatino</vm-label>
+                <vm-radio slot="item-end" value="Palatino"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-san-francisco">
-                <vm-label slot="item-label">San Francisco</vm-label>
-                <vm-radio slot="item-content" value="San Francisco"></vm-radio>
+                <vm-label>San Francisco</vm-label>
+                <vm-radio slot="item-end" value="San Francisco"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-seravek">
-                <vm-label slot="item-label">Seravek</vm-label>
-                <vm-radio slot="item-content" value="Seravek"></vm-radio>
+                <vm-label>Seravek</vm-label>
+                <vm-radio slot="item-end" value="Seravek"></vm-radio>
             </vm-item>
             <vm-item class="popover-text-times-new-roman">
-                <vm-label slot="item-label">Times New Roman</vm-label>
-                <vm-radio slot="item-content" value="Times New Roman"></vm-radio>
+                <vm-label>Times New Roman</vm-label>
+                <vm-radio slot="item-end" value="Times New Roman"></vm-radio>
             </vm-item>
         </vm-list>
     </vm-content>

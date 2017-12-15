@@ -8,7 +8,7 @@
       name: 'vm-item-options',
       data () {
         return {
-          componentName: 'ionItemOptions'
+          componentName: 'ItemSlidingOptions'
         }
       },
       props: {

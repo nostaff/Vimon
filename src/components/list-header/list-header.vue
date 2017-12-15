@@ -1,41 +1,22 @@
-<template>
-  <div :class="['ion-list-header item', modeClass]">
-    <div class="item-inner">
-      <div class="input-wrapper">
-        <slot name="item-label"></slot>
-        <vm-label ref="label" v-if="noItemLabel">
-          <slot></slot>
-        </vm-label>
-      </div>
-      <slot name="item-end"></slot>
-    </div>
-  </div>
-</template>
-<script>
-import ModeMixins from '../../themes/theme.mixins'
-import VmLabel from '../label'
+<script type="text/javascript">
+  import ItemMixin from '../item/item-mixin.vue'
 
-export default {
-  name: 'vm-list-header',
-  components: { VmLabel },
-  mixins: [ModeMixins],
-
-  data () {
-    return {
-      componentName: 'ionItem'
-    }
-  },
-  computed: {
-    noItemLabel: function () {
-      return typeof this.$slots['item-label'] === 'undefined'
-    }
-  },
-  mounted () {
-    if (this.$slots['item-end']) {
-      this.$slots['item-end'].forEach(function (item) {
-        item.elm.setAttribute('item-end', '')
-      })
+  export default {
+    mixins: [ItemMixin],
+    name: 'vm-list-header',
+    data () {
+      return {
+        itemTypeName: 'list-header'
+      }
+    },
+    computed: {
+      // 颜色
+      colorClass () {
+        return this.color ? (`${this.itemTypeName}-${this.mode}-${this.color}`) : ''
+      },
+      itemTypeClass () {
+        return `ion-${this.itemTypeName} ${this.itemTypeName} ${this.itemTypeName}-${this.mode}`
+      }
     }
   }
-}
 </script>

@@ -24,62 +24,62 @@
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.jon"></vm-checkbox>
-                    <vm-label slot="item-label">Jon Snow</vm-label>
+                    <vm-label>Jon Snow</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.daenerys" color="danger"></vm-checkbox>
-                    <vm-label slot="item-label">Daenerys Targaryen</vm-label>
+                    <vm-label>Daenerys Targaryen</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.arya" disabled></vm-checkbox>
-                    <vm-label slot="item-label">Arya Stark</vm-label>
+                    <vm-label>Arya Stark</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.tyroin" color="secondary"></vm-checkbox>
-                    <vm-label slot="item-label">Tyrion Lannister</vm-label>
+                    <vm-label>Tyrion Lannister</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.sansa" color="danger"></vm-checkbox>
-                    <vm-label slot="item-label">Sansa Stark</vm-label>
+                    <vm-label>Sansa Stark</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.khal"></vm-checkbox>
-                    <vm-label slot="item-label">Khal Drogo</vm-label>
+                    <vm-label>Khal Drogo</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.cersei" color="dark"></vm-checkbox>
-                    <vm-label slot="item-label">Cersei Lannister</vm-label>
+                    <vm-label>Cersei Lannister</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.stannis"></vm-checkbox>
-                    <vm-label slot="item-label">Stannis Baratheon</vm-label>
+                    <vm-label>Stannis Baratheon</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.petyr" disabled></vm-checkbox>
-                    <vm-label slot="item-label">Petyr Baelish</vm-label>
+                    <vm-label>Petyr Baelish</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.hodor" color="dark"></vm-checkbox>
-                    <vm-label slot="item-label">Hodor</vm-label>
+                    <vm-label>Hodor</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.catelyn" color="secondary"></vm-checkbox>
-                    <vm-label slot="item-label">Catelyn Stark</vm-label>
+                    <vm-label>Catelyn Stark</vm-label>
                 </vm-item>
 
                 <vm-item>
                     <vm-checkbox slot="item-start" v-model="data.bronn" color="danger"></vm-checkbox>
-                    <vm-label slot="item-label">Bronn</vm-label>
+                    <vm-label>Bronn</vm-label>
                 </vm-item>
 
             </vm-list>

@@ -2,14 +2,6 @@
   <span :label="label" :disabled="isDisabled" :selected="isSelected"></span>
 </template>
 <script type="text/javascript">
-/**
- * @component Select/Option
- * @description
- *
- * ## 表单组件 / Option选择组件
- *
- * @demo #/select
- */
 import { isBlank, isTrueProperty } from '../../util/util'
 
 export default {

@@ -2,8 +2,8 @@
   <button class="disable-hover ion-button" :class="[modeClass, itemClass]" @click="clickHandler($event)">
     <slot name="backup"></slot>
     <span class="button-inner">
-            <slot></slot>
-        </span>
+      <slot></slot>
+    </span>
     <div class="button-effect"></div>
   </button>
 </template>
@@ -14,6 +14,12 @@ import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'vm-button',
   mixins: [ModeMixins],
+  inject: {
+    itemComponent: {
+      from: 'itemComponent',
+      default: null
+    }
+  },
   props: {
     role: {
       type: String,
@@ -58,18 +64,11 @@ export default {
     let parentName = this.$parent.$data.componentName
 
     // 如果是在组件 buttons 下则修改前缀为 bar-button-
-    if (
-      parentName === 'ionButtons' ||
-      parentName === 'ionToolbar'
-    ) {
+    if (parentName === 'ionButtons' || parentName === 'ionToolbar') {
       this.roleName = 'bar-button'
     }
 
-    if (
-      this.role === 'radio' ||
-      this.role === 'checkbox' ||
-      this.role === 'select'
-    ) {
+    if (this.role === 'radio' || this.role === 'checkbox' || this.role === 'select') {
       this.roleName = 'item-cover'
     }
 
@@ -160,11 +159,7 @@ export default {
     },
 
     addClassInItem () {
-      if (
-        this.$parent.$el &&
-        this.$parent.$data.componentName === 'ionItem' &&
-        this.roleName === 'button'
-      ) {
+      if (this.itemComponent && this.roleName === 'button') {
         // button in items should add class of 'item-button'
         this.setElementClass('item-button', true)
       }

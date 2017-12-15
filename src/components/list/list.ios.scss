@@ -192,6 +192,23 @@ $list-ios-header-background-color:    transparent !default;
   background: $list-ios-header-background-color;
 }
 
+.list-header-ios .item-button {
+  @include padding(0, .5em);
+
+  height: 24px;
+
+  font-size: 1.3rem;
+}
+
+.list-header-ios .item-button[icon-only] .ion-icon,
+.list-header-ios .item-button[icon-only] {
+  @include padding(0, 1px);
+}
+
+.list-header-ios [item-end] {
+  margin: 8px;
+}
+
 // Generate iOS List Header Colors
 // --------------------------------------------------
 

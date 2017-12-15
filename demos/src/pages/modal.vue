@@ -11,8 +11,8 @@
                     Enter Parameters to Pass to the Modal
                 </vm-list-header>
                 <vm-item>
-                    <vm-label slot="item-label">Parameters</vm-label>
-                    <vm-select slot="item-content" v-model="myParam" multiple="true">
+                    <vm-label>Parameters</vm-label>
+                    <vm-select v-model="myParam" multiple="true">
                         <vm-option value="nes">NES</vm-option>
                         <vm-option value="n64">Nintendo64</vm-option>
                         <vm-option value="ps">PlayStation</vm-option>
