@@ -24,10 +24,14 @@ import ModeMixins from '../../themes/theme.mixins'
 export default {
   name: 'vm-textarea',
   mixins: [ModeMixins],
+  inject: {
+    itemComponent: {
+      from: 'itemComponent',
+      default: null
+    }
+  },
   data () {
     return {
-      itemCmp: null,
-
       currentValue: this.value || '',
       isReadonly: isTrueProperty(this.readonly),
       isDisabled: isTrueProperty(this.disabled),
@@ -90,17 +94,14 @@ export default {
     }
   },
   created () {
-    if (this.$parent.$data.componentName === 'ionItem') {
-      this.itemCmp = this.$parent
-    }
     if (isPresent(this.maxlength)) {
       this.max = parseInt(this.maxlength)
     }
   },
   mounted () {
-    if (isPresent(this.itemCmp)) {
-      this.itemCmp.setElementClass('item-input', true)
-      this.itemCmp.setElementClass('item-textarea', true)
+    if (this.itemComponent) {
+      this.itemComponent.setElementClass('item-input', true)
+      this.itemComponent.setElementClass('item-textarea', true)
     }
 
     this.setItemHasValueClass()
@@ -147,12 +148,11 @@ export default {
       }
     },
     setItemHasFocusClass (isFocus) {
-      this.itemCmp && this.itemCmp.setElementClass('input-has-focus', isFocus)
+      this.itemComponent && this.itemComponent.setElementClass('input-has-focus', isFocus)
     },
 
     setItemHasValueClass () {
-      this.itemCmp &&
-        this.itemCmp.setElementClass('input-has-value', this.hasValue())
+      this.itemComponent && this.itemComponent.setElementClass('input-has-value', this.hasValue())
     },
 
     hasValue () {
