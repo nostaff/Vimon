@@ -1,16 +1,16 @@
 <template>
     <vm-page v-nav="{title: 'Refresher'}">
-        <vm-content>
+        <vm-content class="outer-content">
             <vm-refresher slot="refresher"
                            :enabled="enabled"
-                           pullingText="Pull to refresh..." r
-                           efreshingText="Refreshing..."
+                           pullingText="Pull to refresh..."
+                           refreshingText="Refreshing..."
                            @onRefresh="doRefresh($event)"
                            @onStart="doStart($event)"
                            @onPull="doPulling($event)"></vm-refresher>
             <div padding class="state" text-center>
                 <p>状态: {{enabled}}</p>
-                <vm-button small outline @click.native="toggleDisabled">禁用/启用</vm-button>
+                <vm-button small outline @click="toggleDisabled">禁用/启用</vm-button>
             </div>
             <vm-list>
                 <vm-item v-for="(item,index) in items" :key="index">{{item}}</vm-item>
@@ -58,6 +58,9 @@
           ]
         }
       },
+      created () {
+        this.items = this.getData()
+      },
       methods: {
         toggleDisabled () {
           this.enabled = !this.enabled
@@ -85,7 +88,7 @@
         getData () {
           // return mock data synchronously
           let data = []
-          for (var i = 0; i < 20; i++) {
+          for (var i = 0; i < 5; i++) {
             data.unshift(this._getRandomData())
           }
           return data
@@ -104,11 +107,6 @@
           let i = Math.floor(Math.random() * this.data.length)
           return this.data[i]
         }
-      },
-      created () {
-        this.items = this.getData()
-
-        console.log(this.items)
       }
     }
 </script>

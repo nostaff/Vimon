@@ -29,6 +29,12 @@ let scrollDisTimer = null // 计时器
 export default {
   name: 'vm-app',
   mixins: [ModeMixins],
+  provide () {
+    let _this = this
+    return {
+      appComponent: _this
+    }
+  },
   data () {
     return {
       // ----------- App -----------
