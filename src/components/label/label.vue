@@ -1,9 +1,6 @@
 <template>
   <div class="ion-label"
       :class="[modeClass, colorClass]"
-      :fixed="fixed"
-      :floating="floating"
-      :stacked="stacked"
       v-if="viewLabel">
     <slot></slot>
   </div>
@@ -51,12 +48,6 @@ export default {
       viewLabel: true
     }
   },
-  props: {
-    // label格式
-    fixed: Boolean,
-    floating: Boolean,
-    stacked: Boolean
-  },
   created () {
     // 如果slot 没有值 则隐藏该label 不管任何label 的是
     if (typeof (this.$slots.default) === 'undefined') {
@@ -65,15 +56,14 @@ export default {
   },
   mounted () {
     if (this.itemComponent) {
-      this.itemComponent.setElementClass('item-label-fixed', this.fixed)
-      this.itemComponent.setElementClass('item-label-floating', this.floating)
-      this.itemComponent.setElementClass('item-label-stacked', this.stacked)
+      this.itemComponent.setElementClass('item-label-fixed', this.hasAttribute('fixed'))
+      this.itemComponent.setElementClass('item-label-floating', this.hasAttribute('floating'))
+      this.itemComponent.setElementClass('item-label-stacked', this.hasAttribute('stacked'))
       this.itemComponent.labelComponent = this
     }
   },
   methods: {
     hasAttribute (name) {
-      console.log(this.$el)
       return this.$el.hasAttribute(name)
     }
   }
