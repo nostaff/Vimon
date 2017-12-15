@@ -34,7 +34,7 @@ export default {
     setElementStyle (name, value) {
       this.$el.style[name] = value
     },
-    setElementAttribute (name, value) {
+    setElementAttribute (name, value = '') {
       this.$el.setAttribute(name, value)
     }
   }

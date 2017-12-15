@@ -2,16 +2,12 @@
   <vm-page>
     <vm-header>
       <vm-navbar hide-back-button>
-        <vm-buttons right slot="buttons">
-          <vm-button @click="$menu.toggle('menu')" role="bar-button" menutoggle>
-            <vm-icon name="more"></vm-icon>
-          </vm-button>
-        </vm-buttons>
         <vm-title @onTitleClick="onTitleClickHandler">Aha!</vm-title>
       </vm-navbar>
     </vm-header>
+
     <vm-content>
-      <div class="index scrollContent" padding>
+      <div class="index scrollContent">
         <vm-grid class="vimo">
           <vm-row class="vimo__logo">
             <vm-col text-center no-padding>
@@ -30,8 +26,8 @@
             </vm-col>
           </vm-row>
         </vm-grid>
-
       </div>
+
       <vm-list>
           <vm-item link="/component">
             <vm-icon slot="item-start" name="watch"></vm-icon>
@@ -73,13 +69,8 @@ export default {
   methods: {
     onTitleClickHandler () {
       alert('你点击了标题')
-    },
-    onDocsClickHandler () {
-      window.open('https://nostaff.github.io/vimon/')
     }
-  },
-  created () {},
-  mounted () {}
+  }
 }
 </script>
 

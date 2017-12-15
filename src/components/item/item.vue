@@ -1,6 +1,6 @@
 <script>
 import ItemMixin from './item-mixin.vue'
-import { isPresent, isString } from '../../util/util'
+import { isPresent, isTrueProperty } from '../../util/util'
 
 export default {
   mixins: [ItemMixin],
@@ -13,84 +13,72 @@ export default {
   },
   data () {
     return {
+      isDisabled: isTrueProperty(this.disabled),
+      isReplace: isTrueProperty(this.replace),
       isInMenu: this.wait // 判断是否在menu组件中, 如果在menu中, 则
     }
   },
   props: {
     /**
-       * 指向跳转
-       * 当被点击后，内部会立刻把 to 的值传到 router.push()
-       * 所以这个值可以是一个字符串或者是描述目标位置的对象
-       * */
-    to: [String, Object],
+     * 可以是 字符串path，url， 也可以是路由对象
+     */
+    link: [String, Object],
 
-    append: Boolean,
+    /** 是否禁用 */
+    disabled: [Boolean, String],
 
-    /**
-       * 设置 replace 属性的话，当点击时，会调用 router.replace()
-       * 而不是 router.push()，于是导航后不会留下 history 记录。
-       * */
-    replace: Boolean,
+    /** 是否替换路由 */
+    replace: [Boolean, String],
 
     /**
-       * 如果是在menus中, 可以设置这个值, 当menus完全关闭时再出发跳转动作
-       * */
+     * 如果是在menus中, 可以设置这个值, 当menus完全关闭时再出发跳转动作
+     **/
     wait: Boolean
   },
   created () {
     this.hasReorder = this.itemGroupComponent && this.itemGroupComponent.allowReorder
   },
+  mounted () {
+    this.link && this.setElementAttribute('detail-push')
+  },
   methods: {
-    /**
-     * 类似于a标签跳转
-     */
     clickHandler ($event) {
-      const _this = this
-      const router = this.$router
-      const current = this.$route
-      let _to = this.to
-      if (isPresent(router) && isPresent(current) && isPresent(_to)) {
-        if (isString(_to)) {
-          _to = {
-            name: _to
+      const go = (url, router, replace = false) => {
+        const useRouter = typeof url === 'object' || (router && typeof url === 'string' && !/http/.test(url))
+        if (useRouter) {
+          if (replace === true) {
+            router.replace(url)
+          } else {
+            router.push(url)
           }
+        } else {
+          window.location.href = url
         }
+      }
 
-        // 返回数据: {location, route, href}
-        const {location} = router.resolve(_to, current, this.append)
+      if (this.isDisabled) return
 
+      const _this = this
+      if (isPresent(this.$router) && isPresent(this.link)) {
         // 如果在menu跳转, 则需要等待menu关闭后再跳转
         if (this.isInMenu) {
           this.$menu.close()
-          this.$events && this.$events.$on('onMenuClosed', directToHandler)
+          this.$events && this.$events.$on('onMenuClosed', () => {
+            _this.$events && _this.$events.$off('onMenuClosed', () => {
+              go(_this.link, _this.$router, _this.isReplaces)
+            })
+          })
         } else {
           // 正常情况
-          doRedirect()
-        }
-
-        // 事件处理函数
-        // eslint-disable-next-line no-inner-declarations
-        function directToHandler () {
-          _this.$events && _this.$events.$off('onMenuClosed', directToHandler)
-          doRedirect()
-        }
-
-        // 跳转
-        // eslint-disable-next-line no-inner-declarations
-        function doRedirect () {
-          if (_this.replace) {
-            router.replace(location)
-          } else {
-            router.push(location)
-          }
+          go(this.link, this.$router, this.isReplaces)
         }
       } else {
         this.$emit('click', $event)
       }
     },
     /**
-       * 获取组件类Label的文本
-       * */
+     * 获取组件类Label的文本
+     */
     getLabelText () {
       let list = []
       if (this.$slots['default'] && this.$slots['default'].length > 0) {
