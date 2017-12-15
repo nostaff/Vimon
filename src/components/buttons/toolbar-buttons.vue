@@ -42,7 +42,6 @@ export default {
   mixins: [ModeMixins],
   data () {
     return {
-      componentName: 'ionButtons',
       roleName: 'bar-buttons'
     }
   }

@@ -9,6 +9,10 @@ export default {
     itemGroupComponent: {
       from: 'itemGroupComponent',
       default: null
+    },
+    itemSlidingComponent: {
+      from: 'itemSlidingComponent',
+      default: null
     }
   },
   data () {

@@ -6,6 +6,12 @@
 <script>
     export default {
       name: 'vm-item-options',
+      inject: {
+        itemSlidingComponent: {
+          from: 'itemSlidingComponent',
+          default: null
+        }
+      },
       data () {
         return {
           componentName: 'ItemSlidingOptions'

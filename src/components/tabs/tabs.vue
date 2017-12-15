@@ -120,10 +120,6 @@ export default {
   },
   data () {
     return {
-      componentName: 'ionTabs',
-
-      tabsCmp: null,
-
       id: '',
       ids: -1,
       tabs: [],

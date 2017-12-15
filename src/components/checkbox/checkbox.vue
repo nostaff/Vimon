@@ -16,12 +16,16 @@ export default {
   components: {
     VmButton
   },
+  inject: {
+    itemComponent: {
+      from: 'itemComponent',
+      default: null
+    }
+  },
   data () {
     return {
       isChecked: isTrueProperty(this.value),
-      isDisabled: isTrueProperty(this.disabled),
-
-      itemCmp: null
+      isDisabled: isTrueProperty(this.disabled)
     }
   },
   props: {
@@ -43,10 +47,7 @@ export default {
     }
   },
   mounted () {
-    if (this.$parent && this.$parent.$data.componentName === 'ionItem') {
-      this.itemCmp = this.$parent
-      this.itemCmp.$el.classList.add('item-checkbox')
-    }
+    this.itemComponent && this.itemComponent.setElementClass('item-checkbox', true)
 
     this.setChecked(this.isChecked)
     this.setDisabled(this.isDisabled)
@@ -58,14 +59,12 @@ export default {
         this.$emit('onChange', this.isChecked)
         this.$emit('input', this.isChecked)
 
-        this.itemCmp &&
-          this.itemCmp.setElementClass('item-checkbox-checked', this.isChecked)
+        this.itemComponent && this.itemComponent.setElementClass('item-checkbox-checked', this.isChecked)
       }
     },
     setDisabled (disabled) {
       this.isDisabled = disabled
-      this.itemCmp &&
-        this.itemCmp.setElementClass('item-checkbox-disabled', this.isDisabled)
+      this.itemComponent && this.itemComponent.setElementClass('item-checkbox-disabled', this.isDisabled)
     },
     onChecked (ev) {
       ev.preventDefault()

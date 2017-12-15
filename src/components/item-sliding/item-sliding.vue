@@ -38,6 +38,12 @@
   export default {
     name: 'vm-item-sliding',
     mixins: [ModeMixins],
+    provide () {
+      let _this = this
+      return {
+        itemSlidingComponent: _this
+      }
+    },
     data () {
       return {
         openAmount: 0,

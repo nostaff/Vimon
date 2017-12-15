@@ -44,17 +44,6 @@ export default {
       lastToIndex: -1
     }
   },
-  // created () {
-  //   if (this.allowReorder) {
-  //     console.log(this.contentComponent)
-  //     let pageComponentChildrenList = this.$vnode.context.$children[0].$children || []
-  //     pageComponentChildrenList.forEach((component) => {
-  //       if (component.$data.componentName === 'ionContent') {
-  //         this.contentCmp = component
-  //       }
-  //     })
-  //   }
-  // },
   methods: {
     reorderPrepare () {
       let ele = this.$el

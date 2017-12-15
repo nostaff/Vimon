@@ -28,14 +28,11 @@ export default {
     tabsComponent: {
       from: 'tabsComponent',
       default () {
-        if (process.env.NODE_ENV !== 'production') {
-          console.error('[Component] Tab组件 需要与 Tabs组件 组合使用!')
-        }
+        console.error('[Component] Tab组件 需要与 Tabs组件 组合使用!')
         return null
       }
     }
   },
-
   components: {
     VmIcon,
     VmBadge
@@ -65,7 +62,6 @@ export default {
   data () {
     return {
       index: '',
-      tabsCmp: null,
       layout: '',
 
       isHidden: isTrueProperty(this.hidden),
@@ -94,28 +90,22 @@ export default {
     }
   },
   created () {
-    if (this.$parent.$data.componentName === 'ionTabs') {
-      this.tabsCmp = this.$parent
-    } else {
-      console.error('Tab component must combine with Tabs')
-    }
+    this.index = this.tabsComponent.addTab(this)
 
-    this.index = this.tabsCmp.addTab(this)
-
-    this.layout = this.tabsCmp.getTabsLayout()
+    this.layout = this.tabsComponent.getTabsLayout()
   },
   mounted () {
     this.isSelected =
       !isBlank(this.tabUrlPath) && this.tabUrlPath === this.$route.path
     if (this.isSelected) {
-      this.tabsCmp.selectTab(this)
+      this.tabsComponent.selectTab(this)
     }
   },
   methods: {
     onClickHandler (ev) {
       if (!this.isDisabled && !this.isSelected) {
         this.isSelected = true
-        this.tabsCmp.selectTab(this)
+        this.tabsComponent.selectTab(this)
         if (!isBlank(this.tabUrlPath)) {
           this.$router.replace({ path: this.tabUrlPath })
         }

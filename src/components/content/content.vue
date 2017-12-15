@@ -39,8 +39,6 @@
     },
     data () {
       return {
-        componentName: 'ionContent',
-
         hasRefresher: false,
         contentTop: 0,
         contentBottom: 0,

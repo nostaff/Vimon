@@ -61,10 +61,10 @@ export default {
     }
   },
   created () {
-    let parentName = this.$parent.$data.componentName
+    let parentName = this.$parent.$options.name
 
     // 如果是在组件 buttons 下则修改前缀为 bar-button-
-    if (parentName === 'ionButtons' || parentName === 'ionToolbar') {
+    if (parentName === 'vm-buttons' || parentName === 'vm-toolbar') {
       this.roleName = 'bar-button'
     }
 

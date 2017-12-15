@@ -181,7 +181,6 @@
               <img :src="chat.img">
             </vm-avatar>
             <vm-label>
-
               <h2>{{chat.name}}</h2>
               <p>{{chat.message}}</p>
             </vm-label>
