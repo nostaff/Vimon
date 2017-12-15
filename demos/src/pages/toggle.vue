@@ -1,7 +1,7 @@
 <template>
   <vm-page v-nav="{title: 'Toggle'}">
 
-    <vm-content>
+    <vm-content class="outer-content">
       <vm-toggle v-model="pushNotification"></vm-toggle>
       <div class="item item-divider">开关状态:
         <span>{{ pushNotification ? '开启' : '关闭' }}</span>

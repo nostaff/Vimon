@@ -1,6 +1,6 @@
 <template>
     <vm-page v-nav="{title: 'Checkbox'}">
-        <vm-content>
+        <vm-content class="outer-content">
 
             <vm-checkbox-group title="选择感兴趣的板块:" :options="topics" v-model="chosenTopics" @onChange="change"></vm-checkbox-group>
 

@@ -1,6 +1,6 @@
 <template>
     <vm-page v-nav="{title: 'Select'}">
-        <vm-content>
+        <vm-content class="outer-content">
 
             <vm-list>
                 <vm-list-header>Single Value Select</vm-list-header>

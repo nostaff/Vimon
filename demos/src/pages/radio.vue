@@ -1,6 +1,6 @@
 <template>
     <vm-page v-nav="{title: 'Radio'}">
-        <vm-content>
+        <vm-content class="outer-content">
 
             <vm-radio-group title="请选择性别" :options="genderOptions" v-model="gender" @onChange="change"></vm-radio-group>
 
