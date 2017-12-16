@@ -42,7 +42,6 @@ import ItemDivider from './components/item-divider/index.js'
 import ItemGroup from './components/item-group/index.js'
 import ItemOptions from './components/item-options/index.js'
 import ItemSliding from './components/item-sliding/index.js'
-import ItemReorder from './components/item-reorder/index.js'
 import Label from './components/label/index.js'
 import List from './components/list/index.js'
 import ListHeader from './components/list-header/index.js'
@@ -132,7 +131,6 @@ const components = {
   ItemGroup,
   // ItemCollapse,
   ItemOptions,
-  ItemReorder,
   ItemSliding,
   Label,
   ListHeader,
@@ -247,7 +245,6 @@ export {
   ItemGroup,
   // ItemCollapse,
   ItemOptions,
-  ItemReorder,
   ItemSliding,
   Label,
   ListHeader,

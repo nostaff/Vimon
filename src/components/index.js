@@ -35,7 +35,6 @@ import Item from './item/index.js'
 import ItemDivider from './item-divider/index.js'
 import ItemGroup from './item-group/index.js'
 import ItemOptions from './item-options/index.js'
-import ItemReorder from './item-reorder/index.js'
 import ItemSliding from './item-sliding/index.js'
 import Label from './label/index.js'
 import List from './list/index.js'
@@ -107,7 +106,6 @@ export {
   ItemDivider,
   ItemGroup,
   ItemOptions,
-  ItemReorder,
   ItemSliding,
   Label,
   List,

@@ -14,7 +14,7 @@
 
 <script>
 import ModeMixins from '../../themes/theme.mixins'
-import VmItemReorder from '../item-reorder'
+import VmItemReorder from './item-reorder'
 import VmLabel from '../label'
 
 export default {

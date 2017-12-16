@@ -135,14 +135,16 @@
       <vm-list title="Multi Lines">
         <vm-item detail-push>
           <vm-avatar slot="item-start">
-            <img src="http://ionicframework.com/dist/preview-app/www/assets/img/spengler.jpg">
+            <img src="../assets/images/avatar/1.png">
           </vm-avatar>
-          <h2>Cher</h2>
-          <p>Ugh. As if.</p>
+          <vm-label>
+            <h2>Cher</h2>
+            <p>Ugh. As if.</p>
+          </vm-label>
         </vm-item>
         <vm-item>
           <vm-avatar slot="item-start">
-            <img src="http://ionicframework.com/dist/preview-app/www/assets/img/spengler.jpg">
+            <img src="../assets/images/avatar/2.png">
           </vm-avatar>
           <vm-label>
             <h2>Finn</h2>
@@ -152,10 +154,9 @@
         </vm-item>
         <vm-item>
           <vm-thumbnail slot="item-start">
-            <img src="http://ionicframework.com/dist/preview-app/www/assets/img/thumbnail-rotla.png">
+            <img src="../assets/images/avatar/3.png">
           </vm-thumbnail>
           <vm-label>
-
             <h2>My Neighbor Totoro</h2>
             <p>Hayao Miyazaki • 1988</p>
           </vm-label>
@@ -163,10 +164,9 @@
         </vm-item>
         <vm-item is-link>
           <vm-thumbnail slot="item-start">
-            <img src="http://ionicframework.com/img/docs/siamese-dream.jpg">
+            <img src="../assets/images/avatar/4.png">
           </vm-thumbnail>
           <vm-label>
-
             <h2>Pretty Hate Machine</h2>
             <p>Nine Inch Nails</p>
           </vm-label>
@@ -189,21 +189,21 @@
             </vm-note>
           </vm-item>
           <vm-item-options>
-            <vm-button color="secondary" @click.native="optionClicked($event)">
+            <vm-button color="secondary" @click="optionClicked($event, 'menu')">
               <vm-icon name="menu"></vm-icon>
               More
             </vm-button>
-            <vm-button color="dark" @click.native="optionClicked($event)">
+            <vm-button color="dark" @click="optionClicked($event, 'volume-off')">
               <vm-icon name="volume-off"></vm-icon>
               Mute
             </vm-button>
-            <vm-button color="danger" @click.native="optionClicked($event)">
+            <vm-button color="danger" @click="optionClicked($event, 'trash')">
               <vm-icon name="trash"></vm-icon>
               Delete
             </vm-button>
           </vm-item-options>
           <vm-item-options side="left">
-            <vm-button color="primary" @click.native="optionClicked($event)">
+            <vm-button color="primary" @click="optionClicked($event, 'archive')">
               <vm-icon name="archive"></vm-icon>
               Archive
             </vm-button>
@@ -216,7 +216,7 @@
           Reorder
           <vm-button slot="item-end" outline @click="toggleEdit()">{{editButton}}</vm-button>
         </vm-list-header>
-        <vm-item-group reorder="true" :reorder-enabled="editing" @onItemReorder="reorderData($event)">
+        <vm-item-group reorder="true" :reorder-enabled="editing" @onItemReorder="reorderItems($event)">
           <vm-item :key="index" v-for="(song, index) in songs">
             <vm-label>
               <h2>{{ song.title }}</h2>
@@ -231,7 +231,6 @@
 </template>
 
 <script>
-import { reorderArray } from 'vimon/util/util'
 export default {
   data () {
     return {
@@ -239,32 +238,22 @@ export default {
       editButton: 'Edit',
       chats: [
         {
-          img:
-            'https://ionicframework.com/docs/demos/src/item-sliding/www/assets/avatar-cher.png',
+          img: require('../../static/img/avatar-cher.png'),
           name: 'Cher',
           message: 'Ugh. As if.',
           time: '9:38 pm'
         },
         {
-          img:
-            'http://ionicframework.com/docs/demos/src/item-sliding/www/assets/avatar-dionne.png',
+          img: require('../../static/img/avatar-dionne.png'),
           name: 'Dionne',
           message: 'Mr. Hall was way harsh.',
           time: '8:59 pm'
         },
         {
-          img:
-            'http://ionicframework.com/docs/demos/src/item-sliding/www/assets/avatar-murray.png',
+          img: require('../../static/img/avatar-murray.png'),
           name: 'Murray',
           message: 'Excuse me, "Ms. Dione."',
           time: 'Wed'
-        },
-        {
-          img:
-            'http://ionicframework.com/dist/preview-app/www/assets/img/thumbnail-rotla.png',
-          name: 'Rotla',
-          message: "That's OK",
-          time: 'Yesterday'
         }
       ],
       songs: [
@@ -317,8 +306,8 @@ export default {
     }
   },
   methods: {
-    optionClicked (ev) {
-      console.log(ev.target)
+    optionClicked (ev, name) {
+      console.log('Clicked ' + name)
     },
     toggleEdit () {
       this.editing = !this.editing
@@ -328,8 +317,10 @@ export default {
         this.editButton = 'Edit'
       }
     },
-    reorderData (indexes) {
-      this.songs = reorderArray(this.songs, indexes)
+    reorderItems (indexes) {
+      let element = this.songs[indexes.from]
+      this.songs.splice(indexes.from, 1)
+      this.songs.splice(indexes.to, 0, element)
     }
   }
 }

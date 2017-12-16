@@ -3,8 +3,8 @@ import ItemMixin from './item-mixin.vue'
 import { isPresent, isTrueProperty } from '../../util/util'
 
 export default {
-  mixins: [ItemMixin],
   name: 'vm-item',
+  mixins: [ItemMixin],
   inject: {
     itemGroupComponent: {
       from: 'itemGroupComponent',
