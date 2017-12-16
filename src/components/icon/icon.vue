@@ -18,6 +18,7 @@ export default {
   data () {
     return {
       css: '',
+      iconName: '',
       isActived: isTrueProperty(this.isActive),
       hidden: false
     }
@@ -61,7 +62,7 @@ export default {
     }
   },
   methods: {
-    iconName (val) {
+    getIconName (val) {
       if (!(/^md-|^ios-|^logo-|^icon-/.test(val))) {
         // this does not have one of the defaults
         // so lets auto add in the mode prefix for them
@@ -76,13 +77,13 @@ export default {
         return
       }
 
-      let iconName
       if (this.isActive && this.activeName) {
-        this.iconName = this.iconName(this.activeName)
+        this.iconName = this.getIconName(this.activeName)
       } else {
-        this.iconName = this.iconName(this.name)
+        this.iconName = this.getIconName(this.name)
       }
 
+      let iconName
       if (this.ios && this.mode === 'ios') {
         iconName = this.ios
       } else if (this.md && this.mode === 'md') {
