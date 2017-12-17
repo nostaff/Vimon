@@ -20,7 +20,7 @@
 .popover-wrapper {
   z-index: $z-index-overlay-wrapper;
 
-  opacity: 0;
+  opacity: 1;
 }
 
 .popover-content {
@@ -42,7 +42,6 @@
 .popover-content .scroll-content {
   position: relative;
 }
-
 
 .ion-popover .ion-backdrop {
   opacity: .08;

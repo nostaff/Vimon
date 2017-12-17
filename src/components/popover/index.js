@@ -1,49 +1,72 @@
 import Vue from 'vue'
-import Popover from './popover.vue'
+import getInsertPosition from '../../util/getInsertPosition'
+import popoverComponent from './popover.vue'
+const Popover = Vue.extend(popoverComponent)
 
-import {createElement, isObject, isString} from '../../util/util'
+// ---------- functions ----------
 
-class VmPopover {
-  constructor () {
-    this._vm = undefined
-  }
+function PopoverFactory (options) {
+  let el = getInsertPosition('alertPortal').appendChild(
+    document.createElement('div')
+  )
+  return new Popover({
+    el
+    // $data: options
+  })
+}
 
-  present (options) {
-    let components = (options && options.components) ? options.components : {}
-    let template = (options && options.template) ? options.template : {}
+function getPresentDismissIns (Factory) {
+  return {
+    /**
+     * 组件实例
+     * @private
+     * */
+    _i: null, // instance
 
-    if (this._vm) {
-      this._vm.$destroy()
-      this._vm = undefined
-    }
-
-    let container = document.querySelector('.ion-app')
-    container.querySelector('[ion-popover]') || createElement('ion-popover', container)
-
-    let PopoverComponent = Vue.extend(Popover)
-    this._vm = new PopoverComponent().$mount('[ion-popover]')
-
-    let ContentComponent
-    if (isString(template)) {
-      ContentComponent = Vue.extend({
-        template: '<div>' + template + '</div>',
-        components: components
+    /**
+     * 开启
+     * @desc 如果上一个实例是开启状态, 则自动关闭后开启新的
+     * @param {object} options - 传入参数
+     * @return {Promise} - 开启动画结束的promise
+     * @private
+     * */
+    present (options) {
+      return new Promise(resolve => {
+        if (this._i && this._i.isActive) {
+          this._i.dismiss().then(() => {
+            this._i = Factory(options)
+            // 自动开启
+            this._i.present(options).then(() => {
+              resolve()
+            })
+          })
+        } else {
+          this._i = Factory(options)
+          // 自动开启
+          this._i.present(options).then(() => {
+            resolve()
+          })
+        }
       })
-    } else if (isObject(template)) {
-      ContentComponent = Vue.extend(template)
+    },
+
+    /**
+     * 关闭
+     * @return {Promise} - 关闭动画结束的promise
+     * @private
+     * */
+    dismiss () {
+      return new Promise(resolve => {
+        if (this._i && this._i.isActive) {
+          this._i.dismiss().then(() => {
+            resolve()
+          })
+        } else {
+          resolve()
+        }
+      })
     }
-
-    // create an instance of Profile and mount it on an element
-    new ContentComponent({
-      $data: options.data // send to component, get by this.$options.$data
-    }).$mount(this._vm.$el.querySelector('.popover-viewport'))
-
-    return this._vm.present(options)
-  }
-
-  dismiss (role) {
-    this._vm && this._vm.dismiss(role)
   }
 }
 
-export default new VmPopover()
+export default getPresentDismissIns(PopoverFactory)

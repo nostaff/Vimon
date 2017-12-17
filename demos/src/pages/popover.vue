@@ -37,29 +37,25 @@
         let template = `
                       <vm-list>
                         <vm-list-header>Ionic</vm-list-header>
-                        <vm-item @click.native="itemClick()">Learn Ionic</vm-item>
-                        <vm-item @click.native="itemClick()">Documentation</vm-item>
-                        <vm-item @click.native="itemClick()">Showcase</vm-item>
-                        <vm-item @click.native="itemClick()">GitHub Repo</vm-item>
+                        <vm-item @click="itemClick()">Learn Ionic</vm-item>
+                        <vm-item @click="itemClick()">Documentation</vm-item>
+                        <vm-item @click="itemClick()">Showcase</vm-item>
+                        <vm-item @click="itemClick()">GitHub Repo</vm-item>
                       </vm-list>
                     `
         this.$popover.present({
           ev: ev,
-          template: template
-        }).then((role) => {
-          console.log(role)
+          component: template
         })
       },
 
       pageSetting (ev) {
         this.$popover.present({
           ev: ev,
-          template: Popage,
+          component: Popage,
           data: {
             contentEle: this.$refs.content.$el // 传入数据, 内部通过`this.$options.$data`获取这个data
           }
-        }).then((role) => {
-          console.log(role)
         })
       },
 
@@ -68,10 +64,12 @@
 
         this.$popover.present({
           ev: ev,
-          template: contont
-        }).then((role) => {
-          console.log(role)
+          component: contont
         })
+      },
+
+      itemClick () {
+        console.log('itemClick')
       }
     }
   }
