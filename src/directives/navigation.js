@@ -8,7 +8,7 @@ export default {
   inserted: function (el, binding) {
     let props = {
       hideBackButton: false,
-      showBackButton: false
+      showMoreButton: false
     }
     let options = binding.value
     if (isDefined(options.title)) {
@@ -32,7 +32,7 @@ export default {
     }
 
     if (isDefined(options.showMoreButton)) {
-      props.showMoreBUtton = isTrueProperty(options.showMoreButton)
+      props.showMoreButton = isTrueProperty(options.showMoreButton)
     }
     if (isDefined(options.moreButtonIcon)) {
       props.moreButtonIcon = options.moreButtonIcon.trim()
@@ -47,6 +47,6 @@ export default {
     createElement('ion-navigation', el, true)
 
     const Navigation = Vue.extend(NavigationComponent)
-    Vue.prototype.$navbar = new Navigation({ data: props }).$mount('[ion-navigation]')
+    Vue.prototype.$navbar = new Navigation({ $data: props }).$mount('[ion-navigation]')
   }
 }

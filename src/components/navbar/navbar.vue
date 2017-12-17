@@ -2,13 +2,13 @@
   <div class="ion-navbar" :class="[modeClass, colorClass]">
     <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
     <slot name="item-start">
-      <vm-button role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click="backButtonClickHandler" v-if="isShowBackButton">
+      <vm-button start role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click="backButtonClickHandler" v-if="isShowBackButton">
         <vm-icon :class="['back-button-icon','back-button-icon-'+mode]" :name="backButtonIcon" v-if="backButtonIcon"></vm-icon>
         <span :class="['back-button-text','back-button-text-'+mode]" v-if="backButtonText && mode ==='ios'" v-text="backButtonText"></span>
       </vm-button>
     </slot>
     <slot name="item-end">
-      <vm-buttons v-if="showMoreButton">
+      <vm-buttons end v-if="showMoreButton">
         <vm-button :icon-only="!moreButtonText" @click="moreButtonClickHandler">
           <vm-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></vm-icon>
           <span :class="['more-button-text','more-button-text-'+mode]" v-if="moreButtonText" v-text="moreButtonText"></span>
@@ -98,7 +98,7 @@ export default {
       ev.stopPropagation()
 
       if (isFunction(this.onBackButtonClick)) {
-        return this.onBackButtonClick(ev)
+        if (this.onBackButtonClick(ev) === false) { return }
       }
 
       // let root = document.querySelector('.ion-app')
@@ -106,6 +106,7 @@ export default {
       window.history.back()
     },
     moreButtonClickHandler (ev) {
+      console.log(ev, this.onMoreButtonClick)
       ev.preventDefault()
       ev.stopPropagation()
 
@@ -119,6 +120,7 @@ export default {
      * @private
      **/
     refreshBackButtonStatus () {
+      console.log(this.showMoreButton)
       this.isShowBackButton = this.$history.canGoBack() && !isTrueProperty(this.hideBackButton)
     }
   }
