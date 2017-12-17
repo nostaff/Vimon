@@ -1,15 +1,21 @@
 <template>
-  <span :label="label" :disabled="isDisabled" :selected="isSelected"></span>
+  <span
+    v-if="false"
+    :label="label"
+    :disabled="isDisabled"
+    :selected="isSelected"/>
 </template>
 <script type="text/javascript">
 import { isBlank, isTrueProperty } from '../../util/util'
-
 export default {
   name: 'vm-option',
   inject: {
     selectComponent: {
       from: 'selectComponent',
-      default: null
+      default () {
+        console.error('[Component] Option组件必须在Select组件之内使用!')
+        return null
+      }
     }
   },
   data () {
@@ -22,15 +28,12 @@ export default {
   },
   props: {
     value: [Object, String, Array],
-    text: [String],
     disabled: [Boolean, String],
     selected: [Boolean, String]
   },
   methods: {
-    getText () {
-      if (this.text) {
-        return this.text.trim()
-      } else if (
+    getLabel () {
+      if (
         this.$slots.default &&
         this.$slots.default[0] &&
         this.$slots.default[0].text
@@ -41,9 +44,7 @@ export default {
     }
   },
   mounted () {
-    this.label = this.getText()
-
-    console.assert(this.selectComponent, 'Option组件必须在Select组件之内使用!')
+    this.label = this.getLabel()
 
     // if parent is select
     this.selectComponent && this.selectComponent.updateOptionList(this)

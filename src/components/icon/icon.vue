@@ -77,7 +77,7 @@ export default {
         return
       }
 
-      if (this.isActive && this.activeName) {
+      if (this.isActived && this.activeName) {
         this.iconName = this.getIconName(this.activeName)
       } else {
         this.iconName = this.getIconName(this.name)
@@ -95,7 +95,7 @@ export default {
       let iconMode = iconName.split('-', 2)[0]
       if (
         iconMode === 'ios' &&
-        !this.isActive &&
+        this.isActived &&
         iconName.indexOf('logo-') < 0 &&
         iconName.indexOf('-outline') < 0
       ) {
