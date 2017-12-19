@@ -28,8 +28,8 @@
               }
             }
           ]
-        }).then((res) => {
-          console.log('alert hide.', res)
+        }).then(() => {
+          console.log('alert preset.')
         })
       },
 
@@ -44,11 +44,19 @@
                 console.log('OK clicked')
               }
             },
-            {text: 'OK2'},
-            {text: 'OK3'}
+            {
+              text: 'OK2',
+              handler: () => {
+                console.log('OK2 clicked')
+              }},
+            {
+              text: 'OK3',
+              handler: () => {
+                console.log('OK3 clicked')
+              }}
           ]
         }).then((res) => {
-          console.log('alert hide.', res)
+          console.log('alert with 3 buttons preset.')
         })
       },
 
@@ -66,8 +74,8 @@
             }
 
           ]
-        }).then((res) => {
-          console.log('confirm result: ', res)
+        }).then(() => {
+          console.log('confirm preset')
         })
       },
 
@@ -89,111 +97,153 @@
           buttons: [
             {
               text: 'Cancel',
-              handler: data => {
-                console.log('Cancel clicked')
+              role: 'cancel',
+              handler: (data) => {
+                console.log('Cancel clicked', data)
               }
             },
             {
               text: 'Save',
-              handler: data => {
+              handler: (data) => {
                 console.log('Saved clicked', data)
               }
             }
           ]
-        }).then((data) => {
-          console.log('alert hide.', data)
+        }).then(() => {
+          console.log('prompt present.')
         })
       },
 
       doRadio () {
         this.$dialog.radio({
-          title: 'Login',
+          title: 'Select One',
           inputs: [
             {
               label: 'Blue',
-              value: 'blue'
+              value: 'blue',
+              handler: (data) => {
+                console.log('Blue', data)
+              }
             },
             {
               label: 'Green',
-              value: 'greed'
+              value: 'greed',
+              handler: (data) => {
+                console.log('Red', data)
+              }
             },
             {
               label: 'Red',
-              value: 'ref',
-              checked: 'false'
+              value: 'red',
+              checked: true,
+              handler: (data) => {
+                console.log('Red', data)
+              }
             },
             {
               label: 'Yellow',
-              value: 'yellow'
+              value: 'yellow',
+              handler: (data) => {
+                console.log('Yellow', data)
+              }
             },
             {
               label: 'Purple',
-              value: 'purple'
+              value: 'purple',
+              handler: (data) => {
+                console.log('Purple', data)
+              }
             },
             {
               label: 'White',
-              value: 'white'
+              value: 'white',
+              handler: (data) => {
+                console.log('White', data)
+              }
             },
             {
               label: 'Black',
-              value: 'black'
+              value: 'black',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             }
           ],
           buttons: [
             {
               text: 'Cancel',
-              handler: data => {
-                console.log('Cancel clicked')
+              role: 'cancel',
+              handler: (data) => {
+                console.log('Cancel clicked', data)
               }
             },
             {
               text: 'Save',
-              handler: data => {
+              handler: (data) => {
                 console.log('Saved clicked', data)
               }
             }
           ]
-        }).then((data) => {
-          console.log('alert hide.', data)
+        }).then(() => {
+          console.log('alert preset.')
         })
       },
 
       doCheckbox () {
         this.$dialog.checkbox({
-          title: 'Login',
+          title: 'Select Some',
           inputs: [
             {
               label: 'Alderaan',
               value: 'value1',
-              checked: true
+              checked: true,
+              handler: (data) => {
+                console.log('Black', data)
+              }
             },
             {
               label: 'Bespin',
-              value: 'value2'
+              value: 'value2',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             },
             {
               label: 'Coruscant',
               value: 'value3',
-              checked: 'true'
+              checked: 'true',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             },
             {
               label: 'Endor',
-              value: 'value4'
+              value: 'value4',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             },
             {
               label: 'Hoth',
-              value: 'value5'
+              value: 'value5',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             },
             {
               label: 'Jakku',
-              value: 'value6'
+              value: 'value6',
+              handler: (data) => {
+                console.log('Black', data)
+              }
             }
           ],
           buttons: [
             {
               text: 'Cancel',
+              role: 'cancel',
               handler: data => {
-                console.log('Cancel clicked')
+                console.log('Cancel clicked', data)
               }
             },
             {

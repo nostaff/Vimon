@@ -81,9 +81,9 @@ export default {
   },
   methods: {
     /**
-       * @private
-       * @param {Object} $event - $event
-       */
+      * @private
+      * @param {Object} $event - $event
+      */
     clickHandler ($event) {
       this.$emit('click', $event)
     },

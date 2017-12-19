@@ -1,16 +1,17 @@
 <template>
   <transition name="backdrop-fade">
-    <div class="ion-backdrop" :class="{'backdrop-no-tappable': !isEnableBackdropDismiss}" role="presentation" v-show="activated"></div>
+    <div class="ion-backdrop"
+      :class="{'backdrop-no-tappable': !isEnableBackdropDismiss}"
+      role="presentation"
+      v-show="activated"
+      @click="clickHandler"
+      @touchmove="onTouchMoveHandler($event)"></div>
   </transition>
 </template>
 
 <script>
-import { isTrueProperty, timeout } from '../../util/util'
+import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
-
-const preventDefault = e => {
-  e.preventDefault()
-}
 
 export default {
   name: 'vm-backdrop',
@@ -38,22 +39,22 @@ export default {
     }
   },
   methods: {
-    present (allowTouchMove) {
-      if (!allowTouchMove) {
-        document.body.addEventListener('touchmove', preventDefault)
-      }
-      this.activated = true
+    /**
+      * @private
+      * @param {Object} $event - $event
+      */
+    clickHandler ($event) {
+      this.$emit('click', $event)
     },
-
-    dismiss (allowTouchMove) {
-      if (!allowTouchMove) {
-        document.body.removeEventListener('touchmove', preventDefault)
-      }
-      this.activated = true
-      return timeout(100)
+    beforeEnter () {
+      this.$emit('onShown')
     },
-    getState () {
-      return this.activated
+    afterLeave () {
+      this.$emit('onHidden')
+    },
+    onTouchMoveHandler ($event) {
+      $event.preventDefault()
+      $event.stopPropagation()
     }
   }
 }
