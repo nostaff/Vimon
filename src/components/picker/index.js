@@ -1,85 +1,102 @@
-import Vue from 'vue'
-import getInsertPosition from '../../util/getInsertPosition'
+/**
+ * @component Picker
+ * @description
+ *
+ * ## 弹出层组件 / 单多列选择器Picker
+ *
+ * ### 简介
+ *
+ * Picker组件适用于单多列数据的选择, 这个不同于Select组件, Select组件只能做单类型数据的选择, 比如选择水果的话不能类别和新鲜度同时选择. 因此, 如果期望能进行城市三级选择, Picker能够解决这个需求, 详情参考Demo.
+ *
+ * ### 传参说明
+ *
+ * 因为Picker组件为了满足大多数的需求, 且能根据业务定制化, 比如被Datetime组件/CitySelect业务定制等. 因此Picker传参有点点麻烦. 主要参数如下:
+ *
+ *
+ * #### 1. buttons属性
+ *
+ 名称 / Name | 类型 / Type | 描述 / Description
+  ----------|-----------|--------------------------------
+  text      | string    | 显示的文本
+  role      | string    | 按钮的角色, 取消按钮的role为cancel, 其他的没有
+  handler   | function  | 点击按钮的处理方法
+  *
+  * #### 2. columns属性
+  *
+  名称 / Name     | 类型 / Type          | 描述 / Description
+  --------------|--------------------|---------------------------
+  name          | string             | 这个column的名称
+  align         | string             | column对齐方式
+  selectedIndex | number             | 当前column的初始选的位置(index)
+  prefix        | string             | 这一列显示的前缀
+  prefixWidth   | string             | 前缀固定宽度, 例如'50px'
+  suffix        | string             | 这一列显示的后缀
+  suffixWidth   | string             | 后缀固定宽度, 例如'50px'
+  cssClass      | string             | 当前column的自定义样式, 使用空格分割多个值
+  columnWidth   | string             | 每个column的最大宽度, 默认宽度均分
+  optionsWidth  | string             | 每个column中的选项最大宽度
+  options       | PickerColumnOption | 当前column的每个选项列表
+  *
+  *
+  * #### 3. columns属性中的options属性
+  *
+  名称 / Name | 类型 / Type | 描述 / Description
+  ----------|-----------|------------------
+  text      | string    | 显示的文本
+  value     | *         | 对显示文本的值
+  disabled  | boolean   | 是否禁用
+  *
+  *
+  * #### 4. onChange钩子
+  *
+  * 当用户选定后触发钩子, 传递的数据包括三列的详细选择信息.
+  *
+  * #### 5. onSelect钩子
+  *
+  * 某一列选择之后触发, 包含单列的选择信息
+  *
+  * ### 组件自动支持切换alipay组件
+  *
+  * 如果强制使用H5模式需要在开启options中传入`isH5=true`, alipay组件只支持最多两级且不可联动.
+  *
+  * ### 如何使用
+  *
+  * 因为是弹出层组件, 故引入后, `Picker.present(...)`就可打开组件
+  *
+  * ```
+  *  import Picker from 'vimon'
+  * ```
+  *
+  * @demo #/picker
+  */
+
 import PickerComponent from './picker.vue'
+import GeneratePopUpInstance from '../../util/generatePopUpInstance.js'
 
-const Picker = Vue.extend(PickerComponent)
+class PickerInstance extends GeneratePopUpInstance {
+  isPresentHandled (options) {
+    return !options.isH5 &&
+      window.VM &&
+      window.VM.platform &&
+      window.VM.platform.picker &&
+      window.VM.platform.picker(options)
+  }
 
-// ---------- functions ----------
+  /**
+   * 刷新
+   * @private
+   */
+  refresh () {
+    this._ins && this._ins.refresh()
+  }
 
-function PickerFactory (options) {
-  let el = getInsertPosition('sheetPortal').appendChild(
-    document.createElement('div')
-  )
-  return new Picker({el, propsData: options})
-}
-
-function getPresentDismissIns (Factory) {
-  return {
-    /**
-     * 组件实例
-     * @private
-     **/
-    _ins: null, // instance
-
-    /**
-     * 开启
-     * @desc
-     * 如果上一个实例是开启状态, 则自动关闭后开启新的
-     * @param {object} options - 传入参数
-     * @return {Promise} - 开启动画结束的promise
-     * @private
-     **/
-    present (options) {
-      return new Promise(resolve => {
-        if (this._ins && this._ins.isActive) {
-          this._ins.dismiss().then(() => {
-            this._ins = Factory(options)
-            // 自动开启
-            this._ins.present().then(() => {
-              resolve()
-            })
-          })
-        } else {
-          this._ins = Factory(options)
-          // 自动开启
-          this._ins.present().then(() => {
-            resolve()
-          })
-        }
-      })
-    },
-
-    /**
-     * 关闭
-     * @return {Promise} - 关闭动画结束的promise
-     * @private
-     **/
-    dismiss () {
-      return new Promise(resolve => {
-        if (this._ins && this._ins.isActive) {
-          this._ins.dismiss().then(() => {
-            resolve()
-          })
-        } else {
-          resolve()
-        }
-      })
-    },
-    /**
-     * 刷新
-     * @private
-     **/
-    refresh () {
-      this._ins && this._ins.refresh()
-    },
-    /**
-     * 列重置
-     * @private
-     **/
-    resetColumn (index) {
-      this._ins && this._ins.resetColumn(index)
-    }
+  /**
+   * 列重置
+   * @private
+   */
+  resetColumn (index) {
+    this._ins && this._ins.resetColumn(index)
   }
 }
 
-export default getPresentDismissIns(PickerFactory)
+export default new PickerInstance(PickerComponent, 'sheet-portal')
