@@ -291,3 +291,21 @@ export function docReady (callback) {
     callback()
   }
 }
+
+export function getInsertPosition (position) {
+  return (
+    document.getElementById(position) ||
+    document.getElementById('app') ||
+    document.body
+  )
+}
+
+export function createElement (marker, parentElm, setFirstChild = false) {
+  let el = document.createElement('div')
+  el.setAttribute(marker, '')
+
+  let container = parentElm || document.body
+  if (setFirstChild) { container.insertBefore(el, container.firstChild) } else { container.appendChild(el) }
+
+  return el
+}

@@ -1,0 +1,121 @@
+import Vue from 'vue'
+import { getInsertPosition } from './dom'
+import { isObject } from './util'
+
+/**
+ * 当前类用于生成PopUp对象
+ * @private
+ */
+export default class GeneratePopUpInstance {
+  /**
+   * @param {Object} component - 组件对象
+   * @param {String} position - 组件在DOM中插入位置
+   */
+  constructor (component, position) {
+    this._component = component // 组件对象
+    this._position = position || null // popup插入位置(id)
+    this._ins = null // PopUp实例
+  }
+
+  /**
+   * 外部复写 promise 方法, 比如钉钉或者alipay平台
+   * @param {Object} options - 参数
+   * @override
+   */
+  isPresentHandled (options) {
+    return false
+  }
+
+  /**
+   * 外部复写 dismiss 方法, 比如钉钉或者alipay平台
+   * @param {Object} options - 参数
+   * @override
+   */
+  isDismissHandled (options) {
+    return false
+  }
+
+  /**
+   * 将传给present的参数对象化
+   * @param options
+   * @override
+   */
+  normalizeOptions (options) {
+    let _args = Array.prototype.slice.call(arguments)
+    if (isObject(_args[0])) {
+      return _args[0]
+    } else {
+      return {}
+    }
+  }
+
+  /**
+   * 获取实例
+   * @return {Object}
+   * @override
+   */
+  getInstance () {
+    return this._ins
+  }
+
+  /**
+   * 构建组件实例
+   * @private
+   */
+  generateInstance () {
+    let el = getInsertPosition(this._position).appendChild(
+      document.createElement('div')
+    )
+    let Component = Vue.extend(this._component)
+    return new Component({el})
+  }
+
+  /**
+   * 开启组件
+   * @return {Promise}
+   * @public
+   */
+  present () {
+    let options = this.normalizeOptions(...arguments)
+    return new Promise((resolve) => {
+      if (!this.isPresentHandled(options)) {
+        if (this._ins && this._ins.isActive) {
+          this._ins.dismiss().then(() => {
+            this._ins = this.generateInstance()
+            this._ins.present(options).then(() => resolve())
+          })
+        } else {
+          // normal present
+          this._ins = this.generateInstance()
+          this._ins.present(options).then(() => resolve())
+        }
+      } else {
+        resolve()
+      }
+    })
+  }
+
+  /**
+   * 关闭组件
+   * @return {Promise}
+   * @public
+   */
+  dismiss () {
+    return new Promise((resolve) => {
+      if (!this.isDismissHandled()) {
+        /* istanbul ignore else */
+        if (this._ins && this._ins.isActive) {
+          this._ins.dismiss().then(() => {
+            this._ins = null
+            resolve()
+          })
+        } else {
+          this._ins = null
+          resolve()
+        }
+      } else {
+        resolve()
+      }
+    })
+  }
+}

@@ -61,9 +61,16 @@ export default {
         title: '这是标题',
         subTitle: '这是副标题',
         cssClass: 'a b',
-        buttons: buttonItems
-      }).then(res => {
-        console.log('button clicked: ', res)
+        enableBackdropDismiss: false,
+        buttons: buttonItems,
+        presentCallback: () => {
+          console.log('presentCallback')
+        },
+        dismissCallback: () => {
+          console.log('dismissCallback')
+        }
+      }).then(function () {
+        console.log('present promise')
       })
     },
     disableBackdrop () {
@@ -72,6 +79,8 @@ export default {
         subTitle: '这是副标题',
         buttons: buttonItems,
         enableBackdropDismiss: false
+      }).then(function () {
+        console.log('请选择操作 present promise')
       })
     }
   }

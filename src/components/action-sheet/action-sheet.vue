@@ -1,25 +1,28 @@
 <template>
   <div role="dialog" :class="['ion-action-sheet', modeClass, cssClass]" style="z-index: 10001;">
-    <vm-backdrop @click.native="bdClick()" :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated"></vm-backdrop>
+    <vm-backdrop
+        @click="bdClick"
+        :enableBackdropDismiss="enableBackdropDismiss"
+        :isActive="isActive"></vm-backdrop>
     <transition name="action-sheet-fade"
         @before-enter="beforeEnter"
         @after-enter="afterEnter"
         @before-leave="beforeLeave"
         @after-leave="afterLeave">
-      <div class="action-sheet-wrapper" v-show="activated">
+      <div class="action-sheet-wrapper" v-show="isActive">
         <div class="action-sheet-container">
           <div class="action-sheet-group">
             <div class="action-sheet-title">
               <span>{{title}}</span>
               <div class="action-sheet-sub-title">{{subTitle}}</div>
             </div>
-            <vm-button role="action-sheet-button" :key="index" v-for="(button, index) in buttons" :disabled="button.disabled" :class="button.cssClass" @click.native="dismiss(index, button.disabled)">
+            <vm-button role="action-sheet-button" :key="index" v-for="(button, index) in buttons" :disabled="button.disabled" :class="button.cssClass" @click="clickHandler(button)">
               <vm-icon class="action-sheet-icon icon" :name="button.icon" v-if="button.icon"></vm-icon>
               {{button.text}}
             </vm-button>
           </div>
           <div class="action-sheet-group">
-            <vm-button role="action-sheet-button" class="action-sheet-cancel" :class="cancelButton.cssClass" :disabled="cancelButton.disabled" @click.native="dismiss(-1, cancelButton.disabled)">
+            <vm-button role="action-sheet-button" class="action-sheet-cancel" :class="cancelButton.cssClass" :disabled="cancelButton.disabled" @click="clickHandler(cancelButton)">
               <vm-icon class="action-sheet-icon icon" :name="cancelButton.icon" v-if="cancelButton.icon"></vm-icon>
               {{cancelButton.text}}
             </vm-button>
@@ -31,11 +34,14 @@
 </template>
 <script>
 import {urlChange, focusOutActiveElement} from '../../util/dom'
+import {isFunction, isTrueProperty, isString} from '../../util/util'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
 import VmBackdrop from '../backdrop'
 import VmButton from '../button'
 import VmIcon from '../icon'
+
+const NOOP = () => {}
 
 export default {
   name: 'vm-action-sheet',
@@ -50,6 +56,7 @@ export default {
       defaultOptions: {
         title: '',
         subTitle: '',
+        cssClass: '',
         buttons: []
       },
       title: '',
@@ -57,14 +64,16 @@ export default {
       cssClass: '',
       buttons: [],
       enableBackdropDismiss: true,
+      dismissOnPageChange: true,
+
+      dismissCallback: NOOP, // 关闭的回调
+      presentCallback: NOOP, // 打开的回调
 
       cancelButton: {},
-      activated: false,
-      dismissOnPageChange: true
+      isActive: false
     }
   },
   created () {
-    this.init()
     // mounted before data ready, so no need to judge the `dismissOnPageChange` value
     if (this.dismissOnPageChange) {
       this.unReg = urlChange(() => {
@@ -96,19 +105,34 @@ export default {
       this.$el.remove()
       this.enabled = true
     },
+    /**
+     * @function present
+     * @description
+     * 开启ActionSheet组件, 当开启动画过度完毕时触发 `Promise` 的 `resolve` 。
+     * @param {object} options - 传入参数
+     * @param {String} [options.title]                        - ActionSheet的标题
+     * @param {string} [options.subTitle]                     - ActionSheet的副标题
+     * @param {string} [options.cssClass]                     - 自定义样式
+     * @param {Boolean} [options.enableBackdropDismiss=true]  - 允许点击backdrop关闭actionsheet
+     * @param {Boolean} [options.dismissOnPageChange=true]    - 路由切换关闭组件
+     * @param {Array} [options.buttons]                       - button数组，包含全部role
+     * @param {Array} options.buttons.text                    - button显示文本
+     * @param {Array} options.buttons.icon                    - button显示的icon的name, 具体参考Icon组件
+     * @param {Array} options.buttons.role                    - 可以是cancel(关闭)/destructive(警告/删除)/null
+     * @param {Array} options.buttons.handler                 - 默认是关闭组件
+     * @param {Array} options.buttons.cssClass                - 自定义样式
+     * @return {Promise}
+     */
     present (options) {
       let _options = objectAssign({}, this.defaultOptions, options)
-      this.title = _options.title
-      this.subTitle = _options.subTitle
-      if (typeof _options.cssClass === 'string') {
-        this.cssClass = _options.cssClass.trim()
-      }
-      if (typeof _options.enableBackdropDismiss === 'boolean') {
-        this.enableBackdropDismiss = _options.enableBackdropDismiss
-      }
+      this.title = _options.title.trim()
+      this.subTitle = _options.subTitle.trim()
+      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+      this.cssClass = _options.cssClass.trim()
 
-      this.buttons = _options.buttons.filter(button => {
-        if (typeof button === 'string') {
+      this.buttons = _options.buttons.map(button => {
+        if (isString(button)) {
           button = { text: button }
         }
         if (!button.cssClass) {
@@ -128,39 +152,66 @@ export default {
         return button
       })
 
-      this.activated = true
-
-      return new Promise((resolve, reject) => {
-        this.$on('onDismissEvent', buttonIndex => {
-          resolve(buttonIndex)
-        })
+      this.isActive = true
+      return new Promise((resolve) => {
+        this.presentCallback = resolve
       })
     },
 
-    dismiss (buttonIndex, disabled) {
-      if (disabled) return
-      this.activated = false
-
-      if (buttonIndex === -1 && typeof this.cancelButton.handler === 'function') {
-        this.cancelButton.handler()
+    dismiss () {
+      if (this.isActive) {
+        this.isActive = false
+        this.dismissOnPageChange && this.unReg && this.unReg()
+        if (!this.enabled) {
+          this.$nextTick(() => {
+            this.dismissCallback()
+            this.$el.remove()
+            this.enabled = true
+          })
+        }
+        return new Promise((resolve) => {
+          this.dismissCallback = resolve
+        })
+      } else {
+        return new Promise((resolve) => {
+          resolve()
+        })
       }
-      if (buttonIndex > -1) {
-        let handler = this.buttons[buttonIndex].handler
-        if (handler && typeof handler === 'function') {
-          handler()
+    },
+
+    /**
+     * @function click
+     * @description 点击下方按钮
+     * @param {object} button Button Click Handler
+     * @private
+    */
+    clickHandler (button) {
+      if (!this.enabled) {
+        return
+      }
+      let shouldDismiss = true
+      if (isFunction(button.handler)) {
+        // a handler has been provided, execute it
+        if (button.handler() === false) {
+          // if the return value of the handler is false then do not dismiss
+          shouldDismiss = false
         }
       }
 
-      this.$emit('onDismissEvent', buttonIndex)
-
-      setTimeout(() => {
-        this.$el.remove()
-      }, 400)
+      // 当前不是在过渡动画中(dismissing中)，
+      // 如果是在dismissing中，则意味着正在关闭，
+      // 这里不必进行
+      if (this.enabled && shouldDismiss) {
+        this.dismiss()
+      }
     },
 
     bdClick () {
-      if (this.enableBackdropDismiss) {
-        this.dismiss(-1)
+      if (!this.enabled || !this.enableBackdropDismiss) return
+      if (this.cancelButton) {
+        this.clickHandler(this.cancelButton)
+      } else {
+        this.dismiss()
       }
     }
   }
