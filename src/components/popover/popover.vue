@@ -2,7 +2,7 @@
   <div class="ion-popover" :class="[modeClass, cssClass]" style="z-index: 9999;">
     <vm-backdrop
         :enableBackdropDismiss="enableBackdropDismiss"
-        v-if="showBackdrop" v-show="isActive" @click.native="bdClick()"></vm-backdrop>
+        v-if="showBackdrop" v-show="isActive" @click="bdClick"></vm-backdrop>
     <transition name="popover-fade"
       @before-enter="beforeEnter"
       @after-enter="afterEnter"
@@ -58,6 +58,9 @@ export default {
       onDismiss: NOOP,
       cssClass: '',
 
+      dismissCallback: NOOP, // 关闭的回调
+      presentCallback: NOOP, // 打开的回调
+
       isActive: false,
       enabled: false,
       unreg: null
@@ -109,6 +112,7 @@ export default {
       this.showBackdrop = isTrueProperty(_options.showBackdrop)
       this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
       this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+      this.onDismiss = _options.onDismiss
       this.cssClass = _options.cssClass
       this.ev = _options.ev
 
@@ -119,7 +123,7 @@ export default {
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.unreg && this.unreg()
+        this.dismissOnPageChange && this.unreg && this.unreg()
         if (!this.enabled) {
           this.$nextTick(() => {
             this.dismissCallback()
