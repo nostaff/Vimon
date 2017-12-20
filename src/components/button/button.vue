@@ -1,6 +1,9 @@
 <template>
-  <button class="disable-hover ion-button" :class="[modeClass, itemClass]" @click="clickHandler($event)">
-    <slot name="backup"></slot>
+  <button class="disable-hover ion-button"
+      :class="[modeClass, itemClass]"
+      @touchstart="pointerStart"
+      @touchend="pointerEnd"
+      @click="clickHandler">
     <span class="button-inner">
       <slot></slot>
     </span>
@@ -80,12 +83,22 @@ export default {
     this.addClassInItem()
   },
   methods: {
-    /**
-      * @private
-      * @param {Object} $event - $event
-      */
-    clickHandler ($event) {
-      this.$emit('click', $event)
+    pointerStart (ev) {
+      if (this.$el.hasAttribute('disable-activated')) return
+      setTimeout(() => {
+        this.setElementClass('activated', true)
+      }, 80)
+
+      return true
+    },
+    pointerEnd (ev) {
+      if (this.$el.hasAttribute('disable-activated')) return
+      setTimeout(() => {
+        this.setElementClass('activated', false)
+      }, 80)
+    },
+    clickHandler (ev) {
+      this.$emit('click', ev)
     },
     getProps () {
       isTrueProperty(this.small) && (this.size = 'small')
@@ -142,15 +155,9 @@ export default {
 
         // If the role is not a bar-button, don't apply the solid style
         let style = this.style
-        style =
-          this.roleName !== 'bar-button' && style === 'solid'
-            ? 'default'
-            : style
+        style = (this.roleName !== 'bar-button' && style === 'solid') ? 'default' : style
 
-        className +=
-          style !== null && style !== '' && style !== 'default'
-            ? '-' + style.toLowerCase()
-            : ''
+        className += (style !== null && style !== '' && style !== 'default') ? '-' + style.toLowerCase() : ''
 
         if (color !== null && color !== '') {
           this.setElementClass(`${className}-${this.mode}-${color}`, isAdd)

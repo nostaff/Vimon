@@ -31,7 +31,7 @@ $focus-outline-box-shadow:     0 0 8px 1px $focus-outline-border-color !default;
 }
 
 .focus-outline button:focus,
-.focus-outline [ion-button]:focus {
+.focus-outline .ion-button:focus {
   border-color: $focus-outline-border-color;
   outline: $focus-outline-border-width solid $focus-outline-border-color;
   box-shadow: $focus-outline-box-shadow;

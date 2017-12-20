@@ -194,7 +194,6 @@ export function urlChange (callback) {
 }
 
 /**
- *
  * 给addEventListener增加passive属性, 如果不支持将降级使用!!opts.capture, 事件的关闭需要自己手动解除, 切记!!
  * @param {any} ele                               - 监听的元素
  * @param {string} eventName                      - 监听的名称
@@ -205,21 +204,10 @@ export function urlChange (callback) {
  * @param {array} [unregisterListenersCollection] - 如果提供Function[], 则unReg将压如这个列表中
  * @return {Function}                             - 返回removeEventListener的函数
  */
-export function registerListener (
-  ele,
-  eventName,
-  callback,
-  opts = {},
-  unregisterListenersCollection
-) {
+export function registerListener (ele, eventName, callback, opts = {}, unregisterListenersCollection) {
   // use event listener options when supported
   // otherwise it's just a boolean for the "capture" arg
-  const listenerOpts = isPassive()
-    ? {
-      capture: !!opts.capture,
-      passive: !!opts.passive
-    }
-    : !!opts.capture
+  const listenerOpts = isPassive() ? {capture: !!opts.capture, passive: !!opts.passive} : !!opts.capture
 
   // use the native addEventListener
   ele['addEventListener'](eventName, callback, listenerOpts)
@@ -228,10 +216,7 @@ export function registerListener (
     ele['removeEventListener'](eventName, callback, listenerOpts)
   }
 
-  if (
-    unregisterListenersCollection &&
-    Array.isArray(unregisterListenersCollection)
-  ) {
+  if (unregisterListenersCollection && Array.isArray(unregisterListenersCollection)) {
     unregisterListenersCollection.push(unReg)
   }
 

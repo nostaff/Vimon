@@ -59,13 +59,13 @@ $button-round-border-radius:      64px !default;
 }
 
 
-[ion-button] {
+.ion-button {
   text-decoration: none;
 }
 
 a[disabled],
 button[disabled],
-[ion-button][disabled] {
+.ion-button[disabled] {
   cursor: default;
   opacity: .4;
 

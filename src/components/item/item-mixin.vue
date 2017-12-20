@@ -1,5 +1,9 @@
 <template>
-  <div class="ion-item" :class="[itemTypeClass, colorClass]" @click="clickHandler($event)">
+  <div class="ion-item"
+      :class="[itemTypeClass, colorClass]"
+      @touchstart="pointerStart"
+      @touchend="pointerEnd"
+      @click="clickHandler">
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
@@ -40,8 +44,22 @@ export default {
     }
   },
   methods: {
-    clickHandler ($event) {
-      this.$emit('click', $event)
+    clickHandler (ev) {
+      this.$emit('click', ev)
+    },
+    pointerStart (ev) {
+      if (this.$el.hasAttribute('disable-activated')) return
+      setTimeout(() => {
+        this.setElementClass('activated', true)
+      }, 80)
+
+      return true
+    },
+    pointerEnd (ev) {
+      if (this.$el.hasAttribute('disable-activated')) return
+      setTimeout(() => {
+        this.setElementClass('activated', false)
+      }, 80)
     }
   },
   mounted () {

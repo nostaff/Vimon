@@ -101,29 +101,6 @@
         <vm-item>Blade Runner</vm-item>
       </vm-list>
 
-      <vm-list title="no lines" no-lines>
-        <vm-item>
-          小标题
-        </vm-item>
-        <vm-item>
-          正文
-          <vm-note slot="item-end">note</vm-note>
-        </vm-item>
-        <vm-item detail-push>
-          文字
-          <vm-note slot="item-end">note</vm-note>
-        </vm-item>
-        <vm-item link="/home">
-          带link的文字
-          <vm-note slot="item-end">note</vm-note>
-        </vm-item>
-
-        <vm-item>
-          带badge的文字
-          <vm-badge slot="item-end" color="primary">5</vm-badge>
-        </vm-item>
-      </vm-list>
-
       <vm-list>
         <vm-item>
           <vm-icon slot="item-start" name="leaf"></vm-icon>
@@ -263,11 +240,6 @@ export default {
           album: 'Volition'
         },
         {
-          title: 'Hello',
-          band: 'Adele',
-          album: '25'
-        },
-        {
           title: 'Bohemian Rhapsody',
           band: 'Queen',
           album: 'A Night at the Opera'
@@ -296,11 +268,6 @@ export default {
           title: 'The Hand That Feeds',
           band: 'Nine Inch Nails',
           album: 'With Teeth'
-        },
-        {
-          title: 'Who Are You',
-          band: 'The Who',
-          album: 'Who Are You'
         }
       ]
     }
