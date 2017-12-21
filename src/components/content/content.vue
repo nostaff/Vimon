@@ -26,7 +26,6 @@
         default: null
       }
     },
-
     provide () {
       let _this = this
       return {
@@ -73,7 +72,6 @@
       contentHeight: function () {
         return this._scroll.ev.contentHeight
       },
-
       contentWidth: function () {
         return this._scroll.ev.contentWidth
       },
@@ -90,6 +88,15 @@
         set: function (top) {
           this._scroll.setTop(top)
         }
+      },
+      scrollElement () {
+        return this.$refs.scrollElement
+      },
+      headerComponent () {
+        return this.pageComponent.getHeaderComponent()
+      },
+      footerComponent () {
+        return this.pageComponent.getFooterComponent()
       }
     },
     created () {
@@ -97,6 +104,10 @@
       this._imgs = []
 
       this.hasRefresher = this.$slots && isPresent(this.$slots['refresher'])
+
+      if (this.pageComponent) {
+        this.pageComponent.contentComponent = this
+      }
     },
     mounted () {
       if (this.$slots && this.$slots['fixed']) {

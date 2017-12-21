@@ -28,7 +28,8 @@ export default {
     return {
       pageZIndex: 0,
       headerComponent: null,
-      footerComponent: null
+      footerComponent: null,
+      contentComponent: null
     }
   },
   props: {
