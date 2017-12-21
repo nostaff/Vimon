@@ -7,7 +7,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons slot="item-start">
+        <vm-buttons  slot="buttons" start>
           <vm-button icon-only>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -15,7 +15,7 @@
             <vm-icon name="search"></vm-icon>
           </vm-button>
         </vm-buttons>
-        <vm-buttons slot="item-end">
+        <vm-buttons slot="buttons" end>
           <vm-button icon-only>
             <vm-icon name="more"></vm-icon>
           </vm-button>
@@ -24,7 +24,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons slot="item-start">
+        <vm-buttons  slot="buttons" start>
           <vm-button icon-only color="danger">
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -32,7 +32,7 @@
             <vm-icon name="search"></vm-icon>
           </vm-button>
         </vm-buttons>
-        <vm-buttons slot="item-end">
+        <vm-buttons slot="buttons" end>
           <vm-button icon-only color="dark">
             <vm-icon name="more"></vm-icon>
           </vm-button>
@@ -41,13 +41,13 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons slot="item-start">
+        <vm-buttons  slot="buttons" start>
           <vm-button icon-only solid>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
         </vm-buttons>
         <vm-title>Solid</vm-title>
-        <vm-buttons slot="item-end">
+        <vm-buttons slot="buttons" end>
           <vm-button icon-end solid color="secondary">
             Help
             <vm-icon name="help-circle"></vm-icon>
@@ -56,12 +56,12 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons slot="item-start">
+        <vm-buttons  slot="buttons" start>
           <vm-button icon-only outline>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
         </vm-buttons>
-        <vm-buttons slot="item-end">
+        <vm-buttons slot="buttons" end>
           <vm-button icon-end outline color="secondary">
             Help
             <vm-icon name="help-circle"></vm-icon>
@@ -79,7 +79,7 @@
 
       <vm-toolbar no-border-top>
         <vm-title>Right Menu</vm-title>
-        <vm-button menuToggle slot="item-end">
+        <vm-button menuToggle slot="buttons" end>
           <vm-icon name="menu"></vm-icon>
         </vm-button>
       </vm-toolbar>

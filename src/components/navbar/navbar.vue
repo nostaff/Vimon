@@ -1,13 +1,20 @@
 <template>
   <div class="ion-navbar" :class="[modeClass, colorClass]">
     <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
-    <slot name="item-start">
-      <vm-button start role="bar-button" :class="['back-button','back-button-'+mode,'show-back-button']" :icon-only="!backButtonText" @click="backButtonClickHandler" v-if="isShowBackButton">
-        <vm-icon :class="['back-button-icon','back-button-icon-'+mode]" :name="backButtonIcon" v-if="backButtonIcon"></vm-icon>
-        <span :class="['back-button-text','back-button-text-'+mode]" v-if="backButtonText && mode ==='ios'" v-text="backButtonText"></span>
-      </vm-button>
-    </slot>
-    <slot name="item-end">
+    <div class="toolbar-content" :class="['toolbar-content-'+mode]">
+      <slot><vm-title v-if="title">{{title}}</vm-title></slot>
+    </div>
+    <vm-button start role="bar-button" v-if="isShowBackButton"
+        :class="['back-button','back-button-'+mode,'show-back-button']"
+        :icon-only="!backButtonText"
+        @click="backButtonClickHandler" >
+      <vm-icon v-if="backButtonIcon"
+          :class="['back-button-icon','back-button-icon-'+mode]"
+          :name="backButtonIcon"></vm-icon>
+      <span v-if="backButtonText && mode ==='ios'"
+          :class="['back-button-text','back-button-text-'+mode]">{{backButtonText}}</span>
+    </vm-button>
+    <slot name="buttons">
       <vm-buttons end v-if="showMoreButton">
         <vm-button :icon-only="!moreButtonText" @click="moreButtonClickHandler">
           <vm-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></vm-icon>
@@ -15,11 +22,6 @@
         </vm-button>
       </vm-buttons>
     </slot>
-    <div class="toolbar-content" :class="['toolbar-content-'+mode]">
-      <slot>
-        <vm-title v-if="title">{{title}}</vm-title>
-      </slot>
-    </div>
   </div>
 </template>
 
@@ -34,6 +36,12 @@ import VmButton from '../button'
 export default {
   name: 'vm-navbar',
   mixins: [ModeMixins],
+  inject: {
+    pageComponent: {
+      from: 'pageComponent',
+      default: null
+    }
+  },
   components: {
     VmButton,
     VmTitle,
@@ -78,19 +86,9 @@ export default {
     onMoreButtonClick: Function
   },
   mounted () {
-    if (this.$slots['item-start']) {
-      this.$slots['item-start'].forEach(function (item) {
-        item.elm.setAttribute('start', '')
-      })
-    }
-
-    if (this.$slots['item-end']) {
-      this.$slots['item-end'].forEach(function (item) {
-        item.elm.setAttribute('end', '')
-      })
-    }
-
-    this.refreshBackButtonStatus()
+    this.$nextTick(() => {
+      this.refreshBackButtonStatus()
+    })
   },
   methods: {
     backButtonClickHandler (ev) {
@@ -106,7 +104,6 @@ export default {
       window.history.back()
     },
     moreButtonClickHandler (ev) {
-      console.log(ev, this.onMoreButtonClick)
       ev.preventDefault()
       ev.stopPropagation()
 
@@ -120,7 +117,8 @@ export default {
      * @private
      **/
     refreshBackButtonStatus () {
-      console.log(this.showMoreButton)
+      console.log('navbar:refreshBackButtonStatus')
+
       this.isShowBackButton = this.$history.canGoBack() && !isTrueProperty(this.hideBackButton)
     }
   }

@@ -18,7 +18,7 @@ let options = {
 describe('Icon', function () {
   it('@base: renders the correct markup', function () {
     let wrapper = mount(Icon, options)
-    const result = `<i role="img" class="ion-icon icon icon-ios icon-ios-danger ion-ios-star" aria-label="star"></i>`
+    const result = `<i role="img" class="ion-icon icon icon-ios icon-ios-danger ion-ios-star-outline" aria-label="star outline"></i>`
     expect(wrapper.html()).toEqual(result)
   })
 
