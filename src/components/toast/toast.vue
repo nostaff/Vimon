@@ -21,6 +21,8 @@ import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
 import VmButton from '../button'
 
+const NOOP = () => {}
+
 let zIndex = 20001
 export default {
   name: 'vm-toast',
@@ -38,9 +40,8 @@ export default {
         duration: 3000,
         position: 'bottom', // "top", "middle", "bottom"
         cssClass: '',
-        onDismiss: () => {}
+        onDismiss: NOOP
       },
-
       message: '',
       closeButtonText: 'OK',
       showCloseButton: false,
@@ -48,10 +49,13 @@ export default {
       duration: 3000,
       position: 'bottom',
       cssClass: '',
-      onDismiss: () => {},
+      onDismiss: NOOP,
 
       isActive: false,
       timer: null,
+
+      dismissCallback: NOOP, // 关闭的回调
+      presentCallback: NOOP, // 打开的回调
 
       zIndex: this.getZIndex()
     }
@@ -92,6 +96,8 @@ export default {
     },
     afterLeave () {
       this.dismissCallback()
+      this.onDismiss && this.onDismiss()
+
       // 删除DOM
       this.$el.remove()
       this.enabled = true
@@ -133,8 +139,6 @@ export default {
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.onDismiss && this.onDismiss(role)
-
         this.dismissOnPageChange && this.unReg && this.unReg()
         if (!this.enabled) {
           this.$nextTick(() => {

@@ -1,6 +1,6 @@
 <template>
   <div role="dialog" class="ion-popup" :class="[modeClass, cssClass]" style="z-index: 9999;">
-    <vm-backdrop @click.native="bdClick()" :isActive="activated"></vm-backdrop>
+    <vm-backdrop @click="bdClick" :isActive="activated"></vm-backdrop>
     <transition name="popup-fade">
       <div class="popup-wrapper" v-show="activated">
         <div class="popup-toolbar" v-if="buttons">
