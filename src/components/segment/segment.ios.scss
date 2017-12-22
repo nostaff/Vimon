@@ -103,12 +103,12 @@ $segment-button-ios-toolbar-icon-line-height:   2.4rem !default;
   }
 
   &:hover:not(.segment-activated) {
-    //background-color: rgba($segment-button-ios-background-color-activated, $segment-button-ios-opacity-hover);
+    background-color: rgba($segment-button-ios-background-color-activated, $segment-button-ios-opacity-hover);
     transition: $segment-button-ios-transition-hover;
   }
 
   &:active:not(.segment-activated) {
-    //background-color: rgba($segment-button-ios-background-color-activated, $segment-button-ios-opacity-active);
+    background-color: rgba($segment-button-ios-background-color-activated, $segment-button-ios-opacity-active);
     transition: $segment-button-ios-transition-active;
   }
 
