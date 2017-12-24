@@ -4,4 +4,4 @@
 * Github: https://github.com/surmon-china/vue-awesome-swiper
 */
 
-export { default } from './slide.vue'
+export { default } from './swiper.vue'

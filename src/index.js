@@ -63,9 +63,9 @@ import Option from './components/option/index.js'
 // import Separation from './components/separation/index.js'
 // import Sheet from './components/sheet/index.js'
 // import SlideBox from './components/slide-box/index.js'
-import Slides from './components/slides/index.js'
-import Slide from './components/slide/index.js'
-// import SlidesLite from './components/slides-lite/index.js'
+import Swiper from './components/swiper/index.js'
+import SwiperSlide from './components/swiper-slide/index.js'
+// import SlidesLite from './components/swiper-lite/index.js'
 import Spinner from './components/spinner/index.js'
 import Tab from './components/tab/index.js'
 import Tabs from './components/tabs/index.js'
@@ -153,8 +153,8 @@ const components = {
   // Separation,
   // Sheet,
   // SlideBox,
-  Slides,
-  Slide,
+  Swiper,
+  SwiperSlide,
   // SlidesLite,
   Spinner,
   Tabs,
@@ -267,8 +267,8 @@ export {
   // Separation,
   // Sheet,
   // SlideBox,
-  Slides,
-  Slide,
+  Swiper,
+  SwiperSlide,
   // SlidesLite,
   Spinner,
   Tabs,

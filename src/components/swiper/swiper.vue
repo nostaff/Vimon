@@ -147,7 +147,7 @@
  * - [CN Swiper4 documents](http://www.swiper.com.cn/api/index2.html)
  * - [EN Swiper4 documents](http://idangero.us/swiper/api/)
  *
- * @demo #/slides
+ * @demo #/swiper
  * @see http://idangero.us/swiper/api/
  **/
 import objectAssign from 'object-assign'
@@ -157,7 +157,7 @@ import 'swiper/dist/css/swiper.css'
 const Swiper = window.Swiper || _Swiper
 
 export default {
-  name: 'vm-slides',
+  name: 'vm-swiper',
   props: {
     options: {
       type: Object,

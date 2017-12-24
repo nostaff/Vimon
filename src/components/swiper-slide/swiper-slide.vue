@@ -20,7 +20,7 @@
  */
 
 export default {
-  name: 'vm-slide',
+  name: 'vm-swiper-slide',
   data () {
     return {
       slideClass: 'swiper-slide'
