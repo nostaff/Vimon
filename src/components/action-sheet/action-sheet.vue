@@ -14,7 +14,7 @@
           <div class="action-sheet-group">
             <div class="action-sheet-title">
               <span>{{title}}</span>
-              <div class="action-sheet-sub-title">{{subTitle}}</div>
+              <div class="action-sheet-sub-title" v-if="subTitle">{{subTitle}}</div>
             </div>
             <vm-button role="action-sheet-button" :key="index" v-for="(button, index) in buttons" :disabled="button.disabled" :class="button.cssClass" @click="clickHandler(button)">
               <vm-icon class="action-sheet-icon icon" :name="button.icon" v-if="button.icon"></vm-icon>
@@ -131,25 +131,27 @@ export default {
       this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
       this.cssClass = _options.cssClass.trim()
 
-      this.buttons = _options.buttons.map(button => {
+      _options.buttons.forEach((button) => {
         if (isString(button)) {
           button = { text: button }
         }
+
         if (!button.cssClass) {
           button.cssClass = ''
+        } else {
+          button.cssClass = button.cssClass.trim()
         }
-        switch (button.role) {
-          case 'cancel':
-            this.cancelButton = button
-            return null
-          case 'destructive':
+
+        if (button.role === 'cancel') {
+          this.cancelButton = button
+        } else {
+          if (button.role === 'destructive') {
             button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive'
-            break
-          case 'selected':
+          } else if (button.role === 'selected') {
             button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-selected'
-            break
+          }
+          this.buttons.push(button)
         }
-        return button
       })
 
       this.isActive = true
