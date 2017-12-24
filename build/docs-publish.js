@@ -29,12 +29,8 @@ cd('./docs')
 touch('.nojekyll')
 exec('git init')
 exec('git add .')
-exec('git config user.name "xiangsongtao"')
-exec('git config user.email "280304286@163.com"')
-exec('git commit -m "docs(docs): update docs"')
-exec(
-  `git push --force --quiet "${remoteGitStore}" master:gh-pages`
-)
+exec('git commit -m "docs(docs): update docs & demos"')
+exec(`git push --force --quiet "${remoteGitStore}" master:gh-pages`)
 
 console.log(chalk.cyan('---------------'))
 console.log(chalk.cyan('Docs deployed!!'))
