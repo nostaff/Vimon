@@ -13,6 +13,8 @@
 <script type="text/javascript">
 import { isTrueProperty, isBlank, isArray, isCheckedProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
+import ActionSheet from '../action-sheet'
+import Dialog from '../alert'
 import Popover from '../popover'
 import VmButton from '../button'
 import SelectPopover from './select.popover.vue'
@@ -79,10 +81,10 @@ export default {
   mounted () {
     // if parent is item
     if (this.itemComponent) {
-      let cssClass = this.itemComponent.$el.classList.contains('item-select')
+      let cssClass = this.itemComponent.hasClass('item-select')
         ? 'item-multiple-inputs'
         : 'item-select'
-      this.itemComponent.$el.classList.add(cssClass)
+      this.itemComponent.setElementClass(cssClass)
     }
   },
   watch: {
@@ -189,6 +191,7 @@ export default {
             return {
               role: input.isSelected ? 'selected' : '',
               text: input.label,
+              cssClass: input.cssClass,
               disabled: input.isDisabled,
               handler: () => {
                 this.onChange(input.optionValue)
@@ -209,7 +212,8 @@ export default {
 
         selectOptions.cssClass = selectCssClass
 
-        this.$actionSheet.present(selectOptions)
+        console.log(selectOptions)
+        ActionSheet.present(selectOptions)
       } else if (this.interface === 'popover') {
         let popoverOptions = options.map(input => {
           return {
@@ -281,9 +285,7 @@ export default {
           }
         })
 
-        this.multiple
-          ? this.$dialog.checkbox(selectOptions)
-          : this.$dialog.radio(selectOptions)
+        this.multiple ? Dialog.checkbox(selectOptions) : Dialog.radio(selectOptions)
       }
     },
 

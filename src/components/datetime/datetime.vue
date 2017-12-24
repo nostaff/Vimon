@@ -42,10 +42,15 @@
     name: 'vm-datetime',
     mixins: [ModeMixins],
     components: {VmButton},
+    inject: {
+      itemComponent: {
+        from: 'itemComponent',
+        default: null
+      }
+    },
     data () {
       return {
-        itemComponent: null, // 父组件Item实例
-        theDisabled: this.disabled,
+        theDisabled: isTrueProperty(this.disabled),
         text: '',
         theMin: this.min,
         theMax: this.max,
@@ -439,9 +444,6 @@
       this.theValue = parseDate(this.value)
     },
     mounted () {
-      if (this.$parent.$options.name.toLowerCase() === 'vm-item') {
-        this.itemComponent = this.$parent
-      }
       console.assert(this.itemComponent, 'The component of Datetime must in Item component.')
       this.itemComponent.setElementClass('item-datetime', true)
 

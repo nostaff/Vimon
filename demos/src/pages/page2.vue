@@ -1,7 +1,7 @@
 <template>
   <vm-page>
     <vm-header>
-      <vm-navbar :color="color" title="Page"></vm-navbar>
+      <vm-navbar :color="color" title="Page2"></vm-navbar>
     </vm-header>
 
     <vm-content class="outer-content">
@@ -9,7 +9,7 @@
 
       <div>Selected Color: {{color}}</div>
 
-      <router-link to="/page2">Goto Page2</router-link>
+      <router-link to="/page">Goto Page</router-link>
     </vm-content>
 
     <vm-footer>
@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       colors: ['default', 'primary', 'light', 'secondary', 'danger', 'dark'],
-      color: 'danger'
+      color: 'light'
     }
   }
 }

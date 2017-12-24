@@ -28,11 +28,12 @@ const routes = [
   // Layout
   { path: '/toolbar', name: 'toolbar', component: resolve => require(['@/pages/toolbar.vue'], resolve) },
   { path: '/page', name: 'page', component: resolve => require(['@/pages/page.vue'], resolve) },
-  { path: '/page2', name: 'page2', component: resolve => require(['@/pages/page.vue'], resolve) },
+  { path: '/page2', name: 'page2', component: resolve => require(['@/pages/page2.vue'], resolve) },
   { path: '/list', name: 'list', component: resolve => require(['@/pages/list.vue'], resolve) },
   { path: '/grid', name: 'grid', component: resolve => require(['@/pages/grid.vue'], resolve) },
   { path: '/tabs', name: 'tabs', component: resolve => require(['@/pages/tabs.vue'], resolve) },
   { path: '/segment', name: 'segment', component: resolve => require(['@/pages/segment.vue'], resolve) },
+  { path: '/scroll', name: 'scroll', component: resolve => require(['@/pages/scroll.vue'], resolve) },
   { path: '/menu', name: 'menu', component: resolve => require(['@/pages/menu.vue'], resolve) },
 
   // Data

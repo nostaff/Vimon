@@ -108,7 +108,7 @@ export default {
           <div class="loading-custom-spinner-box"></div>
         </div>
         <div>This is a custom spinner. It will dismiss after 3 seconds.</div>`,
-        duration: 13000
+        duration: 3000
       })
     },
 
