@@ -82,11 +82,11 @@ $radio-ios-item-end-margin-start:     ($item-ios-padding-start / 2) !default;
   height: 12px;
 
   border-width: $radio-ios-icon-border-width;
-  border-top-width: 0;
-  border-left-width: 0;
   border-style: $radio-ios-icon-border-style;
   border-color: $radio-ios-color-on;
   transform: rotate(45deg);
+  border-top-width: 0;
+  border-left-width: 0;
 }
 
 
