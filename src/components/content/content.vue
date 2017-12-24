@@ -24,6 +24,10 @@
       pageComponent: {
         from: 'pageComponent',
         default: null
+      },
+      tabsComponent: {
+        from: 'tabsComponent',
+        default: null
       }
     },
     provide () {
@@ -47,8 +51,6 @@
 
         _scrollEle: null,
         _fixedEle: null,
-
-        _tabsCmp: null,
 
         _hdrHeight: 0,
         _ftrHeight: 0,
@@ -129,16 +131,6 @@
       }
       this._fixedEle = this.$refs.fixedElement
       this._scrollEle = this.$refs.scrollElement
-
-      // Check whether in a tabs component
-      let parentCmp = this.$parent
-      while (parentCmp) {
-        if (parentCmp && parentCmp.$el.classList.contains('ion-tabs')) {
-          this._tabsCmp = parentCmp
-          break
-        }
-        parentCmp = parentCmp.$parent
-      }
 
       this.fullscreen && this.setElementAttribute('fullscreen', '')
 
@@ -316,8 +308,8 @@
         }
 
         // In a Tabs
-        if (this._tabsCmp) {
-          ele = this._tabsCmp.getNativeElement()
+        if (this.tabsComponent) {
+          ele = this.tabsComponent.getNativeElement()
           let tabbarEle = ele.firstElementChild
           // ******** DOM READ ****************
           this._tabbarHeight = tabbarEle.clientHeight
@@ -329,9 +321,9 @@
         }
 
         // Tabs top
-        if (this._tabsCmp && this._tabsPlacement === 'top') {
+        if (this.tabsComponent && this._tabsPlacement === 'top') {
           this._tTop = this._hdrHeight
-          tabsTop = this._tabsCmp.getTabsTop()
+          tabsTop = this.tabsComponent.getTabsTop()
         }
 
         // Toolbar height
@@ -461,15 +453,15 @@
           this.contentBottom = this._cBottom
         }
 
-        if (this._tabsCmp && this._tabsPlacement !== null) {
+        if (this.tabsComponent && this._tabsPlacement !== null) {
           // set the position of the tabbar
           if (this._tabsPlacement === 'top') {
             // ******** DOM WRITE ****************
-            this._tabsCmp.setTabbarPosition(this._tTop, -1)
+            this.tabsComponent.setTabbarPosition(this._tTop, -1)
           } else {
             assert(this._tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
             // ******** DOM WRITE ****************
-            this._tabsCmp.setTabbarPosition(-1, 0)
+            this.tabsComponent.setTabbarPosition(-1, 0)
           }
         }
 
