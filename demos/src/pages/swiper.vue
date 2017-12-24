@@ -590,12 +590,12 @@
 </template>
 
 <script type="text/javascript">
-import { Slides, Slide } from 'vimon'
+import { Swiper, SwiperSlide } from 'vimon'
 export default {
   name: 'SwiperDemo',
   components: {
-    swiper: Slides,
-    'swiper-slide': Slide
+    'swiper': Swiper,
+    'swiper-slide': SwiperSlide
   },
   data () {
     return {
@@ -890,7 +890,7 @@ export default {
       swiperOptionThumbs1: {
         spaceBetween: 10,
         loop: true,
-        loopedSlides: 5, // looped slides should be the same
+        loopedSlides: 5, // looped swiper should be the same
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'
@@ -901,7 +901,7 @@ export default {
         slidesPerView: 4,
         touchRatio: 0.2,
         loop: true,
-        loopedSlides: 5, // looped slides should be the same
+        loopedSlides: 5, // looped swiper should be the same
         slideToClickedSlide: true
       },
 
