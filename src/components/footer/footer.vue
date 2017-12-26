@@ -31,13 +31,6 @@ export default {
     if (this.pageComponent) {
       this.pageComponent.footerComponent = this
     }
-
-    this.$events.$on('onMenuOpen', () => {
-      this.hide()
-    })
-    this.$events.$on('onMenuClosing', () => {
-      this.show()
-    })
     this.$events.$emit('footer:created', this)
   },
   mounted () {

@@ -297,6 +297,10 @@ sub {
   width: 100%;
 }
 
+.ion-header.hide-bar {
+  transform: translateY(-100%);
+}
+
 .ion-footer {
   @include position(null, null, 0, 0);
 
@@ -305,6 +309,11 @@ sub {
   display: block;
 
   width: 100%;
+}
+
+
+.ion-footer.hide-bar {
+  transform: translateY(100%);
 }
 
 

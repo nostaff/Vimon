@@ -45,7 +45,7 @@ import ItemSliding from './components/item-sliding/index.js'
 import Label from './components/label/index.js'
 import List from './components/list/index.js'
 import ListHeader from './components/list-header/index.js'
-// import Menu from './components/menu/index.js'
+import Menu from './components/menu/index.js'
 import Note from './components/note/index.js'
 // import Noticebar from './components/noticebar/index.js'
 // import PopSheet from './components/pop-sheet/index.js'
@@ -135,7 +135,7 @@ const components = {
   Label,
   ListHeader,
   List,
-  // Menu,
+  Menu,
   Note,
   // Noticebar,
   // PopSheet,
@@ -249,7 +249,7 @@ export {
   Label,
   ListHeader,
   List,
-  // Menu,
+  Menu,
   Note,
   // Noticebar,
   // PopSheet,

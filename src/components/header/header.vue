@@ -31,12 +31,6 @@ export default {
     if (this.pageComponent) {
       this.pageComponent.headerComponent = this
     }
-    this.$events.$on('onMenuOpen', () => {
-      this.hide()
-    })
-    this.$events.$on('onMenuClosing', () => {
-      this.show()
-    })
     this.$events.$emit('header:created', this)
   },
   mounted () {

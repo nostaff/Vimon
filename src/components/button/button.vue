@@ -79,7 +79,7 @@ export default {
   },
   mounted () {
     this.assignCss(true)
-
+    this.addIconBtnPosition()
     this.addClassInItem()
   },
   methods: {
@@ -163,6 +163,38 @@ export default {
           this.setElementClass(`${className}-${this.mode}-${color}`, isAdd)
         }
       }
+    },
+
+    // 设置icon button的左右位置
+    addIconBtnPosition () {
+      let _firstSlot = null
+      let _lastSlot = null
+      let _length = this.$slots && this.$slots.default ? this.$slots.default.length : 0
+
+      if (_length > 0) {
+        _firstSlot = this.$slots.default[0]
+        _lastSlot = this.$slots.default[_length - 1]
+        // icon-only
+        if (_length === 1 && this.isIconComponent(_firstSlot)) {
+          this.setElementAttribute('icon-only')
+        }
+
+        if (_length > 1) {
+          // icon left
+          if (this.isIconComponent(_firstSlot) && this.roleName !== 'bar-button') {
+            this.setElementAttribute('icon-start')
+          }
+          // icon right
+          if (this.isIconComponent(_lastSlot)) {
+            this.setElementAttribute('icon-end')
+          }
+        }
+      }
+    },
+
+    // 判断slot是icon组件
+    isIconComponent (slot) {
+      return !!slot.componentOptions && !!slot.componentOptions.tag && slot.componentOptions.tag.toLowerCase() === 'vm-icon'
     },
 
     addClassInItem () {

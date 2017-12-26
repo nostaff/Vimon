@@ -4,6 +4,8 @@ import AttachFastClick from 'fastclick'
 import APP_CONFIGS from './config/app-configs'
 import PLATFORM_CONFIGS from './config/platform-configs'
 import router from './router'
+import store from './store.js'
+
 
 // 导入所有组件
 import Vimon from 'vimon/index.js' // demo环境需要带index.js
@@ -59,6 +61,7 @@ new AttachFastClick(document.body)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<AppRoot/>',
   created () {
     this.$platform.ready().then((data) => {

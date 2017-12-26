@@ -2,6 +2,11 @@
   <vm-page>
     <vm-header>
       <vm-navbar hide-back-button>
+        <vm-buttons right slot="buttons">
+          <vm-button @click="$menu.toggle('menu')" role="bar-button" menutoggle>
+            <vm-icon name="menu"></vm-icon>
+          </vm-button>
+        </vm-buttons>
         <vm-title @onTitleClick="onTitleClickHandler">Aha!</vm-title>
       </vm-navbar>
     </vm-header>
