@@ -6,7 +6,6 @@
     </div>
     <vm-button start role="bar-button" v-if="isShowBackButton"
         :class="['back-button','back-button-'+mode,'show-back-button']"
-        :icon-only="!backButtonText"
         @click="backButtonClickHandler" >
       <vm-icon v-if="backButtonIcon"
           :class="['back-button-icon','back-button-icon-'+mode]"
@@ -16,7 +15,7 @@
     </vm-button>
     <slot name="buttons">
       <vm-buttons end v-if="showMoreButton">
-        <vm-button :icon-only="!moreButtonText" @click="moreButtonClickHandler">
+        <vm-button @click="moreButtonClickHandler">
           <vm-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></vm-icon>
           <span :class="['more-button-text','more-button-text-'+mode]" v-if="moreButtonText" v-text="moreButtonText"></span>
         </vm-button>
