@@ -5,7 +5,7 @@
       role="presentation"
       v-show="activated"
       @click="clickHandler"
-      @touchmove="onTouchMoveHandler($event)"></div>
+      @touchmove="onTouchMoveHandler"></div>
   </transition>
 </template>
 
@@ -41,10 +41,10 @@ export default {
   methods: {
     /**
       * @private
-      * @param {Object} $event - $event
+      * @param {Object} ev - ev
       */
-    clickHandler ($event) {
-      this.$emit('click', $event)
+    clickHandler (ev) {
+      this.$emit('click', ev)
     },
     beforeEnter () {
       this.$emit('onShown')
@@ -52,9 +52,9 @@ export default {
     afterLeave () {
       this.$emit('onHidden')
     },
-    onTouchMoveHandler ($event) {
-      $event.preventDefault()
-      $event.stopPropagation()
+    onTouchMoveHandler (ev) {
+      ev.preventDefault()
+      ev.stopPropagation()
     }
   }
 }
