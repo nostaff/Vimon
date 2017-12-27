@@ -96,20 +96,36 @@ export function setElementClass (ele, className, add) {
   }
 }
 
-export function hasClass (obj, cls) {
-  return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'))
+export function hasClass (el, className) {
+  const reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
+  return reg.test(el.className)
 }
 
-export function addClass (obj, cls) {
-  if (!hasClass(obj, cls)) {
-    obj.className += ' ' + cls
+export function addClass (el, className) {
+  if (hasClass(el, className)) {
+    return
   }
+
+  const newClass = el.className.split(' ')
+  newClass.push(className)
+  el.className = newClass.join(' ')
 }
 
-export function removeClass (obj, cls) {
-  if (hasClass(obj, cls)) {
-    var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)')
-    obj.className = obj.className.replace(reg, ' ').trim()
+export function removeClass (el, className) {
+  if (!hasClass(el, className)) {
+    return
+  }
+
+  const reg = new RegExp('(^|\\s)' + className + '(\\s|$)', 'g')
+  el.className = el.className.replace(reg, ' ')
+}
+
+export function getRect (el) {
+  return {
+    top: el.offsetTop,
+    left: el.offsetLeft,
+    width: el.offsetWidth,
+    height: el.offsetHeight
   }
 }
 

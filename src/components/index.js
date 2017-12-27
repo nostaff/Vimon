@@ -29,6 +29,7 @@ import Footer from './footer/index.js'
 import Grid from './grid/index.js'
 import Header from './header/index.js'
 import Icon from './icon/index.js'
+import Indicator from './indicator/index.js'
 import InfiniteScroll from './infinite-scroll/index.js'
 import Input from './input/index.js'
 import Item from './item/index.js'
@@ -41,6 +42,7 @@ import List from './list/index.js'
 import ListHeader from './list-header/index.js'
 import Loading from './loading/index.js'
 import Modal from './modal/index.js'
+import Nav from './nav/index.js'
 import Navbar from './navbar/index.js'
 import Note from './note/index.js'
 import Option from './option/index.js'
@@ -54,13 +56,15 @@ import Range from './range/index.js'
 import Refresher from './refresher/index.js'
 import Row from './row/index.js'
 import Scroll from './scroll/index.js'
+import ScrollSegment from './scroll-segment/index.js'
+import ScrollSegmentButton from './scroll-segment-button/index.js'
 import Searchbar from './searchbar/index.js'
 import Segment from './segment/index.js'
 import SegmentButton from './segment-button/index.js'
 import Select from './select/index.js'
-import Slide from './slide/index.js'
-import Slides from './slides/index.js'
 import Spinner from './spinner/index.js'
+import Swiper from './swiper/index.js'
+import SwiperSlide from './swiper-slide/index.js'
 import Tab from './tab/index.js'
 import Tabs from './tabs/index.js'
 import Textarea from './textarea/index.js'
@@ -100,6 +104,7 @@ export {
   Grid,
   Header,
   Icon,
+  Indicator,
   InfiniteScroll,
   Input,
   Item,
@@ -112,6 +117,7 @@ export {
   ListHeader,
   Loading,
   Modal,
+  Nav,
   Navbar,
   Note,
   Option,
@@ -125,13 +131,15 @@ export {
   Refresher,
   Row,
   Scroll,
+  ScrollSegment,
+  ScrollSegmentButton,
   Searchbar,
   Segment,
   SegmentButton,
   Select,
-  Slide,
-  Slides,
   Spinner,
+  Swiper,
+  SwiperSlide,
   Tab,
   Tabs,
   Textarea,
