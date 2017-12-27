@@ -112,9 +112,6 @@
 
 <script>
 import Vue from 'vue'
-// import goodsData from 'example/data/goods-list.json'
-
-// import { ease } from '../data/ease'
 
 const _data = [
   'I am line 1',
@@ -133,12 +130,6 @@ const _data = [
   'I am line 14',
   'I am line 15'
 ]
-
-let _foods = []
-
-// goodsData.goods.forEach(item => {
-//   _foods = _foods.concat(item.foods)
-// })
 
 export default {
   data () {
@@ -265,8 +256,8 @@ export default {
       this.$refs.scroll.scrollTo(
         this.scrollToX,
         this.scrollToY,
-        this.scrollToTime
-        // ease[this.scrollToEasing]
+        this.scrollToTime,
+        this.scrollToEasing
       )
     },
     updateScrollbar (val) {
