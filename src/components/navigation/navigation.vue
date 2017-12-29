@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import {isDefined, isTrueProperty} from '../util/util'
-import VmHeader from '../components/header'
-import VmNavbar from '../components/navbar'
+import {isDefined, isTrueProperty} from '../../util/util'
+import VmHeader from '../header/index'
+import VmNavbar from '../navbar/index'
 
 const NOOP = () => {}
 

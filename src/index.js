@@ -86,8 +86,8 @@ import Popup from './components/popup'
 // import PreviewImage from './components/components/preview-image'
 import Toast from './components/toast'
 
-// directives
-import Navigation from './directives/navigation.js'
+// Directive
+import Navigation from './components/navigation/index.js'
 
 // Componnets
 const components = {
@@ -165,7 +165,7 @@ const components = {
   Toggle
 }
 
-// directives
+// Directive
 const directives = {
   Navigation
 }
@@ -179,7 +179,7 @@ const install = function (Vue, options = {}) {
     Vue.component(name, components[component])
   }
 
-  // directives
+  // directive
   for (let directive in directives) {
     let name = directives[directive].name || directive
     Vue.directive(name, directives[directive])

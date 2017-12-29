@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import NavigationComponent from './navigation.vue'
 
-import {isFunction, isTrueProperty, isDefined, createElement} from '../util/util'
+import {isFunction, isTrueProperty, isDefined, createElement} from '../../util/util'
 
 export default {
   name: 'nav',
