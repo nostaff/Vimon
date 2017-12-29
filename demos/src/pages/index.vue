@@ -2,8 +2,11 @@
   <vm-page>
     <vm-header>
       <vm-navbar hide-back-button>
+        <vm-button slot="buttons" start>
+          <vm-icon name="search"></vm-icon>
+        </vm-button>
         <vm-buttons right slot="buttons">
-          <vm-button @click="$menu.toggle('menu')" role="bar-button" menutoggle>
+          <vm-button @click="$menu.toggle('menu')" menutoggle>
             <vm-icon name="menu"></vm-icon>
           </vm-button>
         </vm-buttons>

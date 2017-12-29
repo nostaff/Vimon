@@ -38,8 +38,6 @@
  * @props {Boolean} [clear]       - clear空心
  * @props {Boolean} [solid]       - solid实心
  *
- * @props {Boolean} [role='button']       - role 按钮具体角色 例如 action-sheet-button/bar-button
- *
  * @props {Boolean} [strong]      - 样式加强
  *
  * @demo #/button

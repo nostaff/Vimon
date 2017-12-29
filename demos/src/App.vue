@@ -5,20 +5,20 @@
         <vm-list-header>
           <span>Start</span>
         </vm-list-header>
-        <vm-item detail-push :to="{name: 'introduce'}" wait>
-          <vm-icon slot="item-left" name="apps"></vm-icon>
+        <vm-item detail-push :link="{name: 'index'}" wait>
+          <vm-icon slot="item-start" name="apps"></vm-icon>
           <span>Introduction</span>
         </vm-item>
-        <vm-item detail-push :to="{name: 'config'}" wait>
-          <vm-icon slot="item-left" name="settings"></vm-icon>
+        <vm-item detail-push :link="{name: 'config'}" wait>
+          <vm-icon slot="item-start" name="settings"></vm-icon>
           <span>Config</span>
         </vm-item>
-        <vm-item detail-push :to="{name: 'platform'}" wait>
-          <vm-icon slot="item-left" md="logo-android" ios="logo-apple"></vm-icon>
+        <vm-item detail-push :link="{name: 'platform'}" wait>
+          <vm-icon slot="item-start" md="logo-android" ios="logo-apple"></vm-icon>
           <span>Platfrom</span>
         </vm-item>
-        <vm-item detail-push :to="{name: 'crossPlatform'}" wait>
-          <vm-icon slot="item-left" name="logo-javascript"></vm-icon>
+        <vm-item detail-push :link="{name: 'crossPlatform'}" wait>
+          <vm-icon slot="item-start" name="logo-javascript"></vm-icon>
           <span>Cross Platorm</span>
         </vm-item>
       </vm-list>
@@ -26,8 +26,8 @@
         <vm-list-header>
           <span>Main</span>
         </vm-list-header>
-        <vm-item detail-push :to="{name: 'components'}" wait>
-          <vm-icon slot="item-left" name="logo-rss"></vm-icon>
+        <vm-item detail-push :link="{name: 'component'}" wait>
+          <vm-icon slot="item-start" name="logo-rss"></vm-icon>
           <span>Components</span>
         </vm-item>
       </vm-list>

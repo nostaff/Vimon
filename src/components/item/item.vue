@@ -46,7 +46,7 @@ export default {
     this.link && this.setElementAttribute('detail-push')
   },
   methods: {
-    clickHandler ($event) {
+    clickHandler (ev) {
       const go = (url, router, replace = false) => {
         const useRouter = typeof url === 'object' || (router && typeof url === 'string' && !/http/.test(url))
         if (useRouter) {
@@ -62,22 +62,14 @@ export default {
 
       if (this.isDisabled) return
 
-      const _this = this
       if (isPresent(this.$router) && isPresent(this.link)) {
         // 如果在menu跳转, 则需要等待menu关闭后再跳转
         if (this.isInMenu) {
           this.$menu.close()
-          this.$events && this.$events.$on('onMenuClosed', () => {
-            _this.$events && _this.$events.$off('onMenuClosed', () => {
-              go(_this.link, _this.$router, _this.isReplaces)
-            })
-          })
-        } else {
-          // 正常情况
-          go(this.link, this.$router, this.isReplaces)
         }
+        go(this.link, this.$router, this.isReplaces)
       } else {
-        this.$emit('click', $event)
+        this.$emit('click', ev)
       }
     },
     /**

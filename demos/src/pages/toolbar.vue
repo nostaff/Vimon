@@ -71,7 +71,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-button icon-only menuToggle>
+        <vm-button icon-only menutoggle>
           <vm-icon name="menu"></vm-icon>
         </vm-button>
         <vm-title>Left Menu</vm-title>
@@ -79,7 +79,7 @@
 
       <vm-toolbar no-border-top>
         <vm-title>Right Menu</vm-title>
-        <vm-button menuToggle slot="buttons" end>
+        <vm-button menutoggle slot="buttons" end>
           <vm-icon name="menu"></vm-icon>
         </vm-button>
       </vm-toolbar>

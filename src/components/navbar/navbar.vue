@@ -1,11 +1,8 @@
 <template>
-  <div class="ion-navbar" :class="[modeClass, colorClass]">
-    <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
-    <div class="toolbar-content" :class="['toolbar-content-'+mode]">
-      <slot><vm-title v-if="title">{{title}}</vm-title></slot>
-    </div>
-    <vm-button start role="bar-button" v-if="isShowBackButton"
+  <vm-toolbar class="ion-navbar">
+    <vm-button slot="buttons" v-if="isShowBackButton"
         :class="['back-button','back-button-'+mode,'show-back-button']"
+        :icon-only="!backButtonText || mode !=='ios'"
         @click="backButtonClickHandler" >
       <vm-icon v-if="backButtonIcon"
           :class="['back-button-icon','back-button-icon-'+mode]"
@@ -13,20 +10,27 @@
       <span v-if="backButtonText && mode ==='ios'"
           :class="['back-button-text','back-button-text-'+mode]">{{backButtonText}}</span>
     </vm-button>
-    <slot name="buttons">
+
+    <slot>
+      <vm-title v-if="title">{{title}}</vm-title>
+    </slot>
+
+    <!--  定义navbar中slot的name，同时指定其为toolbar组件的slot -->
+    <slot name="buttons" slot="buttons">
       <vm-buttons end v-if="showMoreButton">
-        <vm-button @click="moreButtonClickHandler">
+        <vm-button @click="moreButtonClickHandler" :icon-only="!moreButtonText">
           <vm-icon :class="['more-button-icon','more-button-icon-'+mode]" :name="moreButtonIcon" v-if="moreButtonIcon"></vm-icon>
           <span :class="['more-button-text','more-button-text-'+mode]" v-if="moreButtonText" v-text="moreButtonText"></span>
         </vm-button>
       </vm-buttons>
     </slot>
-  </div>
+  </vm-toolbar>
 </template>
 
 <script>
 import { isTrueProperty, isFunction } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
+import VmToolbar from '../toolbar'
 import VmButtons from '../buttons'
 import VmIcon from '../icon'
 import VmTitle from '../title'
@@ -35,13 +39,8 @@ import VmButton from '../button'
 export default {
   name: 'vm-navbar',
   mixins: [ModeMixins],
-  inject: {
-    pageComponent: {
-      from: 'pageComponent',
-      default: null
-    }
-  },
   components: {
+    VmToolbar,
     VmButton,
     VmTitle,
     VmIcon,
@@ -49,7 +48,6 @@ export default {
   },
   data () {
     return {
-      roleName: 'toolbar',
       isShowBackButton: !isTrueProperty(this.hideBackButton)
     }
   },
@@ -85,6 +83,7 @@ export default {
     onMoreButtonClick: Function
   },
   mounted () {
+    this.$el.classList.remove('ion-toolbar')
     this.$nextTick(() => {
       this.refreshBackButtonStatus()
     })
@@ -116,16 +115,8 @@ export default {
      * @private
      **/
     refreshBackButtonStatus () {
-      console.log('navbar:refreshBackButtonStatus')
-
       this.isShowBackButton = this.$history.canGoBack() && !isTrueProperty(this.hideBackButton)
     }
   }
 }
 </script>
-
-<style lang="scss">
-@import "../toolbar/toolbar";
-@import "../toolbar/toolbar.ios";
-@import "../toolbar/toolbar.md";
-</style>

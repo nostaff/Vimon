@@ -1,5 +1,5 @@
 <template>
-  <vm-page v-nav="{title: 'Components'}">
+  <vm-page v-nav="{title: 'Components', showMoreButton: true, onMoreButtonClick: moreButtonClick}">
 
     <vm-content class="outer-content">
       <!-- Basic -->
@@ -181,7 +181,11 @@
     methods: {
       onClicked (urlPath) {
         this.$router.push({'path': urlPath})
+      },
+      moreButtonClick (urlPath) {
+        console.log('moreButtonClick')
       }
+
     }
   }
 </script>

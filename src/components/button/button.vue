@@ -21,6 +21,10 @@ export default {
     itemComponent: {
       from: 'itemComponent',
       default: null
+    },
+    toolbarComponent: {
+      from: 'toolbarComponent',
+      default: null
     }
   },
   props: {
@@ -40,7 +44,7 @@ export default {
     // display
     block: Boolean,
     full: Boolean,
-    menuToggle: Boolean,
+    menutoggle: Boolean,
 
     // size
     small: Boolean,
@@ -58,16 +62,14 @@ export default {
       shape: null, // round/fab
       display: null, // block/full
       decorator: null, // strong
-      menutoggle: null, // menutoggle
+      menuToggle: null, // menutoggle
 
       isItemCover: false
     }
   },
   created () {
-    let parentName = this.$parent.$options.name
-
     // 如果是在组件 buttons 下则修改前缀为 bar-button-
-    if (parentName === 'vm-buttons' || parentName === 'vm-toolbar') {
+    if (this.toolbarComponent) {
       this.roleName = 'bar-button'
     }
 
@@ -114,7 +116,7 @@ export default {
       isTrueProperty(this.full) && (this.display = 'full')
       isTrueProperty(this.block) && (this.display = 'block')
 
-      isTrueProperty(this.menuToggle) && (this.menutoggle = 'menutoggle')
+      isTrueProperty(this.menutoggle) && (this.menuToggle = 'menutoggle')
 
       isTrueProperty(this.strong) && (this.decorator = 'strong')
     },
@@ -130,7 +132,7 @@ export default {
         this.setClass(this.display, assignCssClass) // button-full
         this.setClass(this.size, assignCssClass) // button-small
         this.setClass(this.decorator, assignCssClass) // button-strong
-        this.setClass(this.menutoggle, assignCssClass) // button-menutoggle
+        this.setClass(this.menuToggle, assignCssClass) // button-menutoggle
 
         this.updateColor(this.color, assignCssClass) // button-secondary, bar-button-secondary
       }

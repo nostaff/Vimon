@@ -1,10 +1,10 @@
 <template>
   <div class="ion-toolbar" :class="[modeClass, colorClass]">
     <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
+    <slot name="buttons"></slot>
     <div class="toolbar-content" :class="['toolbar-content-'+mode]">
       <slot></slot>
     </div>
-    <slot name="buttons"></slot>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "toolbar-buttons";
 @import "toolbar";
 @import "toolbar.ios";
 @import "toolbar.md";
