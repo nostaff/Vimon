@@ -100,10 +100,6 @@
           分段选项卡
           <vm-note slot="item-end">Segment</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/scroll')">
-          滚动
-          <vm-note slot="item-end">Scroll</vm-note>
-        </vm-item>
         <vm-item detail-push @click="onClicked('/menu')">
           侧边栏/菜单
           <vm-note slot="item-end">Menu</vm-note>
@@ -118,6 +114,10 @@
         <vm-item detail-push @click="onClicked('/infinite-scroll')">
           无限加载
           <vm-note slot="item-end">InfiniteScroll</vm-note>
+        </vm-item>
+        <vm-item detail-push @click="onClicked('/scroll')">
+          滚动
+          <vm-note slot="item-end">Scroll</vm-note>
         </vm-item>
       </vm-list>
 

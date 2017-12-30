@@ -1,8 +1,12 @@
 <template>
   <div class="ion-loading" :class="[modeClass, cssClass]" role="dialog">
-    <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss" :isActive="activated" v-if="showBackdrop" @click="bdClick"></vm-backdrop>
-    <transition name="loading-fade">
-      <div class="loading-wrapper" v-show="activated">
+    <vm-backdrop :enableBackdropDismiss="false" :isActive="isActive" v-if="showBackdrop"></vm-backdrop>
+    <transition name="loading-fade"
+          @before-enter="beforeEnter"
+          @after-enter="afterEnter"
+          @before-leave="beforeLeave"
+          @after-leave="afterLeave">
+      <div class="loading-wrapper" v-show="isActive">
         <div v-if="spinner" class="loading-spinner">
           <vm-spinner :name="spinner"></vm-spinner>
         </div>
@@ -12,10 +16,14 @@
   </div>
 </template>
 <script>
+import { isTrueProperty } from '../../util/util'
+import { urlChange } from '../../util/dom'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
 import VmBackdrop from '../backdrop'
 import VmSpinner from '../spinner'
+
+const NOOP = () => {}
 
 export default {
   name: 'vm-loading',
@@ -27,60 +35,96 @@ export default {
   data () {
     return {
       defaultOptions: {
+        spinner: '',
         content: '',
         showBackdrop: true,
-        enableBackdropDismiss: false
+        dismissOnPageChange: true,
+        scrollControl: false,
+        duration: 3000,
+        cssClass: ''
       },
 
       content: '',
-      spinner: '',
+      spinner: this.$config && this.$config.get('spinner', 'ios') || 'ios',
+
       showBackdrop: true,
-      enableBackdropDismiss: false,
+      dismissOnPageChange: true,
+      scrollControl: false,
       duration: 3000,
       cssClass: '',
 
-      activated: false
+      isActive: false,
+
+      // promise
+      presentCallback: NOOP,
+      dismissCallback: NOOP
+    }
+  },
+  created () {
+    if (this.dismissOnPageChange) {
+      this.unReg = urlChange(() => {
+        this.isActive && this.dismiss()
+      })
+    }
+
+    if (this.scrollControl) {
+      this.$app && this.$app.disableScroll && this.$app.disableScroll()
     }
   },
   methods: {
+    beforeEnter () {
+      this.$app && this.$app.setEnabled(false, 200)
+      this.enabled = false
+    },
+    afterEnter () {
+      this.presentCallback()
+      this.enabled = true
+    },
+    beforeLeave () {
+      this.$app && this.$app.setEnabled(false, 200)
+      this.enabled = false
+    },
+    afterLeave () {
+      this.dismissCallback()
+      this.$el.remove()
+      this.enabled = true
+    },
     present (options) {
       let _options = objectAssign({}, this.defaultOptions, options)
       this.content = _options.content
-      this.spinner = _options.spinner
-
+      if (_options.spinner) { this.spinner = _options.spinner }
+      if (_options.spinner === 'hide') { this.spinner = null }
+      this.cssClass = _options.cssClass.trim()
       this.duration = parseInt(_options.duration)
-      if (typeof _options.showBackdrop === 'boolean') {
-        this.showBackdrop = _options.showBackdrop
-      }
-      if (typeof _options.enableBackdropDismiss === 'boolean') {
-        this.enableBackdropDismiss = _options.enableBackdropDismiss
-      }
+      this.showBackdrop = isTrueProperty(_options.showBackdrop)
+      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+      this.scrollControl = isTrueProperty(_options.scrollControl)
 
-      this.activated = true
-
-      if (this.duration) {
-        setTimeout(() => this.dismiss('backdrop'), this.duration)
+      this.isActive = true
+      if (parseInt(this.duration) > 16) {
+        this.timer && window.clearTimeout(this.timer)
+        this.timer = window.setTimeout(() => {
+          this.dismiss()
+        }, this.duration)
       }
-
-      return new Promise((resolve, reject) => {
-        this.$on('onHideEvent', res => {
-          resolve(res)
-        })
-      })
+      return new Promise((resolve) => { this.presentCallback = resolve })
     },
 
-    dismiss (role) {
-      this.activated = false
-
-      this.$emit('onHideEvent', role)
-      setTimeout(() => {
-        this.$el.remove()
-      }, 200)
-    },
-
-    bdClick () {
-      if (this.enableBackdropDismiss) {
-        this.dismiss('backdrop')
+    dismiss () {
+      if (this.isActive) {
+        this.isActive = false // 动起来
+        this.timer && window.clearTimeout(this.timer)
+        this.unreg && this.unreg()
+        if (!this.enabled) {
+          this.$nextTick(() => {
+            this.$el.remove()
+            this.dismissCallback()
+            this.enabled = true
+          })
+        }
+        return new Promise((resolve) => { this.dismissCallback = resolve })
+      } else {
+        return new Promise((resolve) => { resolve() })
       }
     }
   }

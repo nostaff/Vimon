@@ -6,11 +6,10 @@ import PLATFORM_CONFIGS from './config/platform-configs'
 import router from './router'
 import store from './store.js'
 
-
 // 导入所有组件
 import Vimon from 'vimon/index.js' // demo环境需要带index.js
 Vue.use(Vimon, {
-  custConf: APP_CONFIGS,
+  appConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
 })
@@ -22,7 +21,7 @@ import Vimon from 'vimon/core'
 import { App, Content, Footer, Header, Page, Navigation } from 'vimon'
 
 Vue.use(Vimon, {
-  custConf: APP_CONFIGS,
+  appConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
 })

@@ -1,7 +1,6 @@
 <template>
   <div class="ion-app" :version="version" :class="[modeClass,hoverClass,{'disable-scroll':isScrollDisabled}]">
     <div class="app-viewport"></div>
-    <!--app-root start-->
     <div class="app-root">
       <slot></slot>
     </div>
@@ -11,7 +10,7 @@
     <div id="loading-portal"></div>
     <div id="toast-portal"></div>
     <!--当页面被点击的时候，防止在动画的过程中再次点击页面导致bug的蒙层，全局最高！z-index=99999-->
-    <div class="click-block" :class="[{'click-block-enabled':isClickBlockEnabled}]"></div>
+    <div class="click-block" :class="{'click-block-enabled':isClickBlockEnabled}"></div>
   </div>
 </template>
 
@@ -123,15 +122,15 @@ export default {
     },
 
     /**
-       * @function setDisableScroll
-       * @description
-       * 是否点击滚动, 这个需要自己设置时间解锁
-       * @param {Boolean} isScrollDisabled - 是否禁止滚动点击 true:禁止滚动/false:可以滚动
-       * @param {number} duration - 时间过后则自动解锁
-       * @example
-       * this.$app && this.$app.setDisableScroll(true, 400) -> 400ms内页面不可滚动, 400ms过后可正常使用
-       * this.$app && this.$app.setDisableScroll(false) ->立即解除锁定
-       **/
+     * @function setDisableScroll
+     * @description
+     * 是否点击滚动, 这个需要自己设置时间解锁
+     * @param {Boolean} isScrollDisabled - 是否禁止滚动点击 true:禁止滚动/false:可以滚动
+     * @param {number} duration - 时间过后则自动解锁
+     * @example
+     * this.$app && this.$app.setDisableScroll(true, 400) -> 400ms内页面不可滚动, 400ms过后可正常使用
+     * this.$app && this.$app.setDisableScroll(false) ->立即解除锁定
+     */
     setDisableScroll (isScrollDisabled, duration = 0) {
       if (duration > 0 && isScrollDisabled) {
         this.isScrollDisabled = isScrollDisabled
@@ -143,12 +142,12 @@ export default {
     },
 
     /**
-       * @function setClass
-       * @description
-       * 设置根组件的class样式, 比如全局颜色替换或者结构变更
-       * @param {string} className - 样式名称
-       * @param {boolean} [isAdd=false] - 是否添加
-       */
+     * @function setClass
+     * @description
+     * 设置根组件的class样式, 比如全局颜色替换或者结构变更
+     * @param {string} className - 样式名称
+     * @param {boolean} [isAdd=false] - 是否添加
+     */
     setClass (className, isAdd = false) {
       if (className) {
         setElementClass(this.$el, className, isAdd)
@@ -161,7 +160,7 @@ export default {
      * @param {String}  _title.title - 标题
      * @description
      * 设置document.title的值, 如果传入的是string, 则为title的字符串, 如果是对象, 则title字段为标题名称
-     **/
+     */
     setDocTitle (_title) {
       if (isString(_title)) {
         _title = { title: _title }

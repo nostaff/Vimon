@@ -123,7 +123,17 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'ios'
+      default: 'ios',
+      validator (val) {
+        return ~[
+          'ios',
+          'ios-small',
+          'bubbles',
+          'circles',
+          'crescent',
+          'dots'
+        ].indexOf(val)
+      }
     },
     duration: {
       type: Number,
@@ -141,11 +151,17 @@ export default {
       lines: []
     }
   },
-
+  watch: {
+    name () {
+      this.load()
+    },
+    duration () {
+      this.load()
+    }
+  },
   created () {
     this.load()
   },
-
   methods: {
     load () {
       this.lines = []
@@ -166,18 +182,11 @@ export default {
         }
       }
     },
-
     _loadEle (spinner, index, total) {
       let duration = this.duration || spinner.duration
       let data = spinner.fn(duration, index, total)
       data.style.animationDuration = duration + 'ms'
       return data
-    }
-  },
-
-  watch: {
-    value: function (newValue) {
-      this.hasValue = !!newValue
     }
   }
 }

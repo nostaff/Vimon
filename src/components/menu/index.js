@@ -62,7 +62,7 @@
    *    methods: {
    *     open: function () {
    *       this.$menu.open('aaa');
-   *       this.$root.$on("onMenuOpen", function () {
+   *       this.$events.$on("onMenuOpen", function () {
    *         //...
    *       })
    *     }

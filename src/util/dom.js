@@ -116,8 +116,8 @@ export function removeClass (el, className) {
     return
   }
 
-  const reg = new RegExp('(^|\\s)' + className + '(\\s|$)', 'g')
-  el.className = el.className.replace(reg, ' ')
+  const regExp = new RegExp('(^|\\s)' + className + '(\\s|$)', 'g')
+  el.className = el.className.replace(regExp, '')
 }
 
 export function getRect (el) {

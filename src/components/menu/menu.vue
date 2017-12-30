@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     beforeEnter () {
-      this.$events && this.$root.$emit('onMenuOpen', this.id)
+      this.$events && this.$events.$emit('onMenuOpen', this.id)
       this.showMenu = true
       this.$app && this.$app.setEnabled(false, 300)
       focusOutActiveElement()

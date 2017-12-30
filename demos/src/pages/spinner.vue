@@ -40,6 +40,9 @@
         <vm-item @click="presentLoadingCustom()">
           Show Custom
         </vm-item>
+        <vm-item @click="presentLoadingSpinner()">
+          Show Spinner Only
+        </vm-item>
         <vm-item @click="presentLoadingText()">
           Show Text Only
         </vm-item>
@@ -108,6 +111,13 @@ export default {
           <div class="loading-custom-spinner-box"></div>
         </div>
         <div>This is a custom spinner. It will dismiss after 3 seconds.</div>`,
+        duration: 3000
+      })
+    },
+
+    presentLoadingSpinner () {
+      this.$loading.present({
+        spinner: 'ios',
         duration: 3000
       })
     },

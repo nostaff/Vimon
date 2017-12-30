@@ -1,6 +1,6 @@
 import LoadingComponent from '../loading/loading.vue'
-import GeneratePopUpInstance from '../../util/GeneratePopUpInstance.js'
-import { isBlank, isBoolean, isObject, isString } from '../../util/type'
+import GeneratePopUpInstance from '../../util/generatePopUpInstance.js'
+import { isBlank, isBoolean, isObject, isString } from '../../util/util'
 
 let debounce = require('lodash.debounce')
 let throttle = require('lodash.throttle')
@@ -77,4 +77,4 @@ LoadingInstance.prototype.dismiss = function () {
   }
 }
 
-export default new LoadingInstance(LoadingComponent, 'loadingPortal')
+export default new LoadingInstance(LoadingComponent, 'loading-portal')

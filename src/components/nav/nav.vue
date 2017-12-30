@@ -8,7 +8,7 @@
         <div v-if="isMenuOpen" @click="tapToCloseMenu" @touchmove="stopActive($event)" class="click-cover"></div>
         <div nav-viewport></div>
         <!--animate-->
-        <transition :name="pageTransitionName" v-on:before-enter="beforePageEnter">
+        <transition :name="pageTransitionName">
             <slot></slot>
         </transition>
         <div class="nav-decor"></div>
@@ -48,15 +48,13 @@ export default {
     }
   },
   created () {
+    console.log(this.$config)
+    console.log(this.$platform)
     this.initNav()
 
     this.initMenu()
   },
   methods: {
-
-    beforePageEnter (el) {
-      // console.log('beforePageEnter time:', +new Date())
-    },
     /**
      * 初始化导航
      * @private
@@ -66,29 +64,29 @@ export default {
       // nav 动画切换部分
       const vm = this
       this.$router.beforeEach((to, from, next) => {
-        console.log(vm.$history.getDirection())
-
         vm.pageTransitionName = `${vm.pageTransition}-${vm.$history.getDirection()}`
         vm.$app && vm.$app.setEnabled(false, 500)
+
         next()
       })
 
       // 页面切换显示Indicator
+      console.log(this.showIndicatorWhenPageChange)
       if (this.showIndicatorWhenPageChange) {
-        // import('../../services/indicator').then((component) => {
-        //   this.IndicatorComponent = component.default
-        //   this.$router.beforeEach((to, from, next) => {
-        //     if (vm.$history.getDirection() === 'forward') {
-        //       this.IndicatorComponent.present()
-        //     }
-        //     next()
-        //   })
-        //   this.$router.afterEach(() => {
-        //     if (vm.$history.getDirection() === 'forward') {
-        //       this.IndicatorComponent.dismiss()
-        //     }
-        //   })
-        // })
+        import('../indicator').then((component) => {
+          this.IndicatorComponent = component.default
+          this.$router.beforeEach((to, from, next) => {
+            if (vm.$history.getDirection() === 'forward') {
+              this.IndicatorComponent.present()
+            }
+            next()
+          })
+          this.$router.afterEach(() => {
+            if (vm.$history.getDirection() === 'forward') {
+              this.IndicatorComponent.dismiss()
+            }
+          })
+        })
       }
     },
 
