@@ -96,9 +96,6 @@ export default {
     },
     afterLeave () {
       this.dismissCallback()
-      this.onDismiss && this.onDismiss()
-
-      // 删除DOM
       this.$el.remove()
       this.enabled = true
     },
@@ -147,6 +144,7 @@ export default {
             this.enabled = true
           })
         }
+        isFunction(this.onDismiss) && this.onDismiss()
         return new Promise((resolve) => {
           this.dismissCallback = resolve
         })

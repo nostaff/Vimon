@@ -11,7 +11,7 @@ import Title from './components/title/index.js'
 import Toolbar from './components/toolbar/index.js'
 import Content from './components/content/index.js'
 
-import Address from './components/address/index.js'
+// import Address from './components/address/index.js'
 import Avatar from './components/avatar/index.js'
 import Backdrop from './components/backdrop/index.js'
 import Badge from './components/badge/index.js'
@@ -76,8 +76,8 @@ import Toggle from './components/toggle/index.js'
 import ActionSheet from './components/action-sheet'
 import Alert from './components/alert'
 // import ChooseCity from './components/choose-city/chose-city'
-// import CityPicker from './components/city-picker'
-// import Indicator from './components/indicator'
+import CityPicker from './components/city-picker'
+import Indicator from './components/indicator'
 import Loading from './components/loading'
 import Modal from './components/modal'
 import Picker from './components/picker'
@@ -99,7 +99,7 @@ const components = {
   Nav,
   Navbar,
 
-  Address,
+  // Address,
   Avatar,
   Backdrop,
   Badge,
@@ -194,6 +194,8 @@ const install = function (Vue, options = {}) {
   Vue.prototype.$popover = Popover
   Vue.prototype.$popup = Popup
   Vue.prototype.$toast = Toast
+  Vue.prototype.$cityPicker = CityPicker
+  Vue.prototype.$indicator = Indicator
 
   var ENV = process.env.NODE_ENV
   if (ENV && ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefined' && console.warn && typeof window !== 'undefined') {
@@ -213,7 +215,7 @@ export {
   Nav,
   Navbar,
 
-  Address,
+  // Address,
   Avatar,
   Backdrop,
   Badge,
@@ -227,6 +229,7 @@ export {
   CheckboxGroup,
   Cells,
   Chip,
+  CityPicker,
   Datetime,
   Fab,
   FabButton,
