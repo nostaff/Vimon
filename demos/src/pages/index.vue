@@ -29,8 +29,10 @@
               <h1>VIMON</h1>
               <p>v{{vimo.version}}</p>
               <p class="message">Mobile UI components for Vue.js</p>
+              <!--
               <a class="star" href="#"><img src="https://img.shields.io/github/stars/nostaff/vimon.svg?style=social&label=Star" alt="Star"></a>
               <a class="star" href="#"><img src="https://img.shields.io/github/forks/nostaff/vimon.svg?style=social&label=Fork" alt="Fork"></a>
+              -->
             </vm-col>
           </vm-row>
         </vm-grid>

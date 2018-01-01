@@ -38,9 +38,9 @@
         this.$cityPicker.present({
           onSelect (data) {
             let tmp = []
-            data.province && (_this.province = data.province.text, tmp.push(data.province.value.toString()))
-            data.city && (_this.city = data.city.text, tmp.push(data.city.value.toString()))
-            data.district && (_this.district = data.district.text, tmp.push(data.district.value.toString()))
+            if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
+            if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
+            if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
             _this.selectedCity = tmp
           },
           onCancel () {
@@ -55,9 +55,9 @@
         this.$cityPicker.present({
           onSelect (data) {
             let tmp = []
-            data.province && (_this.province = data.province.text, tmp.push(data.province.value.toString()))
-            data.city && (_this.city = data.city.text, tmp.push(data.city.value.toString()))
-            data.district && (_this.district = data.district.text, tmp.push(data.district.value.toString()))
+            if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
+            if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
+            if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
             _this.selectedCity = tmp
           },
           onCancel () {
