@@ -1,12 +1,5 @@
 <template>
   <vm-page v-nav="{title: 'Datetime'}">
-    <vm-header>
-
-      <vm-navbar>
-        <vm-title>DateTime</vm-title>
-      </vm-navbar>
-
-    </vm-header>
 
     <vm-content class="outer-content">
 

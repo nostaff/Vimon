@@ -48,7 +48,9 @@ const routes = [
   { path: '/popup', name: 'popup', component: resolve => require(['@/pages/popup.vue'], resolve) },
   { path: '/popover', name: 'popover', component: resolve => require(['@/pages/popover.vue'], resolve) },
   { path: '/modal', name: 'modal', component: resolve => require(['@/pages/modal.vue'], resolve) },
-  { path: '/picker', name: 'picker', component: resolve => require(['@/pages/picker.vue'], resolve) },
+
+  // services
+  { path: '/city-picker', name: 'citypicker', component: resolve => require(['@/pages/city-picker.vue'], resolve) },
 
   { path: '*', name: 'not-found', component: resolve => require(['@/pages/not-found.vue'], resolve) }
 

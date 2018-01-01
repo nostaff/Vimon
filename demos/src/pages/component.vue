@@ -5,117 +5,113 @@
       <!-- Basic -->
       <vm-list>
         <vm-list-header>组件</vm-list-header>
-        <vm-item detail-push @click="onClicked('/button')">
+        <vm-item detail-push link="/button">
           按钮
           <vm-note slot="item-end">Button</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/chip')">
+        <vm-item detail-push link="/chip">
           Chip
           <vm-note slot="item-end">Chip</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/badge')">
+        <vm-item detail-push link="/badge">
           徽章
           <vm-note slot="item-end">Badge</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/icon')">
+        <vm-item detail-push link="/icon">
           图标
           <vm-note slot="item-end">Icons</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/fabs')">
+        <vm-item detail-push link="/fabs">
           浮动按钮
           <vm-note slot="item-end">FABs</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/spinner')">
+        <vm-item detail-push link="/spinner">
           加载提示
           <vm-note slot="item-end">Spinner</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/datetime')">
+        <vm-item detail-push link="/datetime">
           日期时间
           <vm-note slot="item-end">Datetime</vm-note>
-        </vm-item>
-        <vm-item detail-push @click="onClicked('/address')">
-          地址联动
-          <vm-note slot="item-end">Address</vm-note>
         </vm-item>
       </vm-list>
 
       <vm-list>
         <vm-list-header>Form表单</vm-list-header>
-        <vm-item detail-push @click="onClicked('/input')">
+        <vm-item detail-push link="/input">
           输入框
           <vm-note slot="item-end">Input</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/textarea')">
+        <vm-item detail-push link="/textarea">
           多行输入
           <vm-note slot="item-end">Textarea</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/search')">
+        <vm-item detail-push link="/search">
           搜索框
           <vm-note slot="item-end">SearchBar</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/select')">
+        <vm-item detail-push link="/select">
           选择框
           <vm-note slot="item-end">Select</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/radio')">
+        <vm-item detail-push link="/radio">
           单选框
           <vm-note slot="item-end">Radio</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/checkbox')">
+        <vm-item detail-push link="/checkbox">
           复选框
           <vm-note slot="item-end">Checkbox</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/toggle')">
+        <vm-item detail-push link="/toggle">
           开关
           <vm-note slot="item-end">Toggle</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/range')">
+        <vm-item detail-push link="/range">
           滑块
           <vm-note slot="item-end">Range</vm-note>
         </vm-item>
       </vm-list>
 
       <vm-list title="布局">
-        <vm-item detail-push @click="onClicked('/page')">
+        <vm-item detail-push link="/page">
           页面
           <vm-note slot="item-end">Page</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/list')">
+        <vm-item detail-push link="/list">
           列表
           <vm-note slot="item-end">List</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/toolbar')">
+        <vm-item detail-push link="/toolbar">
           工具条
           <vm-note slot="item-end">Toolbar</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/grid')">
+        <vm-item detail-push link="/grid">
           栅格
           <vm-note slot="item-end">Grid</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/tabs')">
+        <vm-item detail-push link="/tabs">
           Tab选项卡
           <vm-note slot="item-end">Tabs</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/segment')">
+        <vm-item detail-push link="/segment">
           分段选项卡
           <vm-note slot="item-end">Segment</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/menu')">
+        <vm-item detail-push link="/menu">
           侧边栏/菜单
           <vm-note slot="item-end">Menu</vm-note>
         </vm-item>
       </vm-list>
 
       <vm-list title="数据加载">
-        <vm-item detail-push @click="onClicked('/refresher')">
+        <vm-item detail-push link="/refresher">
           下拉刷新
           <vm-note slot="item-end">Refresher</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/infinite-scroll')">
+        <vm-item detail-push link="/infinite-scroll">
           无限加载
           <vm-note slot="item-end">InfiniteScroll</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/scroll')">
+        <vm-item detail-push link="/scroll">
           滚动
           <vm-note slot="item-end">Scroll</vm-note>
         </vm-item>
@@ -123,41 +119,45 @@
 
       <!-- advanced -->
       <vm-list title="插件">
-        <vm-item detail-push @click="onClicked('/action-sheet')">
+        <vm-item detail-push link="/action-sheet">
           操作列表
           <vm-note slot="item-end">ActionSheet</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/dialog')">
+        <vm-item detail-push link="/dialog">
           对话框
           <vm-note slot="item-end">Dialog</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/toast')">
+        <vm-item detail-push link="/toast">
           文字提示
           <vm-note slot="item-end">Toast</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/spinner')">
+        <vm-item detail-push link="/spinner">
           加载提示
           <vm-note slot="item-end">Spinner</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/swiper')">
+        <vm-item detail-push link="/swiper">
           轮播
           <vm-note slot="item-end">Swiper</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/popup')">
+        <vm-item detail-push link="/popup">
           弹层
           <vm-note slot="item-end">Popup</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/picker')">
-          选择器
-          <vm-note slot="item-end">Picker</vm-note>
-        </vm-item>
-        <vm-item detail-push @click="onClicked('/popover')">
+        <vm-item detail-push link="/popover">
           弹出框
           <vm-note slot="item-end">Popover</vm-note>
         </vm-item>
-        <vm-item detail-push @click="onClicked('/modal')">
+        <vm-item detail-push link="/modal">
           模态窗
           <vm-note slot="item-end">Modal</vm-note>
+        </vm-item>
+      </vm-list>
+
+      <!-- advanced -->
+      <vm-list title="常用业务">
+        <vm-item detail-push link="/city-picker">
+          城市联动
+          <vm-note slot="item-end">City Picker</vm-note>
         </vm-item>
       </vm-list>
 
@@ -168,13 +168,6 @@
 <script>
   export default {
     name: 'DemoHome',
-    data () {
-      return {
-        sidebar: undefined,
-        sidebarRight: undefined
-      }
-    },
-
     mounted () {
       this.$events.$emit('selectedItem', 4)
     },

@@ -70,6 +70,7 @@
  */
 import { isArray } from '../../util/util'
 import Picker from '../picker'
+import ChinaAddressData from './china_address.json'
 
 const CityPicker = {
   present (options) {
@@ -98,9 +99,22 @@ const CityPicker = {
     let provinceCode = selectedCity[0] // 默认北京 110000, 也就是默认最少显示两级
     let cityCode = selectedCity[1] // 北京 110100 这个自己填入
     let districtCode = selectedCity[2]
-    let defaultFetchData = function () {
-      return new Promise(resolve => resolve([]))
+    let addressData = ChinaAddressData
+
+    let defaultFetchData = function (code) {
+      return new Promise((resolve) => {
+        let data = []
+        if (code) {
+          data = addressData.filter(item => {
+            return item.parent && item.parent === code
+          })
+        } else {
+          console.error('没有查询的code值')
+        }
+        resolve(data)
+      })
     }
+
     let fetchData = options.fetchData || defaultFetchData
     let columns = []
     fetchData(startCode).then(data => {
@@ -120,7 +134,6 @@ const CityPicker = {
           columns.push({
             name: 'city',
             selectedIndex: getCodeIndex(cityCode, data),
-            // align: 'left',
             options: data
           })
 
@@ -223,10 +236,6 @@ const CityPicker = {
         })
       }
     }
-  },
-
-  install (Vue) {
-    Vue.prototype.$chooseCity = this
   }
 }
 export default CityPicker
