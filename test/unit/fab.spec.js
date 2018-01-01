@@ -24,6 +24,6 @@ describe('Fab', function () {
 
   it('@base: have the right className', function () {
     wrapper = mount(Fab, options)
-    expect(wrapper.hasClass('ion-fab')).toBeTruthy()
+    expect(wrapper.classes()).toContain('ion-fab')
   })
 })

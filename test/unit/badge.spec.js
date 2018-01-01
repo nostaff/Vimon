@@ -56,7 +56,7 @@ describe('Badge', function () {
       }
     })
     let wrapper = mount(Badge, opts)
-    expect(wrapper.hasClass('ion-badge')).toBeTruthy()
+    expect(wrapper.classes()).toContain('ion-badge')
   })
 
   // it('@base: matches snapshot', () => {
@@ -75,7 +75,7 @@ describe('Badge', function () {
       }
     })
     let wrapper = mount(Badge, opts)
-    expect(wrapper.hasClass('badge-md-danger')).toBeTruthy()
+    expect(wrapper.classes()).toContain('badge-md-danger')
   })
 
   it('@props: mode', function () {
@@ -88,11 +88,11 @@ describe('Badge', function () {
       }
     })
     let wrapper = mount(Badge, opts)
-    expect(wrapper.hasClass('badge-md')).toBeTruthy()
+    expect(wrapper.classes()).toContain('badge-md')
   })
 
   it('@props: mode(default)', function () {
     let wrapper = mount(Badge)
-    expect(wrapper.hasClass('badge-ios')).toBeTruthy()
+    expect(wrapper.classes()).toContain('badge-ios')
   })
 })
