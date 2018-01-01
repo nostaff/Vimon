@@ -39,7 +39,7 @@
     "precommit": "lint-staged",
     "commitmsg": "validate-commit-msg",
     "prepush": "npm run test",
-    "release": "standard-version && npm run pub && git push --follow-tags origin master && npm publish",
+    "release": "standard-version && npm run pub && git push --follow-tags origin master && npm publish --registry https://registry.npmjs.org/",
     "ci-docs-release": "npm run docs:build && npm run demo:build && node build/docs-publish.js",
     "ci-report-coverage": "cat ./test/coverage/lcov.info | coveralls",
     "ci-github-release": "node build/github-release.js"

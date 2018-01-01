@@ -43,7 +43,7 @@
             <vm-icon slot="item-start" name="watch"></vm-icon>
             Live Demo
           </vm-item>
-          <vm-item link="http://github.io/nostaff/vimon">
+          <vm-item link="https://nostaff.github.io/vimon/">
             <vm-icon slot="item-start" name="book"></vm-icon>
             Docs
           </vm-item>
