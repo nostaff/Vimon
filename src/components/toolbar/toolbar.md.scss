@@ -230,7 +230,7 @@ $toolbar-button-md-strong-font-weight:   bold !default;
     opacity: .4;
   }
 
-  &.activated {
+  &:active {
     background-color: transparent;
   }
 
@@ -247,7 +247,7 @@ $toolbar-button-md-strong-font-weight:   bold !default;
     color: $fg-color;
     background-color: transparent;
 
-    &.activated {
+    &:active {
       background-color: transparent;
     }
 
@@ -270,7 +270,7 @@ $toolbar-button-md-strong-font-weight:   bold !default;
     color: color-contrast($colors-md, $toolbar-md-button-color, md);
   }
 
-  &.activated {
+  &:active {
     color: color-contrast($colors-md, $toolbar-md-button-color, md);
     background-color: color-shade($toolbar-md-button-color);
   }
@@ -282,7 +282,7 @@ $toolbar-button-md-strong-font-weight:   bold !default;
     color: $color-contrast;
     background-color: $color-base;
 
-    &.activated {
+    &:active {
       color: $color-contrast;
       background-color: color-shade($color-base);
     }

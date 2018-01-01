@@ -194,7 +194,7 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
       color: $color-base;
     }
 
-    &.activated {
+    &:active {
       opacity: .4;
     }
   }
@@ -216,7 +216,7 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
     opacity: .4;
   }
 
-  &.activated {
+  &:active {
     color: color-contrast($colors-ios, $toolbar-ios-button-color);
     background-color: $toolbar-ios-button-color;
   }
@@ -230,7 +230,7 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
     color: $fg-color;
     background-color: transparent;
 
-    &.activated {
+    &:active {
       color: $color-contrast;
       background-color: $fg-color;
     }
@@ -251,7 +251,7 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
     opacity: .4;
   }
 
-  &.activated {
+  &:active {
     color: color-contrast($colors-ios, $toolbar-ios-button-color);
     background-color: color-shade($toolbar-ios-button-color);
     opacity: .4;
@@ -264,7 +264,7 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
     color: $color-contrast;
     background-color: $color-base;
 
-    &.activated {
+    &:active {
       color: $color-contrast;
       background-color: color-shade($color-base);
     }

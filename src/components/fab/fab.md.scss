@@ -52,7 +52,7 @@ $fab-button-md-transition-timing-function:     cubic-bezier(.4, 0, .2, 1) !defau
               color $fab-button-md-transition-duration $fab-button-md-transition-timing-function;
 }
 
-.fab-md.activated {
+.fab-md:active {
   background-color: $fab-md-background-color-activated;
   box-shadow: $fab-md-box-shadow-activated;
 }
@@ -68,7 +68,7 @@ $fab-button-md-transition-timing-function:     cubic-bezier(.4, 0, .2, 1) !defau
               color $fab-button-md-transition-duration $fab-button-md-transition-timing-function;
 }
 
-.fab-md-in-list.activated {
+.fab-md-in-list:active {
   background-color: $fab-md-list-button-background-color-activated;
 }
 
@@ -94,7 +94,7 @@ $fab-button-md-transition-timing-function:     cubic-bezier(.4, 0, .2, 1) !defau
     background-color: $bg-color;
   }
 
-  .fab-md-#{$color-name}.activated {
+  .fab-md-#{$color-name}:active {
     background-color: $bg-color-activated;
   }
 

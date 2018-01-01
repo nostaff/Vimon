@@ -112,7 +112,7 @@ $picker-button-ios-strong-font-weight:         600 !default;
 }
 
 .picker-ios .picker-button,
-.picker-ios .picker-button.activated {
+.picker-ios .picker-button:active {
   @include margin(0);
 
   height: $picker-ios-button-height;

@@ -36,7 +36,7 @@ $fab-ios-list-button-transition-delay:            10ms !default;
   background-color: $fab-ios-background-color;
 }
 
-.fab-ios.activated {
+.fab-ios:active {
   background-color: $fab-ios-background-color-activated;
 }
 
@@ -48,7 +48,7 @@ $fab-ios-list-button-transition-delay:            10ms !default;
               opacity $fab-ios-list-button-transition-duration $fab-ios-list-button-transition-timing-function $fab-ios-list-button-transition-delay;
 }
 
-.fab-ios-in-list.activated {
+.fab-ios-in-list:active {
   background-color: $fab-ios-list-button-background-color-activated;
 }
 
@@ -67,7 +67,7 @@ $fab-ios-list-button-transition-delay:            10ms !default;
     background-color: $bg-color;
   }
 
-  .fab-ios-#{$color-name}.activated {
+  .fab-ios-#{$color-name}:active {
     background-color: $bg-color-activated;
   }
 }

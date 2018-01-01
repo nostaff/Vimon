@@ -71,7 +71,7 @@ $item-ios-sliding-content-background:     $list-ios-background-color !default;
   transition: background-color 200ms linear;
 }
 
-.item-ios.activated {
+.item-ios[detail-push]:active {
   background-color: $list-ios-activated-background-color;
   transition-duration: 0ms;
 }
@@ -278,7 +278,7 @@ $item-ios-sliding-content-background:     $list-ios-background-color !default;
       color: $color-contrast;
     }
 
-    &.activated {
+    &:active {
       background-color: color-shade($color-base);
     }
   }

@@ -102,8 +102,8 @@
      }
   }
 
-  .item,
-  .item.activated {
+  .ion-item,
+  .ion-item:active {
     position: relative;
     z-index: $z-index-item-options + 1;
 

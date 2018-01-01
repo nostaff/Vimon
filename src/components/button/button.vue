@@ -1,8 +1,6 @@
 <template>
   <button class="disable-hover ion-button"
       :class="[modeClass, itemClass]"
-      @touchstart="pointerStart"
-      @touchend="pointerEnd"
       @click="clickHandler">
     <span class="button-inner">
       <slot></slot>

@@ -54,7 +54,7 @@
 
 .ion-item-sliding-test.active-slide {
     .item,
-    .item.activated {
+    .item:active {
         position: relative;
         z-index: $z-index-item-options + 1;
         opacity: 1;

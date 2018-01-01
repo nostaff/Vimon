@@ -571,6 +571,6 @@ $alert-ios-checkbox-icon-transform:             rotate(45deg) !default;
   font-weight: $alert-ios-button-main-font-weight;
 }
 
-.alert-ios .alert-button.activated {
+.alert-ios .alert-button:active {
   background-color: $alert-ios-button-background-color-activated;
 }

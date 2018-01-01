@@ -109,8 +109,8 @@ $searchbar-md-input-clear-icon-size:     22px !default;
   background-size: $searchbar-md-input-search-icon-size;
 }
 
-.searchbar-md .searchbar-search-icon.activated,
-.searchbar-md .searchbar-md-cancel.activated {
+.searchbar-md .searchbar-search-icon:active,
+.searchbar-md .searchbar-md-cancel:active {
   background-color: transparent;
 }
 
@@ -155,7 +155,7 @@ $searchbar-md-input-clear-icon-size:     22px !default;
   background-size: $searchbar-md-input-clear-icon-size;
 }
 
-.searchbar-md .searchbar-clear-icon.activated {
+.searchbar-md .searchbar-clear-icon:active {
   background-color: transparent;
 }
 

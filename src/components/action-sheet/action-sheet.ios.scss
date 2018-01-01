@@ -160,7 +160,7 @@ $action-sheet-ios-button-cancel-font-weight:            600 !default;
   border-bottom-color: transparent;
 }
 
-.action-sheet-ios .action-sheet-button.activated {
+.action-sheet-ios .action-sheet-button:active {
   @include margin(-$action-sheet-ios-button-border-width, null, null, null);
 
   border-top: $action-sheet-ios-button-border-width $action-sheet-ios-button-border-style $action-sheet-ios-button-background-activated;

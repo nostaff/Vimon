@@ -264,7 +264,7 @@ $button-md-strong-font-weight:                  bold !default;
   background-color: $button-md-background-color-hover;
 }
 
-.button-md.activated {
+.button-md:active {
   background-color: $button-md-background-color-activated;
   box-shadow: $button-md-box-shadow-activated;
 }
@@ -291,7 +291,7 @@ $button-md-strong-font-weight:                  bold !default;
     background-color: $bg-color;
   }
 
-  .button-md-#{$color-name}.activated {
+  .button-md-#{$color-name}:active {
     background-color: $bg-color-activated;
     opacity: $button-md-opacity-activated;
   }
@@ -363,7 +363,7 @@ $button-md-strong-font-weight:                  bold !default;
   background-color: $button-md-outline-background-color-hover;
 }
 
-.button-outline-md.activated {
+.button-outline-md:active {
   background-color: $button-md-outline-background-color-activated;
   box-shadow: $button-md-outline-box-shadow-activated;
   opacity: $button-md-outline-opacity-activated;
@@ -390,7 +390,7 @@ $button-md-strong-font-weight:                  bold !default;
     background-color: $button-md-outline-background-color-hover;
   }
 
-  .button-outline-md-#{$color-name}.activated {
+  .button-outline-md-#{$color-name}:active {
     background-color: $button-md-outline-background-color-activated;
   }
 
@@ -411,7 +411,7 @@ $button-md-strong-font-weight:                  bold !default;
   opacity: $button-md-clear-opacity;
 }
 
-.button-clear-md.activated {
+.button-clear-md:active {
   background-color: $button-md-clear-background-color-activated;
   box-shadow: $button-md-clear-box-shadow-activated;
 }
@@ -437,7 +437,7 @@ $button-md-strong-font-weight:                  bold !default;
     background-color: $button-md-clear-background-color;
   }
 
-  .button-clear-md-#{$color-name}.activated {
+  .button-clear-md-#{$color-name}:active {
     background-color: $button-md-clear-background-color-activated;
     box-shadow: $button-md-clear-box-shadow-activated;
   }

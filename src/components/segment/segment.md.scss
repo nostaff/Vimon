@@ -84,7 +84,7 @@ $segment-button-md-icon-line-height:           $segment-button-md-line-height !d
     line-height: $segment-button-md-icon-line-height;
   }
 
-  &.activated,
+  &:active,
   &.segment-activated {
     border-color: $segment-button-md-border-color-activated;
     opacity: $segment-button-md-opacity-activated;
@@ -104,7 +104,7 @@ $segment-button-md-icon-line-height:           $segment-button-md-line-height !d
     @include margin(0, auto);
   }
 
-  .segment-md .segment-button.activated,
+  .segment-md .segment-button:active,
   .segment-md .segment-button.segment-activated {
     opacity: 1;
   }
@@ -120,7 +120,7 @@ $segment-button-md-icon-line-height:           $segment-button-md-line-height !d
   .segment-md-#{$color-name} .segment-button {
     color: $color-base;
 
-    &.activated,
+    &:active,
     &.segment-activated {
       border-color: $color-base;
       color: $color-base;

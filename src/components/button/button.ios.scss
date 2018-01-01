@@ -215,7 +215,7 @@ $button-ios-strong-font-weight:                     600 !default;
   }
 }
 
-.button-ios.activated {
+.button-ios:active {
   background-color: $button-ios-background-color-activated;
   opacity: $button-ios-opacity-activated;
 }
@@ -238,7 +238,7 @@ $button-ios-strong-font-weight:                     600 !default;
     background-color: $bg-color;
   }
 
-  .button-ios-#{$color-name}.activated {
+  .button-ios-#{$color-name}:active {
     background-color: $bg-color-activated;
   }
 }
@@ -302,7 +302,7 @@ $button-ios-strong-font-weight:                     600 !default;
   background-color: $button-ios-outline-background-color;
 }
 
-.button-outline-ios.activated {
+.button-outline-ios:active {
   color: $button-ios-outline-text-color-activated;
   background-color: $button-ios-outline-background-color-activated;
   opacity: $button-ios-outline-opacity-activated;
@@ -319,7 +319,7 @@ $button-ios-strong-font-weight:                     600 !default;
     background-color: $button-ios-outline-background-color;
   }
 
-  .button-outline-ios-#{$color-name}.activated {
+  .button-outline-ios-#{$color-name}:active {
     color: $color-contrast;
     background-color: $color-base;
   }
@@ -336,7 +336,7 @@ $button-ios-strong-font-weight:                     600 !default;
   background-color: $button-ios-clear-background-color;
 }
 
-.button-clear-ios.activated {
+.button-clear-ios:active {
   background-color: $button-ios-clear-background-color-activated;
   opacity: $button-ios-clear-opacity-activated;
 }
@@ -359,7 +359,7 @@ $button-ios-strong-font-weight:                     600 !default;
     background-color: $button-ios-clear-background-color;
   }
 
-  .button-clear-ios-#{$color-name}.activated {
+  .button-clear-ios-#{$color-name}:active {
     opacity: $button-ios-clear-opacity-activated;
   }
 

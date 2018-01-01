@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import AppRoot from './App.vue'
-import AttachFastClick from 'fastclick'
 import APP_CONFIGS from './config/app-configs'
 import PLATFORM_CONFIGS from './config/platform-configs'
 import router from './router'
@@ -54,8 +53,6 @@ Vue.directive(Navigation.name, Navigation)
 //   }
 // })
 
-// eslint-disable-next-line no-new
-new AttachFastClick(document.body)
 // eslint-disable-next-line no-new
 new Vue({
   el: '#app',
