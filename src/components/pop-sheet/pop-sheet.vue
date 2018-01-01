@@ -1,8 +1,9 @@
 <template>
-    <div class="vm-sheet" :class="[modeClass,directionClass,{'vm-sheet-visible':isVisible}]">
+    <div class="vm-pop-sheet" :class="[modeClass,{'vm-pop-sheet-visible':isVisible}]">
         <vm-backdrop :bdClick="bdClick" :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive && showBackdrop"></vm-backdrop>
-        <transition name="sheet"
+        <transition
+                name="pop-sheet"
                 @before-enter="beforeEnter"
                 @after-enter="afterEnter"
                 @before-leave="beforeLeave"
@@ -18,31 +19,24 @@
 <script type="text/javascript">
   import { urlChange } from '../../util/dom'
   import ThemeMixins from '../../themes/theme.mixins'
-  import VmBackdrop from '../backdrop'
+  import VmBackdrop from '../backdrop/backdrop.vue'
 
   const NOOP = () => {}
 
   export default {
-    name: 'vm-sheet',
+    name: 'vm-pop-sheet',
     mixins: [ThemeMixins],
     components: {
       VmBackdrop
     },
     props: {
-      direction: {
-        type: String,
-        default: 'bottom',
-        validator (val) {
-          return ['bottom', 'top'].indexOf(val) > -1
-        }
-      },
       enableBackdropDismiss: {
         type: Boolean,
-        default: true
+        default () { return true }
       },
       dismissOnPageChange: {
         type: Boolean,
-        default: true
+        default () { return true }
       },
       showBackdrop: {
         type: Boolean,
@@ -70,19 +64,6 @@
         dismissCallback: NOOP,
 
         unReg: null // 页面变化的解绑函数
-      }
-    },
-    computed: {
-      directionClass () {
-        return `sheet-direction-${this.direction}`
-      }
-    },
-    created () {
-      // mounted before data ready, so no need to judge the `dismissOnPageChange` value
-      if (this.dismissOnPageChange) {
-        this.unReg = urlChange(() => {
-          this.isActive && this.dismiss()
-        })
       }
     },
     methods: {
@@ -197,11 +178,19 @@
         $event.preventDefault()
         $event.stopPropagation()
       }
+    },
+    created () {
+      // mounted before data ready, so no need to judge the `dismissOnPageChange` value
+      if (this.dismissOnPageChange) {
+        this.unReg = urlChange(() => {
+          this.isActive && this.dismiss()
+        })
+      }
     }
   }
 </script>
 <style lang="scss">
-    @import "sheet";
-    @import "sheet.ios";
-    @import "sheet.md";
+    @import "pop-sheet";
+    @import "pop-sheet.ios";
+    @import "pop-sheet.md";
 </style>

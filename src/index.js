@@ -48,7 +48,7 @@ import ListHeader from './components/list-header/index.js'
 import Menu from './components/menu/index.js'
 import Note from './components/note/index.js'
 // import Noticebar from './components/noticebar/index.js'
-// import PopSheet from './components/pop-sheet/index.js'
+import PopSheet from './components/pop-sheet/index.js'
 import Radio from './components/radio/index.js'
 import RadioGroup from './components/radio-group/index.js'
 import Range from './components/range/index.js'
@@ -61,11 +61,9 @@ import SegmentButton from './components/segment-button/index.js'
 import Select from './components/select/index.js'
 import Option from './components/option/index.js'
 // import Separation from './components/separation/index.js'
-// import Sheet from './components/sheet/index.js'
-// import SlideBox from './components/slide-box/index.js'
+import Sheet from './components/sheet/index.js'
 import Swiper from './components/swiper/index.js'
 import SwiperSlide from './components/swiper-slide/index.js'
-// import SlidesLite from './components/swiper-lite/index.js'
 import Spinner from './components/spinner/index.js'
 import Tab from './components/tab/index.js'
 import Tabs from './components/tabs/index.js'
@@ -82,7 +80,6 @@ import Loading from './components/loading'
 import Modal from './components/modal'
 import Picker from './components/picker'
 import Popover from './components/popover'
-import Popup from './components/popup'
 // import PreviewImage from './components/components/preview-image'
 import Toast from './components/toast'
 
@@ -138,7 +135,7 @@ const components = {
   Menu,
   Note,
   // Noticebar,
-  // PopSheet,
+  PopSheet,
   Radio,
   RadioGroup,
   Range,
@@ -151,11 +148,9 @@ const components = {
   Select,
   Option,
   // Separation,
-  // Sheet,
-  // SlideBox,
+  Sheet,
   Swiper,
   SwiperSlide,
-  // SlidesLite,
   Spinner,
   Tabs,
   Tab,
@@ -192,7 +187,6 @@ const install = function (Vue, options = {}) {
   Vue.prototype.$modal = Modal
   Vue.prototype.$picker = Picker
   Vue.prototype.$popover = Popover
-  Vue.prototype.$popup = Popup
   Vue.prototype.$toast = Toast
   Vue.prototype.$cityPicker = CityPicker
   Vue.prototype.$indicator = Indicator
@@ -229,7 +223,6 @@ export {
   CheckboxGroup,
   Cells,
   Chip,
-  CityPicker,
   Datetime,
   Fab,
   FabButton,
@@ -255,7 +248,7 @@ export {
   Menu,
   Note,
   // Noticebar,
-  // PopSheet,
+  PopSheet,
   Radio,
   RadioGroup,
   Range,
@@ -268,7 +261,7 @@ export {
   Select,
   Option,
   // Separation,
-  // Sheet,
+  Sheet,
   // SlideBox,
   Swiper,
   SwiperSlide,
@@ -285,13 +278,12 @@ export {
   ActionSheet,
   Alert,
   // ChooseCity,
-  // CityPicker,
-  // Indicator,
+  CityPicker,
+  Indicator,
   Loading,
   Modal,
   Picker,
   Popover,
-  Popup,
   // PreviewImage,
   Toast,
 

@@ -139,10 +139,6 @@
           轮播
           <vm-note slot="item-end">Swiper</vm-note>
         </vm-item>
-        <vm-item detail-push link="/popup">
-          弹层
-          <vm-note slot="item-end">Popup</vm-note>
-        </vm-item>
         <vm-item detail-push link="/popover">
           弹出框
           <vm-note slot="item-end">Popover</vm-note>
@@ -154,10 +150,18 @@
       </vm-list>
 
       <!-- advanced -->
-      <vm-list title="常用业务">
+      <vm-list title="业务组件">
         <vm-item detail-push link="/city-picker">
           城市联动
           <vm-note slot="item-end">City Picker</vm-note>
+        </vm-item>
+        <vm-item detail-push link="/sheet">
+          弹出层
+          <vm-note slot="item-end">Sheet</vm-note>
+        </vm-item>
+        <vm-item detail-push link="/pop-sheet">
+          弹出窗口
+          <vm-note slot="item-end">Pop Sheet</vm-note>
         </vm-item>
       </vm-list>
 

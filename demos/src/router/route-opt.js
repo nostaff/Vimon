@@ -45,12 +45,13 @@ const routes = [
   { path: '/dialog', name: 'dialog', component: resolve => require(['@/pages/dialog.vue'], resolve) },
   { path: '/toast', name: 'toast', component: resolve => require(['@/pages/toast.vue'], resolve) },
   { path: '/swiper', name: 'swiper', component: resolve => require(['@/pages/swiper.vue'], resolve) },
-  { path: '/popup', name: 'popup', component: resolve => require(['@/pages/popup.vue'], resolve) },
   { path: '/popover', name: 'popover', component: resolve => require(['@/pages/popover.vue'], resolve) },
   { path: '/modal', name: 'modal', component: resolve => require(['@/pages/modal.vue'], resolve) },
 
   // services
   { path: '/city-picker', name: 'citypicker', component: resolve => require(['@/pages/city-picker.vue'], resolve) },
+  { path: '/sheet', name: 'sheet', component: resolve => require(['@/pages/sheet.vue'], resolve) },
+  { path: '/pop-sheet', name: 'pop-sheet', component: resolve => require(['@/pages/pop-sheet.vue'], resolve) },
 
   { path: '*', name: 'not-found', component: resolve => require(['@/pages/not-found.vue'], resolve) }
 
