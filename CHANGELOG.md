@@ -2,13 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="1.2.10"></a>
-## [1.2.10](https://github.com/nostaff/vimon/compare/v1.3.1...v1.2.10) (2018-01-03)
-
-
-
 <a name="1.3.1"></a>
-## [1.3.1](https://github.com/nostaff/vimon/compare/v1.3.0...v1.3.1) (2018-01-03)
+## [1.3.1](https://github.com/nostaff/vimon/compare/v1.2.10...v1.3.1) (2018-01-03)
 
 
 
@@ -124,13 +119,3 @@ All notable changes to this project will be documented in this file. See [standa
 * 组件名称前缀改为 vm- ([031900b](https://github.com/nostaff/vimon/commit/031900b))
 * 组件名称前缀改为 vm- ([f5ca9c9](https://github.com/nostaff/vimon/commit/f5ca9c9))
 * 组件重构优化 ([8bb3616](https://github.com/nostaff/vimon/commit/8bb3616))
-
-
-
-<a name="0.9.7"></a>
-## [0.9.7](https://github.com/vm-component/vimo/compare/v0.9.6...v0.9.7) (2017-11-26)
-
-
-### Bug Fixes
-
-* 修复slide组件为正常初始化的问题 ([8a37e5c](https://github.com/vm-component/vimo/commit/8a37e5c))
