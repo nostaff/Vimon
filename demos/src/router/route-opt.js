@@ -32,6 +32,34 @@ const routes = [
   { path: '/list', name: 'list', component: resolve => require(['@/pages/list.vue'], resolve) },
   { path: '/grid', name: 'grid', component: resolve => require(['@/pages/grid.vue'], resolve) },
   { path: '/tabs', name: 'tabs', component: resolve => require(['@/pages/tabs.vue'], resolve) },
+  { path: '/tabbar',
+    name: 'tabbar',
+    component: resolve => require(['@/pages/tabbar.vue'], resolve),
+    redirect: {name: 'tabbar.home'},
+    children: [
+      {
+        path: 'home',
+        name: 'tabbar.home',
+        component (resolve) {
+          require(['@/pages/tabbar-home.vue'], resolve)
+        }
+      },
+      {
+        path: 'favor',
+        name: 'tabbar.favor',
+        component (resolve) {
+          require(['@/pages/tabbar-favor.vue'], resolve)
+        }
+      },
+      {
+        path: 'radio',
+        name: 'tabbar.radio',
+        component (resolve) {
+          require(['@/pages/tabbar-radio.vue'], resolve)
+        }
+      }
+    ]
+  },
   { path: '/segment', name: 'segment', component: resolve => require(['@/pages/segment.vue'], resolve) },
   { path: '/scroll', name: 'scroll', component: resolve => require(['@/pages/scroll.vue'], resolve) },
   { path: '/menu', name: 'menu', component: resolve => require(['@/pages/menu.vue'], resolve) },

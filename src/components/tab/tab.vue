@@ -50,9 +50,9 @@ export default {
       type: [Boolean, String],
       default: false
     },
-    enabled: {
+    disabled: {
       type: [Boolean, String],
-      default: true
+      default: false
     },
     selected: {
       type: [Boolean, String],
@@ -95,8 +95,7 @@ export default {
     this.layout = this.tabsComponent.getTabsLayout()
   },
   mounted () {
-    this.isSelected =
-      !isBlank(this.tabUrlPath) && this.tabUrlPath === this.$route.path
+    this.isSelected = !isBlank(this.tabUrlPath) && this.tabUrlPath === this.$route.path
     if (this.isSelected) {
       this.tabsComponent.selectTab(this)
     }

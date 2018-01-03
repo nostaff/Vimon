@@ -89,8 +89,12 @@
           <vm-note slot="item-end">Grid</vm-note>
         </vm-item>
         <vm-item detail-push link="/tabs">
-          Tab选项卡
+          Tabs选项卡
           <vm-note slot="item-end">Tabs</vm-note>
+        </vm-item>
+        <vm-item detail-push link="/tabbar">
+          Tabbar
+          <vm-note slot="item-end">Tabbar</vm-note>
         </vm-item>
         <vm-item detail-push link="/segment">
           分段选项卡
