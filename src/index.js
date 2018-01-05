@@ -179,7 +179,7 @@ const install = function (Vue, options = {}) {
 
   var ENV = process.env.NODE_ENV
   if (ENV && ENV !== 'production' && ENV !== 'test' && typeof console !== 'undefined' && console.warn && typeof window !== 'undefined') {
-    console.warn('You are using a whole package of vimo, ' + 'please read docs https://vm-component.github.io/vimo/ to reduce app bundle size.')
+    console.warn('You are using a whole package of vimo, ' + 'please read docs https://nostaff.github.io/vimon/ to reduce app bundle size.')
   }
 }
 

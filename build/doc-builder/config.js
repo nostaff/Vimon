@@ -122,15 +122,15 @@ module.exports = function (cb) {
         'static': true,
         'sort': true,
         'homeName': '首页 / Home',
-        'demoUrl': 'https://vm-component.github.io/vimo-demo',
+        'demoUrl': 'https://nostaff.github.io/vimon/example',
         'links': [
           {
             'name': '如何开始 / How To Start',
-            'link': 'https://github.com/vm-component/vimo-start-kit'
+            'link': 'https://nostaff.github.io/vimon/'
           },
           {
             'name': '更新日志 / Change Log',
-            'link': 'https://github.com/vm-component/Vimo/blob/master/CHANGELOG.md'
+            'link': 'https://github.com/nostaff/vimon/blob/master/CHANGELOG.md'
           },
           {
             'name': '常见问题 / Question',
