@@ -206,7 +206,6 @@ export default {
     },
 
     bdClick () {
-      console.log('asd')
       if (!this.enabled || !this.enableBackdropDismiss) return
 
       if (this.buttons.length > 0) {

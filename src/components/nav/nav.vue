@@ -48,8 +48,6 @@ export default {
     }
   },
   created () {
-    console.log(this.$config)
-    console.log(this.$platform)
     this.initNav()
 
     this.initMenu()
@@ -71,7 +69,6 @@ export default {
       })
 
       // 页面切换显示Indicator
-      console.log(this.showIndicatorWhenPageChange)
       if (this.showIndicatorWhenPageChange) {
         import('../indicator').then((component) => {
           this.IndicatorComponent = component.default

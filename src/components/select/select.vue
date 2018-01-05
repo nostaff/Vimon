@@ -212,7 +212,6 @@ export default {
 
         selectOptions.cssClass = selectCssClass
 
-        console.log(selectOptions)
         ActionSheet.present(selectOptions)
       } else if (this.interface === 'popover') {
         let popoverOptions = options.map(input => {
@@ -290,7 +289,6 @@ export default {
     },
 
     onChange (value) {
-      console.log('select, onChange value:', value)
       this.values = isArray(value) ? value : isBlank(value) ? [] : [value]
       this.updateText()
     }

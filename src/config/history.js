@@ -94,7 +94,7 @@ export class History {
 
     // record this.router change
     this.router.afterEach((to, from) => {
-      console.log(_this.routes)
+      // console.log(_this.routes)
       _this.replaceFlag = false
     })
   }

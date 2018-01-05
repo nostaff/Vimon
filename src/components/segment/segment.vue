@@ -56,7 +56,6 @@ export default {
         this.currentValue = button.value
       }
 
-      console.log(this.currentValue)
       // listen for button select events
       button.$on('onActived', val => {
         // this button has been selected

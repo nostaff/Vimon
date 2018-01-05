@@ -34,13 +34,6 @@
         fabLists: []
       }
     },
-    created () {
-      this.$on('click', function (ev) {
-        console.log(ev)
-      })
-
-      // this._events.listen(mainButton.getNativeElement(), 'click', this.clickHandler.bind(this), { zone: true });
-    },
     methods: {
       /**
        * @hidden
