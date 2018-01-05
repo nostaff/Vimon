@@ -1,0 +1,14 @@
+// transition fadeup
+.loading-fade-enter-active {
+  //transition: transform .4s ease-in-out;
+  transition: opacity .2s ease-in-out;
+  transform: scale(1);
+}
+
+.loading-fade-leave-active {
+  transition: transform .35s ease-in-out;
+}
+
+.loading-fade-enter, .ion-alert-fadeup-leave-to {
+  transform: scale(0.9);
+}

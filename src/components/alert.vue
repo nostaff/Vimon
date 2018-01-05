@@ -11,16 +11,15 @@
 <script>
     import { mapState } from 'vuex'
     export default {
-        data() {
-            return {
+      data () {
+        return {
 
-            }
-        },
-        computed: mapState({
-            alertMsg: state => state.com.alertMsg
-        })
+        }
+      },
+      computed: mapState({
+        alertMsg: state => state.com.alertMsg
+      })
     }
-
 </script>
 
 <style lang="scss" scoped>

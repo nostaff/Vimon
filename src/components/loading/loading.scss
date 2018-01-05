@@ -1,0 +1,54 @@
+@import "../../themes/ionic.globals";
+
+// Loading Indicator
+// --------------------------------------------------
+
+.ion-loading {
+  @include position(0, 0, 0, 0);
+
+  position: absolute;
+  z-index: $z-index-overlay;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  contain: strict;
+}
+
+.loading-wrapper {
+  z-index: $z-index-overlay-wrapper;
+  display: flex;
+
+  align-items: center;
+
+  opacity: 1;
+}
+
+.ion-loading.indicator {
+  .loading-wrapper {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px 20px;
+    circle, line {
+      stroke: #fff !important;
+    }
+    .loading-spinner {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.indicator.reverse {
+  .loading-wrapper {
+    background: rgba(256, 256, 256, 0.9);
+    circle, line {
+      stroke: #000 !important;
+    }
+  }
+}

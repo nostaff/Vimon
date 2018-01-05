@@ -16,16 +16,16 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-    data () {
-        return {
+  data () {
+    return {
 
-        }
-    },
-    computed: mapState({
-        success: state => state.com.showSuccess,
-        fail: state => state.com.showFail,
-        toastMsg: state => state.com.toastMsg
-    })
+    }
+  },
+  computed: mapState({
+    success: state => state.com.showSuccess,
+    fail: state => state.com.showFail,
+    toastMsg: state => state.com.toastMsg
+  })
 }
 </script>
 

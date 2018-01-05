@@ -1,13 +1,53 @@
 {
   "presets": [
-    ["env", { "modules": false }],
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
     "stage-2"
   ],
-  "plugins": ["transform-runtime"],
   "comments": false,
+  "plugins": [],
   "env": {
+    "demo": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": false
+          }
+        ],
+        "stage-2"
+      ],
+      "plugins": [
+        [
+          "import",
+          {
+            "libraryName": "vimon",
+            "libraryDirectory": "components"
+          }
+        ]
+      ]
+    },
+    "lib": {
+      "presets": [
+        "env",
+        "stage-2"
+      ]
+    },
     "test": {
-      "plugins": [ "istanbul" ]
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
     }
   }
 }
