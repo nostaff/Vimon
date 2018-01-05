@@ -1,4 +1,4 @@
-<h1 align="center"><p align="center"><img src="https://github.com/nostaff/Vimon/blob/master/demos/static/img/vimo.png?raw=true" alt="vimo" width="200"></p><p align="center">Hello Vimon</p></h1>
+<h1 align="center"><p align="center"><img src="https://nostaff.github.io/vimon/example/static/img/vimo.png" alt="vimo" width="200"></p><p align="center">Hello Vimon</p></h1>
 
 <p align="center"><a href="https://www.travis-ci.org/nostaff/vimon"><img src="https://www.travis-ci.org/nostaff/vimon.svg?branch=master" alt="Build Status"></a> <a href='https://coveralls.io/github/nostaff/vimon?branch=master'><img src='https://img.shields.io/coveralls/nostaff/vimon.svg?branch=master' alt='Coverage Status' /></a> <a href="https://www.npmjs.com/package/vimon"><img src="https://img.shields.io/npm/v/vimon.svg" alt="npm version"></a> <a href="https://www.npmjs.com/package/vimon"><img src="https://img.shields.io/npm/dm/vimon.svg" alt="npm downloads"></a> <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="standardjs"></a> <a href="#"><img src="https://img.shields.io/github/license/nostaff/Vimon.svg" alt="liense"></a> </p>
 
@@ -7,7 +7,7 @@
 
 ## DEMO
 
-<p align="center"><img src="https://github.com/nostaff/Vimo/blob/master/examples/static/img/vimo_qrcode.png?raw=true" alt="vimo" width="200"><br><a align="center" href="https://nostaff.github.io/vimon/example/">https://nostaff.github.io/vimon/example</a></p>
+<p align="center"><img src="https://nostaff.github.io/vimon/example/static/img/vimo_qrcode.png" alt="vimo" width="200"><br><a align="center" href="https://nostaff.github.io/vimon/example/">https://nostaff.github.io/vimon/example</a></p>
 
 ## USED FOR
 
