@@ -16,10 +16,9 @@ Vue.use(Vimon, {
 // 按需导入组件
 /*
 // 平台基础安装
-import Vimon from 'vimon/core'
-import { App, Content, Footer, Header, Page, Navigation } from 'vimon'
+import { Core, App, Content, Footer, Header, Page, Navigation } from 'vimon'
 
-Vue.use(Vimon, {
+Vue.use(Core, {
   appConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router

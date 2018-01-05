@@ -1,17 +1,19 @@
-<h1 align="center"><p align="center"><img src="https://github.com/vm-component/Vimo/blob/master/examples/static/img/vimo.png?raw=true" alt="vimo" width="200"></p><p align="center">Hello Vimon</p></h1>
+<h1 align="center"><p align="center"><img src="https://github.com/nostaff/Vimon/blob/master/demos/static/img/vimo.png?raw=true" alt="vimo" width="200"></p><p align="center">Hello Vimon</p></h1>
 
-<p align="center"><a href="https://www.travis-ci.org/vm-component/vimo"><img src="https://www.travis-ci.org/vm-component/vimo.svg?branch=master" alt="Build Status"></a> <a href='https://coveralls.io/github/vm-component/vimo?branch=master'><img src='https://img.shields.io/coveralls/vm-component/vimo.svg?branch=master' alt='Coverage Status' /></a> <a href="https://www.npmjs.com/package/vimo"><img src="https://img.shields.io/npm/v/vimo.svg" alt="npm version"></a> <a href="https://www.npmjs.com/package/vimo"><img src="https://img.shields.io/npm/dm/vimo.svg" alt="npm downloads"></a> <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="standardjs"></a> <a href="#"><img src="https://img.shields.io/github/license/vm-component/Vimo.svg" alt="liense"></a> </p>
+<p align="center"><a href="https://www.travis-ci.org/nostaff/vimon"><img src="https://www.travis-ci.org/nostaff/vimon.svg?branch=master" alt="Build Status"></a> <a href='https://coveralls.io/github/nostaff/vimon?branch=master'><img src='https://img.shields.io/coveralls/nostaff/vimon.svg?branch=master' alt='Coverage Status' /></a> <a href="https://www.npmjs.com/package/vimon"><img src="https://img.shields.io/npm/v/vimon.svg" alt="npm version"></a> <a href="https://www.npmjs.com/package/vimon"><img src="https://img.shields.io/npm/dm/vimon.svg" alt="npm downloads"></a> <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="standardjs"></a> <a href="#"><img src="https://img.shields.io/github/license/nostaff/Vimon.svg" alt="liense"></a> </p>
 
 <h4 align="center"><p align="center">A H5 Platform For Hybrid</p></h4>
 
 
 ## DEMO
 
-<p align="center"><img src="https://github.com/vm-component/Vimo/blob/master/examples/static/img/vimo_qrcode.png?raw=true" alt="vimo" width="200"><br><a align="center" href="https://vm-component.github.io/vimo-demo">https://vm-component.github.io/vimo-demo</a></p>
+<p align="center"><img src="https://github.com/nostaff/Vimo/blob/master/examples/static/img/vimo_qrcode.png?raw=true" alt="vimo" width="200"><br><a align="center" href="https://nostaff.github.io/vimon/example/">https://nostaff.github.io/vimon/example</a></p>
 
 ## USED FOR
 
 使用一套H5代码在各类HyBrid平台中运行, 并根据平台完成对应的初始化工作, 且能根据平台自动切换主题样式.
+
+本组件库很大一部分代码参照或移植了 <a href="https://github.com/vm-component/vimo">Vimo</a> 的代码，再次感谢Vimo作的分享。
 
 可以使用的平台:  **微信、支付宝、钉钉、普通浏览器、原生App内部增强版WebView中**.
 
@@ -24,13 +26,40 @@ npm install vimon
 
 ```
 
-其余部分参考标准的文件组织结构: [Demo示例](https://github.com/vm-component/vimo-start-kit/tree/master/src)
 
+#### 导入所有组件
 
-### vimo-start-kit
+```
+import Vimon from 'vimon'
+Vue.use(Vimon, {
+  appConf: APP_CONFIGS,
+  pltConf: PLATFORM_CONFIGS,
+  router: router
+})
+```
 
-Vimo项目初始化种子, 包括自定义主题文件. 点击进入项目地址: [vimo-start-kit](https://github.com/vm-component/vimo-start-kit)
+#### 或 按需导入组件
 
+```
+// 平台基础安装
+import { Core, App, Content, Footer, Header, Page, Navigation } from 'vimon'
+
+Vue.use(Core, {
+  appConf: APP_CONFIGS,
+  pltConf: PLATFORM_CONFIGS,
+  router: router
+})
+
+// 全局注册的组件(核心组件)
+Vue.component(App.name, App)
+Vue.component(Page.name, Page)
+Vue.component(Header.name, Header)
+Vue.component(Content.name, Content)
+Vue.component(Footer.name, Footer)
+
+// Directive
+Vue.directive(Navigation.name, Navigation)
+```
 
 ## DEPENDENT
 
