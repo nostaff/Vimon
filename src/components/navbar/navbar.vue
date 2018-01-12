@@ -1,5 +1,5 @@
 <template>
-  <vm-toolbar class="ion-navbar">
+  <vm-toolbar class="ion-navbar" :color="color">
     <vm-button slot="buttons" v-if="isShowBackButton"
         :class="['back-button','back-button-'+mode,'show-back-button']"
         :icon-only="!backButtonText || mode !=='ios'"

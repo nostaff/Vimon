@@ -2,6 +2,7 @@
   <vm-header v-show="activated">
     <vm-navbar
         :title="title"
+        :color="color"
         :hide-back-button="hideBackButton"
         :back-button-icon="backButtonIcon"
         :back-button-text="backButtonText"
@@ -31,6 +32,7 @@ export default {
     return {
       activated: true,
       title: '',
+      color: '',
 
       hideBackButton: false,
       backButtonIcon: (this.$config && this.$config.get('backButtonIcon', 'arrow-back')) || 'arrow-back',
@@ -45,6 +47,7 @@ export default {
   },
   mounted () {
     if (isDefined(this.$options.$data.title)) { this.title = this.$options.$data.title.trim() }
+    if (isDefined(this.$options.$data.color)) { this.color = this.$options.$data.color.trim() }
     if (isDefined(this.$options.$data.activated)) { this.activated = isTrueProperty(this.$options.$data.activated) }
     if (isDefined(this.$options.$data.hideBackButton)) { this.hideBackButton = isTrueProperty(this.$options.$data.hideBackButton) }
     if (isDefined(this.$options.$data.backButtonIcon)) { this.backButtonIcon = this.$options.$data.backButtonIcon.trim() }
