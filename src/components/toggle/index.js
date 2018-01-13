@@ -40,23 +40,23 @@
  *    </ListHeader>
  *    <Item>
  *        Toggle Normal
- *        <Toggle slot="item-right"></Toggle>
+ *        <Toggle slot="item-end"></Toggle>
  *    </Item>
  *    <Item>
  *        Red Toggle
- *        <Toggle slot="item-right" color="danger"></Toggle>
+ *        <Toggle slot="item-end" color="danger"></Toggle>
  *    </Item>
  *    <Item>
  *        Toggle Open
- *        <Toggle slot="item-right"></Toggle>
+ *        <Toggle slot="item-end"></Toggle>
  *    </Item>
  *    <Item>
  *        Toggle Close
- *        <Toggle slot="item-right"></Toggle>
+ *        <Toggle slot="item-end"></Toggle>
  *    </Item>
  *    <Item>
  *        Toggle Disabled
- *        <Toggle slot="item-right" v-model="checked"></Toggle>
+ *        <Toggle slot="item-end" v-model="checked"></Toggle>
  *    </Item>
  * </List>
  *```
