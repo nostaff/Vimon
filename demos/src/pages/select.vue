@@ -6,7 +6,7 @@
                 <vm-list-header>Single Value Select</vm-list-header>
                 <vm-item>
                     <vm-label>Gender</vm-label>
-                    <vm-select item-right v-model="gender" @onChange="onChange">
+                    <vm-select v-model="gender" @onChange="onChange">
                         <vm-option value="f">Female</vm-option>
                         <vm-option value="m">Male</vm-option>
                     </vm-select>
