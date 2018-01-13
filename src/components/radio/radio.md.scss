@@ -146,7 +146,6 @@ $radio-md-item-end-margin-start:     0 !default;
     @include margin($radio-md-item-end-margin-top, $radio-md-item-end-margin-end, $radio-md-item-end-margin-bottom, $radio-md-item-end-margin-start);
   }
 
-  &[item-left], // deprecated
   &[item-start] {
     @include deprecated-variable(margin, $radio-md-item-left-margin) {
       @include margin($radio-md-item-start-margin-top, $radio-md-item-start-margin-end, $radio-md-item-start-margin-bottom, $radio-md-item-start-margin-start);

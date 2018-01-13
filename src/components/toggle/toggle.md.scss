@@ -214,7 +214,6 @@ $toggle-md-item-end-padding-start:       $item-md-padding-start !default;
   }
 }
 
-.item-md .toggle-md[item-left], // deprecated
 .item-md .toggle-md[item-start] {
   @include deprecated-variable(padding, $toggle-md-item-left-padding) {
     @include padding($toggle-md-item-start-padding-top, $toggle-md-item-start-padding-end, $toggle-md-item-start-padding-bottom, $toggle-md-item-start-padding-start);

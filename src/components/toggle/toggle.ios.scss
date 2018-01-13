@@ -224,7 +224,6 @@ $toggle-ios-item-end-padding-start:    $item-ios-padding-start !default;
   }
 }
 
-.item-ios .toggle-ios[item-left], // deprecated
 .item-ios .toggle-ios[item-start] {
   @include deprecated-variable(padding, $toggle-ios-item-left-padding) {
     @include padding($toggle-ios-item-start-padding-top, $toggle-ios-item-start-padding-end, $toggle-ios-item-start-padding-bottom, $toggle-ios-item-start-padding-start);

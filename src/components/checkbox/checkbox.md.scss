@@ -165,7 +165,6 @@ $checkbox-md-item-end-margin-start:      0 !default;
   }
 }
 
-.item.item-md .checkbox-md[item-right], // deprecated
 .item.item-md .checkbox-md[item-end] {
   @include deprecated-variable(margin, $checkbox-md-item-right-margin) {
     @include margin($checkbox-md-item-end-margin-top, $checkbox-md-item-end-margin-end, $checkbox-md-item-end-margin-bottom, $checkbox-md-item-end-margin-start);
