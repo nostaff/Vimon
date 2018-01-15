@@ -367,7 +367,7 @@
        */
       checkHasValue (inputValue) {
         if (this.itemComponent) {
-          this.itemComponent.setElementClass('input-has-value', !!(inputValue && inputValue !== ''))
+          this.itemComponent.setElementClass('item-input-has-value', !!(inputValue && inputValue !== ''))
         }
       },
 
