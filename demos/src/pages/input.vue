@@ -123,7 +123,7 @@
               <span slot="item-right">*验证码*</span>
           </vm-item>
           <vm-item>
-              <vm-label>中文 (type: cn)</vm-label>
+              <vm-label stacked>中文 (type: cn)</vm-label>
               <vm-input
                       show-valid-highlight
                       show-invalid-highlight
