@@ -275,14 +275,8 @@ sub {
   height: 100%;
 
   // do not show, but still render so we can get dimensions
-  opacity: 0;
-}
-
-.ion-page.show-page {
-  // show the page now that it's ready
   opacity: 1;
 }
-
 
 // Toolbar Container Structure
 // --------------------------------------------------

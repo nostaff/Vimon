@@ -31,10 +31,6 @@ export default {
     if (this.pageComponent) {
       this.pageComponent.footerComponent = this
     }
-    this.$events.$emit('footer:created', this)
-  },
-  mounted () {
-    this.$events.$emit('footer:mounted', this)
   },
   methods: {
     // -------- public --------

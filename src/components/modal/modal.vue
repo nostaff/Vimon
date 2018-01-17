@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-modal show-page" :class="[modeClass, cssClass]" role="dialog" style="z-index: 10010;">
+  <div class="ion-modal" :class="[modeClass, cssClass]" role="dialog" style="z-index: 10010;">
     <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   v-if="showBackdrop"
                   v-show="isActive"

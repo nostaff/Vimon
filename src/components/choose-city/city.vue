@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <div slot="fixedTop" class="ion-city-shortcut city-shortcut" ref="cityShortcut" @touchstart="onTouchShortcut" @touchmove="onTouchShortcut">
+    <div slot="fixed-top" class="ion-city-shortcut city-shortcut" ref="cityShortcut" @touchstart="onTouchShortcut" @touchmove="onTouchShortcut">
       <div class="shortcut__item" :data-id="item.name" :key="item" v-for="item in shortcutList">{{item.name}}</div>
     </div>
   </vm-content>

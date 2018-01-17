@@ -31,10 +31,9 @@ export default {
     if (this.pageComponent) {
       this.pageComponent.headerComponent = this
     }
-    this.$events.$emit('header:created', this)
   },
   mounted () {
-    this.$events.$emit('header:mounted', this)
+    this.$events && this.$events.$emit('header:mounted', this)
   },
   methods: {
     /**

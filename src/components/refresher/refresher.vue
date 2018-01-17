@@ -426,13 +426,12 @@ export default {
     setCss (y, duration, overflowVisible, delay) {
       this.appliedStyles = y > 0
 
-      const content = this.contentComponent
       const Css = this.$platform.css
       if (this.contentComponent) {
-        content.setScrollElementStyle(Css.transform, ((y > 0) ? 'translateY(' + y + 'px) translateZ(0px)' : 'translateZ(0px)'))
-        content.setScrollElementStyle(Css.transitionDuration, duration)
-        content.setScrollElementStyle(Css.transitionDelay, delay)
-        content.setScrollElementStyle('overflow', overflowVisible ? 'hidden' : '')
+        this.contentComponent.setScrollElementStyle(Css.transform, ((y > 0) ? 'translateY(' + y + 'px) translateZ(0px)' : 'translateZ(0px)'))
+        this.contentComponent.setScrollElementStyle(Css.transitionDuration, duration)
+        this.contentComponent.setScrollElementStyle(Css.transitionDelay, delay)
+        this.contentComponent.setScrollElementStyle('overflow', overflowVisible ? 'hidden' : '')
       }
     },
 
