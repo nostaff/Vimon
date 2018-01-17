@@ -1,6 +1,6 @@
 /* eslint-disable no-undef,no-unused-expressions */
 
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import deepAssign from 'deep-assign'
 import cloneDeep from 'lodash.clonedeep'
 import Badge from '../../src/components/badge'

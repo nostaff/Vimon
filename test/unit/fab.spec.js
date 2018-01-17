@@ -1,6 +1,6 @@
 /* eslint-disable no-undef,no-unused-expressions */
 
-import { mount } from 'vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Fab from '../../src/components/fab/fab'
 
 let wrapper = null
