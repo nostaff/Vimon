@@ -1,35 +1,25 @@
-import {registerListener, pointerCoord} from '../../util/dom'
+import {registerListener} from '../../util/dom'
 
 const SCROLL_END_DEBOUNCE_MS = 80
-const MIN_VELOCITY_START_DECELERATION = 4
-const MIN_VELOCITY_CONTINUE_DECELERATION = 0.12
-const DECELERATION_FRICTION = 0.97
 const FRAME_MS = (1000 / 60)
 const EVENT_OPTS = {
   passive: true,
   zone: false
 }
 
-export class ScrollView {
+export default class ScrollView {
   constructor () {
     this.ev = null
     this.isScrolling = false
-    this.onScrollStart = (ev) => (ev) => {
-    }
-    this.onScroll = (ev) => (ev) => {
-    }
-    this.onScrollEnd = (ev) => (ev) => {
-    }
+    this.onScrollStart = (ev) => (ev) => {}
+    this.onScroll = (ev) => (ev) => {}
+    this.onScrollEnd = (ev) => (ev) => {}
     this.initialized = false
 
     this._el = null
-    this._eventsEnabled = false
-    this._js = false
-    this._t = 0
-    this._l = 0
     this._lsn = null
     this._endTmr = null
-    this._transform = 'transform'
+    this._transform = window.VM && window.VM.platform && window.VM.platform.css.transform || 'transform'
 
     this.ev = {
       timeStamp: 0,
@@ -48,25 +38,16 @@ export class ScrollView {
       velocityY: 0,
       velocityX: 0,
       directionY: 'down',
-      directionX: null,
-      contentElement: null,
-      fixedElement: null,
-      scrollElement: null,
-      headerElement: null,
-      footerElement: null
+      directionX: null
     }
   }
 
-  init (ele, contentTop, contentBottom) {
+  init (ele) {
     console.assert(ele, 'scroll-view, element can not be null')
     this._el = ele
     if (!this.initialized) {
       this.initialized = true
-      if (this._js) {
-        this.enableJsScroll(contentTop, contentBottom)
-      } else {
-        this.enableNativeScrolling()
-      }
+      this.enableNativeScrolling()
     }
   }
 
@@ -89,7 +70,6 @@ export class ScrollView {
     console.assert(this.onScroll, 'onScroll is not defined')
     console.assert(this.onScrollEnd, 'onScrollEnd is not defined')
 
-    this._js = false
     if (!this._el) {
       return
     }
@@ -99,10 +79,6 @@ export class ScrollView {
     const positions = []
 
     function scrollCallback (scrollEvent) {
-      // remind the app that it's currently scrolling
-      // TODO
-      // self._app.setScrolling();
-
       ev.timeStamp = scrollEvent.timeStamp
 
       // Event.timeStamp is 0 in firefox
@@ -111,11 +87,9 @@ export class ScrollView {
       }
 
       // get the current scrollTop
-      // ******** DOM READ ****************
       ev.scrollTop = self.getTop()
 
       // get the current scrollLeft
-      // ******** DOM READ ****************
       ev.scrollLeft = self.getLeft()
 
       if (!self.isScrolling) {
@@ -187,239 +161,49 @@ export class ScrollView {
     // a scroll event callback will always be right before the raf callback
     // so there's little to no value of using raf here since it'll all ways immediately
     // call the raf if it was set within the scroll event, so this will save us some time
-    // self._lsn = self._plt.registerListener(self._el, 'scroll', scrollCallback, EVENT_OPTS);
     self._lsn = registerListener(self._el, 'scroll', scrollCallback, EVENT_OPTS)
   }
 
   /**
-   * @hidden
-   * JS Scrolling has been provided only as a temporary solution
-   * until iOS apps can take advantage of scroll events at all times.
-   * The goal is to eventually remove JS scrolling entirely. When we
-   * no longer have to worry about iOS not firing scroll events during
-   * inertia then this can be burned to the ground. iOS's more modern
-   * WKWebView does not have this issue, only UIWebView does.
+   * DOM READ
    */
-  enableJsScroll (contentTop, contentBottom) {
-    const self = this
-    self._js = true
-    const ele = self._el
+  getHeight () {
+    return this._el.scrollHeight
+  }
 
-    if (!ele) {
-      return
-    }
-
-    console.debug(`ScrollView, enableJsScroll`)
-
-    const ev = self.ev
-    const positions = []
-    let rafCancel = null
-    let max
-
-    function setMax () {
-      if (!max) {
-        // ******** DOM READ ****************
-        max = ele.scrollHeight - ele.parentElement.offsetHeight + contentTop + contentBottom
-      }
-    }
-
-    function jsScrollDecelerate (timeStamp) {
-      ev.timeStamp = timeStamp
-
-      console.debug(`scroll-view, decelerate, velocity: ${ev.velocityY}`)
-
-      if (ev.velocityY) {
-        ev.velocityY *= DECELERATION_FRICTION
-
-        // update top with updated velocity
-        // clamp top within scroll limits
-        // ******** DOM READ ****************
-        setMax()
-        self._t = Math.min(Math.max(self._t + ev.velocityY, 0), max)
-
-        ev.scrollTop = self._t
-
-        // emit on each scroll event
-        self.onScroll(ev)
-
-        window.setTimeout(() => {
-          // ******** DOM WRITE ****************
-          self.setTop(self._t)
-
-          if (self._t > 0 && self._t < max && Math.abs(ev.velocityY) > MIN_VELOCITY_CONTINUE_DECELERATION) {
-            rafCancel = window.setTimeout((rafTimeStamp) => {
-              jsScrollDecelerate(rafTimeStamp)
-            })
-          } else {
-            // haven't scrolled in a while, so it's a scrollend
-            self.isScrolling = false
-
-            // reset velocity, do not reset the directions or deltas
-            ev.velocityY = ev.velocityX = 0
-
-            // emit that the scroll has ended
-            self.onScrollEnd(ev)
-          }
-        })
-      }
-    }
-
-    function jsScrollTouchStart (touchEvent) {
-      positions.length = 0
-      max = null
-      window.clearTimeout(rafCancel)
-      positions.push(pointerCoord(touchEvent).y, touchEvent.timeStamp)
-    }
-
-    function jsScrollTouchMove (touchEvent) {
-      if (!positions.length) {
-        return
-      }
-
-      ev.timeStamp = touchEvent.timeStamp
-
-      var y = pointerCoord(touchEvent).y
-
-      // ******** DOM READ ****************
-      setMax()
-      self._t -= (y - positions[positions.length - 2])
-      self._t = Math.min(Math.max(self._t, 0), max)
-
-      positions.push(y, ev.timeStamp)
-
-      if (!self.isScrolling) {
-        // remember the start position
-        ev.startY = self._t
-
-        // new scroll, so do some resets
-        ev.velocityY = ev.deltaY = 0
-
-        self.isScrolling = true
-
-        // emit only on the first scroll event
-        self.onScrollStart(ev)
-      }
-
-      window.setTimeout(() => {
-        // ******** DOM WRITE ****************
-        self.setTop(self._t)
-      })
-    }
-
-    function jsScrollTouchEnd (touchEvent) {
-      // figure out what the scroll position was about 100ms ago
-      window.clearTimeout(rafCancel)
-
-      if (!positions.length && self.isScrolling) {
-        self.isScrolling = false
-        ev.velocityY = ev.velocityX = 0
-        self.onScrollEnd(ev)
-        return
-      }
-
-      var y = pointerCoord(touchEvent).y
-
-      positions.push(y, touchEvent.timeStamp)
-
-      var endPos = (positions.length - 1)
-      var startPos = endPos
-      var timeRange = (touchEvent.timeStamp - 100)
-
-      // move pointer to position measured 100ms ago
-      for (var i = endPos; i > 0 && positions[i] > timeRange; i -= 2) {
-        startPos = i
-      }
-
-      if (startPos !== endPos) {
-        // compute relative movement between these two points
-        var timeOffset = (positions[endPos] - positions[startPos])
-        var movedTop = (positions[startPos - 1] - positions[endPos - 1])
-
-        // based on XXms compute the movement to apply for each render step
-        ev.velocityY = ((movedTop / timeOffset) * FRAME_MS)
-
-        // verify that we have enough velocity to start deceleration
-        if (Math.abs(ev.velocityY) > MIN_VELOCITY_START_DECELERATION) {
-          // ******** DOM READ ****************
-          setMax()
-
-          rafCancel = window.setTimeout((rafTimeStamp) => {
-            jsScrollDecelerate(rafTimeStamp)
-          })
-        }
-      } else {
-        self.isScrolling = false
-        ev.velocityY = 0
-        self.onScrollEnd(ev)
-      }
-
-      positions.length = 0
-    }
-
-    const unRegStart = registerListener(ele, 'touchstart', jsScrollTouchStart, EVENT_OPTS)
-    const unRegMove = registerListener(ele, 'touchmove', jsScrollTouchMove, EVENT_OPTS)
-    const unRegEnd = registerListener(ele, 'touchend', jsScrollTouchEnd, EVENT_OPTS)
-
-    ele.parentElement.classList.add('js-scroll')
-
-    // stop listening for actual scroll events
-    self._lsn && self._lsn()
-
-    // create an unregister for all of these events
-    self._lsn = () => {
-      unRegStart()
-      unRegMove()
-      unRegEnd()
-      ele.parentElement.classList.remove('js-scroll')
-    }
+  /**
+   * DOM READ
+   */
+  getWidth () {
+    return this._el.scrollWidth
   }
 
   /**
    * DOM READ
    */
   getTop () {
-    if (this._js) {
-      return this._t
-    }
-    this._t = this._el.scrollTop
-    return this._t
+    return this._el.scrollTop
   }
 
   /**
    * DOM READ
    */
   getLeft () {
-    if (this._js) {
-      return 0
-    }
-    this._l = this._el.scrollLeft
-    return this._l
+    return this._el.scrollLeft
   }
 
   /**
    * DOM WRITE
    */
   setTop (top) {
-    this._t = top
-
-    if (this._js) {
-      (this._el.style)[this._transform] = `translate3d(${this._l * -1}px,${top * -1}px,0px)`
-    } else {
-      this._el.scrollTop = top
-    }
+    this._el.scrollTop = top
   }
 
   /**
    * DOM WRITE
    */
   setLeft (left) {
-    this._l = left
-
-    if (this._js) {
-      (this._el.style)[this._transform] = `translate3d(${left * -1}px,${this._t * -1}px,0px)`
-    } else {
-      this._el.scrollLeft = left
-    }
+    this._el.scrollLeft = left
   }
 
   scrollTo (x, y, duration, done) {
@@ -520,6 +304,24 @@ export class ScrollView {
       y = this._el.scrollHeight - this._el.clientHeight
     }
     return this.scrollTo(0, y, duration)
+  }
+
+  scrollBy (x = 0, y = 0, duration = 300, done) {
+    y += this.getTop()
+    x += this.getLeft()
+    return this.scrollTo(x, y, duration, done)
+  }
+
+  scrollToElement (el, duration = 300, done) {
+    if (!el) {
+      console.assert(el, 'The method scrollToElement() need element!')
+      return new Promise((resolve) => { resolve() })
+    }
+
+    let x = 0
+    let y = el.offsetTop
+
+    return this.scrollTo(x, y, duration, done)
   }
 
   stop () {

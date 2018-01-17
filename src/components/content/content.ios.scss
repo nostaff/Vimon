@@ -25,7 +25,7 @@ $content-ios-transition-background:     #000 !default;
   background-color: rgba(0, 0, 0, .12);
 }
 
-.ios .ion-page.show-page ~ .nav-decor {
+.ios .ion-page ~ .nav-decor {
   @include position(0, null, null, 0);
 
   // when ios pages transition, the leaving page grays out
