@@ -1,249 +1,125 @@
-
-// transition
-.ion-app.ios[transition-direction="forward"] {
-  .page-fade-enter {
-    transform: translate3d(100%, 0, 0);
-    opacity: 1;
-    z-index: 2;
-  }
-  .page-fade-enter-active {
-    box-shadow: 0 0 10px rgba(0,0,0,.15);
-  }
-  .page-fade-enter-to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    z-index: 2;
-  }
-  .page-fade-leave {
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-    z-index: 1;
-  }
-  .page-fade-leave-to {
-    transform: translate3d(-33%, 0, 0);
-    opacity: 0;
-    z-index: 1;
-  }
-}
-
-.ion-app.ios[transition-direction="back"] {
-  .page-enter {
-    transform: translate3d(-33%, 0, 0);
-    opacity: 0.8;
-    z-index: 1;
-  }
-  .page-enter-to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    z-index: 1;
-  }
-  .page-leave {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-    z-index: 2;
-  }
-  .page-leave-active {
-    box-shadow: 0 0 10px rgba(0,0,0,.15);
-  }
-  .page-leave-to {
-    transform: translate3d(100%, 0, 0);
-    opacity: 1;
-    z-index: 2;
-  }
-}
-
-.ion-app.md[transition-direction="forward"] {
-  .page-enter {
-    transform: scale(.95);
-    opacity: 0.01 !important;
-  }
-
-  .page-enter-active {
-    transform-origin: center center;
-    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  }
-
-  .page-leave-active {
-    transform-origin: center center;
-    transition-duration: 500ms;
-  }
-}
-
-.ion-app.md[transition-direction="back"] {
-  .page-enter {}
-
-  .page-enter-active {
-    transform-origin: center center;
-    transition-duration: 500ms;
-  }
-
-  // 退出的页面
-  .page-leave-active {
-    transform: scale(.95);
-    opacity: 0.01 !important;
-    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-    transform-origin: center center;
-  }
-}
-
-
 // fade-transition Transition(forward)
 // --------------------------------------------------
-
-.fade-transition-forward-enter {
-  opacity: 0.01 !important;
-}
-
-.fade-transition-forward-enter-active {
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform-origin: center center;
-}
-
-.fade-transition-forward-leave-active {
-  transition-duration: 500ms;
-  transform-origin: center center;
+[transition-direction="forward"] {
+  .fade-transition-enter {
+    opacity: 0.01 !important;
+  }
+  .fade-transition-enter-active {
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform-origin: center center;
+  }
+  .fade-transition-leave-active {
+    transition-duration: 500ms;
+    transform-origin: center center;
+  }
 }
 
 // fade-transition Transition(backward)
 // --------------------------------------------------
-
-.fade-transition-backward-enter-active {
-  transition-duration: 500ms;
-  transform-origin: center center;
+[transition-direction="backward"] {
+  .fade-transition-enter-active {
+    transition-duration: 500ms;
+    transform-origin: center center;
+  }
+  .fade-transition-leave-active {
+    opacity: 0.01 !important;
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform-origin: center center;
+  }
 }
-
-.fade-transition-backward-leave-active {
-  opacity: 0.01 !important;
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform-origin: center center;
-}
-
-
-
 
 // fade-right-transition Transition(forward)
 // --------------------------------------------------
-
-.fade-right-transition-forward-enter {
-  position: absolute !important;
-  opacity: 0 !important;
-  transform: translateX(40px);
-}
-
-.fade-right-transition-forward-enter-active {
-  position: absolute !important;
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-}
-
-.fade-right-transition-forward-leave-active {
-  position: absolute !important;
-  transition-duration: 500ms;
+[transition-direction="forward"] {
+  .fade-right-transition-enter {
+    position: absolute !important;
+    opacity: 0 !important;
+    transform: translateX(50%);
+  }
+  .fade-right-transition-enter-active {
+    position: absolute !important;
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  }
+  .fade-right-transition-leave-active {
+    position: absolute !important;
+    transition-duration: 500ms;
+  }
 }
 
 // fade-right-transition Transition(backward)
 // --------------------------------------------------
-
-.fade-right-transition-backward-enter {
-  position: absolute !important;
+[transition-direction="backward"] {
+  .fade-right-transition-enter {
+    position: absolute !important;
+  }
+  .fade-right-transition-enter-active {
+    position: absolute !important;
+    transition-duration: 500ms;
+  }
+  .fade-right-transition-leave-active {
+    position: absolute !important;
+    opacity: 0 !important;
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform: translateX(50%);
+  }
 }
-
-.fade-right-transition-backward-enter-active {
-  position: absolute !important;
-  transition-duration: 500ms;
-}
-
-.fade-right-transition-backward-leave-active {
-  position: absolute !important;
-  opacity: 0 !important;
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform: translateX(40px);
-}
-
-
-
 
 // fade-bottom-transition Transition(forward)
 // --------------------------------------------------
-
-.fade-bottom-transition-forward-enter {
-  opacity: 0.01 !important;
-  transform: translateY(40px);
+[transition-direction="forward"] {
+  .fade-bottom-transition-enter {
+    opacity: 0.01 !important;
+    transform: translateY(40px);
+  }
+  .fade-bottom-transition-enter-active {
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+  }
+  .fade-bottom-transition-leave-active {
+    transition-duration: 500ms;
+  }
 }
-
-.fade-bottom-transition-forward-enter-active {
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-}
-
-.fade-bottom-transition-forward-leave-active {
-  transition-duration: 500ms;
-}
-
 // fade-bottom-transition Transition(backward)
 // --------------------------------------------------
+[transition-direction="backward"] {
+  .fade-bottom-transition-enter-active {
+    transition-duration: 500ms;
+  }
 
-.fade-bottom-transition-backward-enter-active {
-  transition-duration: 500ms;
+  .fade-bottom-transition-leave-active {
+    opacity: 0.01 !important;
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform: translateY(40px);
+  }
 }
-
-.fade-bottom-transition-backward-leave-active {
-  opacity: 0.01 !important;
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform: translateY(40px);
-}
-
-
-
-// transitioName = 'fade-dup'
-.fade-up-enter-active {
-  transition: transform .4s cubic-bezier(.36, .66, .04, 1);
-  transform: translate3d(0, 0, 0);
-}
-.fade-up-leave-active {
-  transition: transform .3s cubic-bezier(.36, .66, .04, 1);
-  transform: translate3d(0, 100%, 0);
-}
-
-.fade-up-enter, .fade-up-leave-to {
-  transform: translate3d(0, 100%, 0);
-}
-
 
 // zoom-transition Transition(forward)
 // --------------------------------------------------
-
-// 进入的页面
-.zoom-transition-forward-enter {
-  opacity: 0.01 !important;
-  transform: scale(0.95);
-}
-
-.zoom-transition-forward-enter-active {
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform-origin: center center;
-}
-
-// 退出的页面
-.zoom-transition-forward-leave-active {
-  transition-duration: 500ms;
-  transform-origin: center center;
+[transition-direction="forward"] {
+  .zoom-transition-enter {
+    opacity: 0.01 !important;
+    transform: scale(0.95);
+  }
+  .zoom-transition-enter-active {
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform-origin: center center;
+  }
+  .zoom-transition-leave-active {
+    transition-duration: 500ms;
+    transform-origin: center center;
+  }
 }
 
 // zoom-transition Transition(backward)
 // --------------------------------------------------
-
-// 进入的页面
-.zoom-transition-backward-enter {
-}
-
-.zoom-transition-backward-enter-active {
-  transition-duration: 500ms;
-  transform-origin: center center;
-}
-
-// 退出的页面
-.zoom-transition-backward-leave-active {
-  opacity: 0.01 !important;
-  transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
-  transform: scale(0.95);
-  transform-origin: center center;
+[transition-direction="backward"] {
+  .zoom-transition-enter-active {
+    transition-duration: 500ms;
+    transform-origin: center center;
+  }
+  .zoom-transition-leave-active {
+    opacity: 0.01 !important;
+    transition: -webkit-transform 500ms cubic-bezier(0.36, 0.66, 0.04, 1), opacity 500ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    transform: scale(0.95);
+    transform-origin: center center;
+  }
 }
