@@ -15,7 +15,7 @@ export default {
       pageTransition: 'fade-right-transition'
     },
     android: {
-      pageTransition: 'zoom-transition'
+      pageTransition: 'fade-bottom-transition'
     }
   },
   showIndicatorWhenPageChange: true, // 转场是否提前添加动画
