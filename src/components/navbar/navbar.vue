@@ -97,9 +97,7 @@ export default {
         if (this.onBackButtonClick(ev) === false) { return }
       }
 
-      // let root = document.querySelector('.ion-app')
-      // if (root) root.setAttribute('transition-direction', 'back')
-      window.history.back()
+      this.$router ? this.$router.back() : window.history.back()
     },
     moreButtonClickHandler (ev) {
       ev.preventDefault()
