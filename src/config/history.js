@@ -2,14 +2,6 @@
  * @class History
  * @classdesc 通过vue-router的onRouteChangeBefore事件构建本地历史记录
  *
- * ## 问题
- *
- * 单页应用的一个需求是需要知道路由切换是前进还是后退, 但是浏览器对路由切换只给了两个事件 `hashchange` 和 `popstate`, 故无从判断当前操作是后退还是前进.
- *
- * ## 解决方案
- *
- * 这个类通过vue-router的onRouteChangeBefore事件构建本地历史记录. 当路由切换时, 内建历史记录数组存储在sessionStorage中（页面刷新时仍保留）, 这个能正确反映当前app的浏览历史记录.
- *
  * 完成的功能如下:
  *
  * - 内建导航记录
@@ -17,20 +9,26 @@
  */
 
 const VIMO_ROUTES = 'VIMO_ROUTES'
+const VIMO_NONE = ''
 const VIMO_FORWARD = 'forward'
 const VIMO_BACKWARD = 'backward'
 
 export class History {
   constructor (router, config, platform) {
     if (!router) {
-      console.error('vue-navigation need options: this.router')
+      console.error('history need options: this.router')
       return
     }
+
+    this.endTime = Date.now()
+    document.addEventListener('touchstart', () => {
+      this.endTime = Date.now()
+    })
 
     // init route & session storage
     this.routes = []
     this.routesCount = 0
-    this.direction = ''
+    this.direction = VIMO_NONE
 
     this.session = window.sessionStorage
     let routes = this.session.getItem(VIMO_ROUTES)
@@ -94,7 +92,6 @@ export class History {
 
     // record this.router change
     this.router.afterEach((to, from) => {
-      // console.log(_this.routes)
       _this.replaceFlag = false
     })
   }
@@ -108,22 +105,37 @@ export class History {
       const toIndex = this.routes.lastIndexOf(name)
       if (toIndex === -1) { // forward
         this.routes.push(name)
-        this.direction = VIMO_FORWARD
+        // 判断是否是ios左滑前进
+        if ((Date.now() - this.endTime) > 377) {
+          this.direction = VIMO_NONE
+        } else {
+          this.direction = VIMO_FORWARD
+        }
       } else if (toIndex === this.routes.length - 1) { // refresh
         this.direction = ''
       } else { // backward
         let count = this.routes.length - 1 - toIndex
         this.routes.splice(this.routes.length - count, count)
 
-        // 判断是否是ios左滑返回 TODO
-        this.direction = VIMO_BACKWARD
+        // 判断是否是ios右滑返回
+        if ((Date.now() - this.endTime) > 377) {
+          this.direction = VIMO_NONE
+        } else {
+          this.direction = VIMO_BACKWARD
+        }
       }
     }
+    this.nextDirection(this.direction)
     this.session.setItem(VIMO_ROUTES, JSON.stringify(this.routes))
   }
 
   get length () {
     return this.routes.length
+  }
+
+  nextDirection (direction) {
+    let el = document.querySelector('.ion-nav')
+    if (el) el.setAttribute('transition-direction', direction)
   }
 
   /**
