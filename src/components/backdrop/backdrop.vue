@@ -39,18 +39,8 @@ export default {
     }
   },
   methods: {
-    /**
-      * @private
-      * @param {Object} ev - ev
-      */
     clickHandler (ev) {
       this.$emit('click', ev)
-    },
-    beforeEnter () {
-      this.$emit('onShown')
-    },
-    afterLeave () {
-      this.$emit('onHidden')
     },
     onTouchMoveHandler (ev) {
       ev.preventDefault()
