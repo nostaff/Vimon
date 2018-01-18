@@ -2,7 +2,7 @@
   <div class="ion-picker-cmp" :class="[modeClass,cssClass]">
     <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive"
-                  :bdClick="bdClick"></vm-backdrop>
+                  @click="bdClick"></vm-backdrop>
     <transition
         name="picker-fade"
         @before-enter="beforeEnter"

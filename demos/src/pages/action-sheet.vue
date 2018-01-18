@@ -61,7 +61,7 @@ export default {
         title: '这是标题',
         subTitle: '这是副标题',
         cssClass: 'a b',
-        enableBackdropDismiss: false,
+        enableBackdropDismiss: true,
         buttons: buttonItems,
         presentCallback: () => {
           console.log('presentCallback')
