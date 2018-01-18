@@ -2,8 +2,6 @@
     <div class="ion-nav"
          :class="[
            menuContentClass,
-           menuContentTypeClass,
-           menuContentSideClass,
            {'menu-content-open':isMenuOpen}]">
         <div v-if="isMenuOpen" @click="tapToCloseMenu" @touchmove="stopActive($event)" class="click-cover"></div>
         <div nav-viewport></div>
@@ -40,9 +38,7 @@ export default {
       menuId: null, // menuId
       menuType: '', // overlay/reveal  这里只处理 reveal
       menuSide: 'left', // 方向
-      menuContentClass: null,
-      menuContentTypeClass: null,
-      menuContentSideClass: null
+      menuContentClass: null
     }
   },
   created () {
@@ -76,22 +72,13 @@ export default {
       this.isMenuOpen = false
     })
     this.$events.$on('onMenuClosed', () => {
-      this.menuContentTypeClass = null
+      // this.menuContentTypeClass = null
     })
   },
   methods: {
     init () {
       if (!this.$router) return
-      // // nav 动画切换部分
       const vm = this
-      // this.$router.beforeEach((to, from, next) => {
-      //   vm.pageTransitionName = `${vm.pageTransition}-${vm.$history.getDirection()}`
-
-      //   console.log('beforeEach', vm.$history.getDirection())
-      //   vm.$app && vm.$app.setEnabled(false, 500)
-
-      //   next()
-      // })
 
       // 页面切换显示Indicator
       if (this.showIndicatorWhenPageChange) {
@@ -140,22 +127,9 @@ export default {
         this.menuId = menuId
         this.menuSide = this.$menu.menuIns[menuId].side
         this.menuType = this.$menu.menuIns[menuId].type
-        this.menuContentClass = `menu-content`
-        this.menuContentTypeClass = `menu-content-${this.menuType}`
-        this.menuContentSideClass = `menu-content-${this.menuSide}`
+        this.menuContentClass = `menu-content menu-content-${this.menuType} menu-content-${this.menuSide}`
       }
-    },
-
-    clearMenuInfo () {
-      this.menuId = null
-      this.menuSide = 'left'
-      this.menuType = ''
-      this.menuContentClass = null
-      this.menuContentClass = null
-      this.menuContentTypeClass = null
-      this.menuContentSideClass = null
     }
-
   }
 }
 </script>
