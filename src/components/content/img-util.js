@@ -16,7 +16,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
 
     if (scrollDirectionY === 'up') {
       // scrolling up
-      if (img.top < viewableBottom && img.bottom > viewableTop - renderableBuffer) {
+      if (img.getTop() < viewableBottom && img.getBottom() > viewableTop - renderableBuffer) {
         // scrolling up, img is within viewable area
         // or about to be viewable area
         img.canRequest = img.canRender = true
@@ -24,7 +24,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
         continue
       }
 
-      if (img.bottom <= viewableTop && img.bottom > viewableTop - requestableBuffer) {
+      if (img.getBottom() <= viewableTop && img.getBottom() > viewableTop - requestableBuffer) {
         // scrolling up, img is within requestable area
         img.canRequest = true
         img.canRender = false
@@ -32,7 +32,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
         continue
       }
 
-      if (img.top >= viewableBottom && img.top < viewableBottom + renderableBuffer) {
+      if (img.getTop() >= viewableBottom && img.getTop() < viewableBottom + renderableBuffer) {
         // scrolling up, img below viewable area
         // but it's still within renderable area
         // don't allow a reset
@@ -41,8 +41,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
       }
     } else {
       // scrolling down
-
-      if (img.bottom > viewableTop && img.top < viewableBottom + renderableBuffer) {
+      if (img.getBottom() > viewableTop && img.getTop() < viewableBottom + renderableBuffer) {
         // scrolling down, img is within viewable area
         // or about to be viewable area
         img.canRequest = img.canRender = true
@@ -50,7 +49,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
         continue
       }
 
-      if (img.top >= viewableBottom && img.top < viewableBottom + requestableBuffer) {
+      if (img.getTop() >= viewableBottom && img.getTop() < viewableBottom + requestableBuffer) {
         // scrolling down, img is within requestable area
         img.canRequest = true
         img.canRender = false
@@ -58,7 +57,7 @@ export function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, 
         continue
       }
 
-      if (img.bottom <= viewableTop && img.bottom > viewableTop - renderableBuffer) {
+      if (img.getBottom() <= viewableTop && img.getBottom() > viewableTop - renderableBuffer) {
         // scrolling down, img above viewable area
         // but it's still within renderable area
         // don't allow a reset
