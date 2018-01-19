@@ -266,6 +266,26 @@ export function parsePxUnit (val) {
   return !!val && val.indexOf('px') > 0 ? parseInt(val, 10) : 0
 }
 
+/**
+ * 获取尺寸单位值
+ * @param {*} val
+ */
+export function getUnitValue (val) {
+  if (isPresent(val)) {
+    if (typeof val === 'string') {
+      if (val.indexOf('%') > -1 || val.indexOf('px') > -1) {
+        return val
+      }
+      if (val.length) {
+        return val + 'px'
+      }
+    } else if (typeof val === 'number') {
+      return val + 'px'
+    }
+  }
+  return ''
+}
+
 export function cssFormat (val) {
   return (val > 0 ? val + 'px' : '')
 }
