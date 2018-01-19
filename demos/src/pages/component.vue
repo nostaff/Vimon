@@ -21,6 +21,10 @@
           图标
           <vm-note slot="item-end">Icons</vm-note>
         </vm-item>
+        <vm-item detail-push link="/img">
+          图片
+          <vm-note slot="item-end">Img</vm-note>
+        </vm-item>
         <vm-item detail-push link="/fabs">
           浮动按钮
           <vm-note slot="item-end">FABs</vm-note>

@@ -12,6 +12,7 @@ const routes = [
   { path: '/badge', name: 'badge', component: resolve => require(['@/pages/badge.vue'], resolve) },
   { path: '/fabs', name: 'fabs', component: resolve => require(['@/pages/fabs.vue'], resolve) },
   { path: '/icon', name: 'icon', component: resolve => require(['@/pages/icon.vue'], resolve) },
+  { path: '/img', name: 'img', component: resolve => require(['@/pages/img.vue'], resolve) },
   { path: '/spinner', name: 'spinner', component: resolve => require(['@/pages/spinner.vue'], resolve) },
   { path: '/datetime', name: 'datetime', component: resolve => require(['@/pages/datetime.vue'], resolve) },
 
