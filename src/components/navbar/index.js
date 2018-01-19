@@ -89,7 +89,7 @@
  *
  * ** 不建议在keepAlive模式使用 **
  *
- * 因为Navbar组件在此模式下只执行最后一个页面的Navbar更新, 如果页面已经打开过, 则会导致样式状态问题. 解决办法是在`activated`钩子中执行Navbar组件的`$_initWhenInWebview`方法, 这个是内部方法, 表示重新初始化Navbar组件.
+ * 因为Navbar组件在此模式下只执行最后一个页面的Navbar更新, 如果页面已经打开过, 则会导致样式状态问题. 解决办法是在`activated`钩子中执行Navbar组件的`initWhenInWebview`方法, 这个是内部方法, 表示重新初始化Navbar组件.
  *
  * @see component:Toolbar
  * @see History

@@ -438,15 +438,15 @@ export default {
     setListeners (shouldListen) {
       if (this.unregs && this.unregs.length > 0) {
         console.debug('refresher.vue 解除绑定')
-        this.unregs.forEach(_unreg => {
-          _unreg && _unreg()
+        this.unregs.forEach(unreg => {
+          unreg && unreg()
         })
       }
 
       this.$nextTick(() => {
         if (shouldListen && this.contentComponent) {
           let contentElement = this.contentComponent.getScrollElement()
-          console.assert(contentElement, 'Refresh Component need Content Ready!::<Component>$_setListeners()')
+          console.assert(contentElement, 'Refresh Component need Content Ready!::<Component>setListeners()')
 
           registerListener(contentElement, 'touchstart', this.onStart.bind(this), {'passive': false}, this.unregs)
           registerListener(contentElement, 'mousedown', this.onStart.bind(this), {'passive': false}, this.unregs)
