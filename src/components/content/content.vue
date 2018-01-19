@@ -38,27 +38,30 @@ export default {
   },
   data () {
     return {
+      contentMarginTop: 0,
+      contentMarginBottom: 0,
+
+      headerHeight: 0,
+      footerHeight: 0,
+
+      scrollView: null,
+
       contentTop: 0,
       contentBottom: 0,
+      fixedTop: 0,
+      fixedBottom: 0,
+      paddingTop: 0,
+      paddingBottom: 0,
 
-      _headerHeight: 0,
-      _footerHeight: 0,
+      tabsPlacement: null,
+      tabsTop: 0,
 
-      _scrollView: null,
+      resizeUnReg: null,
 
-      _contentTop: 0,
-      _contentBottom: 0,
-      _fixedTop: 0,
-      _fixedBottom: 0,
-      _paddingTop: 0,
-      _paddingBottom: 0,
-
-      _resizeUnReg: null,
-
-      _imgs: [],
-      _imgReqBfr: 1400,
-      _imgRndBfr: 600,
-      _imgVelMax: 3
+      imgs: [],
+      imgReqBfr: this.$config && this.$config.getNumber('imgRequestBuffer', 1400),
+      imgRndBfr: this.$config && this.$config.getNumber('imgRenderBuffer', 400),
+      imgVelMax: this.$config && this.$config.getNumber('imgVelocityMax', 3)
     }
   },
   computed: {
@@ -79,13 +82,13 @@ export default {
     }
   },
   created () {
-    this._scrollView = new ScrollView()
-    this._imgs = []
+    this.scrollView = new ScrollView()
+    this.imgs = []
 
     // 窗口变化重新计算容器
-    this._resizeUnReg = registerListener(window, 'resize', throttle(() => { console.log('throttle'); this._calculateContentDimensions() }, 200, {leading: false, trailing: true}))
+    this.resizeUnReg = registerListener(window, 'resize', throttle(() => { this._calculateContentDimensions() }, 200, {leading: false, trailing: true}))
 
-    const scroll = this._scrollView
+    const scroll = this.scrollView
     scroll.onScrollStart = (ev) => {
       this.$emit('onScrollStart', ev)
       this.$events && this.$events.$emit('onScrollStart', ev)
@@ -94,13 +97,13 @@ export default {
     scroll.onScroll = (ev) => {
       this.$emit('onScroll', ev)
       this.$events && this.$events.$emit('onScroll', ev)
-      this._imgsUpdate()
+      this.imgsUpdate()
     }
 
     scroll.onScrollEnd = (ev) => {
       this.$emit('onScrollEnd', ev)
       this.$events && this.$events.$emit('onScrollEnd', ev)
-      this._imgsUpdate()
+      this.imgsUpdate()
     }
 
     // TODO
@@ -115,9 +118,9 @@ export default {
     this._calculateContentDimensions()
   },
   destroyed () {
-    this._resizeUnReg && this._resizeUnReg()
+    this.resizeUnReg && this.resizeUnReg()
 
-    this._scrollView && this._scrollView.destroy()
+    this.scrollView && this.scrollView.destroy()
   },
   methods: {
     getContentDimensions () {
@@ -125,9 +128,9 @@ export default {
 
       return {
         contentWidth: scrollEle.clientWidth,
-        contentHeight: scrollEle.clientHeight - this._contentTop - this._contentBottom,
-        contentTop: this._contentTop,
-        contentBottom: this._contentBottom,
+        contentHeight: scrollEle.clientHeight - this.contentTop - this.contentBottom,
+        contentTop: this.contentTop,
+        contentBottom: this.contentBottom,
 
         scrollHeight: scrollEle.scrollHeight,
         scrollTop: scrollEle.scrollTop,
@@ -146,7 +149,7 @@ export default {
      * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
      */
     scrollTo (x, y, duration = 300, done) {
-      return this._scrollView.scrollTo(x, y, duration, done)
+      return this.scrollView.scrollTo(x, y, duration, done)
     },
     /**
      * @function scrollToTop
@@ -156,7 +159,7 @@ export default {
      */
     scrollToTop (duration = 300) {
       console.debug(`content, scrollToTop, duration: ${duration}`)
-      return this._scrollView.scrollToTop(duration)
+      return this.scrollView.scrollToTop(duration)
     },
     /**
      * @function scrollToBottom
@@ -166,7 +169,7 @@ export default {
      */
     scrollToBottom (duration = 300) {
       console.debug(`content, scrollToBottom, duration: ${duration}`)
-      return this._scrollView.scrollToBottom(duration)
+      return this.scrollView.scrollToBottom(duration)
     },
     /**
      * @function scrollBy
@@ -216,73 +219,68 @@ export default {
     },
 
     _readDimensions (headerHeight = 0) {
-      const cachePaddingTop = this._paddingTop
-      const cachePaddingRight = this._paddingRight
-      const cachePaddingBottom = this._paddingBottom
-      const cachePaddingLeft = this._paddingLeft
-      const cacheHeaderHeight = this._headerHeight
-      const cacheTabsPlacement = this._tabsPlacement
-      const cacheFooterHeight = this._footerHeight
+      const cachePaddingTop = this.paddingTop
+      const cachePaddingBottom = this.paddingBottom
+      const cacheHeaderHeight = this.headerHeight
+      const cacheTabsPlacement = this.tabsPlacement
+      const cacheFooterHeight = this.footerHeight
       let tabsTop = 0
       let scrollEvent = null
-      this._paddingTop = 0
-      this._paddingRight = 0
-      this._paddingBottom = 0
-      this._paddingLeft = 0
-      this._headerHeight = headerHeight
-      this._footerHeight = 0
-      this._tabsPlacement = null
-      this._tabsTop = 0
-      this._fixedTop = 0
-      this._fixedBottom = 0
+      this.paddingTop = 0
+      this.paddingBottom = 0
+      this.headerHeight = headerHeight
+      this.footerHeight = 0
+      this.tabsPlacement = null
+      this.tabsTop = 0
+      this.fixedTop = 0
+      this.fixedBottom = 0
 
-      // In certain cases this._scrollView is undefined
+      // In certain cases this.scrollView is undefined
       // if that is the case then we should just return
-      if (!this._scrollView) {
-        console.assert(false, '_scrollView should be valid')
+      if (!this.scrollView) {
+        console.assert(false, 'scrollView should be valid')
         return
       }
 
-      scrollEvent = this._scrollView.ev
+      scrollEvent = this.scrollView.ev
 
       if (this.headerComponent) {
         let ele = this.headerComponent.getNativeElement()
-        this._headerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+        this.headerHeight = parsePxUnit(window.getComputedStyle(ele).height)
       }
       if (this.footerComponent) {
         let ele = this.footerComponent.getNativeElement()
-        this._footerEle = ele
-        this._footerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+        this.footerHeight = parsePxUnit(window.getComputedStyle(ele).height)
       }
 
       // Toolbar height
-      this._contentTop = this._headerHeight
-      this._contentBottom = this._footerHeight
+      this.contentTop = this.headerHeight
+      this.contentBottom = this.footerHeight
 
       // In a Tabs
       if (this.tabsComponent) {
         let ele = this.tabsComponent.getNativeElement()
         let tabbarEle = ele.firstElementChild
-        this._tabbarHeight = tabbarEle.clientHeight
+        let tabbarHeight = tabbarEle.clientHeight
 
-        if (this._tabsPlacement === null) {
+        if (this.tabsPlacement === null) {
           // this is the first tabbar found, remember it's position
-          this._tabsPlacement = ele.getAttribute('tabsplacement')
+          this.tabsPlacement = ele.getAttribute('tabsplacement')
         }
 
         // Tabs height
-        if (this._tabsPlacement === 'top') {
-          this._tabsTop = this._headerHeight
+        if (this.tabsPlacement === 'top') {
+          this.tabsTop = this.headerHeight
           tabsTop = this.tabsComponent.getTabsTop()
-          this._contentTop += this._tabbarHeight
+          this.contentTop += tabbarHeight
         } else {
-          this._contentBottom += this._tabbarHeight
+          this.contentBottom += tabbarHeight
         }
       }
 
       // Fixed content shouldn't include content padding
-      this._fixedTop = this._contentTop
-      this._fixedBottom = this._contentBottom
+      this.fixedTop = this.contentTop
+      this.fixedBottom = this.contentBottom
 
       // ******** DOM READ ****************
       const contentDimensions = this.getContentDimensions()
@@ -294,22 +292,20 @@ export default {
       scrollEvent.contentBottom = contentDimensions.contentBottom
 
       this._dirty = (
-        cachePaddingTop !== this._paddingTop ||
-          cachePaddingBottom !== this._paddingBottom ||
-          cachePaddingLeft !== this._paddingLeft ||
-          cachePaddingRight !== this._paddingRight ||
-          cacheHeaderHeight !== this._headerHeight ||
-          cacheFooterHeight !== this._footerHeight ||
-          cacheTabsPlacement !== this._tabsPlacement ||
-          tabsTop !== this._tabsTop ||
-          this._contentTop !== this.contentTop ||
-          this._contentBottom !== this.contentBottom
+        cachePaddingTop !== this.paddingTop ||
+          cachePaddingBottom !== this.paddingBottom ||
+          cacheHeaderHeight !== this.headerHeight ||
+          cacheFooterHeight !== this.footerHeight ||
+          cacheTabsPlacement !== this.tabsPlacement ||
+          tabsTop !== this.tabsTop ||
+          this.contentTop !== this.contentMarginTop ||
+          this.contentBottom !== this.contentMarginBottom
       )
 
-      this._scrollView.init(this.scrollElement)
+      this.scrollView.init(this.scrollElement)
 
       // initial imgs refresh
-      this._imgsUpdate()
+      this.imgsUpdate()
     },
 
     _writeDimensions () {
@@ -331,40 +327,40 @@ export default {
       }
 
       // Tabs height
-      if (this._tabsPlacement === 'bottom' && this._contentBottom > 0 && this._footerEle) {
-        var footerPos = this._contentBottom - this._footerHeight
+      if (this.tabsPlacement === 'bottom' && this.contentBottom > 0 && this.footerComponent) {
+        var footerPos = this.contentBottom - this.footerHeight
         console.assert(footerPos >= 0, 'footerPos has to be positive')
-        this._footerEle.style.bottom = cssFormat(footerPos)
+        this.footerComponent.getNativeElement().style.bottom = cssFormat(footerPos)
       }
 
       // Only update top margin if value changed
-      if (this._contentTop !== this.contentTop) {
-        console.assert(this._contentTop >= 0, 'contentTop has to be positive')
-        console.assert(this._fixedTop >= 0, 'fixedTop has to be positive')
+      if (this.contentTop !== this.contentMarginTop) {
+        console.assert(this.contentTop >= 0, 'contentTop has to be positive')
+        console.assert(this.fixedTop >= 0, 'fixedTop has to be positive')
 
-        scrollEle.style.marginTop = cssFormat(this._contentTop)
-        fixedEle.style.marginTop = cssFormat(this._fixedTop)
+        scrollEle.style.marginTop = cssFormat(this.contentTop)
+        fixedEle.style.marginTop = cssFormat(this.fixedTop)
 
-        this.contentTop = this._contentTop
+        this.contentMarginTop = this.contentTop
       }
 
       // Only update bottom margin if value changed
-      if (this._contentBottom !== this.contentBottom) {
-        console.assert(this._contentBottom >= 0, 'contentBottom has to be positive')
-        console.assert(this._fixedBottom >= 0, 'fixedBottom has to be positive')
+      if (this.contentBottom !== this.contentMarginBottom) {
+        console.assert(this.contentBottom >= 0, 'contentBottom has to be positive')
+        console.assert(this.fixedBottom >= 0, 'fixedBottom has to be positive')
 
-        scrollEle.style.marginBottom = cssFormat(this._contentBottom)
-        fixedEle.style.marginBottom = cssFormat(this._fixedBottom)
+        scrollEle.style.marginBottom = cssFormat(this.contentBottom)
+        fixedEle.style.marginBottom = cssFormat(this.fixedBottom)
 
-        this.contentBottom = this._contentBottom
+        this.contentMarginBottom = this.contentBottom
       }
 
-      if (this.tabsComponent && this._tabsPlacement !== null) {
+      if (this.tabsComponent && this.tabsPlacement !== null) {
         // set the position of the tabbar
-        if (this._tabsPlacement === 'top') {
-          this.tabsComponent.setTabbarPosition(this._tabsTop, -1)
+        if (this.tabsPlacement === 'top') {
+          this.tabsComponent.setTabbarPosition(this.tabsTop, -1)
         } else {
-          console.assert(this._tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
+          console.assert(this.tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
           this.tabsComponent.setTabbarPosition(-1, 0)
         }
       }
@@ -388,28 +384,31 @@ export default {
 
     // -------- For Img Component --------
     addImg (img) {
-      this._imgs.push(img)
+      this.imgs.push(img)
     },
     removeImg (img) {
-      removeArrayItem(this._imgs, img)
+      removeArrayItem(this.imgs, img)
     },
-    _imgsUpdate () {
-      if (this._scrollView.initialized && this._imgs.length && this._isImgsUpdatable()) {
-        updateImgs(this._imgs, this.scrollTop, this.contentHeight, this.directionY, this._imgReqBfr, this._imgRndBfr)
-      }
-    },
-    _isImgsUpdatable () {
+    isImgsUpdatable () {
       // an image is only "updatable" if the content isn't scrolling too fast
       // if scroll speed is above the maximum velocity, then let current
       // requests finish, but do not start new requets or render anything
       // if scroll speed is below the maximum velocity, then it's ok
       // to start new requests and render images
-      return Math.abs(this._scrollView.ev.velocityY) < this._imgVelMax
+      return Math.abs(this.scrollView.ev.velocityY) < this.imgVelMax
+    },
+    imgsUpdate () {
+      if (this.scrollView.initialized && this.imgs.length && this.isImgsUpdatable()) {
+        this.$nextTick(() => {
+          updateImgs(this.imgs, this.scrollView.ev.scrollTop, this.scrollView.ev.contentHeight, this.scrollView.ev.directionY, this.imgReqBfr, this.imgRndBfr)
+        })
+      }
     }
   }
 
 }
 </script>
+
 <style lang="scss">
   @import "content";
   @import "content.ios";
