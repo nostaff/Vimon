@@ -287,6 +287,7 @@ sub {
   position: absolute;
   z-index: $z-index-toolbar;
   display: block;
+  transition: all ease 300ms;
 
   width: 100%;
 }
@@ -301,6 +302,7 @@ sub {
   position: absolute;
   z-index: $z-index-toolbar;
   display: block;
+  transition: all ease 300ms;
 
   width: 100%;
 }
