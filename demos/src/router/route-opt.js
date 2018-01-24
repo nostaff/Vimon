@@ -29,7 +29,11 @@ const routes = [
   // Layout
   { path: '/toolbar', name: 'toolbar', component: resolve => require(['@/pages/toolbar.vue'], resolve) },
   { path: '/page', name: 'page', component: resolve => require(['@/pages/page.vue'], resolve) },
-  { path: '/page2', name: 'page2', component: resolve => require(['@/pages/page2.vue'], resolve) },
+  { path: '/page-context', name: 'page-context', component: resolve => require(['@/pages/page-context.vue'], resolve) },
+  { path: '/page-fixed', name: 'page-fixed', component: resolve => require(['@/pages/page-fixed.vue'], resolve) },
+  { path: '/page-scroll', name: 'page-scroll', component: resolve => require(['@/pages/page-scroll.vue'], resolve) },
+  { path: '/page-bar-style', name: 'page-bar-style', component: resolve => require(['@/pages/page-bar-style.vue'], resolve) },
+  { path: '/page-hide-bars', name: 'page-hide-bars', component: resolve => require(['@/pages/page-hide-bars.vue'], resolve) },
   { path: '/list', name: 'list', component: resolve => require(['@/pages/list.vue'], resolve) },
   { path: '/grid', name: 'grid', component: resolve => require(['@/pages/grid.vue'], resolve) },
   { path: '/tabs', name: 'tabs', component: resolve => require(['@/pages/tabs.vue'], resolve) },
