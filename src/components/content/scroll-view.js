@@ -241,19 +241,22 @@ export default class ScrollView {
     const transform = this._transform
 
     let startTime
+    let timeStamp
     let attempts = 0
     let stopScroll = false
 
     // scroll loop
-    function step (timeStamp) {
+    let step = () => {
       attempts++
 
-      if (!self._el || stopScroll || attempts > maxAttempts) {
+      if (stopScroll || attempts > maxAttempts) {
         self.setScrolling(false, null);
         (el.style)[transform] = ''
         done()
         return
       }
+
+      timeStamp = new Date().getTime()
 
       let time = Math.min(1, ((timeStamp - startTime) / duration))
 
@@ -285,11 +288,10 @@ export default class ScrollView {
     self.setScrolling(true, null)
     self.isScrolling = true
 
+    startTime = new Date().getTime()
+
     // chill out for a frame first
-    window.setTimeout(timeStamp => {
-      startTime = timeStamp
-      step(timeStamp)
-    }, 16)
+    window.requestAnimationFrame(step)
 
     return promise
   }

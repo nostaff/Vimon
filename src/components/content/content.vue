@@ -115,6 +115,12 @@ export default {
     })
   },
   mounted () {
+    if (this.$slots && this.$slots['fixed']) {
+      this.$slots['fixed'].forEach((item) => {
+        item.elm.setAttribute('fixed', '')
+      })
+    }
+
     this._calculateContentDimensions()
   },
   destroyed () {
