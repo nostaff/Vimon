@@ -46,6 +46,12 @@ export default {
     VmIcon,
     VmButtons
   },
+  provide () {
+    const _this = this
+    return {
+      navbarComponent: _this
+    }
+  },
   data () {
     return {
       isShowBackButton: !isTrueProperty(this.hideBackButton)
