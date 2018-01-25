@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/nostaff/vimon/compare/v1.4.0...v1.5.0) (2018-01-25)
+
+
+### Features
+
+* Note组件增加自定义颜色支持 ([bf54116](https://github.com/nostaff/vimon/commit/bf54116))
+
+
+
+<a name="1.3.4"></a>
+## [1.3.4](https://github.com/nostaff/vimon/compare/v1.3.3...v1.3.4) (2018-01-05)
+
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/nostaff/vimon/compare/v1.3.3...v1.4.0) (2018-01-25)
 
