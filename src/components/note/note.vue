@@ -1,5 +1,5 @@
 <template>
-  <span class="ion-note" :class="[modeClass]">
+  <span class="ion-note" :class="[modeClass, colorClass]">
     <slot></slot>
   </span>
 </template>
