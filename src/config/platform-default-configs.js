@@ -68,7 +68,7 @@ export default {
       tabsPlacement: 'bottom',
       tabsHideOnSubPages: false,
       showIndicatorWhenPageChange: false, // 页面切换是否显示Indicator提示
-      pageTransition: 'fade-right-transition', // 'ios-transition'
+      pageTransition: 'fade-right-transition',
 
       pickerRotateFactor: -0.46,
       pickerScaleFactor: 1

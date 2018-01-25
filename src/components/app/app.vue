@@ -62,8 +62,8 @@ export default {
     console.assert(this.$config, `The Component of <App> need 'config' instance`)
 
     /**
-       * $app对外方法
-       **/
+     * $app对外方法
+     */
     let proto = Reflect.getPrototypeOf(Reflect.getPrototypeOf(this))
     proto.$app = this
 

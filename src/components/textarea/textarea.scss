@@ -99,24 +99,17 @@ textarea.text-input {
 // Input Cover: Focused
 // --------------------------------------------------
 // When the input has focus, then the input cover should be hidden
-
-// TODO remove all uses of input-has-focus in v4
-.item-input-has-focus .input-cover,
-.input-has-focus .input-cover {
+.item-input-has-focus .input-cover {
   display: none;
 }
 
-.item-input-has-focus,
-.input-has-focus {
+.item-input-has-focus {
   pointer-events: none;
 }
 
 .item-input-has-focus textarea,
-.input-has-focus textarea,
 .item-input-has-focus a,
-.input-has-focus a,
-.item-input-has-focus button,
-.input-has-focus button {
+.item-input-has-focus button {
   pointer-events: auto;
 }
 
@@ -138,24 +131,30 @@ textarea.text-input {
   background-repeat: no-repeat;
 }
 
-// TODO remove all uses of input-has-focus in v4
-// TODO remove all uses of input-has-value in v4
-.item-input-has-focus.item-input-has-value .text-input-clear-icon,
-.input-has-focus.input-has-value .text-input-clear-icon {
+.item-input-has-focus.item-input-has-value .text-input-clear-icon {
   display: block;
 }
 
 // Textarea Count
 // --------------------------------------------------
 
-.input-count {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 12px;
-  color: #3e3d3d;
-  padding-right: 20px;
-  span {
-    color: #000;
+.ion-textarea {
+  .input-count {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: 5px;
+    font-size: 12px;
+    color: #3e3d3d;
+    span {
+      color: #000;
+    }
+  }
+
+  &.has-count {
+    margin-bottom: 10px;
+    .input-inner-wrap {
+      padding-bottom: 10px;
+    }
   }
 }

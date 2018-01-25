@@ -3,13 +3,13 @@
 
         <vm-content padding>
 
-            <vm-button block @click.native="showToast('bottom')">Show Toast Bottom Position</vm-button>
-            <vm-button block @click.native="showToast('top')">Show Toast Top Position</vm-button>
-            <vm-button block @click.native="showToast('middle')">Show Toast Middle Position</vm-button>
-            <vm-button block margin-bottom @click.native="showLongToast()">Show Long Toast</vm-button>
+            <vm-button block @click="showToast('bottom')">Show Toast Bottom Position</vm-button>
+            <vm-button block @click="showToast('top')">Show Toast Top Position</vm-button>
+            <vm-button block @click="showToast('middle')">Show Toast Middle Position</vm-button>
+            <vm-button block margin-bottom @click="showLongToast()">Show Long Toast</vm-button>
 
-            <vm-button block @click.native="showDismissDurationToast()">Show Custom Duration Toast</vm-button>
-            <vm-button block @click.native="showToastWithCloseButton()">Show Close Button Toast</vm-button>
+            <vm-button block @click="showDismissDurationToast()">Show Custom Duration Toast</vm-button>
+            <vm-button block @click="showToastWithCloseButton()">Show Close Button Toast</vm-button>
 
         </vm-content>
     </vm-page>

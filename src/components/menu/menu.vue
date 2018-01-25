@@ -1,8 +1,15 @@
 <template>
   <div class="ion-menu" role="navigation" :id="id" :type="type" :side="side" :class="{'show-menu':showMenu}">
-    <!--组件自己维护backdrop-->
-    <vm-backdrop @click="$menu.close()" :isActive="showBackdrop" :class="{'show-backdrop':showBackdrop}"></vm-backdrop>
-    <transition :name="animationName" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave" @after-leave="afterLeave">
+    <vm-backdrop
+        @click="bdClick"
+        :isActive="showBackdrop"
+        :class="{'show-backdrop':showBackdrop}"></vm-backdrop>
+    <transition
+        :name="animationName"
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterLeave">
       <div class="menu-inner" v-if="isOpen">
         <slot></slot>
       </div>
@@ -139,6 +146,10 @@ export default {
       return new Promise(resolve => {
         this.dismissCallback = resolve
       })
+    },
+
+    bdClick () {
+      this.$menu.close()
     }
   }
 }

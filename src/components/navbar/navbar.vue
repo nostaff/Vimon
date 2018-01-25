@@ -1,5 +1,5 @@
 <template>
-  <vm-toolbar class="ion-navbar">
+  <vm-toolbar class="ion-navbar" :color="color">
     <vm-button slot="buttons" v-if="isShowBackButton"
         :class="['back-button','back-button-'+mode,'show-back-button']"
         :icon-only="!backButtonText || mode !=='ios'"
@@ -45,6 +45,12 @@ export default {
     VmTitle,
     VmIcon,
     VmButtons
+  },
+  provide () {
+    const _this = this
+    return {
+      navbarComponent: _this
+    }
   },
   data () {
     return {
@@ -97,9 +103,7 @@ export default {
         if (this.onBackButtonClick(ev) === false) { return }
       }
 
-      // let root = document.querySelector('.ion-app')
-      // if (root) root.setAttribute('transition-direction', 'back')
-      window.history.back()
+      this.$router ? this.$router.back() : window.history.back()
     },
     moreButtonClickHandler (ev) {
       ev.preventDefault()

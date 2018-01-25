@@ -7,7 +7,7 @@
 
 ## DEMO
 
-<p align="center"><img src="https://nostaff.github.io/vimon/example/static/img/vimo_qrcode.png" alt="vimo" width="200"><br><a align="center" href="https://nostaff.github.io/vimon/example/">https://nostaff.github.io/vimon/example</a></p>
+<p align="center"><img src="https://github.com/nostaff/vimon/blob/master/demos/static/img/qrcode.png?raw=true" alt="vimo" width="200"><br><a align="center" href="https://nostaff.github.io/vimon/example/">https://nostaff.github.io/vimon/example</a></p>
 
 ## USED FOR
 

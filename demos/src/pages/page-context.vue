@@ -1,0 +1,62 @@
+<template>
+  <vm-page>
+
+    <vm-header>
+      <vm-navbar>
+        <vm-title ref="title">文本</vm-title>
+      </vm-navbar>
+    </vm-header>
+
+    <vm-content padding class="outer-content">
+
+      <h1>这个是h1标签</h1>
+      <h2>这个是h2标签</h2>
+      <h3>这个是h3标签</h3>
+      <h4>这个是h4标签</h4>
+      <h5>这个是h5标签</h5>
+      <h6>这个是h6标签</h6>
+      <p>这个是p标签</p>
+      <vm-button block @click="$history.toRoot()">返回首页</vm-button>
+
+
+      <p>通过在组件上使用ref属性获取组件的控制权, 比如获取Title组件的控制权修改document.title</p>
+      <vm-button @click="setTitle('Hello Vue')" small outline>点击设置Title='Hello Vue'</vm-button>
+
+
+      <p>Vimo支持使用rem布局, 当然, 在写业务代码的时候使用px就好, 剩下是使用插件完成吧! </p>
+
+      <strong>步骤:</strong>
+      <ul>
+        <li>在index.html文件中加上js脚本, 给html标签附上基础fontSize.</li>
+        <li>在build/vue-loader.conf.js文件中将注释解开: postcss: [require('postcss-px2rem')({remUnit: 50})]</li>
+      </ul>
+
+    </vm-content>
+    <vm-footer>
+      <vm-toolbar>
+        <vm-segment value="1">
+          <vm-segment-button value="1">第一章</vm-segment-button>
+          <vm-segment-button value="2">第二章</vm-segment-button>
+          <vm-segment-button value="3">第三章</vm-segment-button>
+        </vm-segment>
+      </vm-toolbar>
+    </vm-footer>
+  </vm-page>
+</template>
+
+<script type="text/javascript">
+export default {
+  name: 'context',
+  watch: {},
+  computed: {
+    titleComponent () {
+      return this.$refs.title
+    }
+  },
+  methods: {
+    setTitle (val) {
+      this.titleComponent.setTitle(val)
+    }
+  }
+}
+</script>

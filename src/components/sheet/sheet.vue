@@ -1,6 +1,6 @@
 <template>
     <div class="vm-sheet" :class="[modeClass,directionClass,{'vm-sheet-visible':isVisible}]">
-        <vm-backdrop :bdClick="bdClick" :enableBackdropDismiss="enableBackdropDismiss"
+        <vm-backdrop @click="bdClick" :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive && showBackdrop"></vm-backdrop>
         <transition name="sheet"
                 @before-enter="beforeEnter"

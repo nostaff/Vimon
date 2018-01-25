@@ -73,24 +73,16 @@ $label-md-body-text-line-height:      1.5 !default;
   @include margin(null, null, 0, 0);
 }
 
-// TODO remove all uses of input-has-focus in v4
-// TODO remove all uses of input-has-value in v4
 .item-input-has-focus .label-md[stacked],
-.input-has-focus .label-md[stacked],
-.item-input-has-focus .label-md[floating],
-.input-has-focus .label-md[floating] {
+.item-input-has-focus .label-md[floating] {
   color: $label-md-text-color-focused;
 }
 
 .item-input-has-focus .label-md[floating],
-.input-has-focus .label-md[floating],
-.item-input-has-value .label-md[floating],
-.input-has-value .label-md[floating] {
+.item-input-has-value .label-md[floating] {
   @include transform(translate3d(0, 0, 0), scale(.9));
 }
 
-.item-md.item-label-stacked [item-right], // deprecated
-.item-md.item-label-floating [item-right], // deprecated
 .item-md.item-label-stacked [item-end],
 .item-md.item-label-floating [item-end] {
   @include margin($item-md-padding-media-top - 2, null, $item-md-padding-media-bottom - 2, null);

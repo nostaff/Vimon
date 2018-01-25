@@ -26,7 +26,7 @@
  * <List>
  *    <ListHeader>
  *        <span>Brightness</span>
- *        <Badge slot="item-right">{{brightness}}</Badge>
+ *        <Badge slot="item-end">{{brightness}}</Badge>
  *    </ListHeader>
  *    <Item>
  *         <Range v-model="brightness">

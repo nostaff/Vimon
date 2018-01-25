@@ -12,7 +12,6 @@ import Card from './card/index.js'
 import CardContent from './card-content/index.js'
 import CardHeader from './card-header/index.js'
 import CardTitle from './card-title/index.js'
-import Cells from './cells/index.js'
 import Checkbox from './checkbox/index.js'
 import CheckboxGroup from './checkbox-group/index.js'
 import Chip from './chip/index.js'
@@ -87,7 +86,6 @@ export {
   CardContent,
   CardHeader,
   CardTitle,
-  Cells,
   Checkbox,
   CheckboxGroup,
   Chip,

@@ -2,9 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/nostaff/vimon/compare/v1.3.3...v1.4.0) (2018-01-25)
+
+
+### Bug Fixes
+
+* 解决data中属性名带下划线导致获取错误的问题 ([d173cc0](https://github.com/nostaff/vimon/commit/d173cc0))
+* 解决iOS下光标错位问题 ([9e510c3](https://github.com/nostaff/vimon/commit/9e510c3))
+* 解决ios设备弹出框被backdrop覆盖的问题 ([ed3efa5](https://github.com/nostaff/vimon/commit/ed3efa5))
+* 解决点击背景不能关闭的问题 ([5f9b899](https://github.com/nostaff/vimon/commit/5f9b899))
+
+
+### Features
+
+* demos 添加Img组件demo ([a8b33b7](https://github.com/nostaff/vimon/commit/a8b33b7))
+* Input组件更新，增加输入限制和验证功能 ([24c4eb8](https://github.com/nostaff/vimon/commit/24c4eb8))
+* Navbar组件增加颜色输入属性 ([a33d856](https://github.com/nostaff/vimon/commit/a33d856))
+* text 增加必填验证和自动高度 ([a766054](https://github.com/nostaff/vimon/commit/a766054))
+* vue-test-utils 升级为 [@vue](https://github.com/vue)/test-utils ([7c8e03e](https://github.com/nostaff/vimon/commit/7c8e03e))
+* 优化Content组件，去掉JS Scroll ([eab0ae2](https://github.com/nostaff/vimon/commit/eab0ae2))
+* 优化menu打开方式 ([875e0d0](https://github.com/nostaff/vimon/commit/875e0d0))
+* 优化专场动画的类别的获取方式 ([9ec34e3](https://github.com/nostaff/vimon/commit/9ec34e3))
+* 优化专场动画的类别的获取方式 ([7e722dc](https://github.com/nostaff/vimon/commit/7e722dc))
+* 优化路由切换的标记； 增加iOS滑动手势的判断 ([f11f750](https://github.com/nostaff/vimon/commit/f11f750))
+* 增加page组件demo ([8ebcbea](https://github.com/nostaff/vimon/commit/8ebcbea))
+* 增加设置title方法  setTitle ([7286421](https://github.com/nostaff/vimon/commit/7286421))
+* 添加 getUnitValue function ([b2cd223](https://github.com/nostaff/vimon/commit/b2cd223))
+* 添加vm-img组件 ([3988de9](https://github.com/nostaff/vimon/commit/3988de9))
+
 <a name="1.3.4"></a>
 ## [1.3.4](https://github.com/nostaff/vimon/compare/v1.3.3...v1.3.4) (2018-01-05)
-
 
 
 <a name="1.3.3"></a>

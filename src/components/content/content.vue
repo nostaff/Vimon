@@ -1,598 +1,420 @@
 <template>
-  <div class="ion-content" :class="[modeClass, {'has-refresher':hasRefresher}]">
+  <div class="ion-content" :class="[modeClass]">
     <div ref="fixedElement" class="fixed-content">
       <slot name="fixed"></slot>
-      <slot name="fixedTop"></slot>
-      <slot name="fixedBottom"></slot>
     </div>
-    <div ref="scrollElement" class="scroll-content">
+    <div ref="scrollElement" class="scroll-content" :class="{'disable-scroll':isScrollDisabled}">
       <slot></slot>
     </div>
     <slot name="refresher"></slot>
   </div>
 </template>
 <script>
-  import {assert, isPresent, removeArrayItem, parsePxUnit, cssFormat} from '../../util/util'
-  import {transitionEnd, hasClass} from '../../util/dom'
-  import {ScrollView} from './scroll-view'
-  import ModeMixins from '../../themes/theme.mixins'
+import {removeArrayItem, parsePxUnit, cssFormat} from '../../util/util'
+import {transitionEnd, registerListener} from '../../util/dom'
+import ScrollView from './scroll-view'
+import {updateImgs} from './img-util'
+import ModeMixins from '../../themes/theme.mixins'
+import throttle from 'lodash.throttle'
 
-  export default {
-    name: 'vm-content',
-    mixins: [ModeMixins],
-    inject: {
-      pageComponent: {
-        from: 'pageComponent',
-        default: null
-      },
-      tabsComponent: {
-        from: 'tabsComponent',
-        default: null
-      }
+export default {
+  name: 'vm-content',
+  mixins: [ModeMixins],
+  inject: {
+    pageComponent: {
+      from: 'pageComponent',
+      default: null
     },
-    provide () {
-      let _this = this
+    tabsComponent: {
+      from: 'tabsComponent',
+      default: null
+    }
+  },
+  provide () {
+    let _this = this
+    return {
+      contentComponent: _this
+    }
+  },
+  data () {
+    return {
+      contentMarginTop: 0,
+      contentMarginBottom: 0,
+
+      headerHeight: 0,
+      footerHeight: 0,
+
+      scrollView: null,
+
+      contentTop: 0,
+      contentBottom: 0,
+      fixedTop: 0,
+      fixedBottom: 0,
+      paddingTop: 0,
+      paddingBottom: 0,
+
+      tabsPlacement: null,
+      tabsTop: 0,
+
+      resizeUnReg: null,
+
+      imgs: [],
+      imgReqBfr: this.$config && this.$config.getNumber('imgRequestBuffer', 1400),
+      imgRndBfr: this.$config && this.$config.getNumber('imgRenderBuffer', 400),
+      imgVelMax: this.$config && this.$config.getNumber('imgVelocityMax', 3)
+    }
+  },
+  computed: {
+    scrollElement () {
+      return this.$refs.scrollElement
+    },
+    fixedElement () {
+      return this.$refs.fixedElement
+    },
+    headerComponent () {
+      return this.pageComponent.headerComponent
+    },
+    footerComponent () {
+      return this.pageComponent.footerComponent
+    },
+    isScrollDisabled () {
+      return this.$app && this.$app.isScrollDisabled
+    }
+  },
+  created () {
+    this.scrollView = new ScrollView()
+    this.imgs = []
+
+    // 窗口变化重新计算容器
+    this.resizeUnReg = registerListener(window, 'resize', throttle(() => { this._calculateContentDimensions() }, 200, {leading: false, trailing: true}))
+
+    const scroll = this.scrollView
+    scroll.onScrollStart = (ev) => {
+      this.$emit('onScrollStart', ev)
+      this.$events && this.$events.$emit('onScrollStart', ev)
+    }
+
+    scroll.onScroll = (ev) => {
+      this.$emit('onScroll', ev)
+      this.$events && this.$events.$emit('onScroll', ev)
+      this.imgsUpdate()
+    }
+
+    scroll.onScrollEnd = (ev) => {
+      this.$emit('onScrollEnd', ev)
+      this.$events && this.$events.$emit('onScrollEnd', ev)
+      this.imgsUpdate()
+    }
+
+    // TODO
+    // directive 插入的header不能被获取到pageComponent，采用监听的方式获得header的加载事件
+    const self = this
+    this.$events.$once('header:mounted', function (ele) {
+      let headerHeight = ele.$el.clientHeight
+      self._calculateContentDimensions(headerHeight)
+    })
+  },
+  mounted () {
+    if (this.$slots && this.$slots['fixed']) {
+      this.$slots['fixed'].forEach((item) => {
+        item.elm.setAttribute('fixed', '')
+      })
+    }
+
+    this._calculateContentDimensions()
+  },
+  destroyed () {
+    this.resizeUnReg && this.resizeUnReg()
+
+    this.scrollView && this.scrollView.destroy()
+  },
+  methods: {
+    getContentDimensions () {
+      const scrollEle = this.scrollElement
+
       return {
-        contentComponent: _this
+        contentWidth: scrollEle.clientWidth,
+        contentHeight: scrollEle.clientHeight - this.contentTop - this.contentBottom,
+        contentTop: this.contentTop,
+        contentBottom: this.contentBottom,
+
+        scrollHeight: scrollEle.scrollHeight,
+        scrollTop: scrollEle.scrollTop,
+
+        scrollWidth: scrollEle.scrollWidth,
+        scrollLeft: scrollEle.scrollLeft
       }
     },
-    props: {
-      fullscreen: Boolean,
-      scrollDownOnLoad: Boolean
+    /**
+     * @function scrollTo
+     * @description 滚动到指定位置
+     * @param {Number} [x=0]            - 滚动到指定位置的x值
+     * @param {Number} [y=0]            - 滚动到指定位置的y值
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollTo (x, y, duration = 300, done) {
+      return this.scrollView.scrollTo(x, y, duration, done)
     },
-    data () {
-      return {
-        hasRefresher: false,
-        contentTop: 0,
-        contentBottom: 0,
-
-        // scrollDownOnLoad: false,
-        // fullscreen: false,
-
-        _scrollEle: null,
-        _fixedEle: null,
-
-        _hdrHeight: 0,
-        _ftrHeight: 0,
-
-        _scroll: null,
-
-        _cTop: 0, // content top
-        _cBottom: 0, // content bottom
-        _fTop: 0, // fixex top
-        _fBottom: 0, // fixex bottom
-        _pTop: 0, // padding top
-        _pBottom: 0, // padding bottom
-
-        _imgs: [], // 子组件Img的实例列表
-        _imgReqBfr: 1400, // 1400
-        _imgRndBfr: 600, // 400
-        _imgVelMax: 3
-      }
+    /**
+     * @function scrollToTop
+     * @description 滚动到顶部
+     * @param {Number} [duration=300] - 滚动动画的时间, 默认是300ms
+     * @return {Promise} 当滚动动画完毕后返回promise
+     */
+    scrollToTop (duration = 300) {
+      console.debug(`content, scrollToTop, duration: ${duration}`)
+      return this.scrollView.scrollToTop(duration)
     },
-    computed: {
-      contentHeight: function () {
-        return this._scroll.ev.contentHeight
-      },
-      contentWidth: function () {
-        return this._scroll.ev.contentWidth
-      },
-      scrollHeight: function () {
-        return this._scroll.ev.scrollHeight
-      },
-      scrollWidth: function () {
-        return this._scroll.ev.scrollWidth
-      },
-      scrollTop: {
-        get: function () {
-          return this._scroll.ev.scrollTop
-        },
-        set: function (top) {
-          this._scroll.setTop(top)
-        }
-      },
-      scrollElement () {
-        return this.$refs.scrollElement
-      },
-      headerComponent () {
-        return this.pageComponent.getHeaderComponent()
-      },
-      footerComponent () {
-        return this.pageComponent.getFooterComponent()
-      }
+    /**
+     * @function scrollToBottom
+     * @description 滚动到顶部
+     * @param {Number} [duration=300] - 滚动动画的时间, 默认是300ms
+     * @return {Promise} 当滚动动画完毕后返回promise
+     */
+    scrollToBottom (duration = 300) {
+      console.debug(`content, scrollToBottom, duration: ${duration}`)
+      return this.scrollView.scrollToBottom(duration)
     },
-    created () {
-      this._scroll = new ScrollView()
-      this._imgs = []
-
-      this.hasRefresher = this.$slots && isPresent(this.$slots['refresher'])
-
-      if (this.pageComponent) {
-        this.pageComponent.contentComponent = this
-      }
+    /**
+     * @function scrollBy
+     * @description
+     * 滚动到指定位置, 这个和scrollTo类似, 只不过是相对当前位置的滚动
+     *
+     * 当前位置为scrollTop为`100px`, 执行`myScroll.scrollBy(0, -10)`, 则滚动到`110px`位置
+     *
+     * @param {Number} x                - 滚动到指定位置的x值
+     * @param {Number} y                - 滚动到指定位置的y值
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollBy (x, y, duration = 300, done) {
+      return this.scrollView.scrollBy(x, y, duration, done)
     },
-    mounted () {
-      if (this.$slots && this.$slots['fixed']) {
-        this.$slots['fixed'].forEach((item) => {
-          item.elm.setAttribute('fixed', '')
-        })
-      }
-      if (this.$slots && this.$slots['fixedTop']) {
-        this.$slots['fixedTop'].forEach((item) => {
-          item.elm.setAttribute('fixed', '')
-          item.elm.setAttribute('fixedTop', '')
-        })
-      }
-      if (this.$slots && this.$slots['fixedBottom']) {
-        this.$slots['fixedBottom'].forEach((item) => {
-          item.elm.setAttribute('fixed', '')
-          item.elm.setAttribute('fixedBottom', '')
-        })
-      }
-      this._fixedEle = this.$refs.fixedElement
-      this._scrollEle = this.$refs.scrollElement
-
-      this.fullscreen && this.setElementAttribute('fullscreen', '')
-
-      this.updateContentDimensions()
+    /**
+     * @function scrollToElement
+     * @description 滚动到指定元素
+     * @param {Element} el
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollToElement (el, duration = 300, done) {
+      return this.scrollView.scrollToElement(el, duration, done)
     },
-    destroyed () {
-      this._scroll && this._scroll.destroy()
+
+    /**
+     * @function resize
+     * @description
+     * 当动态添加Header/Footer/Tabs或者修改了他的属性时, 重新计算Content组件的尺寸.
+     */
+    resize () {
+      this.$nextTick(() => {
+        this._calculateContentDimensions()
+      })
     },
-    methods: {
-      updateContentDimensions () {
-        assert(this.getFixedElement(), 'fixed element was not found')
-        assert(this.getScrollElement(), 'scroll element was not found')
 
-        const scroll = this._scroll
+    _calculateContentDimensions (headerHeight = 0) {
+      console.assert(this.fixedElement, 'fixed element was not found')
+      console.assert(this.scrollElement, 'scroll element was not found')
 
-        scroll.ev.fixedElement = this.getFixedElement()
-        scroll.ev.scrollElement = this.getScrollElement()
+      this._readDimensions(headerHeight)
+      this._writeDimensions()
+    },
 
-        scroll.onScrollStart = (ev) => {
-          this.$emit('onScrollStart', ev)
+    _readDimensions (headerHeight = 0) {
+      const cachePaddingTop = this.paddingTop
+      const cachePaddingBottom = this.paddingBottom
+      const cacheHeaderHeight = this.headerHeight
+      const cacheTabsPlacement = this.tabsPlacement
+      const cacheFooterHeight = this.footerHeight
+      let tabsTop = 0
+      let scrollEvent = null
+      this.paddingTop = 0
+      this.paddingBottom = 0
+      this.headerHeight = headerHeight
+      this.footerHeight = 0
+      this.tabsPlacement = null
+      this.tabsTop = 0
+      this.fixedTop = 0
+      this.fixedBottom = 0
+
+      // In certain cases this.scrollView is undefined
+      // if that is the case then we should just return
+      if (!this.scrollView) {
+        console.assert(false, 'scrollView should be valid')
+        return
+      }
+
+      scrollEvent = this.scrollView.ev
+
+      if (this.headerComponent) {
+        let ele = this.headerComponent.getNativeElement()
+        this.headerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+      }
+      if (this.footerComponent) {
+        let ele = this.footerComponent.getNativeElement()
+        this.footerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+      }
+
+      // Toolbar height
+      this.contentTop = this.headerHeight
+      this.contentBottom = this.footerHeight
+
+      // In a Tabs
+      if (this.tabsComponent) {
+        let ele = this.tabsComponent.getNativeElement()
+        let tabbarEle = ele.firstElementChild
+        let tabbarHeight = tabbarEle.clientHeight
+
+        if (this.tabsPlacement === null) {
+          // this is the first tabbar found, remember it's position
+          this.tabsPlacement = ele.getAttribute('tabsplacement')
         }
 
-        scroll.onScroll = (ev) => {
-          this.$emit('onScroll', ev)
-          this.imgsUpdate()
-        }
-
-        scroll.onScrollEnd = (ev) => {
-          this.$emit('onScrollEnd', ev)
-          this.imgsUpdate()
-        }
-
-        this.$nextTick(() => {
-          this._readDimensions()
-          this._writeDimensions()
-        })
-      },
-      getContentDimensions () {
-        const scrollEle = this.getScrollElement()
-        const parentElement = scrollEle.parentElement
-
-        return {
-          contentHeight: parentElement.offsetHeight - this._cTop - this._cBottom,
-          contentTop: this._cTop,
-          contentBottom: this._cBottom,
-
-          contentWidth: parentElement.offsetWidth,
-          contentLeft: parentElement.offsetLeft,
-
-          scrollHeight: scrollEle.scrollHeight,
-          scrollTop: scrollEle.scrollTop,
-
-          scrollWidth: scrollEle.scrollWidth,
-          scrollLeft: scrollEle.scrollLeft
-        }
-      },
-      scrollTo (x, y, duration = 300, done) {
-        return this._scroll.scrollTo(x, y, duration, done)
-      },
-      scrollToTop (duration = 300) {
-        console.debug(`content, scrollToTop, duration: ${duration}`)
-        return this._scroll.scrollToTop(duration)
-      },
-      scrollToBottom (duration = 300) {
-        console.debug(`content, scrollToBottom, duration: ${duration}`)
-        return this._scroll.scrollToBottom(duration)
-      },
-      enableJsScroll () {
-        this._scroll.enableJsScroll(this._cTop, this._cBottom)
-      },
-
-      getScrollElement () {
-        return this._scrollEle
-      },
-
-      getFixedElement () {
-        return this._fixedEle
-      },
-
-      /**
-       * 滚动结束的事件回调
-       * @param {function} callback - 过渡结束的回调, 回调传参TransitionEvent
-       * @private
-       */
-      onScrollElementTransitionEnd (callback) {
-        transitionEnd(this.getScrollElement(), callback)
-      },
-
-      /**
-       * @hidden
-       * DOM WRITE
-       */
-      setScrollElementStyle (prop, val) {
-        const scrollEle = this.getScrollElement()
-        if (scrollEle) {
-          this.$nextTick(() => {
-            (scrollEle.style)[prop] = val
-          })
-        }
-      },
-
-      /**
-       * Tell the content to recalculate its dimensions. This should be called
-       * after dynamically adding/removing headers, footers, or tabs.
-       */
-      resize () {
-        this.$nextTick(() => {
-          this._readDimensions()
-          this._writeDimensions()
-        })
-      },
-
-      /**
-       * DOM READ
-       */
-      _readDimensions () {
-        const cachePaddingTop = this._pTop
-        const cachePaddingRight = this._pRight
-        const cachePaddingBottom = this._pBottom
-        const cachePaddingLeft = this._pLeft
-        const cacheHeaderHeight = this._hdrHeight
-        const cacheTabsPlacement = this._tabsPlacement
-        const cacheFooterHeight = this._ftrHeight
-        let tabsTop = 0
-        let scrollEvent = null
-        this._pTop = 0
-        this._pRight = 0
-        this._pBottom = 0
-        this._pLeft = 0
-        this._hdrHeight = 0
-        this._ftrHeight = 0
-        this._tabsPlacement = null
-        this._tTop = 0
-        this._fTop = 0
-        this._fBottom = 0
-
-        // In certain cases this._scroll is undefined
-        // if that is the case then we should just return
-        if (!this._scroll) {
-          assert(false, '_scroll should be valid')
-          return
-        }
-
-        scrollEvent = this._scroll.ev
-
-        let ele
-        let computedStyle
-        let parentEle = this.$parent.getNativeElement()
-        let children = parentEle.children
-        for (var i = children.length - 1; i >= 0; i--) {
-          ele = children[i]
-          if (hasClass(ele, 'ion-content')) {
-            scrollEvent.contentElement = ele
-
-            if (this.fullscreen) {
-              // ******** DOM READ ****************
-              computedStyle = window.getComputedStyle(ele)
-              this._pTop = parsePxUnit(computedStyle.paddingTop)
-              this._pBottom = parsePxUnit(computedStyle.paddingBottom)
-              this._pRight = parsePxUnit(computedStyle.paddingRight)
-              this._pLeft = parsePxUnit(computedStyle.paddingLeft)
-            }
-          } else if (hasClass(ele, 'ion-header')) {
-            scrollEvent.headerElement = ele
-
-            // ******** DOM READ ****************
-            this._hdrHeight = ele.clientHeight
-          } else if (hasClass(ele, 'ion-footer')) {
-            scrollEvent.footerElement = ele
-
-            // ******** DOM READ ****************
-            this._ftrHeight = ele.clientHeight
-            this._footerEle = ele
-          }
-        }
-
-        // In a Tabs
-        if (this.tabsComponent) {
-          ele = this.tabsComponent.getNativeElement()
-          let tabbarEle = ele.firstElementChild
-          // ******** DOM READ ****************
-          this._tabbarHeight = tabbarEle.clientHeight
-
-          if (this._tabsPlacement === null) {
-            // this is the first tabbar found, remember it's position
-            this._tabsPlacement = ele.getAttribute('tabsplacement')
-          }
-        }
-
-        // Tabs top
-        if (this.tabsComponent && this._tabsPlacement === 'top') {
-          this._tTop = this._hdrHeight
+        // Tabs height
+        if (this.tabsPlacement === 'top') {
+          this.tabsTop = this.headerHeight
           tabsTop = this.tabsComponent.getTabsTop()
-        }
-
-        // Toolbar height
-        this._cTop = this._hdrHeight
-        this._cBottom = this._ftrHeight
-
-        // Tabs height
-        if (this._tabsPlacement === 'top') {
-          this._cTop += this._tabbarHeight
-        } else if (this._tabsPlacement === 'bottom') {
-          this._cBottom += this._tabbarHeight
-        }
-
-        // Refresher uses a border which should be hidden unless pulled
-        if (this.hasRefresher) {
-          this._cTop -= 1
-        }
-
-        // Fixed content shouldn't include content padding
-        this._fTop = this._cTop
-        this._fBottom = this._cBottom
-
-        // Handle fullscreen viewport (padding vs margin)
-        if (this.fullscreen) {
-          this._cTop += this._pTop
-          this._cBottom += this._pBottom
-        }
-
-        // ******** DOM READ ****************
-        const contentDimensions = this.getContentDimensions()
-        scrollEvent.scrollHeight = contentDimensions.scrollHeight
-        scrollEvent.scrollWidth = contentDimensions.scrollWidth
-        scrollEvent.contentHeight = contentDimensions.contentHeight
-        scrollEvent.contentWidth = contentDimensions.contentWidth
-        scrollEvent.contentTop = contentDimensions.contentTop
-        scrollEvent.contentBottom = contentDimensions.contentBottom
-
-        this._dirty = (
-          cachePaddingTop !== this._pTop ||
-          cachePaddingBottom !== this._pBottom ||
-          cachePaddingLeft !== this._pLeft ||
-          cachePaddingRight !== this._pRight ||
-          cacheHeaderHeight !== this._hdrHeight ||
-          cacheFooterHeight !== this._ftrHeight ||
-          cacheTabsPlacement !== this._tabsPlacement ||
-          tabsTop !== this._tTop ||
-          this._cTop !== this.contentTop ||
-          this._cBottom !== this.contentBottom
-        )
-
-        this._scroll.init(this.getScrollElement(), this._cTop, this._cBottom)
-
-        // initial imgs refresh
-        this.imgsUpdate()
-      },
-
-      /**
-       * DOM WRITE
-       */
-      _writeDimensions () {
-        if (!this._dirty) {
-          console.debug('Skipping writeDimensions')
-          return
-        }
-
-        const scrollEle = this.getScrollElement()
-        if (!scrollEle) {
-          assert(false, 'this._scrollEle should be valid')
-          return
-        }
-
-        const fixedEle = this.getFixedElement()
-        if (!fixedEle) {
-          assert(false, 'this._fixedEle should be valid')
-          return
-        }
-
-        // Tabs height
-        if (this._tabsPlacement === 'bottom' && this._cBottom > 0 && this._footerEle) {
-          var footerPos = this._cBottom - this._ftrHeight
-          assert(footerPos >= 0, 'footerPos has to be positive')
-          // ******** DOM WRITE ****************
-          this._footerEle.style.bottom = cssFormat(footerPos)
-        }
-
-        // Handle fullscreen viewport (padding vs margin)
-        let topProperty = 'marginTop'
-        let bottomProperty = 'marginBottom'
-        let fixedTop = this._fTop
-        let fixedBottom = this._fBottom
-
-        if (this.fullscreen) {
-          assert(this._pTop >= 0, '_paddingTop has to be positive')
-          assert(this._pBottom >= 0, '_paddingBottom has to be positive')
-
-          // adjust the content with padding, allowing content to scroll under headers/footers
-          // however, on iOS you cannot control the margins of the scrollbar (last tested iOS9.2)
-          // only add inline padding styles if the computed padding value, which would
-          // have come from the app's css, is different than the new padding value
-          topProperty = 'paddingTop'
-          bottomProperty = 'paddingBottom'
-        }
-
-        // Only update top margin if value changed
-        if (this._cTop !== this.contentTop) {
-          assert(this._cTop >= 0, 'contentTop has to be positive')
-          assert(fixedTop >= 0, 'fixedTop has to be positive');
-
-          // ******** DOM WRITE ****************
-          (scrollEle.style)[topProperty] = cssFormat(this._cTop)
-          // ******** DOM WRITE ****************
-          fixedEle.style.marginTop = cssFormat(fixedTop)
-
-          this.contentTop = this._cTop
-        }
-
-        // Only update bottom margin if value changed
-        if (this._cBottom !== this.contentBottom) {
-          assert(this._cBottom >= 0, 'contentBottom has to be positive')
-          assert(fixedBottom >= 0, 'fixedBottom has to be positive');
-
-          // ******** DOM WRITE ****************
-          (scrollEle.style)[bottomProperty] = cssFormat(this._cBottom)
-          // ******** DOM WRITE ****************
-          fixedEle.style.marginBottom = cssFormat(fixedBottom)
-
-          this.contentBottom = this._cBottom
-        }
-
-        if (this.tabsComponent && this._tabsPlacement !== null) {
-          // set the position of the tabbar
-          if (this._tabsPlacement === 'top') {
-            // ******** DOM WRITE ****************
-            this.tabsComponent.setTabbarPosition(this._tTop, -1)
-          } else {
-            assert(this._tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
-            // ******** DOM WRITE ****************
-            this.tabsComponent.setTabbarPosition(-1, 0)
-          }
-        }
-
-        // Scroll the page all the way down after setting dimensions
-        if (this.scrollDownOnLoad) {
-          this.scrollToBottom(0)
-          this.scrollDownOnLoad = false
-        }
-      },
-
-      addImg (img) {
-        this._imgs.push(img)
-      },
-
-      removeImg (img) {
-        removeArrayItem(this._imgs, img)
-      },
-
-      imgsUpdate () {
-        if (this._scroll.initialized && this._imgs.length && this.isImgsUpdatable()) {
-          updateImgs(this._imgs, this.scrollTop, this.contentHeight, this.directionY, this._imgReqBfr, this._imgRndBfr)
-        }
-      },
-
-      isImgsUpdatable () {
-        // an image is only "updatable" if the content isn't scrolling too fast
-        // if scroll speed is above the maximum velocity, then let current
-        // requests finish, but do not start new requets or render anything
-        // if scroll speed is below the maximum velocity, then it's ok
-        // to start new requests and render images
-        return Math.abs(this._scroll.ev.velocityY) < this._imgVelMax
-      }
-    }
-
-  }
-
-  function updateImgs (imgs, viewableTop, contentHeight, scrollDirectionY, requestableBuffer, renderableBuffer) {
-    // ok, so it's time to see which images, if any, should be requested and rendered
-    // ultimately, if we're scrolling fast then don't bother requesting or rendering
-    // when scrolling is done, then it needs to do a check to see which images are
-    // important to request and render, and which image requests should be aborted.
-    // Additionally, images which are not near the viewable area should not be
-    // rendered at all in order to save browser resources.
-    const viewableBottom = (viewableTop + contentHeight)
-    const priority1 = []
-    const priority2 = []
-    let img
-
-    // all images should be paused
-    for (var i = 0, ilen = imgs.length; i < ilen; i++) {
-      img = imgs[i]
-
-      if (scrollDirectionY === 'up') {
-        // scrolling up
-        if (img.top < viewableBottom && img.bottom > viewableTop - renderableBuffer) {
-          // scrolling up, img is within viewable area
-          // or about to be viewable area
-          img.canRequest = img.canRender = true
-          priority1.push(img)
-          continue
-        }
-
-        if (img.bottom <= viewableTop && img.bottom > viewableTop - requestableBuffer) {
-          // scrolling up, img is within requestable area
-          img.canRequest = true
-          img.canRender = false
-          priority2.push(img)
-          continue
-        }
-
-        if (img.top >= viewableBottom && img.top < viewableBottom + renderableBuffer) {
-          // scrolling up, img below viewable area
-          // but it's still within renderable area
-          // don't allow a reset
-          img.canRequest = img.canRender = false
-          continue
-        }
-      } else {
-        // scrolling down
-
-        if (img.bottom > viewableTop && img.top < viewableBottom + renderableBuffer) {
-          // scrolling down, img is within viewable area
-          // or about to be viewable area
-          img.canRequest = img.canRender = true
-          priority1.push(img)
-          continue
-        }
-
-        if (img.top >= viewableBottom && img.top < viewableBottom + requestableBuffer) {
-          // scrolling down, img is within requestable area
-          img.canRequest = true
-          img.canRender = false
-          priority2.push(img)
-          continue
-        }
-
-        if (img.bottom <= viewableTop && img.bottom > viewableTop - renderableBuffer) {
-          // scrolling down, img above viewable area
-          // but it's still within renderable area
-          // don't allow a reset
-          img.canRequest = img.canRender = false
-          continue
+          this.contentTop += tabbarHeight
+        } else {
+          this.contentBottom += tabbarHeight
         }
       }
 
-      img.canRequest = img.canRender = false
-      img.reset()
-    }
+      // Fixed content shouldn't include content padding
+      this.fixedTop = this.contentTop
+      this.fixedBottom = this.contentBottom
 
-    // update all imgs which are viewable
-    priority1.sort(sortTopToBottom).forEach(i => i.update())
+      // ******** DOM READ ****************
+      const contentDimensions = this.getContentDimensions()
+      scrollEvent.scrollHeight = contentDimensions.scrollHeight
+      scrollEvent.scrollWidth = contentDimensions.scrollWidth
+      scrollEvent.contentHeight = contentDimensions.contentHeight
+      scrollEvent.contentWidth = contentDimensions.contentWidth
+      scrollEvent.contentTop = contentDimensions.contentTop
+      scrollEvent.contentBottom = contentDimensions.contentBottom
 
-    if (scrollDirectionY === 'up') {
-      // scrolling up
-      priority2.sort(sortTopToBottom).reverse().forEach(i => i.update())
-    } else {
-      // scrolling down
-      priority2.sort(sortTopToBottom).forEach(i => i.update())
+      this._dirty = (
+        cachePaddingTop !== this.paddingTop ||
+          cachePaddingBottom !== this.paddingBottom ||
+          cacheHeaderHeight !== this.headerHeight ||
+          cacheFooterHeight !== this.footerHeight ||
+          cacheTabsPlacement !== this.tabsPlacement ||
+          tabsTop !== this.tabsTop ||
+          this.contentTop !== this.contentMarginTop ||
+          this.contentBottom !== this.contentMarginBottom
+      )
+
+      this.scrollView.init(this.scrollElement)
+
+      // initial imgs refresh
+      this.imgsUpdate()
+    },
+
+    _writeDimensions () {
+      if (!this._dirty) {
+        console.debug('Skipping writeDimensions')
+        return
+      }
+
+      const scrollEle = this.scrollElement
+      if (!scrollEle) {
+        console.assert(false, 'this.scrollElement should be valid')
+        return
+      }
+
+      const fixedEle = this.fixedElement
+      if (!fixedEle) {
+        console.assert(false, 'this.fixedElement should be valid')
+        return
+      }
+
+      // Tabs height
+      if (this.tabsPlacement === 'bottom' && this.contentBottom > 0 && this.footerComponent) {
+        var footerPos = this.contentBottom - this.footerHeight
+        console.assert(footerPos >= 0, 'footerPos has to be positive')
+        this.footerComponent.getNativeElement().style.bottom = cssFormat(footerPos)
+      }
+
+      // Only update top margin if value changed
+      if (this.contentTop !== this.contentMarginTop) {
+        console.assert(this.contentTop >= 0, 'contentTop has to be positive')
+        console.assert(this.fixedTop >= 0, 'fixedTop has to be positive')
+
+        scrollEle.style.marginTop = cssFormat(this.contentTop)
+        fixedEle.style.marginTop = cssFormat(this.fixedTop)
+
+        this.contentMarginTop = this.contentTop
+      }
+
+      // Only update bottom margin if value changed
+      if (this.contentBottom !== this.contentMarginBottom) {
+        console.assert(this.contentBottom >= 0, 'contentBottom has to be positive')
+        console.assert(this.fixedBottom >= 0, 'fixedBottom has to be positive')
+
+        scrollEle.style.marginBottom = cssFormat(this.contentBottom)
+        fixedEle.style.marginBottom = cssFormat(this.fixedBottom)
+
+        this.contentMarginBottom = this.contentBottom
+      }
+
+      if (this.tabsComponent && this.tabsPlacement !== null) {
+        // set the position of the tabbar
+        if (this.tabsPlacement === 'top') {
+          this.tabsComponent.setTabbarPosition(this.tabsTop, -1)
+        } else {
+          console.assert(this.tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
+          this.tabsComponent.setTabbarPosition(-1, 0)
+        }
+      }
+    },
+
+    // -------- For Refresher Component --------
+    getScrollElement () {
+      return this.scrollElement
+    },
+    onScrollElementTransitionEnd (callback) {
+      transitionEnd(this.getScrollElement(), callback)
+    },
+    setScrollElementStyle (prop, val) {
+      const scrollEle = this.scrollElement
+      if (scrollEle) {
+        this.$nextTick(() => {
+          (scrollEle.style)[prop] = val
+        })
+      }
+    },
+
+    // -------- For Img Component --------
+    addImg (img) {
+      this.imgs.push(img)
+    },
+    removeImg (img) {
+      removeArrayItem(this.imgs, img)
+    },
+    isImgsUpdatable () {
+      // an image is only "updatable" if the content isn't scrolling too fast
+      // if scroll speed is above the maximum velocity, then let current
+      // requests finish, but do not start new requets or render anything
+      // if scroll speed is below the maximum velocity, then it's ok
+      // to start new requests and render images
+      return Math.abs(this.scrollView.ev.velocityY) < this.imgVelMax
+    },
+    imgsUpdate () {
+      if (this.scrollView.initialized && this.imgs.length && this.isImgsUpdatable()) {
+        this.$nextTick(() => {
+          updateImgs(this.imgs, this.scrollView.ev.scrollTop, this.scrollView.ev.contentHeight, this.scrollView.ev.directionY, this.imgReqBfr, this.imgRndBfr)
+        })
+      }
     }
   }
 
-  function sortTopToBottom (a, b) {
-    if (a.top < b.top) {
-      return -1
-    }
-    if (a.top > b.top) {
-      return 1
-    }
-    return 0
-  }
+}
 </script>
+
 <style lang="scss">
   @import "content";
   @import "content.ios";

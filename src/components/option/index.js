@@ -13,7 +13,7 @@
  * @usage
  * <Item>
  *    <Label>Gender</Label>
- *    <Select item-right placeholder="Select" interface="alert"
+ *    <Select item-end placeholder="Select" interface="alert"
  *            @onChange="onChange"
  *            @onSelect="onSelect"
  *            @onCancel="onCancel">

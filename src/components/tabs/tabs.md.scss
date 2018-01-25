@@ -246,7 +246,6 @@ $tabs-md-tab-icon-size:                       2.4rem !default;
 }
 
 // Tab layout: icon-end
-.tabs-md[tabsLayout=icon-right] .tab-button[aria-selected=true] .tab-button-icon, // deprecated
 .tabs-md[tabsLayout=icon-end] .tab-button[aria-selected=true] .tab-button-icon {
   @include deprecated-variable(transform, $tabs-md-tab-icon-end-transform-active) {
     @include transform(translate3d($tabs-md-tab-icon-right-transform-x-active, $tabs-md-tab-icon-right-transform-y-active, $tabs-md-tab-icon-right-transform-z-active));
@@ -261,7 +260,6 @@ $tabs-md-tab-icon-size:                       2.4rem !default;
 }
 
 // Tab layout: icon-start
-.tabs-md[tabsLayout=icon-left] .tab-button[aria-selected=true] .tab-button-icon, // deprecated
 .tabs-md[tabsLayout=icon-start] .tab-button[aria-selected=true] .tab-button-icon {
   @include deprecated-variable(transform, $tabs-md-tab-icon-start-transform-active) {
     @include transform(translate3d($tabs-md-tab-icon-left-transform-x-active, $tabs-md-tab-icon-left-transform-y-active, $tabs-md-tab-icon-left-transform-z-active));

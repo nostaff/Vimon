@@ -10,7 +10,7 @@
       <div class="tab-highlight"></div>
     </div>
     <slot name="tab-content"></slot>
-    <div tab-portal=""></div>
+    <div tab-portal></div>
   </div>
 </template>
 

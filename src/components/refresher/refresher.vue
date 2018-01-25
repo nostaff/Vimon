@@ -426,28 +426,27 @@ export default {
     setCss (y, duration, overflowVisible, delay) {
       this.appliedStyles = y > 0
 
-      const content = this.contentComponent
       const Css = this.$platform.css
       if (this.contentComponent) {
-        content.setScrollElementStyle(Css.transform, ((y > 0) ? 'translateY(' + y + 'px) translateZ(0px)' : 'translateZ(0px)'))
-        content.setScrollElementStyle(Css.transitionDuration, duration)
-        content.setScrollElementStyle(Css.transitionDelay, delay)
-        content.setScrollElementStyle('overflow', overflowVisible ? 'hidden' : '')
+        this.contentComponent.setScrollElementStyle(Css.transform, ((y > 0) ? 'translateY(' + y + 'px) translateZ(0px)' : 'translateZ(0px)'))
+        this.contentComponent.setScrollElementStyle(Css.transitionDuration, duration)
+        this.contentComponent.setScrollElementStyle(Css.transitionDelay, delay)
+        this.contentComponent.setScrollElementStyle('overflow', overflowVisible ? 'hidden' : '')
       }
     },
 
     setListeners (shouldListen) {
       if (this.unregs && this.unregs.length > 0) {
         console.debug('refresher.vue 解除绑定')
-        this.unregs.forEach(_unreg => {
-          _unreg && _unreg()
+        this.unregs.forEach(unreg => {
+          unreg && unreg()
         })
       }
 
       this.$nextTick(() => {
         if (shouldListen && this.contentComponent) {
           let contentElement = this.contentComponent.getScrollElement()
-          console.assert(contentElement, 'Refresh Component need Content Ready!::<Component>$_setListeners()')
+          console.assert(contentElement, 'Refresh Component need Content Ready!::<Component>setListeners()')
 
           registerListener(contentElement, 'touchstart', this.onStart.bind(this), {'passive': false}, this.unregs)
           registerListener(contentElement, 'mousedown', this.onStart.bind(this), {'passive': false}, this.unregs)
