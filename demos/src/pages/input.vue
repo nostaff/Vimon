@@ -293,7 +293,7 @@ export default {
 
 <style scoped lang="scss">
     .event__p {
-        padding-left: 40px;
+        padding-left: 20px;
     }
 
     .event__ul {
