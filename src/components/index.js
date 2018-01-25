@@ -27,6 +27,7 @@ import Footer from './footer/index.js'
 import Grid from './grid/index.js'
 import Header from './header/index.js'
 import Icon from './icon/index.js'
+import Img from './img/index.js'
 import Indicator from './indicator/index.js'
 import InfiniteScroll from './infinite-scroll/index.js'
 import Input from './input/index.js'
@@ -101,6 +102,7 @@ export {
   Grid,
   Header,
   Icon,
+  Img,
   Indicator,
   InfiniteScroll,
   Input,
