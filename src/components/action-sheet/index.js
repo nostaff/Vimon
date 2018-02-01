@@ -95,7 +95,7 @@
  * @return {Promise}
  */
 
-import actionSheetComponent from './action-sheet.vue'
+import ActionSheetComponent from './action-sheet.vue'
 import GeneratePopUpInstance from '../../util/generatePopUpInstance.js'
 
 class ActionSheetInstance extends GeneratePopUpInstance {
@@ -108,4 +108,4 @@ class ActionSheetInstance extends GeneratePopUpInstance {
   }
 }
 
-export default new ActionSheetInstance(actionSheetComponent, 'sheet-portal')
+export default new ActionSheetInstance(ActionSheetComponent, 'sheet-portal')

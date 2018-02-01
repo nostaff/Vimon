@@ -1,19 +1,20 @@
 <template>
-  <div class="ion-popover" :class="[modeClass, cssClass]" style="z-index: 9999;">
+  <div class="ion-popover" :class="[modeClass, colorClass, cssClass]" style="z-index: 9999;">
     <vm-backdrop
         :enableBackdropDismiss="enableBackdropDismiss"
         v-if="showBackdrop" v-show="isActive" @click="bdClick"></vm-backdrop>
     <transition name="popover-fade"
-      @before-enter="beforeEnter"
-      @after-enter="afterEnter"
-      @before-leave="beforeLeave"
-      @after-leave="afterLeave">
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterLeave">
       <div class="popover-wrapper" v-show="isActive">
         <div class="popover-arrow" ref="popoverArrow"></div>
         <div class="popover-content" ref="popoverContent">
-          <div class="popover-viewport" ref="popoverViewport">
-            <slot></slot>
+          <div v-if="theComponent" class="popover-viewport">
+            <component :is="theComponent" :data="data"></component>
           </div>
+          <div v-else class="popover-viewport" v-html="htmlComponent"></div>
         </div>
       </div>
     </transition>
@@ -21,9 +22,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import {isTrueProperty, isString, isObject} from '../../util/util'
-import {urlChange} from '../../util/dom'
+import {isTrueProperty} from '../../util/util'
+import {urlChange, prepareComponent} from '../../util/dom'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
 import VmBackdrop from '../backdrop'
@@ -57,13 +57,17 @@ export default {
       dismissOnPageChange: true,
       onDismiss: NOOP,
       cssClass: '',
+      component: null,
+      data: null,
 
       dismissCallback: NOOP, // 关闭的回调
       presentCallback: NOOP, // 打开的回调
 
       isActive: false,
       enabled: false,
-      unreg: null
+      unreg: null,
+      htmlComponent: '',
+      theComponent: ''
     }
   },
   computed: {
@@ -72,17 +76,31 @@ export default {
     },
     arrowEle () {
       return this.$refs.popoverArrow
-    },
-    popoverViewportEle () {
-      return this.$refs.popoverViewport
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.showBackdrop = isTrueProperty(_options.showBackdrop)
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+    this.onDismiss = _options.onDismiss
+    this.cssClass = _options.cssClass
+    this.ev = _options.ev
+    this.component = _options.component
+    this.data = _options.data
+
     if (this.dismissOnPageChange) {
       this.unreg = urlChange(() => {
         this.isActive && this.dismiss()
       })
     }
+  },
+  mounted () {
+    prepareComponent(this.component).then((component) => {
+      this.theComponent = component
+    }, () => {
+      this.htmlComponent = this.component
+    })
   },
   updated () {
     this.isActive && this.updatePositionView()
@@ -107,30 +125,15 @@ export default {
       this.$el.remove()
       this.enabled = true
     },
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.showBackdrop = isTrueProperty(_options.showBackdrop)
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
-      this.onDismiss = _options.onDismiss
-      this.cssClass = _options.cssClass
-      this.ev = _options.ev
-
+    present () {
       this.isActive = true
-      this.mountContent(_options.component, _options.data)
+
       return new Promise((resolve) => { this.presentCallback = resolve })
     },
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.dismissOnPageChange && this.unreg && this.unreg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.dismissCallback()
-            this.$el.remove()
-            this.enabled = true
-          })
-        }
+        this.unreg && this.unreg()
         return new Promise((resolve) => { this.dismissCallback = resolve })
       } else {
         return new Promise((resolve) => { resolve() })
@@ -139,23 +142,8 @@ export default {
 
     bdClick () {
       if (this.enabled && this.enableBackdropDismiss) {
-        this.dismiss('backdrop')
+        this.dismiss()
       }
-    },
-
-    mountContent (component, data) {
-      let Content
-      if (isString(component)) {
-        Content = Vue.extend({template: '<div>' + component + '</div>'})
-      } else if (isObject(component)) {
-        Content = Vue.extend(component)
-      }
-
-      // eslint-disable-next-line no-new
-      new Content({
-        el: this.popoverViewportEle,
-        $data: data
-      })
     },
 
     mdPositionView () {

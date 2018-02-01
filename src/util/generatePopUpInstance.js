@@ -60,34 +60,37 @@ export default class GeneratePopUpInstance {
 
   /**
    * 构建组件实例
+   * @param {Object} options - 参数
    * @private
-   */
-  generateInstance () {
+   * */
+  generateInstance (options) {
     let el = getInsertPosition(this._position).appendChild(
       document.createElement('div')
     )
     let Component = Vue.extend(this._component)
-    return new Component({el})
+    let _ins = new Component({$data: options})
+    _ins.$mount(el)
+    return _ins
   }
 
   /**
    * 开启组件
    * @return {Promise}
    * @public
-   */
+   * */
   present () {
     let options = this.normalizeOptions(...arguments)
     return new Promise((resolve) => {
       if (!this.isPresentHandled(options)) {
         if (this._ins && this._ins.isActive) {
           this._ins.dismiss().then(() => {
-            this._ins = this.generateInstance()
-            this._ins.present(options).then(() => resolve())
+            this._ins = this.generateInstance(options)
+            this._ins.present().then(() => resolve())
           })
         } else {
           // normal present
-          this._ins = this.generateInstance()
-          this._ins.present(options).then(() => resolve())
+          this._ins = this.generateInstance(options)
+          this._ins.present().then(() => resolve())
         }
       } else {
         resolve()

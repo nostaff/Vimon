@@ -141,7 +141,7 @@ class ToastInstance extends GeneratePopUpInstance {
  * @param {boolean} [args.dismissOnPageChange=false] - Whether to dismiss the toast when navigating to a new page or nav back.
  * @return {ToastInstance} 返回Toast的实例
  * @private
- * */
+ */
 function _toast () {
   let _instance = new ToastInstance(ToastComponent, 'toast-portal')
   // 自动开启

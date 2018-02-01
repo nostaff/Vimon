@@ -61,6 +61,22 @@ export default {
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.message = _options.message
+    this.closeButtonText = _options.closeButtonText
+    this.cssClass = _options.cssClass
+    this.showCloseButton = isTrueProperty(_options.showCloseButton)
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    if (['top', 'middle', 'bottom'].indexOf(_options.position) > -1) {
+      this.position = _options.position
+    }
+    if (isNumber(_options.duration)) {
+      this.duration = _options.duration
+    }
+    if (isFunction(_options.onDismiss)) {
+      this.onDismiss = _options.onDismiss
+    }
+
     if (this.dismissOnPageChange) {
       this.unReg = urlChange(() => {
         if (this.isActive) {
@@ -102,23 +118,7 @@ export default {
     getZIndex () {
       return zIndex++
     },
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.message = _options.message
-      this.closeButtonText = _options.closeButtonText
-      this.cssClass = _options.cssClass
-      this.showCloseButton = isTrueProperty(_options.showCloseButton)
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      if (['top', 'middle', 'bottom'].indexOf(_options.position) > -1) {
-        this.position = _options.position
-      }
-      if (isNumber(_options.duration)) {
-        this.duration = _options.duration
-      }
-      if (isFunction(_options.onDismiss)) {
-        this.onDismiss = _options.onDismiss
-      }
-
+    present () {
       this.isActive = true
       if (!this.showCloseButton) {
         this.timer = window.setTimeout(() => {
@@ -136,14 +136,7 @@ export default {
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.dismissOnPageChange && this.unReg && this.unReg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.dismissCallback()
-            this.$el.remove()
-            this.enabled = true
-          })
-        }
+        this.unReg && this.unReg()
         isFunction(this.onDismiss) && this.onDismiss()
         return new Promise((resolve) => {
           this.dismissCallback = resolve

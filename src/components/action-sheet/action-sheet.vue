@@ -74,9 +74,38 @@ export default {
     }
   },
   created () {
-    // mounted before data ready, so no need to judge the `dismissOnPageChange` value
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.title = _options.title.trim()
+    this.subTitle = _options.subTitle.trim()
+    this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.cssClass = _options.cssClass.trim()
+
+    _options.buttons.forEach((button) => {
+      if (isString(button)) {
+        button = { text: button }
+      }
+
+      if (!button.cssClass) {
+        button.cssClass = ''
+      } else {
+        button.cssClass = button.cssClass.trim()
+      }
+
+      if (button.role === 'cancel') {
+        this.cancelButton = button
+      } else {
+        if (button.role === 'destructive') {
+          button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive'
+        } else if (button.role === 'selected') {
+          button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-selected'
+        }
+        this.buttons.push(button)
+      }
+    })
+
     if (this.dismissOnPageChange) {
-      this.unReg = urlChange(() => {
+      this.unreg = urlChange(() => {
         this.isActive && this.dismiss()
       })
     }
@@ -123,37 +152,7 @@ export default {
      * @param {Array} options.buttons.cssClass                - 自定义样式
      * @return {Promise}
      */
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.title = _options.title.trim()
-      this.subTitle = _options.subTitle.trim()
-      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.cssClass = _options.cssClass.trim()
-
-      _options.buttons.forEach((button) => {
-        if (isString(button)) {
-          button = { text: button }
-        }
-
-        if (!button.cssClass) {
-          button.cssClass = ''
-        } else {
-          button.cssClass = button.cssClass.trim()
-        }
-
-        if (button.role === 'cancel') {
-          this.cancelButton = button
-        } else {
-          if (button.role === 'destructive') {
-            button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-destructive'
-          } else if (button.role === 'selected') {
-            button.cssClass = (button.cssClass + ' ' || '') + 'action-sheet-selected'
-          }
-          this.buttons.push(button)
-        }
-      })
-
+    present () {
       this.isActive = true
       return new Promise((resolve) => {
         this.presentCallback = resolve
@@ -163,14 +162,7 @@ export default {
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.dismissOnPageChange && this.unReg && this.unReg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.dismissCallback()
-            this.$el.remove()
-            this.enabled = true
-          })
-        }
+        this.unReg && this.unReg()
         return new Promise((resolve) => {
           this.dismissCallback = resolve
         })

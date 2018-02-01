@@ -86,6 +86,53 @@ export default {
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.cssClass = _options.cssClass.trim()
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+    this.onDismiss = _options.onDismiss
+    this.onChange = _options.onChange
+    this.onSelect = _options.onSelect
+
+    if (typeof _options.isChain === 'boolean') { this.isChain = _options.isChain }
+    if (typeof _options.level === 'number') { this.level = _options.level }
+
+    this.buttons = _options.buttons.map(button => {
+      if (isString(button)) {
+        button = {text: button}
+      }
+      if (button.role) {
+        button.cssRole = `picker-toolbar-${button.role}`
+      }
+      return button
+    })
+
+    this.columns = _options.columns.map(column => {
+      if (!isPresent(column.options)) {
+        column.options = []
+      }
+      column.selectedIndex = Math.max(0, parseInt(column.selectedIndex))
+      column.options = column.options.map(option => {
+        let opt = {
+          text: '',
+          value: '',
+          disabled: option.disabled
+        }
+
+        if (option) {
+          if (isString(option) || isNumber(option)) {
+            opt.text = option.toString()
+            opt.value = option
+          } else {
+            opt.text = option.text ? option.text : option.value
+            opt.value = option.value ? option.value : option.text
+          }
+        }
+        return opt
+      })
+      return column
+    })
+
     // dismissOnPageChange
     if (this.dismissOnPageChange) {
       this.unreg = urlChange(() => {
@@ -138,66 +185,10 @@ export default {
 
     /**
      * @function present
-     * @param {object} options - 传入参数
-     * @param {Object} options.buttons - 组件初始化的button数据
-     * @param {Array} options.columns - 组件初始化的column数据
-     * @param {String} options.column.name - 组件初始化的column数据
-     * @param {String} options.columns.align - 组件初始化的column数据
-     * @param {String} [options.theme='ios'] - 模式
-     * @param {String} [options.cssClass] - 样式
-     * @param {Boolean} [options.enableBackdropDismiss=true] - 点击backdrop是否能关闭
-     * @param {Function} [options.onChange=noop] - picker数据变化时触发, 某一个col变化也触发, 返回最新值
-     * @param {Function} [options.onSelect=noop] - 某一列发生变化时触发
      * @description 开启
+     * @private
      */
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.cssClass = _options.cssClass.trim()
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
-      this.onDismiss = _options.onDismiss
-      this.onChange = _options.onChange
-      this.onSelect = _options.onSelect
-
-      if (typeof _options.isChain === 'boolean') { this.isChain = _options.isChain }
-      if (typeof _options.level === 'number') { this.level = _options.level }
-
-      this.buttons = _options.buttons.map(button => {
-        if (isString(button)) {
-          button = {text: button}
-        }
-        if (button.role) {
-          button.cssRole = `picker-toolbar-${button.role}`
-        }
-        return button
-      })
-
-      this.columns = _options.columns.map(column => {
-        if (!isPresent(column.options)) {
-          column.options = []
-        }
-        column.selectedIndex = Math.max(0, parseInt(column.selectedIndex))
-        column.options = column.options.map(option => {
-          let opt = {
-            text: '',
-            value: '',
-            disabled: option.disabled
-          }
-
-          if (option) {
-            if (isString(option) || isNumber(option)) {
-              opt.text = option.toString()
-              opt.value = option
-            } else {
-              opt.text = option.text ? option.text : option.value
-              opt.value = option.value ? option.value : option.text
-            }
-          }
-          return opt
-        })
-        return column
-      })
-
+    present () {
       this.isActive = true
       return new Promise(resolve => {
         this.presentCallback = resolve
@@ -208,10 +199,11 @@ export default {
      * @function dismiss
      * @description
      * 关闭
+     * @private
      */
     dismiss () {
       this.isActive = false
-      this.dismissOnPageChange && this.unreg && this.unreg()
+      this.unreg && this.unreg()
       isFunction(this.onDismiss) && this.onDismiss()
       return new Promise(resolve => {
         this.dismissCallback = resolve
@@ -265,9 +257,9 @@ export default {
     },
 
     /**
-       * 当选择变化,对外发送事件
-       * @private
-       */
+     * 当选择变化,对外发送事件
+     * @private
+     */
     colChange (data) {
       // col发生变化时触发onSelect事件, 传递触发col的信息
       this.$emit('onSelect', data)
@@ -280,24 +272,24 @@ export default {
     },
 
     /**
-       * 由子组件调用, 用于记录自己
-       * @private
-       */
+     * 由子组件调用, 用于记录自己
+     * @private
+     */
     recordChildComponent (childComponent) {
       this.cols.push(childComponent)
     },
 
     /**
-       * 动态添加修改列数据时,对某一列数据修改并刷新显示
-       */
+     * 动态添加修改列数据时,对某一列数据修改并刷新显示
+     */
     resetColumn (index) {
       this.cols[index].reset()
     },
 
     /**
-       * 如果设置的选中值与显示不一致, 使用这个刷新, 他会更新滚动位置
-       * @private
-       */
+     * 如果设置的选中值与显示不一致, 使用这个刷新, 他会更新滚动位置
+     * @private
+     */
     refresh () {
       this.cols.forEach(column => {
         column.refresh()

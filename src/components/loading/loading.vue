@@ -61,6 +61,16 @@ export default {
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.content = _options.content
+    if (_options.spinner) { this.spinner = _options.spinner }
+    if (_options.spinner === 'hide') { this.spinner = null }
+    this.cssClass = _options.cssClass.trim()
+    this.duration = parseInt(_options.duration)
+    this.showBackdrop = isTrueProperty(_options.showBackdrop)
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.scrollControl = isTrueProperty(_options.scrollControl)
+
     if (this.dismissOnPageChange) {
       this.unReg = urlChange(() => {
         this.isActive && this.dismiss()
@@ -89,17 +99,7 @@ export default {
       this.$el.remove()
       this.enabled = true
     },
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.content = _options.content
-      if (_options.spinner) { this.spinner = _options.spinner }
-      if (_options.spinner === 'hide') { this.spinner = null }
-      this.cssClass = _options.cssClass.trim()
-      this.duration = parseInt(_options.duration)
-      this.showBackdrop = isTrueProperty(_options.showBackdrop)
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.scrollControl = isTrueProperty(_options.scrollControl)
-
+    present () {
       this.isActive = true
       if (parseInt(this.duration) > 16) {
         this.timer && window.clearTimeout(this.timer)
@@ -115,13 +115,6 @@ export default {
         this.isActive = false // 动起来
         this.timer && window.clearTimeout(this.timer)
         this.unreg && this.unreg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.$el.remove()
-            this.dismissCallback()
-            this.enabled = true
-          })
-        }
         return new Promise((resolve) => { this.dismissCallback = resolve })
       } else {
         return new Promise((resolve) => { resolve() })

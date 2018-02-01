@@ -97,7 +97,7 @@ export default {
         title: '',
         message: '',
         cssClass: '',
-        enableBackdropDismiss: true,
+        enableBackdropDismiss: false,
         dismissOnPageChange: true,
         buttons: []
       },
@@ -107,7 +107,7 @@ export default {
       message: '',
       inputs: [],
       buttons: [],
-      enableBackdropDismiss: true,
+      enableBackdropDismiss: false,
       dismissOnPageChange: true,
       cssClass: '',
 
@@ -120,6 +120,37 @@ export default {
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.type = _options.type
+    this.title = _options.title.trim()
+    this.message = _options.message.trim()
+    this.cssClass = _options.cssClass.trim()
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+
+    this.buttons = _options.buttons.map(button => {
+      if (isString(button)) { button = {text: button, handler: NOOP} }
+      if (!button.cssClass) { button.cssClass = '' }
+      if (!isFunction(button.handler)) { button.handler = NOOP }
+
+      return button
+    })
+
+    this.inputs = _options.inputs && _options.inputs.map((input, index) => {
+      if (isString(input)) {
+        input = {label: input, value: input, checked: false}
+      }
+      if (!input.cssClass) { input.cssClass = '' }
+      input.checked = isTrueProperty(input.checked)
+      input.disabled = isTrueProperty(input.disabled)
+      input.id = `alert-input-${index}`
+
+      if (input.checked === true) {
+        this.currentValue = input.value
+      }
+      return input
+    })
+
     if (this.dismissOnPageChange) {
       this.unReg = urlChange(() => {
         this.isActive && this.dismiss()
@@ -146,38 +177,7 @@ export default {
       this.enabled = true
     },
 
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.type = _options.type
-      this.title = _options.title.trim()
-      this.message = _options.message.trim()
-      this.cssClass = _options.cssClass.trim()
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
-
-      this.buttons = _options.buttons.map(button => {
-        if (isString(button)) { button = {text: button, handler: NOOP} }
-        if (!button.cssClass) { button.cssClass = '' }
-        if (!isFunction(button.handler)) { button.handler = NOOP }
-
-        return button
-      })
-
-      this.inputs = _options.inputs && _options.inputs.map((input, index) => {
-        if (isString(input)) {
-          input = {label: input, value: input, checked: false}
-        }
-        if (!input.cssClass) { input.cssClass = '' }
-        input.checked = isTrueProperty(input.checked)
-        input.disabled = isTrueProperty(input.disabled)
-        input.id = `alert-input-${index}`
-
-        if (input.checked === true) {
-          this.currentValue = input.value
-        }
-        return input
-      })
-
+    present () {
       this.isActive = true
       return new Promise((resolve) => {
         this.presentCallback = resolve
@@ -187,14 +187,7 @@ export default {
     dismiss () {
       if (this.isActive) {
         this.isActive = false
-        this.dismissOnPageChange && this.unReg && this.unReg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.dismissCallback()
-            this.$el.remove()
-            this.enabled = true
-          })
-        }
+        this.unReg && this.unReg()
         return new Promise((resolve) => {
           this.dismissCallback = resolve
         })
