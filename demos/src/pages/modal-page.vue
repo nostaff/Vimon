@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import ModalPage from './modal-login.vue'
-
 export default {
   data () {
     return {
@@ -38,7 +36,7 @@ export default {
     }
   },
   created () {
-    this.myParam = this.$options.$data ? this.$options.$data.myParam : null
+    this.myParam = this.$attrs.data ? this.$attrs.data.myParam : null
   },
   methods: {
     dismiss () {
@@ -46,7 +44,7 @@ export default {
     },
     login () {
       this.$modal.present({
-        component: ModalPage,
+        component: import('./modal-login.vue'),
         onDismiss (data) {
           console.log('onDismissed', data)
         }

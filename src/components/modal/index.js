@@ -13,7 +13,7 @@
  * - 在modal中如果跳转到另一页之前希望能先关闭当前modal再操作
  * - modal不会再url中留下记录
  * - modal只是装菜的盘子, 盘子中的菜通过`component`传入, 数据通过`data`传入,
- *    - this.$options.$data.username 获取数据
+ *    - this.$attrs.data.username 获取数据
  *    - this.username 也能获取到数据, 注意别冲突
  * - `onDismiss`会在modal关闭后触发.
  * - 开启的页面就是完整的Page页面, 别无其他
@@ -58,7 +58,8 @@ function ModalFactory (options) {
   return new Modal({
     el: getInsertPosition('modal-portal').appendChild(
       document.createElement('div')
-    )
+    ),
+    $data: options
   })
 }
 
@@ -82,13 +83,13 @@ function ModalFactory (options) {
  * }
  *
  * 子页面通过
- * - this.$options.$data.username 获取数据
+ * - this.$attrs.data.username 获取数据
  *
  * */
 function present (options = {}) {
   return new Promise((resolve) => {
     let modalInstance = ModalFactory(options)
-    let presentPromise = modalInstance.present(options)
+    let presentPromise = modalInstance.present()
 
     // record
     modalArr.push(modalInstance)

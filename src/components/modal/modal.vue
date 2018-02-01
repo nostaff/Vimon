@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-modal" :class="[modeClass, cssClass]" role="dialog" style="z-index: 10010;">
+  <div class="ion-modal" :class="[modeClass, cssClass]" role="dialog">
     <vm-backdrop :enableBackdropDismiss="enableBackdropDismiss"
                   v-if="showBackdrop"
                   v-show="isActive"
@@ -10,15 +10,17 @@
         @before-leave="beforeLeave"
         @after-leave="afterLeave">
       <div class="modal-wrapper" v-show="isActive">
-        <div class="modal-viewport" ref="viewPort"></div>
+        <div v-if="theComponent" class="modal-viewport">
+          <component :is="theComponent" :data="data"></component>
+        </div>
+        <div v-else class="modal-viewport" v-html="htmlComponent"></div>
       </div>
     </transition>
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import {isFunction, isTrueProperty, isString, isObject} from '../../util/util'
-import {urlChange} from '../../util/dom'
+import {isFunction, isTrueProperty} from '../../util/util'
+import {urlChange, prepareComponent} from '../../util/dom'
 import objectAssign from 'object-assign'
 import ModeMixins from '../../themes/theme.mixins'
 import VmBackdrop from '../backdrop'
@@ -56,20 +58,35 @@ export default {
 
       isActive: false,
       enabled: false,
-      unreg: null
-    }
-  },
-  computed: {
-    viewportEle () {
-      return this.$refs.viewPort
+      unreg: null,
+      htmlComponent: '',
+      theComponent: ''
     }
   },
   created () {
+    let _options = objectAssign({}, this.defaultOptions, this.$options.$data)
+    this.cssClass = _options.cssClass
+    this.showBackdrop = isTrueProperty(_options.showBackdrop)
+    this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
+    this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
+    this.component = _options.component
+    this.data = _options.data
+    if (isFunction(_options.onDismiss)) {
+      this.onDismiss = _options.onDismiss
+    }
+
     if (this.dismissOnPageChange) {
       this.unreg = urlChange(() => {
         this.isActive && this.dismiss()
       })
     }
+  },
+  mounted () {
+    prepareComponent(this.component).then((component) => {
+      this.theComponent = component
+    }, () => {
+      this.htmlComponent = this.component
+    })
   },
   methods: {
     beforeEnter () {
@@ -100,8 +117,6 @@ export default {
       }
 
       this.isActive = true
-      // Sync to sub component
-      this.mountContent(_options.component, _options.data)
       return new Promise((resolve) => {
         this.presentCallback = resolve
       })
@@ -110,14 +125,7 @@ export default {
     dismiss (data) {
       if (this.isActive) {
         this.isActive = false
-        this.dismissOnPageChange && this.unReg && this.unReg()
-        if (!this.enabled) {
-          this.$nextTick(() => {
-            this.dismissCallback()
-            this.$el.remove()
-            this.enabled = true
-          })
-        }
+        this.unReg && this.unReg()
         isFunction(this.onDismiss) && this.onDismiss(data)
         return new Promise((resolve) => {
           this.dismissCallback = resolve
@@ -133,20 +141,6 @@ export default {
       if (this.enableBackdropDismiss) {
         this.dismiss()
       }
-    },
-    mountContent (component, data) {
-      let Content
-      if (isString(component)) {
-        Content = Vue.extend({template: '<div>' + component + '</div>'})
-      } else if (isObject(component)) {
-        Content = Vue.extend(component)
-      }
-
-      // eslint-disable-next-line no-new
-      new Content({
-        el: this.viewportEle,
-        $data: data
-      })
     }
   }
 }
