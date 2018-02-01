@@ -3,7 +3,6 @@
     <vm-content ref="content">
 
       <div padding>
-        <vm-button block @click.native="showPopover($event)">Popover with template</vm-button>
 
         <div>Lorem ipsum dolor sit amet, <span class="highlightText" @click="popupText($event, 'consectetur')">consectetur</span> adipiscing elit. Mauris vel ipsum in purus mollis dictum eget vitae purus. Nulla ultrices est odio, a maximus velit pretium ac. Donec vel elementum mi. Proin elementum pulvinar neque, in lacinia nibh tempus auctor. Nam sapien velit, <span class="highlightText" @click="popupText($event, 'commodo')">commodo</span> ac nibh a, maximus ullamcorper nunc. Integer luctus
           tortor dignissim, dictum neque at, scelerisque purus. Vivamus nec erat vel magna posuere euismod. Sed ac augue eu tellus tincidunt fermentum eget sit amet nunc. Donec sit amet mi libero. Cras nunc arcu, ultrices nec sapien eu, convallis posuere libero. Pellentesque vulputate lacus eros, at lobortis lorem egestas et. Vestibulum tempus quam in efficitur lobortis. Maecenas consectetur consequat sem pharetra aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
@@ -29,50 +28,31 @@
   </vm-page>
 </template>
 <script>
-  import Popage from './popage.vue'
+import Popage from './popage.vue'
 
-  export default {
-    methods: {
-      showPopover (ev) {
-        let template = `
-                      <vm-list>
-                        <vm-list-header>Ionic</vm-list-header>
-                        <vm-item @click="itemClick()">Learn Ionic</vm-item>
-                        <vm-item @click="itemClick()">Documentation</vm-item>
-                        <vm-item @click="itemClick()">Showcase</vm-item>
-                        <vm-item @click="itemClick()">GitHub Repo</vm-item>
-                      </vm-list>
-                    `
-        this.$popover.present({
-          ev: ev,
-          component: template
-        })
-      },
+export default {
+  methods: {
 
-      pageSetting (ev) {
-        this.$popover.present({
-          ev: ev,
-          component: Popage,
-          data: {
-            contentEle: this.$refs.content.$el // 传入数据, 内部通过`this.$options.$data`获取这个data
-          }
-        })
-      },
+    pageSetting (ev) {
+      this.$popover.present({
+        ev: ev,
+        component: Popage,
+        data: {
+          contentEle: this.$refs.content.$el // 传入数据, 内部通过`this.$options.$data`获取这个data
+        }
+      })
+    },
 
-      popupText (ev, text) {
-        let contont = '<p padding text-center>You select the word of <strong>' + text + '</strong>.</p>'
+    popupText (ev, text) {
+      let contont = '<p style="padding:0 14px;" text-center>You select the word of <strong>' + text + '</strong>.</p>'
 
-        this.$popover.present({
-          ev: ev,
-          component: contont
-        })
-      },
-
-      itemClick () {
-        console.log('itemClick')
-      }
+      this.$popover.present({
+        ev: ev,
+        component: contont
+      })
     }
   }
+}
 </script>
 
 <style scoped lang="scss">

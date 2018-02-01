@@ -1,28 +1,37 @@
 <template>
-    <vm-content>
+    <article class="text-tool">
         <vm-list radio-group v-model="fontFamily" @onChange="changeFontFamily()">
-            <vm-row>
-                <vm-col>
-                    <vm-item isLink @click.native="changeFontSize('smaller')" detail-none class="popover-text-button popover-text-smaller">A</vm-item>
+            <vm-row no-padding>
+                <vm-col no-padding>
+                    <vm-item role="popover-dot" class="text-button popover-text-smaller"
+                          @click.native="changeFontSize('smaller')">
+                        <div text-center class="block">A</div>
+                    </vm-item>
                 </vm-col>
-                <vm-col>
-                    <vm-item isLink @click.native="changeFontSize('larger')" detail-none class="popover-text-button popover-text-larger">A</vm-item>
+                <vm-col no-padding>
+                    <vm-item role="popover-dot" class="text-button popover-text-larger"
+                          @click.native="changeFontSize('larger')">
+                        <div text-center class="block">A</div>
+                    </vm-item>
                 </vm-col>
             </vm-row>
             <vm-row class="popover-row-dots">
                 <vm-col>
-                    <vm-button @click.native="changeBackground('white')" role="popover-dot" class="popover-dot-white" :class="{selected: background == 'white'}"></vm-button>
+                    <vm-button @click="changeBackground('white')" role="popover-dot" class="popover-dot-white" :class="{selected: background == 'white'}"></vm-button>
                 </vm-col>
                 <vm-col>
-                    <vm-button @click.native="changeBackground('tan')" role="popover-dot" class="popover-dot-tan" :class="{selected: background == 'tan'}"></vm-button>
+                    <vm-button @click="changeBackground('tan')" role="popover-dot" class="popover-dot-tan" :class="{selected: background == 'tan'}"></vm-button>
                 </vm-col>
                 <vm-col>
-                    <vm-button @click.native="changeBackground('grey')" role="popover-dot" class="popover-dot-grey" :class="{selected: background == 'grey'}"></vm-button>
+                    <vm-button @click="changeBackground('grey')" role="popover-dot" class="popover-dot-grey" :class="{selected: background == 'grey'}"></vm-button>
                 </vm-col>
                 <vm-col>
-                    <vm-button @click.native="changeBackground('black')" role="popover-dot" class="popover-dot-black" :class="{selected: background == 'black'}"></vm-button>
+                    <vm-button @click="changeBackground('black')" role="popover-dot" class="popover-dot-black" :class="{selected: background == 'black'}"></vm-button>
                 </vm-col>
             </vm-row>
+            <vm-item-divider color="dark">
+                <vm-label>Font Family</vm-label>
+            </vm-item-divider>
             <vm-item class="popover-text-athelas">
                 <vm-label>Athelas</vm-label>
                 <vm-radio slot="item-end" value="Athelas"></vm-radio>
@@ -52,78 +61,78 @@
                 <vm-radio slot="item-end" value="Times New Roman"></vm-radio>
             </vm-item>
         </vm-list>
-    </vm-content>
+    </article>
 </template>
 
 <script>
-    export default{
-      name: 'comp',
-      data () {
-        return {
-          background: '',
-          contentEle: null,
-          fontFamily: '',
+export default{
+  name: 'popage',
+  data () {
+    return {
+      background: '',
+      contentEle: null,
+      fontFamily: '',
 
-          colors: {
-            'white': {
-              'bg': 'rgb(255, 255, 255)',
-              'fg': 'rgb(0, 0, 0)'
-            },
-            'tan': {
-              'bg': 'rgb(249, 241, 228)',
-              'fg': 'rgb(0, 0, 0)'
-            },
-            'grey': {
-              'bg': 'rgb(76, 75, 80)',
-              'fg': 'rgb(255, 255, 255)'
-            },
-            'black': {
-              'bg': 'rgb(0, 0, 0)',
-              'fg': 'rgb(255, 255, 255)'
-            }
-          }
+      colors: {
+        'white': {
+          'bg': 'rgb(255, 255, 255)',
+          'fg': 'rgb(0, 0, 0)'
+        },
+        'tan': {
+          'bg': 'rgb(249, 241, 228)',
+          'fg': 'rgb(0, 0, 0)'
+        },
+        'grey': {
+          'bg': 'rgb(76, 75, 80)',
+          'fg': 'rgb(255, 255, 255)'
+        },
+        'black': {
+          'bg': 'rgb(0, 0, 0)',
+          'fg': 'rgb(255, 255, 255)'
         }
-      },
-      created () {
-        this.contentEle = this.$options.$data.contentEle
+      }
+    }
+  },
+  created () {
+    this.contentEle = this.$attrs.data.contentEle
 
-        this.background = this.getColorName(this.contentEle.style.backgroundColor)
-        if (this.contentEle.style.fontFamily) {
-          this.fontFamily = this.contentEle.style.fontFamily.replace(/'/g, '')
-        }
-      },
-      methods: {
+    this.background = this.getColorName(this.contentEle.style.backgroundColor)
+    if (this.contentEle.style.fontFamily) {
+      this.fontFamily = this.contentEle.style.fontFamily.replace(/'/g, '')
+    }
+  },
+  methods: {
 
-        getColorName (background) {
-          let colorName = 'white'
+    getColorName (background) {
+      let colorName = 'white'
 
-          if (!background) return 'white'
+      if (!background) return 'white'
 
-          for (var key in this.colors) {
-            if (this.colors[key].bg === background) {
-              colorName = key
-            }
-          }
-
-          return colorName
-        },
-
-        changeBackground (color) {
-          this.background = color
-          this.contentEle.style.backgroundColor = this.colors[color].bg
-          this.contentEle.style.color = this.colors[color].fg
-        },
-
-        changeFontSize (fontSize) {
-          this.contentEle.style.fontSize = fontSize
-        },
-
-        changeFontFamily () {
-          if (this.fontFamily) this.contentEle.style.fontFamily = this.fontFamily
+      for (var key in this.colors) {
+        if (this.colors[key].bg === background) {
+          colorName = key
         }
       }
 
+      return colorName
+    },
+
+    changeBackground (color) {
+      this.background = color
+      this.contentEle.style.backgroundColor = this.colors[color].bg
+      this.contentEle.style.color = this.colors[color].fg
+    },
+
+    changeFontSize (fontSize) {
+      this.contentEle.style.fontSize = fontSize
+    },
+
+    changeFontFamily () {
+      if (this.fontFamily) this.contentEle.style.fontFamily = this.fontFamily
     }
+  }
+
+}
 </script>
 
 
