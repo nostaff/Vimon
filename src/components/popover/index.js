@@ -18,10 +18,10 @@
  *
  * ### 子组件如何获取数据
  *
- * 在组件中使用: `this.$options.$data` 获取传入data. 例如Usage中的示例, 子组件获取data中的contentEle数据这样操作:
+ * 在组件中使用: `this.$attrs.data` 获取传入data. 例如Usage中的示例, 子组件获取data中的contentEle数据这样操作:
  *
  * ```
- * this.contentEle = this.$options.$data.contentEle
+ * this.contentEle = this.$attrs.data.contentEle
  * ```
  *
  *
@@ -35,7 +35,7 @@
  *        ev: $event,                           // 事件
  *        component: TextTool,                  // 传入组件
  *        data: {
- *          contentEle: this.$refs.content.$el  // 传入数据, 内部通过`this.$options.$data`获取这个data
+ *          contentEle: this.$refs.content.$el  // 传入数据, 内部通过`this.$attrs.data`获取这个data
  *        }
  *      })
  *    },
