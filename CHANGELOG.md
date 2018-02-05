@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/nostaff/vimon/compare/v1.5.1...v1.6.0) (2018-02-05)
+
+
+### Features
+
+* 在组件创建的时候应用options选项数据 ([b741e34](https://github.com/nostaff/vimon/commit/b741e34))
+* 增加 hideNavbar 隐藏导航栏  和 color 导航栏背景颜色控制 ([345e548](https://github.com/nostaff/vimon/commit/345e548))
+* 增加 prepareComponent function ([3c59f34](https://github.com/nostaff/vimon/commit/3c59f34))
+* 增加右侧弹出菜单和demo ([9b7450a](https://github.com/nostaff/vimon/commit/9b7450a))
+* 增加右侧弹出菜单和demo ([345d63f](https://github.com/nostaff/vimon/commit/345d63f))
+* 改用动态组件 <component>加载弹出页面 ([a7c35c5](https://github.com/nostaff/vimon/commit/a7c35c5))
+
+
+
 <a name="1.5.1"></a>
 ## [1.5.1](https://github.com/nostaff/vimon/compare/v1.5.0...v1.5.1) (2018-01-25)
 
