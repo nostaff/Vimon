@@ -1,6 +1,6 @@
 <template>
   <div class="ion-toolbar" :class="[modeClass, colorClass]">
-    <div class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
+    <div ref="toolbarBackground" class="toolbar-background" :class="['toolbar-background-'+mode]"></div>
     <slot name="buttons"></slot>
     <div class="toolbar-content" :class="['toolbar-content-'+mode]">
       <slot></slot>
@@ -17,6 +17,17 @@ export default {
     const _this = this
     return {
       toolbarComponent: _this
+    }
+  },
+  inject: {
+    navbarComponent: {
+      from: 'navbarComponent',
+      default: null
+    }
+  },
+  mounted () {
+    if (this.navbarComponent) {
+      this.navbarComponent.toolbarBackgroundColor = window.getComputedStyle(this.$refs.toolbarBackground).backgroundColor
     }
   }
 }

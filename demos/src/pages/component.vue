@@ -1,5 +1,5 @@
 <template>
-  <vm-page v-nav="{title: 'Components', showMoreButton: true, onMoreButtonClick: moreButtonClick}">
+  <vm-page v-nav="{title: 'Components', color: 'danger', showMoreButton: true, onMoreButtonClick: moreButtonClick}">
 
     <vm-content class="outer-content">
       <!-- Basic -->

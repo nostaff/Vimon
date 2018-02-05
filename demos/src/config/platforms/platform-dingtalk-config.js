@@ -147,7 +147,7 @@ export default {
   settings: {
     usePushWindow: false, // 方法开启新页面
     jsSDKUrl: '//g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js',
-    hideNavBar: true
+    hideNavbar: true
   },
   isMatch (plt) {
     return plt.isPlatformMatch('dingtalk')

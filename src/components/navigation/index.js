@@ -14,8 +14,11 @@ export default {
     if (isDefined(options.title)) {
       props.title = options.title.trim()
     }
+    if (isDefined(options.color)) {
+      props.color = options.color.trim()
+    }
     if (isDefined(options.hideNavbar)) {
-      props.activated = !isTrueProperty(options.hideNavbar)
+      props.hideNavbar = !isTrueProperty(options.hideNavbar)
     }
 
     if (isDefined(options.hideBackButton)) {

@@ -75,7 +75,7 @@ export default {
   bridgeReady (plt) {},
   settings: {
     jsSDKUrl: '//res.wx.qq.com/open/js/jweixin-1.0.0.js',
-    hideNavBar: true
+    hideNavbar: true
   },
   isMatch (plt) {
     return plt.isPlatformMatch('wechat', ['micromessenger'])

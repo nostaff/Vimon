@@ -74,7 +74,7 @@
  * 参数 / params      | 默认值 / IOS      | 默认值 / Android   | 描述 / Description
  * -----------------|----------------|-----------------|------------------
  * mode             | ios            | md              | 模式
- * hideNavBar       | false          | false           | 是否隐藏navbar
+ * hideNavbar       | false          | false           | 是否隐藏navbar
  * toolbarMinHeight | 44             | 56              | toolbar的最小高度
  * iconMode         | ios            | md              | icon的模式
  * menuType         | reveal         | overlay         | menu展示方式

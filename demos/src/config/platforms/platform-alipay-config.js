@@ -76,7 +76,7 @@ export default {
   settings: {
     usePushWindow: false, // 页面切换使用alipay提供的 pushWindow() 方法开启新页面
     jsSDKUrl: '//a.alipayobjects.com/g/h5-lib/alipayjsapi/3.0.2/alipayjsapi.min.js',
-    hideNavBar: true
+    hideNavbar: true
   },
   isMatch (plt) {
     return plt.isPlatformMatch('alipay', ['alipay', 'alipayclient'])

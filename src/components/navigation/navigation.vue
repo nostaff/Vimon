@@ -1,8 +1,9 @@
 <template>
-  <vm-header v-show="activated">
+  <vm-header>
     <vm-navbar
         :title="title"
         :color="color"
+        :hide-navbar="hideNavbar"
         :hide-back-button="hideBackButton"
         :back-button-icon="backButtonIcon"
         :back-button-text="backButtonText"
@@ -30,9 +31,9 @@ export default {
   },
   data () {
     return {
-      activated: true,
       title: '',
       color: '',
+      hideNavbar: (this.$config && this.$config.getBoolean('hideNavbar', false)) || false,
 
       hideBackButton: false,
       backButtonIcon: (this.$config && this.$config.get('backButtonIcon', 'arrow-back')) || 'arrow-back',
@@ -48,7 +49,7 @@ export default {
   mounted () {
     if (isDefined(this.$options.$data.title)) { this.title = this.$options.$data.title.trim() }
     if (isDefined(this.$options.$data.color)) { this.color = this.$options.$data.color.trim() }
-    if (isDefined(this.$options.$data.activated)) { this.activated = isTrueProperty(this.$options.$data.activated) }
+    if (isDefined(this.$options.$data.hideNavbar)) { this.hideNavbar = isTrueProperty(this.$options.$data.hideNavbar) }
     if (isDefined(this.$options.$data.hideBackButton)) { this.hideBackButton = isTrueProperty(this.$options.$data.hideBackButton) }
     if (isDefined(this.$options.$data.backButtonIcon)) { this.backButtonIcon = this.$options.$data.backButtonIcon.trim() }
     if (isDefined(this.$options.$data.backButtonText)) { this.backButtonText = this.$options.$data.backButtonText.trim() }
