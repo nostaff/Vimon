@@ -1,5 +1,6 @@
 <template>
   <div class="ion-header" :class="[modeClass, {'hide-bar':isHide}]" :style="style">
+    <div id="right-button-placeholder"></div>
     <slot></slot>
   </div>
 </template>

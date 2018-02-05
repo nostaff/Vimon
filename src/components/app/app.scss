@@ -296,6 +296,15 @@ sub {
   transform: translateY(-100%);
 }
 
+// place holder for pop menus
+#right-button-placeholder {
+  position: absolute;
+  right: 9px;
+  bottom: 0;
+  width: 30px;
+  height: 1px;
+}
+
 .ion-footer {
   @include position(null, null, 0, 0);
 
