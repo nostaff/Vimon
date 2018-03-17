@@ -1,4 +1,4 @@
-import Core from './core.js'
+import Core from './components/core.js'
 
 // Componnets
 import App from './components/app/index.js'

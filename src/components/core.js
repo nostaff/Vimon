@@ -1,12 +1,12 @@
-import { setupConfig } from './config/config'
-import { setupHistory } from './config/history'
-import { setupPlatform } from './config/platform'
+import { setupConfig } from '../config/config'
+import { setupHistory } from '../config/history'
+import { setupPlatform } from '../config/platform'
 
-const VERSION = require('../package.json').version
+const VERSION = require('../../package.json').version
 const addLogo = (vimoVer, vueVer) => {
   // logo
   var vimoLogo = {
-    info: 'Powered by Vimo@' + vimoVer + ' and based on Vue@' + vueVer + ' \n源代码请访问GitHub https://github.com/nostaff/Vimon'
+    info: 'Powered by Vimon@' + vimoVer + ' and based on Vue@' + vueVer + ' \n源代码请访问GitHub https://github.com/nostaff/Vimon'
   }
   window.console && console.info && console.info(vimoLogo.info)
 }
