@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.2"></a>
+## [1.6.2](https://github.com/nostaff/vimon/compare/v1.6.1...v1.6.2) (2018-03-20)
+
+
+### Bug Fixes
+
+* 解决tabbar位置更新错误的问题 ([da89ed0](https://github.com/nostaff/vimon/commit/da89ed0))
+
+
+
 <a name="1.6.1"></a>
 ## [1.6.1](https://github.com/nostaff/vimon/compare/v1.6.0...v1.6.1) (2018-03-17)
 
