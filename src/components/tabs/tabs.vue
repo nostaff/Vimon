@@ -142,13 +142,15 @@ export default {
 
     setTabbarPosition (top, bottom) {
       if (this._top !== top || this._bottom !== bottom) {
-        var tabbarEle = this.tabbarEle
-        tabbarEle.style.top = (top > -1 ? top + 'px' : '')
-        tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '')
-        tabbarEle.classList.add('show-tabbar')
-
         this._top = top
         this._bottom = bottom
+
+        this.$nextTick(() => {
+          var tabbarEle = this.tabbarEle
+          tabbarEle.style.top = (top > -1 ? top + 'px' : '')
+          tabbarEle.style.bottom = (bottom > -1 ? bottom + 'px' : '')
+          tabbarEle.classList.add('show-tabbar')
+        })
       }
     }
   }
