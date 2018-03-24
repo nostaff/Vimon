@@ -21,6 +21,9 @@ export default {
     VmItem,
     VmList
   },
+  props: {
+    data: Object
+  },
   data () {
     return {
       options: [],
@@ -28,7 +31,7 @@ export default {
     }
   },
   created () {
-    this.options = this.$options.$data.options
+    this.options = this.data.options
     this.checkedValue = this.getValue()
   },
   methods: {
