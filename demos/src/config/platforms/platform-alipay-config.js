@@ -72,6 +72,7 @@ export default {
     }
   },
   // 由业务完成部分
+  // eslint-disable-next-line no-unused-vars
   bridgeReady (plt) {},
   settings: {
     usePushWindow: false, // 页面切换使用alipay提供的 pushWindow() 方法开启新页面

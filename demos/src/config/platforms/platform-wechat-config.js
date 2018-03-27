@@ -72,6 +72,7 @@ export default {
     }
   },
   // 由业务完成部分
+  // eslint-disable-next-line no-unused-vars
   bridgeReady (plt) {},
   settings: {
     jsSDKUrl: '//res.wx.qq.com/open/js/jweixin-1.0.0.js',

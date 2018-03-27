@@ -255,7 +255,9 @@ export function isPassive () {
         }
       })
     )
-  } catch (e) {}
+  } catch (e) {
+    //
+  }
   return supportsPassiveOption
 }
 
