@@ -30,7 +30,7 @@
  *
  *    <vm-tabs selectedIndex="2" color="secondary" tabsLayout="icon-top" @onTabChange="onTabChange" ref="tabs">
  *      <vm-tab tabTitle="Location" tabIcon="navigate" tabUrlPath="/tabbar/home"></vm-tab>
- *      <vm-tab tabTitle="Favorites" tabIcon="star" tabBadge="12" tabBadgeStyle="dark" tabUrlPath="/tabbar/favor"></vm-tab>
+ *      <vm-tab tabTitle="Favorites" tabIcon="star" tabBadge="12" tabBadgeColor="dark" tabUrlPath="/tabbar/favor"></vm-tab>
  *      <vm-tab tabTitle="Radio" tabIcon="musical-notes" tabUrlPath="/tabbar/radio"></vm-tab>
  *
  *      <div slot="tab-content">

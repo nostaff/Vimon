@@ -10,7 +10,8 @@
        }">
     <vm-icon v-if="tabIcon" :name="tabIcon" class="tab-button-icon"></vm-icon>
     <span v-if="tabTitle" class="tab-button-text">{{tabTitle}}</span>
-    <vm-badge v-if="tabBadge" class="tab-badge" :color="tabBadgeStyle">{{tabBadge}}</vm-badge>
+    <vm-badge v-if="tabBadge" class="tab-badge" :color="tabBadgeColor">{{tabBadge}}</vm-badge>
+    <vm-badge v-else-if="isTabBadgeDot" class="tab-badge" :color="tabBadgeColor" dot></vm-badge>
     <div class="button-effect"></div>
   </a>
 </template>
@@ -42,7 +43,11 @@ export default {
     tabTitle: String,
     tabIcon: String,
     tabBadge: String,
-    tabBadgeStyle: {
+    tabBadgeDot: {
+      type: [Boolean, String],
+      default: false
+    },
+    tabBadgeColor: {
       type: String,
       default: 'default'
     },
@@ -66,7 +71,8 @@ export default {
 
       isHidden: isTrueProperty(this.hidden),
       isDisabled: isTrueProperty(this.disabled),
-      isSelected: isTrueProperty(this.selected)
+      isSelected: isTrueProperty(this.selected),
+      isTabBadgeDot: isTrueProperty(this.tabBadgeDot)
     }
   },
   computed: {

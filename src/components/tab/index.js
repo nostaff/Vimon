@@ -11,8 +11,9 @@
  * @props {Boolean|String} [disabled=false] - 是否能选择
  * @props {Boolean|String} [hidden=false] - 是否能隐藏
  * @props {Boolean|String} [selected=false] - 是否被选中，当tabUrlPath为空时，依据此项设置判断是否选中
+ * @props {Boolean|String} [tabBadgeDot] - 是否圆点徽章
  * @props {String} [tabBadge] - 徽章显示值
- * @props {String} [tabBadgeStyle] - 徽章颜色
+ * @props {String} [tabBadgeColor] - 徽章颜色
  * @props {String} [tabIcon] - tab的IconName
  * @props {String} [tabTitle] - tab的tabTitle
  * @props {String} [tabUrlPath] - tabUrlPath点击后的URL地址，并用于计算是否选中了本tab
@@ -21,6 +22,7 @@
  *
  * @usage
  * <vm-tab tabBadge="7" tabTitle="Star" tabIcon="star" disabled="false"></vm-tab>
+ * <vm-tab tabBadgeDot="true" tabBadgeColor="danger" tabTitle="Star" tabIcon="star" disabled="false"></vm-tab>
  *
  */
 export { default } from './tab.vue'
