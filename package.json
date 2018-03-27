@@ -69,13 +69,10 @@
   },
   "dependencies": {
     "autosize": "^4.0.0",
-    "babel-runtime": "^6.26.0",
     "better-scroll": "^1.7.2",
     "ionicons": "^3.0.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
-    "prettier": "^1.7.4",
-    "promise-polyfill": "^6.0.2",
     "swiper": "^4.1.0",
     "vue": "2.5.13",
     "vue-router": "^3.0.1",
@@ -108,11 +105,15 @@
     "deep-assign": "^2.0.0",
     "del": "^3.0.0",
     "docdash": "^0.4.0",
-    "eslint": "^4.15.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
     "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^4.0.1",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-vue": "^4.4.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -167,6 +168,16 @@
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 4.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "/build/",
+      "/config/",
+      "/dist/",
+      "/node_modules/",
+      "/src/assets/",
+      "/static/"
+    ]
   },
   "browserslist": [
     "> 1%",
