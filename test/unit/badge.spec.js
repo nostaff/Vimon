@@ -25,7 +25,7 @@ describe('Badge', function () {
     })
 
     let wrapper = mount(Badge, opts)
-    const result = '<span class="ion-badge badge badge-md badge-md-primary"><span>Test</span></span>'
+    const result = '<sup class="ion-badge badge badge-md badge-md-primary"><span>Test</span></sup>'
     expect(wrapper.html()).toEqual(result)
   })
 
