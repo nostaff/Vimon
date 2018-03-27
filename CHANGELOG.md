@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/nostaff/vimon/compare/v1.6.2...v1.7.0) (2018-03-27)
+
+
+### Bug Fixes
+
+* 解决Close button位置显示错位的问题 ([6d52d9e](https://github.com/nostaff/vimon/commit/6d52d9e))
+* 解决ondismiss没有被调用的问题 ([f01d3ab](https://github.com/nostaff/vimon/commit/f01d3ab))
+* 解决select-popover不能获取到选项数据的问题 ([8ca6a58](https://github.com/nostaff/vimon/commit/8ca6a58))
+
+
+### Features
+
+* Badge 组件增加圆点属性 ([14fa9e6](https://github.com/nostaff/vimon/commit/14fa9e6))
+
+
+
 <a name="1.6.2"></a>
 ## [1.6.2](https://github.com/nostaff/vimon/compare/v1.6.1...v1.6.2) (2018-03-20)
 
