@@ -59,7 +59,6 @@ export default {
       this.itemComponent.setElementClass('item-label-fixed', this.hasAttribute('fixed'))
       this.itemComponent.setElementClass('item-label-floating', this.hasAttribute('floating'))
       this.itemComponent.setElementClass('item-label-stacked', this.hasAttribute('stacked'))
-      this.itemComponent.labelComponent = this
     }
   },
   methods: {
