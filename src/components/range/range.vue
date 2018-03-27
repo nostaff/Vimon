@@ -28,10 +28,14 @@
     </slot>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
+import VmLabel from '../label'
 export default {
   name: 'vm-range',
+  components: {
+    VmLabel
+  },
   mixins: [ModeMixins],
   inject: {
     itemComponent: {

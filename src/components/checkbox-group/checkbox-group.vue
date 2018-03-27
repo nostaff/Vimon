@@ -12,10 +12,12 @@
     </vm-item>
   </vm-list>
 </template>
-<script>
+<script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
 import VmList from '../list'
+import VmListHeader from '../list-header'
 import VmItem from '../item'
+import VmLabel from '../label'
 import VmCheckbox from '../checkbox'
 
 export default {
@@ -24,6 +26,8 @@ export default {
   components: {
     VmItem,
     VmList,
+    VmListHeader,
+    VmLabel,
     VmCheckbox
   },
   props: {

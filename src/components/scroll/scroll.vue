@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import BScroll from 'better-scroll'
 import { getRect } from '../../util/dom'
 import VmBubble from './bubble'

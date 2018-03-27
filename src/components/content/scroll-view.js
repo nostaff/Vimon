@@ -11,9 +11,9 @@ export default class ScrollView {
   constructor () {
     this.ev = null
     this.isScrolling = false
-    this.onScrollStart = (ev) => (ev) => {}
-    this.onScroll = (ev) => (ev) => {}
-    this.onScrollEnd = (ev) => (ev) => {}
+    this.onScrollStart = () => {}
+    this.onScroll = () => {}
+    this.onScrollEnd = () => {}
     this.initialized = false
 
     this._el = null

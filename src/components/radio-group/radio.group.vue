@@ -11,18 +11,22 @@
     </vm-item>
   </vm-list>
 </template>
-<script>
+<script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
 import {isPresent} from '../../util/util'
 import VmList from '../list'
 import VmItem from '../item'
+import VmLabel from '../label'
+import VmRadio from '../radio'
 
 export default {
   name: 'vm-radio-group',
   mixins: [ModeMixins],
   components: {
     VmItem,
-    VmList
+    VmList,
+    VmLabel,
+    VmRadio
   },
   props: {
     title: String,

@@ -27,7 +27,7 @@
   </vm-toolbar>
 </template>
 
-<script>
+<script type="text/javascript">
 import { isTrueProperty, isFunction, isArray, isString } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import VmToolbar from '../toolbar'
@@ -189,6 +189,7 @@ export default {
           resolve()
         } else {
           try {
+            /* eslint-disable-next-line no-err */
             import('../popover/index.js').then(
               // resolve
               (component) => {

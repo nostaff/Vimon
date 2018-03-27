@@ -16,7 +16,7 @@
   </vm-header>
 </template>
 
-<script>
+<script type="text/javascript">
 import {isDefined, isTrueProperty} from '../../util/util'
 import VmHeader from '../header/index'
 import VmNavbar from '../navbar/index'

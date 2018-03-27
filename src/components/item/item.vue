@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
 import ItemMixin from './item-mixin.vue'
 import { isPresent, isTrueProperty } from '../../util/util'
 

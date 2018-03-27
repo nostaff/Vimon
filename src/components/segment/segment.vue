@@ -3,7 +3,7 @@
     <slot></slot>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import { isBlank, isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 

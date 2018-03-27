@@ -32,7 +32,7 @@
     </transition>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import {urlChange, focusOutActiveElement} from '../../util/dom'
 import {isFunction, isTrueProperty, isString} from '../../util/util'
 import objectAssign from 'object-assign'

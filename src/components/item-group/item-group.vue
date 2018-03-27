@@ -4,7 +4,7 @@
     <slot></slot>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import VmItemDivider from '../item-divider'

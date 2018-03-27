@@ -28,7 +28,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import { isNumber, isBoolean } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import VmButton from '../button'

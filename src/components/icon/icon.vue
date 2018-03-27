@@ -36,7 +36,7 @@ export default {
     }
   },
   watch: {
-    name (val) {
+    name () {
       this.update()
     },
     isActive (val) {

@@ -22,7 +22,7 @@
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import { isPresent, isTrueProperty } from '../../util/util'
 import { hasFocus } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'

@@ -81,6 +81,10 @@ $popover-ios-arrow-background:          $popover-ios-background !default;
 
 .popover-ios {
 
+  .list-ios {
+    margin-bottom: 0;
+  }
+
   .item-ios {
     @include padding-horizontal($item-ios-padding-start, null);
 

@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import {isBlank} from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 
@@ -59,8 +59,8 @@ export default {
       ids: -1,
       tabs: [],
 
-      _top: 0,
-      _bottom: 0,
+      top: 0,
+      bottom: 0,
 
       selectedTabIndex: -1
     }
@@ -137,13 +137,13 @@ export default {
     },
 
     getTabsTop () {
-      return this._top
+      return this.top
     },
 
     setTabbarPosition (top, bottom) {
-      if (this._top !== top || this._bottom !== bottom) {
-        this._top = top
-        this._bottom = bottom
+      if (this.top !== top || this.bottom !== bottom) {
+        this.top = top
+        this.bottom = bottom
 
         this.$nextTick(() => {
           var tabbarEle = this.tabbarEle

@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
 import VmItemReorder from './item-reorder'
 import VmLabel from '../label'

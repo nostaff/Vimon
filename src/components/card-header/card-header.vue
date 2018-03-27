@@ -3,7 +3,7 @@
     <slot></slot>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {

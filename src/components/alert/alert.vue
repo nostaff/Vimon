@@ -73,7 +73,7 @@
     </transition>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import {isTrueProperty, isString, isFunction} from '../../util/util'
 import {urlChange} from '../../util/dom'
 import objectAssign from 'object-assign'

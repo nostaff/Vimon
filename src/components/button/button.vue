@@ -8,7 +8,7 @@
     <div class="button-effect"></div>
   </button>
 </template>
-<script>
+<script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 
@@ -83,7 +83,7 @@ export default {
     this.addClassInItem()
   },
   methods: {
-    pointerStart (ev) {
+    pointerStart () {
       if (this.$el.hasAttribute('disable-activated')) return
       setTimeout(() => {
         this.setElementClass('activated', true)
@@ -91,7 +91,7 @@ export default {
 
       return true
     },
-    pointerEnd (ev) {
+    pointerEnd () {
       if (this.$el.hasAttribute('disable-activated')) return
       setTimeout(() => {
         this.setElementClass('activated', false)

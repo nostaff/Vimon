@@ -1,4 +1,4 @@
-<script>
+<script type="text/javascript">
   import ItemMixin from '../item/item-mixin.vue'
 
   export default {

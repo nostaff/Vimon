@@ -18,7 +18,7 @@
     </div>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import { pointerCoord, registerListener } from '../../util/dom'
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'

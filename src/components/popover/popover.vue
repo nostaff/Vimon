@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 import {isTrueProperty} from '../../util/util'
 import {urlChange, prepareComponent} from '../../util/dom'
 import objectAssign from 'object-assign'

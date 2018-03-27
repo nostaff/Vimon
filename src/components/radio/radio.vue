@@ -6,7 +6,7 @@
     <vm-button role="radio" :disabled="disabled" @click.native="onChecked"></vm-button>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 /**
  * @component Radio
  * @description

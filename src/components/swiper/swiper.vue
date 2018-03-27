@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 /**
  * @component Slides
  * @description

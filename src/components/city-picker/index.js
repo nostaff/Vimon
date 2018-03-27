@@ -109,6 +109,7 @@ const CityPicker = {
             return item.parent && item.parent === code
           })
         } else {
+          /* eslint-disable-next-line no-console */
           console.error('没有查询的code值')
         }
         resolve(data)

@@ -60,7 +60,7 @@ export default {
     this.segmentComponent.addButton(this)
   },
   methods: {
-    onClickHandler (ev) {
+    onClickHandler () {
       if (!this.isDisabled && !this.isActive) {
         this.isActive = true
         this.$emit('onActived', this.value)

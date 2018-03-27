@@ -101,7 +101,7 @@ export default {
     }
   },
   methods: {
-    onClickHandler (ev) {
+    onClickHandler () {
       if (!this.isDisabled && !this.isSelected) {
         this.isSelected = true
         this.tabsComponent.selectTab(this)

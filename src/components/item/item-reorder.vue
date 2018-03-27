@@ -10,7 +10,7 @@
     <vm-icon name="reorder" role="img" aria-label="reorder"></vm-icon>
   </div>
 </template>
-<script>
+<script type="text/javascript">
   import {pointerCoord, hasClass} from '../../util/dom'
   import VmIcon from '../icon'
 

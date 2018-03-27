@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/javascript">
 /**
  * @component Label
  * @description

@@ -6,7 +6,7 @@
     <vm-button role="checkbox" :disabled="disabled" @click.native="onChecked"></vm-button>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import VmButton from '../button'

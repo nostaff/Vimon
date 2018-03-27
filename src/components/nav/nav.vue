@@ -134,7 +134,7 @@ export default {
 }
 </script>
 
-<<style lang="scss">
+<style lang="scss">
 .ion-nav {
   .click-cover {
     position: absolute;

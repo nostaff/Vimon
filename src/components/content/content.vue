@@ -9,7 +9,7 @@
     <slot name="refresher"></slot>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import {removeArrayItem, parsePxUnit, cssFormat} from '../../util/util'
 import {transitionEnd, registerListener} from '../../util/dom'
 import ScrollView from './scroll-view'
@@ -164,6 +164,7 @@ export default {
      * @return {Promise} 当滚动动画完毕后返回promise
      */
     scrollToTop (duration = 300) {
+      /* eslint-disable no-console */
       console.debug(`content, scrollToTop, duration: ${duration}`)
       return this.scrollView.scrollToTop(duration)
     },
@@ -174,6 +175,7 @@ export default {
      * @return {Promise} 当滚动动画完毕后返回promise
      */
     scrollToBottom (duration = 300) {
+      /* eslint-disable no-console */
       console.debug(`content, scrollToBottom, duration: ${duration}`)
       return this.scrollView.scrollToBottom(duration)
     },

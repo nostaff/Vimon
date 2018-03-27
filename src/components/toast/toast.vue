@@ -14,7 +14,7 @@
     </transition>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import {urlChange, focusOutActiveElement} from '../../util/dom'
 import {isFunction, isNumber, isTrueProperty} from '../../util/util'
 import objectAssign from 'object-assign'
