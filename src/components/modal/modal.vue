@@ -11,14 +11,14 @@
         @after-leave="afterLeave">
       <div class="modal-wrapper" v-show="isActive">
         <div v-if="theComponent" class="modal-viewport">
-          <component :is="theComponent" :data="data"></component>
+          <component :is="theComponent" v-bind="data"></component>
         </div>
         <div v-else class="modal-viewport" v-html="htmlComponent"></div>
       </div>
     </transition>
   </div>
 </template>
-<script>
+<script type="text/javascript">
 import {isFunction, isTrueProperty} from '../../util/util'
 import {urlChange, prepareComponent} from '../../util/dom'
 import objectAssign from 'object-assign'
@@ -30,6 +30,7 @@ const NOOP = () => {}
 export default {
   name: 'vm-modal',
   mixins: [ModeMixins],
+  inheritAttrs: false, // 避免将传递过来属性显现在根节点上
   components: {
     VmBackdrop
   },
@@ -106,16 +107,7 @@ export default {
       this.$el.remove()
       this.enabled = true
     },
-    present (options) {
-      let _options = objectAssign({}, this.defaultOptions, options)
-      this.cssClass = _options.cssClass
-      this.showBackdrop = isTrueProperty(_options.showBackdrop)
-      this.dismissOnPageChange = isTrueProperty(_options.dismissOnPageChange)
-      this.enableBackdropDismiss = isTrueProperty(_options.enableBackdropDismiss)
-      if (isFunction(_options.onDismiss)) {
-        this.onDismiss = _options.onDismiss
-      }
-
+    present () {
       this.isActive = true
       return new Promise((resolve) => {
         this.presentCallback = resolve
