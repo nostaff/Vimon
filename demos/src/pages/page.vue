@@ -20,8 +20,6 @@
       <vm-list>
         <vm-item link="/page-context">文本</vm-item>
         <vm-item link="/page-fixed">浮动内容</vm-item>
-        <vm-item link="/page-hide-bars">隐藏头尾Bar</vm-item>
-        <vm-item link="/page-bar-style">设置Bar的样式</vm-item>
         <vm-item link="/page-scroll">滚动监听</vm-item>
       </vm-list>
     </vm-content>
@@ -29,8 +27,11 @@
 </template>
 
 <script type="text/javascript">
+import {List, Item} from 'vimon'
 export default {
-  name: 'page',
-  watch: {}
+  components: {
+    'vm-list': List,
+    'vm-item': Item
+  }
 }
 </script>

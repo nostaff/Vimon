@@ -52,15 +52,27 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    export default {
-      data () {
-        return {
-          brightness: 35,
-          saturation: 88,
-          temperature: 1300,
-          structure: {lower: 33, upper: 60}
-        }
-      }
+<script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Label, Range, Badge } from 'vimon'
+export default {
+  name: 'DemoRange',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-label': Label,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-range': Range,
+    'vm-badge': Badge
+  },
+  data () {
+    return {
+      brightness: 35,
+      saturation: 88,
+      temperature: 1300,
+      structure: {lower: 33, upper: 60}
     }
+  }
+}
 </script>

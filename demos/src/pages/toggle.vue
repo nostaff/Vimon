@@ -4,7 +4,7 @@
     <vm-content class="outer-content">
       <vm-toggle v-model="pushNotification"></vm-toggle>
       <div class="item item-divider">开关状态:
-        <span>{{ pushNotification ? '开启' : '关闭' }}</span>
+        <span>{{ pushNotification  === true ? '开启' : '关闭' }}</span>
       </div>
 
       <div class="padding">
@@ -61,8 +61,15 @@
 
   </vm-page>
 </template>
-<script>
+
+<script type="text/javascript">
+import {List, Item, Toggle} from 'vimon'
 export default {
+  components: {
+    'vm-list': List,
+    'vm-item': Item,
+    'vm-toggle': Toggle
+  },
   data () {
     return {
       toggleText: '是否开启推送',

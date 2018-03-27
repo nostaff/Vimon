@@ -30,36 +30,46 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    import ModalPage from './modal-page.vue'
+<script type="text/javascript">
+import ModalPage from './modal-page.vue'
 
-    export default {
-      data () {
-        return {
-          myParam: []
-        }
-      },
-
-      methods: {
-        openBasicModal () {
-          this.$modal.present({
-            component: ModalPage,
-            onDismiss (data) {
-              console.log(data)
-            }
-          })
-        },
-        openModalWithParams () {
-          this.$modal.present({
-            component: ModalPage,
-            data: {
-              myParam: this.myParam
-            },
-            onDismiss (data) {
-              console.log(data)
-            }
-          })
-        }
-      }
+import {List, Item, ListHeader, Label, Select, Option, Button, Modal} from 'vimon'
+export default {
+  components: {
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-label': Label,
+    'vm-select': Select,
+    'vm-option': Option,
+    'vm-button': Button
+  },
+  data () {
+    return {
+      myParam: []
     }
+  },
+
+  methods: {
+    openBasicModal () {
+      Modal.present({
+        component: ModalPage,
+        onDismiss (data) {
+          console.log(data)
+        }
+      })
+    },
+    openModalWithParams () {
+      Modal.present({
+        component: ModalPage,
+        data: {
+          myParam: this.myParam // 将myParam数据传递给子组件，通过this.$attrs.myParam 获取
+        },
+        onDismiss (data) {
+          console.log(data)
+        }
+      })
+    }
+  }
+}
 </script>

@@ -4,7 +4,7 @@
             <vm-toolbar>
                 <vm-title>Login</vm-title>
                 <vm-buttons right slot="buttons">
-                    <vm-button role="bar-button" type="solid" @click="$modal.dismiss('false')">
+                    <vm-button role="bar-button" type="solid" @click="closeModal()">
                         关闭
                     </vm-button>
                 </vm-buttons>
@@ -52,37 +52,49 @@
     }
 </style>
 <script type="text/javascript">
-  import modalSecretComponent from './modal-secret.vue'
-
-  export default {
-    name: 'LoginModalDemo',
-    data () {
-      return {
-        username: null,
-        password: null
-      }
+import modalSecretComponent from './modal-secret.vue'
+import {Button, Toolbar, Title, Buttons, List, ListHeader, Item, Icon, Input, Label, Grid, Column, Row, Modal} from 'vimon'
+export default {
+  components: {
+    'vm-button': Button,
+    'vm-toolbar': Toolbar,
+    'vm-title': Title,
+    'vm-buttons': Buttons,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-input': Input,
+    'vm-label': Label,
+    'vm-grid': Grid,
+    'vm-col': Column,
+    'vm-row': Row
+  },
+  name: 'LoginModalDemo',
+  data () {
+    return {
+      username: null,
+      password: null
+    }
+  },
+  methods: {
+    secret () {
+      Modal.present({
+        name: 'SecretModalDemo',
+        component: modalSecretComponent,
+        showBackdrop: true,
+        enableBackdropDismiss: false
+      })
     },
-    props: {},
-    watch: {},
-    computed: {},
-    methods: {
-      secret () {
-        this.$modal.present({
-          name: 'SecretModalDemo',
-          component: modalSecretComponent,
-          showBackdrop: true,
-          enableBackdropDismiss: false
-        })
-      },
-      login () {
-        this.$modal.dismiss({
-          username: this.username,
-          password: this.password
-        })
-      }
+    login () {
+      Modal.dismiss({
+        username: this.username,
+        password: this.password
+      })
     },
-    created () {},
-    mounted () {},
-    activated () {}
+    closeModal () {
+      Modal.dismiss(false)
+    }
   }
+}
 </script>

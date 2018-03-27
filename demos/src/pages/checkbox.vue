@@ -91,36 +91,48 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    export default{
-      data () {
-        return {
-          chosenTopics: ['电影', '科技'],
-          chosenAreas: ['gd', 'sd'],
-          chosenAreas2: ['bj', 'gd', 'sd'],
-          topics: ['娱乐', '电影', '减肥', '搞笑', '科技'],
-          lists: [{value: 'gd', label: '广东'}, {value: 'gx', label: '广西'}, {value: 'sd', label: '山东'}, {value: 'sx', label: '山西'}],
-          lists2: [{value: 'bj', label: '北京', color: 'dark'}, {value: 'gd', label: '广东', color: 'primary'}, {value: 'gx', label: '广西', color: 'secondary'}, {value: 'sd', label: '山东', color: 'light', disabled: true}, {value: 'sx', label: '山西', color: 'danger'}],
-          data: {
-            jon: true,
-            daenerys: true,
-            arya: false,
-            tyroin: false,
-            sansa: true,
-            khal: false,
-            cersei: true,
-            stannis: true,
-            petyr: false,
-            hodor: true,
-            catelyn: true,
-            bronn: false
-          }
-        }
-      },
-      methods: {
-        change (value) {
-          console.log('change:', value)
-        }
+<script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Label, Checkbox, CheckboxGroup } from 'vimon'
+export default {
+  name: 'DemoCheckbox',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-checkbox': Checkbox,
+    'vm-checkbox-group': CheckboxGroup
+  },
+  data () {
+    return {
+      chosenTopics: ['电影', '科技'],
+      chosenAreas: ['gd', 'sd'],
+      chosenAreas2: ['bj', 'gd', 'sd'],
+      topics: ['娱乐', '电影', '减肥', '搞笑', '科技'],
+      lists: [{value: 'gd', label: '广东'}, {value: 'gx', label: '广西'}, {value: 'sd', label: '山东'}, {value: 'sx', label: '山西'}],
+      lists2: [{value: 'bj', label: '北京', color: 'dark'}, {value: 'gd', label: '广东', color: 'primary'}, {value: 'gx', label: '广西', color: 'secondary'}, {value: 'sd', label: '山东', color: 'light', disabled: true}, {value: 'sx', label: '山西', color: 'danger'}],
+      data: {
+        jon: true,
+        daenerys: true,
+        arya: false,
+        tyroin: false,
+        sansa: true,
+        khal: false,
+        cersei: true,
+        stannis: true,
+        petyr: false,
+        hodor: true,
+        catelyn: true,
+        bronn: false
       }
     }
+  },
+  methods: {
+    change (value) {
+      console.log('change:', value)
+    }
+  }
+}
 </script>

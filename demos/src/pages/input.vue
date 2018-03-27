@@ -210,8 +210,19 @@
   </vm-page>
 </template>
 
-<script>
+<script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Label, Input } from 'vimon'
 export default {
+  name: 'DemoINput',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-input': Input
+  },
   data () {
     return {
       normalValue: '',

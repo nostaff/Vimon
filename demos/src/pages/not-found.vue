@@ -17,32 +17,3 @@
         </vm-content>
     </vm-page>
 </template>
-<script type="text/javascript">
-  export default {
-    name: 'name',
-    components: {},
-    // data
-    props: {},
-    data () {
-      return {}
-    },
-    watch: {},
-    computed: {},
-    // methods
-    methods: {},
-    // life hook
-    beforeCreate () {},
-    created () {},
-    beforeMount () {},
-    mounted () {},
-    beforeUpdate () {},
-    updated () {},
-    activated () {},
-    deactivated () {},
-    beforeDestroy () {},
-    destroyed () {}
-  }
-</script>
-<style scoped lang="scss">
-
-</style>

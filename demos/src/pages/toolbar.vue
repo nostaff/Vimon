@@ -134,8 +134,19 @@
 
   </vm-page>
 </template>
-<script>
+
+<script type="text/javascript">
+import {Button, Icon, Toolbar, Buttons, Segment, SegmentButton, Searchbar} from 'vimon'
 export default {
+  components: {
+    'vm-button': Button,
+    'vm-icon': Icon,
+    'vm-toolbar': Toolbar,
+    'vm-buttons': Buttons,
+    'vm-segment': Segment,
+    'vm-segment-button': SegmentButton,
+    'vm-searchbar': Searchbar
+  },
   data () {
     return {
       demo: 'Toolbar',

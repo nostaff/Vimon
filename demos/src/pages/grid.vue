@@ -320,6 +320,18 @@
     </vm-page>
 </template>
 
+<script type="text/javascript">
+import {Icon, Grid, Column, Row} from 'vimon'
+export default {
+  components: {
+    'vm-icon': Icon,
+    'vm-grid': Grid,
+    'vm-col': Column,
+    'vm-row': Row
+  }
+}
+</script>
+
 <style lang="scss">
     .grid-demos {
         .col-demo {

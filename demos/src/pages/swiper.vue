@@ -8,407 +8,401 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam consequuntur cumque earum exercitationem, id ipsa laboriosam laudantium magnam mollitia perferendis provident, quia quo recusandae reprehenderit saepe sunt totam vitae!</p>
 
             <h5>Default Setup</h5>
-            <swiper>
-              <swiper-slide>Slide 1</swiper-slide>
-              <swiper-slide>Slide 2</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 4</swiper-slide>
-              <swiper-slide>Slide 5</swiper-slide>
-              <swiper-slide>Slide 6</swiper-slide>
-              <swiper-slide>Slide 7</swiper-slide>
-              <swiper-slide>Slide 8</swiper-slide>
-              <swiper-slide>Slide 9</swiper-slide>
-              <swiper-slide>Slide 10</swiper-slide>
-            </swiper>
+            <vm-swiper>
+              <vm-swiper-slide>Slide 1</vm-swiper-slide>
+              <vm-swiper-slide>Slide 2</vm-swiper-slide>
+              <vm-swiper-slide>Slide 3</vm-swiper-slide>
+              <vm-swiper-slide>Slide 4</vm-swiper-slide>
+              <vm-swiper-slide>Slide 5</vm-swiper-slide>
+              <vm-swiper-slide>Slide 6</vm-swiper-slide>
+              <vm-swiper-slide>Slide 7</vm-swiper-slide>
+              <vm-swiper-slide>Slide 8</vm-swiper-slide>
+              <vm-swiper-slide>Slide 9</vm-swiper-slide>
+              <vm-swiper-slide>Slide 10</vm-swiper-slide>
+            </vm-swiper>
 
             <h5>Navigation<span>（按钮切换）</span></h5>
-            <swiper :options="navigationOption">
-              <swiper-slide>Slide 1</swiper-slide>
-              <swiper-slide>Slide 2</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 4</swiper-slide>
-              <swiper-slide>Slide 5</swiper-slide>
-              <swiper-slide>Slide 6</swiper-slide>
-              <swiper-slide>Slide 7</swiper-slide>
-              <swiper-slide>Slide 8</swiper-slide>
-              <swiper-slide>Slide 9</swiper-slide>
-              <swiper-slide>Slide 10</swiper-slide>
+            <vm-swiper :options="navigationOption">
+              <vm-swiper-slide>Slide 1</vm-swiper-slide>
+              <vm-swiper-slide>Slide 2</vm-swiper-slide>
+              <vm-swiper-slide>Slide 3</vm-swiper-slide>
+              <vm-swiper-slide>Slide 4</vm-swiper-slide>
+              <vm-swiper-slide>Slide 5</vm-swiper-slide>
+              <vm-swiper-slide>Slide 6</vm-swiper-slide>
+              <vm-swiper-slide>Slide 7</vm-swiper-slide>
+              <vm-swiper-slide>Slide 8</vm-swiper-slide>
+              <vm-swiper-slide>Slide 9</vm-swiper-slide>
+              <vm-swiper-slide>Slide 10</vm-swiper-slide>
               <div class="swiper-button-prev" slot="button-prev"></div>
               <div class="swiper-button-next" slot="button-next"></div>
-            </swiper>
+            </vm-swiper>
 
             <h5>Pagination
               <span>（分页器 / 动态指示点）</span>
             </h5>
-            <swiper :options="paginationOption">
-              <swiper-slide>Slide 1</swiper-slide>
-              <swiper-slide>Slide 2</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 4</swiper-slide>
-              <swiper-slide>Slide 5</swiper-slide>
-              <swiper-slide>Slide 6</swiper-slide>
-              <swiper-slide>Slide 7</swiper-slide>
-              <swiper-slide>Slide 8</swiper-slide>
-              <swiper-slide>Slide 9</swiper-slide>
-              <swiper-slide>Slide 10</swiper-slide>
+            <vm-swiper :options="paginationOption">
+              <vm-swiper-slide>Slide 1</vm-swiper-slide>
+              <vm-swiper-slide>Slide 2</vm-swiper-slide>
+              <vm-swiper-slide>Slide 3</vm-swiper-slide>
+              <vm-swiper-slide>Slide 4</vm-swiper-slide>
+              <vm-swiper-slide>Slide 5</vm-swiper-slide>
+              <vm-swiper-slide>Slide 6</vm-swiper-slide>
+              <vm-swiper-slide>Slide 7</vm-swiper-slide>
+              <vm-swiper-slide>Slide 8</vm-swiper-slide>
+              <vm-swiper-slide>Slide 9</vm-swiper-slide>
+              <vm-swiper-slide>Slide 10</vm-swiper-slide>
               <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
+            </vm-swiper>
 
             <h5>Pagination / Dynamic Bullets
               <span>（分页器 / 动态指示点）</span>
             </h5>
-            <swiper :options="paginationOption2">
-              <swiper-slide>Slide 1</swiper-slide>
-              <swiper-slide>Slide 2</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 4</swiper-slide>
-              <swiper-slide>Slide 5</swiper-slide>
-              <swiper-slide>Slide 6</swiper-slide>
-              <swiper-slide>Slide 7</swiper-slide>
-              <swiper-slide>Slide 8</swiper-slide>
-              <swiper-slide>Slide 9</swiper-slide>
-              <swiper-slide>Slide 10</swiper-slide>
+            <vm-swiper :options="paginationOption2">
+              <vm-swiper-slide>Slide 1</vm-swiper-slide>
+              <vm-swiper-slide>Slide 2</vm-swiper-slide>
+              <vm-swiper-slide>Slide 3</vm-swiper-slide>
+              <vm-swiper-slide>Slide 4</vm-swiper-slide>
+              <vm-swiper-slide>Slide 5</vm-swiper-slide>
+              <vm-swiper-slide>Slide 6</vm-swiper-slide>
+              <vm-swiper-slide>Slide 7</vm-swiper-slide>
+              <vm-swiper-slide>Slide 8</vm-swiper-slide>
+              <vm-swiper-slide>Slide 9</vm-swiper-slide>
+              <vm-swiper-slide>Slide 10</vm-swiper-slide>
               <div class="swiper-pagination" slot="pagination"></div>
-            </swiper>
+            </vm-swiper>
 
       <h5>Progress Pagination
         <span>（进度条指示器）</span>
       </h5>
       <!-- swiper -->
-      <swiper :options="paginationOption3">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="paginationOption3">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Fraction Pagination<span>（分式指示器）</span></h5>
-      <swiper :options="paginationOption4">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="paginationOption4">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Custom Pagination<span>（自定义指示器）</span></h5>
-      <swiper :options="paginationOption5">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="paginationOption5">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Scrollbar<span>（滚动条）</span></h5>
-      <swiper :options="scrollbarOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="scrollbarOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-scrollbar" slot="scrollbar"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Vertical Slider<span>（垂直切换）</span></h5>
-      <swiper :options="verticalOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="verticalOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Space Between Slides<span>（在 Slides 之间设置间隙）</span></h5>
-      <swiper :options="spaceBetweenOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="spaceBetweenOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Multiple Slides Per View<span>（一次显示多个 slides）</span></h5>
-      <swiper :options="slidesPerViewOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="slidesPerViewOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Auto Slides Per View / Carousel Mode<span>（自定义 slide 宽度 / Carousel 模式）</span></h5>
-      <swiper class="slides-per-view-auto" :options="slidesPerViewOption2">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper class="slides-per-view-auto" :options="slidesPerViewOption2">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Centered Slides<span>（Slides 居中）</span></h5>
-      <swiper class="slides-cented" :options="slidesPerViewOption3">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper class="slides-cented" :options="slidesPerViewOption3">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Centered Slides + Auto Slides Per View<span>（Slides 居中 + 自适应）</span></h5>
-      <swiper class="slides-cented" :options="slidesPerViewOption4">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper class="slides-cented" :options="slidesPerViewOption4">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Free Mode / No Fixed Positions<span>（free 模式 / 不贴合边缘）</span></h5>
-      <swiper :options="slidesPerViewOption5">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="slidesPerViewOption5">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Scroll Container<span>（内容滚动 / 可拖动）</span></h5>
-      <swiper class="scrollbar-container" :options="scrollbarContainerOption">
-        <swiper-slide class="text">
+      <vm-swiper class="scrollbar-container" :options="scrollbarContainerOption">
+        <vm-swiper-slide class="text">
           <div class="content">
             <h4 class="title">乌合之众</h4>
             <p>回答这个问题之前，我想我们应该首先定义如何判断一本书存不存在偏见。我觉得“一本书是否存在偏见”并不在于他所提出的观点本身是否荒诞或者离经叛道，而在于他得出结论的过程是否科学，是否存在缺乏推敲的主观臆断。如果结论拥有完整严谨的推导过程，那么即使答案再令人瞠目结舌，我们也无法说他存在着偏见；反过来说，如果一本书里的论据没有任何可信的来源，结论也是无本之木，即使他的观点让人感觉“好像真是那么回事呀”，那么这套理论也很难摆脱主观思维的限制。</p>
             <p>以上是典型的理工思维。</p>
-            <p>我从书架上找到了《乌合之众》戴光年的译本，随便翻开了几页：
-              <blockquote> “又比如在亚洲一些野蛮人的部落中 流传着这样的风俗：当他们将骁勇善战的对手击败后，往往会吃下这个人的心脏，认为这样就可以得到他的全部力量和勇气。”（P61）
-              “毫不客气的说，在十个人里面，就有九个人在几年里把他们的时间和努力浪费掉了；而且可以说，这是非常重要的，甚至是决定性的几年。他们中间有一半甚至三分之二的人，是为了考试而活着，然后被残酷地淘汰掉。”（P86）
-              “就历史而言，尤其是文学和艺术的历史，实际上只是再重复那些毫无意义的东西。每个人都不想这样做，但是这些历史所具有的名望压迫着他们，每个人最后都会重复他从学校里学到的东西，直到这些东西变成了一些再没有人敢说三道四的称号和事物。”（P114）
-              </blockquote>
-            </p>
             <p>在这本书里我们经常可以看到勒庞把各种小说桥段，英雄传说和坊间流言用具有主观性的叙述方式表达出来，用以佐证他的论点，论证的逻辑方式也常常语焉不详——我可以接受这种书籍成为富有趣味性的人文读物，但是说这是一本研究群体心理学方面的重要著作，似乎令人难以接受。如果说《乌合之众》不存在偏见，我会觉得非常奇怪。</p>
             <br>
             <p>不过我们可以换一个角度看待勒庞和他的《乌合之众》。对于一部具有重要意义的作品来说，严谨和逻辑不应该作为其主要价值评判标准。我们应该关注的是它发现了什么，创造了什么。一部伟大的作品之所以伟大，并不是因为他严格的遵守着范式，而在于那些闪耀着的具有鲜明色调的个人智慧的光芒——这些东西通常是无法通过逻辑去解释的。从这个层面上说，我们其实并不需要执着于这本书是否存在着偏见，只需要让我们觉得“好像真是那么回事呀”就已经足够了。我没法说出这本书之于心理学的具体意义，但只说他带给我的东西，我觉得已经足够丰富。</p>
             <br>
             <p>而上面这些，似乎又是一种人文思维了。</p>
           </div>
-        </swiper-slide>
+        </vm-swiper-slide>
         <div class="swiper-scrollbar" slot="scrollbar"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Multi Row Slides Layout<span>（多行 Slides 分布）</span></h5>
-      <swiper :options="multiRowOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="multiRowOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Nested Swipers<span>（Swipers 嵌套）</span></h5>
-      <swiper :options="swiperOptionh">
-        <swiper-slide>Horizontal Slide 1</swiper-slide>
-        <swiper-slide>
-          <swiper :options="swiperOptionv">
-            <swiper-slide>Vertical Slide 1</swiper-slide>
-            <swiper-slide>Vertical Slide 2</swiper-slide>
-            <swiper-slide>Vertical Slide 3</swiper-slide>
-            <swiper-slide>Vertical Slide 4</swiper-slide>
-            <swiper-slide>Vertical Slide 5</swiper-slide>
+      <vm-swiper :options="swiperOptionh">
+        <vm-swiper-slide>Horizontal Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>
+          <vm-swiper :options="swiperOptionv">
+            <vm-swiper-slide>Vertical Slide 1</vm-swiper-slide>
+            <vm-swiper-slide>Vertical Slide 2</vm-swiper-slide>
+            <vm-swiper-slide>Vertical Slide 3</vm-swiper-slide>
+            <vm-swiper-slide>Vertical Slide 4</vm-swiper-slide>
+            <vm-swiper-slide>Vertical Slide 5</vm-swiper-slide>
             <div class="swiper-pagination swiper-pagination-v" slot="pagination"></div>
-          </swiper>
-        </swiper-slide>
-        <swiper-slide>Horizontal Slide 1</swiper-slide>
-        <swiper-slide>Horizontal Slide 2</swiper-slide>
-        <swiper-slide>Horizontal Slide 3</swiper-slide>
-        <swiper-slide>Horizontal Slide 4</swiper-slide>
+          </vm-swiper>
+        </vm-swiper-slide>
+        <vm-swiper-slide>Horizontal Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Horizontal Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Horizontal Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Horizontal Slide 4</vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-h" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Grab Cursor<span>（抓手光标）</span></h5>
-      <swiper class="slides-cented" :options="grabCursorOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper class="slides-cented" :options="grabCursorOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Infinite Loop<span>（无限循环模式）</span></h5>
-      <swiper :options="infiniteLoopOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="infiniteLoopOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Loop Mode with Multiple Slides Per Group<span>（Loop 模式 + Slides 分组）</span></h5>
-      <swiper :options="infiniteLoopOption2">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="infiniteLoopOption2">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Fade Effect<span>（渐变切换）</span></h5>
-      <swiper :options="effectFadeOption">
-        <swiper-slide class="slide-1"></swiper-slide>
-        <swiper-slide class="slide-2"></swiper-slide>
-        <swiper-slide class="slide-3"></swiper-slide>
-        <swiper-slide class="slide-4"></swiper-slide>
-        <swiper-slide class="slide-5"></swiper-slide>
+      <vm-swiper :options="effectFadeOption">
+        <vm-swiper-slide class="slide-1"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-2"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-3"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-4"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-5"></vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
         <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>3D Cube Effect<span>（3D方块效果）</span></h5>
-      <swiper class="effect-cube" :options="effectCubeOption">
-        <swiper-slide class="slide-1"></swiper-slide>
-        <swiper-slide class="slide-2"></swiper-slide>
-        <swiper-slide class="slide-3"></swiper-slide>
-        <swiper-slide class="slide-4"></swiper-slide>
-        <swiper-slide class="slide-5"></swiper-slide>
-        <swiper-slide class="slide-6"></swiper-slide>
-        <swiper-slide class="slide-7"></swiper-slide>
+      <vm-swiper class="effect-cube" :options="effectCubeOption">
+        <vm-swiper-slide class="slide-1"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-2"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-3"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-4"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-5"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-6"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-7"></vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>3D Coverflow Effect<span>（3D滚动切换）</span></h5>
-      <swiper class="effect-cube" :options="effectCoverflowOption">
-        <swiper-slide class="slide-1"></swiper-slide>
-        <swiper-slide class="slide-2"></swiper-slide>
-        <swiper-slide class="slide-3"></swiper-slide>
-        <swiper-slide class="slide-4"></swiper-slide>
-        <swiper-slide class="slide-5"></swiper-slide>
-        <swiper-slide class="slide-6"></swiper-slide>
-        <swiper-slide class="slide-7"></swiper-slide>
+      <vm-swiper class="effect-cube" :options="effectCoverflowOption">
+        <vm-swiper-slide class="slide-1"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-2"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-3"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-4"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-5"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-6"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-7"></vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>3D Flip Effect<span>（3D翻转切换）</span></h5>
-      <swiper class="effect-flip" :options="effectFlipOption">
-        <swiper-slide class="slide-1"></swiper-slide>
-        <swiper-slide class="slide-2"></swiper-slide>
-        <swiper-slide class="slide-3"></swiper-slide>
-        <swiper-slide class="slide-4"></swiper-slide>
-        <swiper-slide class="slide-5"></swiper-slide>
+      <vm-swiper class="effect-flip" :options="effectFlipOption">
+        <vm-swiper-slide class="slide-1"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-2"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-3"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-4"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-5"></vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Autoplay<span>（自动切换）</span></h5>
-      <swiper class="effect-flip" :options="autoplayOption">
-        <swiper-slide class="slide-1"></swiper-slide>
-        <swiper-slide class="slide-2"></swiper-slide>
-        <swiper-slide class="slide-3"></swiper-slide>
-        <swiper-slide class="slide-4"></swiper-slide>
-        <swiper-slide class="slide-5"></swiper-slide>
+      <vm-swiper class="effect-flip" :options="autoplayOption">
+        <vm-swiper-slide class="slide-1"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-2"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-3"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-4"></vm-swiper-slide>
+        <vm-swiper-slide class="slide-5"></vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Dynamic Slides<span>（动态加载 Slides）</span></h5>
       <vm-row>
@@ -417,161 +411,161 @@
         <vm-button @click.native="popSlide" small>Pop Slide</vm-button>
         <vm-button @click.native="shiftSlide" small>Shift Slide</vm-button>
       </vm-row>
-      <swiper :options="dynamicSlidesOption">
-        <swiper-slide v-for="slide in swiperSlides" :key="slide">Slide {{ slide }}</swiper-slide>
+      <vm-swiper :options="dynamicSlidesOption">
+        <vm-swiper-slide v-for="slide in swiperSlides" :key="slide">Slide {{ slide }}</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Thumbs Gallery With Two-way Control<span>（缩略图控制）</span></h5>
       <div style="height: 240px">
-        <swiper :options="swiperOptionThumbs1" class="thumb gallery-top" ref="swiperTop">
-          <swiper-slide class="slide-1">slide-1</swiper-slide>
-          <swiper-slide class="slide-2">slide-2</swiper-slide>
-          <swiper-slide class="slide-3">slide-3</swiper-slide>
-          <swiper-slide class="slide-4">slide-4</swiper-slide>
-          <swiper-slide class="slide-5">slide-5</swiper-slide>
+        <vm-swiper :options="swiperOptionThumbs1" class="thumb gallery-top" ref="swiperTop">
+          <vm-swiper-slide class="slide-1">slide-1</vm-swiper-slide>
+          <vm-swiper-slide class="slide-2">slide-2</vm-swiper-slide>
+          <vm-swiper-slide class="slide-3">slide-3</vm-swiper-slide>
+          <vm-swiper-slide class="slide-4">slide-4</vm-swiper-slide>
+          <vm-swiper-slide class="slide-5">slide-5</vm-swiper-slide>
           <div class="swiper-button-next" slot="button-next"></div>
           <div class="swiper-button-prev" slot="button-prev"></div>
-        </swiper>
+        </vm-swiper>
         <!-- swiper2 Thumbs -->
-        <swiper :options="swiperOptionThumbs2" class="thumb gallery-thumbs" ref="swiperThumbs">
-          <swiper-slide class="slide-1">slide-1</swiper-slide>
-          <swiper-slide class="slide-2">slide-2</swiper-slide>
-          <swiper-slide class="slide-3">slide-3</swiper-slide>
-          <swiper-slide class="slide-4">slide-4</swiper-slide>
-          <swiper-slide class="slide-5">slide-5</swiper-slide>
-        </swiper>
+        <vm-swiper :options="swiperOptionThumbs2" class="thumb gallery-thumbs" ref="swiperThumbs">
+          <vm-swiper-slide class="slide-1">slide-1</vm-swiper-slide>
+          <vm-swiper-slide class="slide-2">slide-2</vm-swiper-slide>
+          <vm-swiper-slide class="slide-3">slide-3</vm-swiper-slide>
+          <vm-swiper-slide class="slide-4">slide-4</vm-swiper-slide>
+          <vm-swiper-slide class="slide-5">slide-5</vm-swiper-slide>
+        </vm-swiper>
       </div>
 
       <h5>RTL Layout<span>（rtl 布局 / 从右到左）</span></h5>
-      <swiper :options="rtlswiperOption" dir="rtl">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="rtlswiperOption" dir="rtl">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Parallax<span>（视差效果）</span></h5>
-      <swiper class="parallax" :options="parallaxOption">
+      <vm-swiper class="parallax" :options="parallaxOption">
         <div class="parallax-bg" slot="parallax-bg" data-swiper-parallax="-23%"></div>
-        <swiper-slide>
+        <vm-swiper-slide>
           <div class="title" data-swiper-parallax="-100">Slide 1</div>
           <br>
           <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
           <div class="text" data-swiper-parallax="-300">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
           </div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <div class="title" data-swiper-parallax="-100">Slide 2</div>
           <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
           <div class="text" data-swiper-parallax="-300">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
           </div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <div class="title" data-swiper-parallax="-100">Slide 3</div>
           <div class="subtitle" data-swiper-parallax="-200">Subtitle</div>
           <div class="text" data-swiper-parallax="-300">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla laoreet justo vitae porttitor porttitor. Suspendisse in sem justo. Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod. Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut libero. Aenean feugiat non eros quis feugiat.</p>
           </div>
-        </swiper-slide>
+        </vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
         <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Lazy Loading Images<span>（图片延迟加载）</span></h5>
-      <swiper class="lazy" :options="lazyLoadingOption">
-        <swiper-slide>
+      <vm-swiper class="lazy" :options="lazyLoadingOption">
+        <vm-swiper-slide>
           <img data-src="http://lorempixel.com/1600/1200/nature/1" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
             <img data-src="http://lorempixel.com/1600/1200/nature/2" class="swiper-lazy">
             <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <img data-src="http://lorempixel.com/1600/1200/nature/3" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <img data-src="http://lorempixel.com/1600/1200/nature/4" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <img data-src="http://lorempixel.com/1600/1200/nature/5" class="swiper-lazy">
           <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-        </swiper-slide>
+        </vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
         <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Responsive Breakpoints<span>（响应式设置 / 根据屏幕大小自动分割幻灯单位）</span></h5>
-      <swiper :options="responsiveOption">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper :options="responsiveOption">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Auto Height<span>（高度自适应）</span></h5>
-      <swiper class="auto-height" :options="autoHeightOption" style="height: auto">
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
-        <swiper-slide>Slide 10</swiper-slide>
+      <vm-swiper class="auto-height" :options="autoHeightOption" style="height: auto">
+        <vm-swiper-slide>Slide 1</vm-swiper-slide>
+        <vm-swiper-slide>Slide 2</vm-swiper-slide>
+        <vm-swiper-slide>Slide 3</vm-swiper-slide>
+        <vm-swiper-slide>Slide 4</vm-swiper-slide>
+        <vm-swiper-slide>Slide 5</vm-swiper-slide>
+        <vm-swiper-slide>Slide 6</vm-swiper-slide>
+        <vm-swiper-slide>Slide 7</vm-swiper-slide>
+        <vm-swiper-slide>Slide 8</vm-swiper-slide>
+        <vm-swiper-slide>Slide 9</vm-swiper-slide>
+        <vm-swiper-slide>Slide 10</vm-swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Zoom<span>（变焦、点击放大）</span></h5>
-      <swiper :options="zoomOption">
-        <swiper-slide>
+      <vm-swiper :options="zoomOption">
+        <vm-swiper-slide>
           <div class="swiper-zoom-container">
             <img src="../../static/background/6.jpg">
           </div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <div class="swiper-zoom-container">
             <img src="../../static/background/1.jpg">
           </div>
-        </swiper-slide>
-        <swiper-slide>
+        </vm-swiper-slide>
+        <vm-swiper-slide>
           <div class="swiper-zoom-container">
             <img src="../../static/background/3.jpg">
           </div>
-        </swiper-slide>
+        </vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
       <h5>Virtual Slides<span>（虚拟 Slides）</span></h5>
       <div>
@@ -579,23 +573,25 @@
         <vm-button @click.native="toSlide(249)" small>To Slide 250</vm-button>
         <vm-button @click.native="toSlide(499)" small>To Slide 500</vm-button>
       </div>
-      <swiper :options="virtualOption" ref="mySwiper">
+      <vm-swiper :options="virtualOption" ref="mySwiper">
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
         <div class="swiper-button-next" slot="button-next"></div>
-      </swiper>
+      </vm-swiper>
 
         </vm-content>
     </vm-page>
 </template>
 
 <script type="text/javascript">
-import { Swiper, SwiperSlide } from 'vimon'
+import {Button, Swiper, SwiperSlide, Row} from 'vimon'
 export default {
   name: 'SwiperDemo',
   components: {
-    'swiper': Swiper,
-    'swiper-slide': SwiperSlide
+    'vm-button': Button,
+    'vm-swiper': Swiper,
+    'vm-swiper-slide': SwiperSlide,
+    'vm-row': Row
   },
   data () {
     return {
@@ -1187,7 +1183,6 @@ export default {
       width: 100%!important;
     }
   }
-
 
   .thumb {
     .swiper-container {

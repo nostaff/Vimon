@@ -110,8 +110,8 @@
   </vm-page>
 </template>
 
-<script>
-import Vue from 'vue'
+<script type="text/javascript">
+import {Button, Icon, List, Item, Label, Input, Toggle, Scroll, Select, Option, Loading} from 'vimon'
 
 const _data = [
   'I am line 1',
@@ -132,6 +132,19 @@ const _data = [
 ]
 
 export default {
+  components: {
+    'vm-button': Button,
+    'vm-icon': Icon,
+    'vm-list': List,
+    'vm-item': Item,
+    'vm-label': Label,
+    'vm-input': Input,
+    'vm-toggle': Toggle,
+    'vm-scroll': Scroll,
+    'vm-select': Select,
+    'vm-option': Option,
+    'vm-loading': Loading
+  },
   data () {
     return {
       items: _data,
@@ -306,7 +319,7 @@ export default {
       this.scrollToEasing = val
     },
     rebuildScroll () {
-      Vue.nextTick(() => {
+      this.$nextTick(() => {
         this.$refs.scroll.destroy()
         this.$refs.scroll.initScroll()
       })

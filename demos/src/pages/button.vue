@@ -35,8 +35,13 @@
     </vm-page>
 </template>
 
-<script>
-  export default {
-    name: 'DemoButton'
+<script type="text/javascript">
+import {Button, Icon} from 'vimon'
+export default {
+  name: 'DemoButton',
+  components: {
+    'vm-button': Button,
+    'vm-icon': Icon
   }
+}
 </script>

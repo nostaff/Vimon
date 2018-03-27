@@ -34,10 +34,17 @@
   </vm-page>
 </template>
 <script type="text/javascript">
+import {Button, List, ListHeader, Item, Label, Radio} from 'vimon'
 export default {
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-label': Label,
+    'vm-radio': Radio
+  },
   name: 'MenusDemo',
-  components: {},
-  // data
   props: {},
   data () {
     return {}

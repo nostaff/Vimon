@@ -6,7 +6,7 @@
         <vm-buttons right slot="buttons">
           <vm-button @click="dismiss">Close</vm-button>
         </vm-buttons>
-        <vm-title>Modal Page1</vm-title>
+        <vm-title>Modal Page</vm-title>
       </vm-toolbar>
     </vm-header>
 
@@ -28,22 +28,31 @@
   </vm-page>
 </template>
 
-<script>
+<script type="text/javascript">
+import {Toolbar, Title, Buttons, Button, Modal} from 'vimon'
 export default {
+  components: {
+    'vm-toolbar': Toolbar,
+    'vm-title': Title,
+    'vm-buttons': Buttons,
+    'vm-button': Button
+  },
+  inheritAttrs: false, // 避免将传递过来属性显现在根节点上
   data () {
     return {
       myParam: null
     }
   },
   created () {
-    this.myParam = this.$attrs.data ? this.$attrs.data.myParam : null
+    console.log(this)
+    // this.myParam = this.$attrs.myParam ? this.$attrs.myParam : null
   },
   methods: {
     dismiss () {
-      this.$modal.dismiss('dismiss return by modal page' + this.myParam)
+      Modal.dismiss('dismiss return by modal page: ' + this.myParam)
     },
     login () {
-      this.$modal.present({
+      Modal.present({
         component: import('./modal-login.vue'),
         onDismiss (data) {
           console.log('onDismissed', data)

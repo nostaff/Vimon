@@ -65,6 +65,30 @@
     </vm-footer>
   </vm-page>
 </template>
+
+<script type="text/javascript">
+import {Button, Toolbar} from 'vimon'
+export default {
+  components: {
+    'vm-button': Button,
+    'vm-toolbar': Toolbar
+  },
+  computed: {
+    content () {
+      return this.$refs.content
+    }
+  },
+  methods: {
+    scrollToBottom () {
+      this.content.scrollToBottom()
+    },
+    scrollToTop () {
+      this.content.scrollToTop()
+    }
+  }
+}
+</script>
+
 <style scoped lang="scss">
 .fixedContent {
   height: 72px;
@@ -87,30 +111,4 @@
     z-index: 1009;
 }
 </style>
-<script type="text/javascript">
-export default {
-  name: 'name',
-  data () {
-    return {}
-  },
-  props: {},
-  watch: {},
-  computed: {
-    content () {
-      return this.$refs.content
-    }
-  },
-  methods: {
-    scrollToBottom () {
-      this.content.scrollToBottom()
-    },
-    scrollToTop () {
-      this.content.scrollToTop()
-    }
-  },
-  created: function () {},
-  mounted: function () {},
-  activated: function () {},
-  components: {}
-}
-</script>
+

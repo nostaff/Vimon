@@ -3,7 +3,7 @@
         <vm-header>
             <vm-toolbar>
                 <vm-buttons right slot="buttons">
-                    <vm-button role="bar-button" type="solid" @click="$modal.dismiss()">
+                    <vm-button role="bar-button" type="solid" @click="closeModal()">
                         好的
                     </vm-button>
                 </vm-buttons>
@@ -125,7 +125,18 @@
 
 </style>
 <script type="text/javascript">
-  export default {
-    name: 'modal-secret'
+import {Toolbar, Buttons, Button, Modal} from 'vimon'
+export default {
+  components: {
+    'vm-toolbar': Toolbar,
+    'vm-buttons': Buttons,
+    'vm-button': Button
+  },
+  name: 'modal-secret',
+  methods: {
+    closeModal () {
+      Modal.dismiss()
+    }
   }
+}
 </script>

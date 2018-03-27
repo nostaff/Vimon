@@ -22,7 +22,6 @@
                 </vm-item>
             </vm-list>
 
-
             <vm-list radio-group v-model="direction">
                 <vm-list-header>打开方向</vm-list-header>
                 <vm-item>
@@ -104,37 +103,51 @@
     </vm-page>
 </template>
 <script type="text/javascript">
-  export default {
-    name: 'SheetDemo',
-    data () {
-      return {
-        type: '',
-        direction: 'bottom',
-        enableBackdropDismiss: true,
-        showBackdrop: true
-      }
-    },
-    computed: {
-      paySheetCompoonent () {
-        return this.$refs.paySheet
-      }
-    },
-    methods: {
-      openPaySheet () {
-        return this.paySheetCompoonent.present()
-      },
-      closePaySheet () {
-        return this.paySheetCompoonent.dismiss()
-      },
+import { Button, List, ListHeader, Item, Icon, Label, Sheet, Radio, RadioGroup, Toggle } from 'vimon'
+export default {
+  name: 'DemoSheet',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-radio': Radio,
+    'vm-radio-group': RadioGroup,
+    'vm-sheet': Sheet,
+    'vm-toggle': Toggle
 
-      choose (type) {
-        this.closePaySheet().then(() => {
-          this.type = type
-        })
-      }
+  },
+  data () {
+    return {
+      type: '',
+      direction: 'bottom',
+      enableBackdropDismiss: true,
+      showBackdrop: true
+    }
+  },
+  computed: {
+    paySheetCompoonent () {
+      return this.$refs.paySheet
+    }
+  },
+  methods: {
+    openPaySheet () {
+      return this.paySheetCompoonent.present()
     },
-    mounted () {}
+    closePaySheet () {
+      return this.paySheetCompoonent.dismiss()
+    },
+
+    choose (type) {
+      this.closePaySheet().then(() => {
+        this.type = type
+        console.log('selected:', type)
+      })
+    }
   }
+}
 </script>
 <style scoped lang="scss">
 

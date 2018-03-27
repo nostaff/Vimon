@@ -14,57 +14,56 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    export default {
-      created () {
-      },
+<script type="text/javascript">
+import {Button, Toast} from 'vimon'
+export default {
+  components: {
+    'vm-button': Button
+  },
 
-      mounted () {
-      },
-
-      methods: {
-        showToast (position) {
-          this.$toast.present({
-            message: 'Top was added successfully',
-            duration: 3000,
-            position: position,
-            dismissOnPageChange: true,
-            onDismiss () {
-              console.debug('Toast onDidDismiss()')
-            }
-          })
-        },
-
-        showLongToast () {
-          this.$toast.present({
-            message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
-            duration: 3000,
-            onDismiss () {
-              console.debug('Toast onDidDismiss()')
-            }
-          })
-        },
-
-        showDismissDurationToast () {
-          this.$toast.present({
-            message: 'I am dismissed after 1.5 seconds',
-            duration: 1500,
-            onDismiss () {
-              console.debug('Toast onDidDismiss()')
-            }
-          })
-        },
-
-        showToastWithCloseButton () {
-          this.$toast.present({
-            message: 'Your internet connection appears to be offline. Data integrity is not guaranteed.',
-            showCloseButton: true,
-            closeButtonText: 'Ok',
-            onDismiss () {
-              console.debug('Toast onDidDismiss()')
-            }
-          })
+  methods: {
+    showToast (position) {
+      Toast.present({
+        message: 'Top was added successfully',
+        duration: 3000,
+        position: position,
+        dismissOnPageChange: true,
+        onDismiss () {
+          console.debug('Toast onDidDismiss()')
         }
-      }
+      })
+    },
+
+    showLongToast () {
+      Toast.present({
+        message: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea voluptatibus quibusdam eum nihil optio, ullam accusamus magni, nobis suscipit reprehenderit, sequi quam amet impedit. Accusamus dolorem voluptates laborum dolor obcaecati.',
+        duration: 3000,
+        onDismiss () {
+          console.debug('Toast onDidDismiss()')
+        }
+      })
+    },
+
+    showDismissDurationToast () {
+      Toast.present({
+        message: 'I am dismissed after 1.5 seconds',
+        duration: 1500,
+        onDismiss () {
+          console.debug('Toast onDidDismiss()')
+        }
+      })
+    },
+
+    showToastWithCloseButton () {
+      Toast.present({
+        message: 'Your internet connection appears to be offline. Data integrity is not guaranteed.',
+        showCloseButton: true,
+        closeButtonText: 'Ok',
+        onDismiss () {
+          console.debug('Toast onDidDismiss()')
+        }
+      })
     }
+  }
+}
 </script>

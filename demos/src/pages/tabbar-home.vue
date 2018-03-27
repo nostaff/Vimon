@@ -23,3 +23,11 @@
 
 </template>
 
+<script type="text/javascript">
+import {Toolbar} from 'vimon'
+export default {
+  components: {
+    'vm-toolbar': Toolbar
+  }
+}
+</script>

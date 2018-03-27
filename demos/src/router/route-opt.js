@@ -35,6 +35,7 @@ const routes = [
   { path: '/page-bar-style', name: 'page-bar-style', component: resolve => require(['@/pages/page-bar-style.vue'], resolve) },
   { path: '/page-hide-bars', name: 'page-hide-bars', component: resolve => require(['@/pages/page-hide-bars.vue'], resolve) },
   { path: '/list', name: 'list', component: resolve => require(['@/pages/list.vue'], resolve) },
+  { path: '/card', name: 'card', component: resolve => require(['@/pages/card.vue'], resolve) },
   { path: '/grid', name: 'grid', component: resolve => require(['@/pages/grid.vue'], resolve) },
   { path: '/tabs', name: 'tabs', component: resolve => require(['@/pages/tabs.vue'], resolve) },
   { path: '/tabbar',

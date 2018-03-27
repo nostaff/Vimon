@@ -85,9 +85,20 @@
         </vm-content>
     </vm-page>
 </template>
+
 <script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Label, Textarea } from 'vimon'
 export default {
-  name: 'TextareaEventDemo',
+  name: 'DemoTextarea',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-textarea': Textarea
+  },
   data () {
     return {
       eventList: []

@@ -71,14 +71,24 @@
   </vm-page>
 </template>
 
-<script>
-  export default {
-    name: 'DemoChip',
-    methods: {
-      deleteElm (chip) {
-        let el = this.$el.querySelector('#' + chip)
-        el.parentNode.removeChild(el)
-      }
+<script type="text/javascript">
+import {Avatar, Button, Label, Chip, Icon, FabList, FabButton} from 'vimon'
+export default {
+  name: 'DemoChip',
+  components: {
+    'vm-avatar': Avatar,
+    'vm-button': Button,
+    'vm-label': Label,
+    'vm-chip': Chip,
+    'vm-fab-list': FabList,
+    'vm-fab-button': FabButton,
+    'vm-icon': Icon
+  },
+  methods: {
+    deleteElm (chip) {
+      let el = this.$el.querySelector('#' + chip)
+      el.parentNode.removeChild(el)
     }
   }
+}
 </script>

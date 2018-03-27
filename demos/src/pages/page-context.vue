@@ -18,11 +18,9 @@
       <p>这个是p标签</p>
       <vm-button block @click="$history.toRoot()">返回首页</vm-button>
 
-
       <p>通过在组件上使用ref属性获取组件的控制权, 比如获取Title组件的控制权修改document.title</p>
       <vm-button @click="setTitle('Hello Vue')" small outline>点击设置Title='Hello Vue'</vm-button>
       <vm-button @click="showPopMenu()" small>显示右侧弹出按钮</vm-button>
-
 
       <p>Vimo支持使用rem布局, 当然, 在写业务代码的时候使用px就好, 剩下是使用插件完成吧! </p>
 
@@ -46,7 +44,14 @@
 </template>
 
 <script type="text/javascript">
+import {Button, Toolbar, Segment, SegmentButton} from 'vimon'
 export default {
+  components: {
+    'vm-button': Button,
+    'vm-toolbar': Toolbar,
+    'vm-segment': Segment,
+    'vm-segment-button': SegmentButton
+  },
   name: 'context',
   watch: {},
   computed: {

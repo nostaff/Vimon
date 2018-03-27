@@ -12,25 +12,29 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    export default{
-      data () {
-        return {
-          keywords: '',
-          searching: false
-        }
-      },
-
-      methods: {
-        onChange (keywords) {
-          console.log(keywords)
-          this.searching = true
-        },
-
-        onCancel () {
-          this.searching = false
-          this.keywords = ''
-        }
-      }
+<script type="text/javascript">
+import {Searchbar} from 'vimon'
+export default {
+  components: {
+    'vm-searchbar': Searchbar
+  },
+  data () {
+    return {
+      keywords: '',
+      searching: false
     }
+  },
+
+  methods: {
+    onChange (keywords) {
+      console.log(keywords)
+      this.searching = true
+    },
+
+    onCancel () {
+      this.searching = false
+      this.keywords = ''
+    }
+  }
+}
 </script>

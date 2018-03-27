@@ -88,12 +88,16 @@
         </vm-footer>
     </vm-page>
 </template>
-<style scoped lang="scss">
 
-</style>
 <script type="text/javascript">
-  export default{
-    name: 'name',
+  import {Button, Grid, Column, Row} from 'vimon'
+export default {
+    components: {
+      'vm-button': Button,
+      'vm-grid': Grid,
+      'vm-col': Column,
+      'vm-row': Row
+    },
     data () {
       return {}
     },
@@ -132,10 +136,6 @@
           this.contentComponent.resize()
         }
       }
-    },
-    created () {},
-    mounted () {},
-    activated () {},
-    components: {}
+    }
   }
 </script>

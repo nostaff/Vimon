@@ -64,9 +64,20 @@
     </article>
 </template>
 
-<script>
-export default{
+<script type="text/javascript">
+import { Button, List, Item, ItemDivider, Label, Radio, Row, Column } from 'vimon'
+export default {
   name: 'popage',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-item': Item,
+    'vm-item-divider': ItemDivider,
+    'vm-label': Label,
+    'vm-radio': Radio,
+    'vm-row': Row,
+    'vm-col': Column
+  },
   data () {
     return {
       background: '',
@@ -134,7 +145,6 @@ export default{
 
 }
 </script>
-
 
 <style scoped lang="scss">
 

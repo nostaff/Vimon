@@ -11,7 +11,11 @@
 </template>
 
 <script type="text/javascript">
+import {Img} from 'vimon'
 export default {
+  components: {
+    'vm-img': Img
+  },
   name: 'name',
   data () {
     return {

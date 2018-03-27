@@ -53,11 +53,21 @@
   </vm-page>
 </template>
 
-<script>
+<script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Spinner, Loading } from 'vimon'
 export default {
+  name: 'DemoSpinner',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-spinner': Spinner
+  },
   methods: {
     presentLoadingIos () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'ios',
         content: 'This is the "ios" spinner. It will dismiss after 3 seconds.',
         duration: 3000
@@ -65,7 +75,7 @@ export default {
     },
 
     presentLoadingDots () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'dots',
         content: 'This is the "dots" spinner. It will dismiss after 3 seconds.',
         duration: 3000
@@ -73,7 +83,7 @@ export default {
     },
 
     presentLoadingBubbles () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'bubbles',
         content: 'This is the "bubbles" spinner. It will dismiss after 3 seconds.',
         duration: 3000
@@ -81,7 +91,7 @@ export default {
     },
 
     presentLoadingCircles () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'circles',
         content: 'This is the "circles" spinner. It will dismiss after 3 seconds.',
         duration: 3000
@@ -89,7 +99,7 @@ export default {
     },
 
     presentLoadingCrescent () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'crescent',
         content: 'This is the "crescent" spinner. It will dismiss after 3 seconds.',
         duration: 3000
@@ -97,14 +107,14 @@ export default {
     },
 
     presentLoadingDefault () {
-      this.$loading.present({
+      Loading.present({
         content: 'This is the mode specific spinner. It will dismiss after 3 seconds.',
         duration: 3000
       })
     },
 
     presentLoadingCustom () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'hide',
         content: `
         <div class="loading-custom-spinner-container">
@@ -116,14 +126,14 @@ export default {
     },
 
     presentLoadingSpinner () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'ios',
         duration: 3000
       })
     },
 
     presentLoadingText () {
-      this.$loading.present({
+      Loading.present({
         spinner: 'hide',
         content: 'This has no spinner, only text. It will dismiss after 3 seconds.',
         duration: 3000

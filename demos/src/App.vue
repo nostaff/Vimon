@@ -38,10 +38,19 @@
     </vm-nav>
   </vm-app>
 </template>
+
 <script type="text/javascript">
 import { mapState } from 'vuex'
+import { Menu, List, ListHeader, Item, Icon } from 'vimon'
 export default {
   name: 'app-root',
+  components: {
+    'vm-menu': Menu,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon
+  },
   computed: {
     ...mapState(['menu'])
   },

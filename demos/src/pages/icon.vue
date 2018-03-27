@@ -54,6 +54,19 @@
   </vm-page>
 </template>
 
+<script type="text/javascript">
+import {Button, Column, Row, Icon} from 'vimon'
+export default {
+  name: 'DemoButton',
+  components: {
+    'vm-button': Button,
+    'vm-col': Column,
+    'vm-row': Row,
+    'vm-icon': Icon
+  }
+}
+</script>
+
 <style lang="scss">
     .icon-demo .ion-icon {
         font-size: 50px;

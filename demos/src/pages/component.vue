@@ -84,6 +84,10 @@
           列表
           <vm-note slot="item-end">List</vm-note>
         </vm-item>
+        <vm-item detail-push link="/card">
+          卡片
+          <vm-note slot="item-end">Card</vm-note>
+        </vm-item>
         <vm-item detail-push link="/toolbar">
           工具条
           <vm-note slot="item-end">Toolbar</vm-note>
@@ -177,20 +181,27 @@
   </vm-page>
 </template>
 
-<script>
-  export default {
-    name: 'DemoHome',
-    mounted () {
-      this.$events.$emit('selectedItem', 4)
+<script type="text/javascript">
+import {List, ListHeader, Item, Note} from 'vimon'
+export default {
+  name: 'DemoComponent',
+  components: {
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-note': Note
+  },
+  mounted () {
+    this.$events.$emit('selectedItem', 4)
+  },
+  methods: {
+    onClicked (urlPath) {
+      this.$router.push({'path': urlPath})
     },
-    methods: {
-      onClicked (urlPath) {
-        this.$router.push({'path': urlPath})
-      },
-      moreButtonClick (urlPath) {
-        console.log('moreButtonClick')
-      }
-
+    moreButtonClick (urlPath) {
+      console.log('moreButtonClick' + urlPath)
     }
+
   }
+}
 </script>

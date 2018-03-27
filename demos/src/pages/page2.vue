@@ -19,8 +19,14 @@
     </vm-footer>
   </vm-page>
 </template>
-<script>
+<script type="text/javascript">
+import {Fab, FabList, FabButton} from 'vimon'
 export default {
+  components: {
+    'vm-fab': Fab,
+    'vm-fab-list': FabList,
+    'vm-fab-button': FabButton
+  },
   data () {
     return {
       colors: ['default', 'primary', 'light', 'secondary', 'danger', 'dark'],

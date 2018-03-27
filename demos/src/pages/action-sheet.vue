@@ -6,12 +6,13 @@
                 <p></p>
                 <vm-button block color="secondary" @click.native="disableBackdrop()">背景不可点击</vm-button>
 
-                <span>根据浏览器自动变换样式</span>
+                 <span>根据浏览器自动变换样式</span>
             </div>
         </vm-content>
     </vm-page>
 </template>
-<script>
+<script type="text/javascript">
+import { Button, ActionSheet } from 'vimon'
 const isMd = /Android/.test(navigator.userAgent)
 
 const buttonItems = [
@@ -55,9 +56,12 @@ const buttonItems = [
 ]
 
 export default {
+  components: {
+    'vm-button': Button
+  },
   methods: {
     normal () {
-      this.$actionSheet.present({
+      ActionSheet.present({
         title: '这是标题',
         subTitle: '这是副标题',
         cssClass: 'a b',
@@ -74,7 +78,7 @@ export default {
       })
     },
     disableBackdrop () {
-      this.$actionSheet.present({
+      ActionSheet.present({
         title: '标题2',
         subTitle: '这是副标题',
         buttons: buttonItems,

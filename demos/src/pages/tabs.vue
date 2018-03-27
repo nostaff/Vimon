@@ -9,54 +9,47 @@
                 <vm-tab tabTitle="Settings"></vm-tab>
             </vm-tabs>
 
-
             <!-- Icons -->
             <vm-tabs tabs-only selectedIndex="1" color="primary">
                 <vm-tab tabIcon="call"></vm-tab>
                 <vm-tab tabIcon="heart"></vm-tab>
-                <vm-tab tabIcon="settings" tabBadge="2" tabBadgeStyle="danger"></vm-tab>
+                <vm-tab tabIcon="settings" tabBadge="2" tabBadgeColor="danger"></vm-tab>
             </vm-tabs>
-
 
             <!-- Icons on top of text -->
             <vm-tabs tabs-only selectedIndex="2" color="secondary">
                 <vm-tab tabTitle="Location" tabIcon="navigate"></vm-tab>
-                <vm-tab tabTitle="Favorites" tabIcon="star" tabBadge="12" tabBadgeStyle="dark"></vm-tab>
+                <vm-tab tabTitle="Favorites" tabIcon="star" tabBadge="12" tabBadgeColor="dark"></vm-tab>
                 <vm-tab tabTitle="Radio" tabIcon="musical-notes"></vm-tab>
             </vm-tabs>
 
-
             <!-- Icons below text -->
             <vm-tabs tabs-only tabsLayout="icon-bottom" selectedIndex="1" color="danger">
-                <vm-tab tabTitle="Recents" tabIcon="call" tabBadge="47" tabBadgeStyle="light"></vm-tab>
+                <vm-tab tabTitle="Recents" tabIcon="call" tabBadge="47" tabBadgeColor="light"></vm-tab>
                 <vm-tab tabTitle="Favorites" tabIcon="heart"></vm-tab>
                 <vm-tab tabTitle="Settings" tabIcon="settings"></vm-tab>
             </vm-tabs>
-
 
             <!-- Icons right of text -->
             <vm-tabs tabs-only tabsLayout="icon-end" selectedIndex="0" color="light">
                 <vm-tab tabTitle="Recents" tabIcon="call"></vm-tab>
                 <vm-tab tabTitle="Favorites" tabIcon="heart"></vm-tab>
-                <vm-tab tabTitle="Settings" tabIcon="settings" tabBadge="4" tabBadgeStyle="secondary"></vm-tab>
+                <vm-tab tabTitle="Settings" tabIcon="settings" tabBadge="4" tabBadgeColor="secondary"></vm-tab>
             </vm-tabs>
-
 
             <!-- Icons left of text -->
             <vm-tabs tabs-only tabsLayout="icon-start" color="dark">
-                <vm-tab tabTitle="Recents" tabIcon="call" tabBadge="1" tabBadgeStyle="danger"></vm-tab>
+                <vm-tab tabTitle="Recents" tabIcon="call" tabBadge="1" tabBadgeColor="danger"></vm-tab>
                 <vm-tab tabTitle="Favorites" tabIcon="heart"></vm-tab>
                 <vm-tab tabTitle="Settings" tabIcon="settings"></vm-tab>
             </vm-tabs>
 
-
             <!-- No icons -->
             <vm-tabs tabs-only tabsLayout="icon-hide">
                 <vm-tab tabTitle="Recents" tabIcon="call"></vm-tab>
-                <vm-tab tabTitle="Favorites" tabIcon="heart" tabBadge="61" tabBadgeStyle="dark"></vm-tab>
+                <vm-tab tabTitle="Favorites" tabIcon="heart" tabBadge="61" tabBadgeColor="dark"></vm-tab>
                 <vm-tab tabTitle="Settings" tabIcon="settings"></vm-tab>
             </vm-tabs>
-
 
             <!-- No overflow text -->
             <vm-tabs tabs-only color="primary">
@@ -68,6 +61,16 @@
         </vm-content>
     </vm-page>
 </template>
+
+<script type="text/javascript">
+import { Tabs, Tab } from 'vimon'
+export default {
+  components: {
+    'vm-tabs': Tabs,
+    'vm-tab': Tab
+  }
+}
+</script>
 
 <style lang="scss">
 

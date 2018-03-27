@@ -21,7 +21,6 @@
             <vm-button block @click="scrollBottomBy400()">向下滚动400</vm-button>
             <vm-button block @click="scrollToElement">滚动到下面的元素</vm-button>
 
-
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda deserunt dicta dolorem dolorum ea est
                 exercitationem, fugit hic ipsa maiores minus molestias non quaerat quas ratione ut vel velit!</p>
@@ -61,7 +60,6 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus eligendi eos harum in incidunt natus optio quos, ratione. Aperiam aut autem commodi dolores error fugiat ipsa officia rem similique tempore.</p>
             <vm-button block @click="scrollToTop()">返回顶部</vm-button>
 
-
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet consequatur doloribus earum ex exercitationem expedita facere fugit hic, ipsam, ipsum labore, magnam nam odio pariatur quod sit ut veniam.</p>
             <p>
@@ -98,8 +96,68 @@
         </vm-content>
     </vm-page>
 </template>
-<style scoped lang="scss">
 
+<script type="text/javascript">
+import {Button, Grid, Column, Row} from 'vimon'
+export default {
+  components: {
+    'vm-button': Button,
+    'vm-grid': Grid,
+    'vm-col': Column,
+    'vm-row': Row
+  },
+  data () {
+    return {
+      scrollState: '',
+      // scroll
+      ev: {
+        scrollTop: 0,
+        directionY: 'down'
+      }
+    }
+  },
+  watch: {},
+  computed: {
+    contentComponent () {
+      return this.$refs.content
+    }
+  },
+  methods: {
+    scrollToTop () {
+      this.contentComponent.scrollToTop()
+    },
+    scrollToBottom () {
+      this.contentComponent.scrollToBottom()
+    },
+
+    onScrollStartHandler () {
+      this.scrollState = '滚动开始'
+    },
+    // 滚动
+    onScrollHandler (ev) {
+      this.ev = ev
+      this.scrollState = '滚动中...'
+    },
+    onScrollEndtHandler () {
+      this.scrollState = '滚动结束'
+    },
+
+    scrollBottomBy400 () {
+      this.contentComponent.scrollBy(0, 400).then(function () {
+        console.log('scrollBottomBy400 done')
+      })
+    },
+
+    scrollToElement () {
+      this.contentComponent.scrollToElement(document.getElementById('scrollToHere')).then(function () {
+        console.log('scrollToElement done')
+      })
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
     .stateBar {
         background: rgba(256, 256, 256, 0.9);
         padding: 10px 20px;
@@ -110,55 +168,3 @@
         }
     }
 </style>
-<script type="text/javascript">
-  export default{
-    data () {
-      return {
-        scrollState: '',
-        // scroll
-        ev: {
-          scrollTop: 0,
-          directionY: 'down'
-        }
-      }
-    },
-    watch: {},
-    computed: {
-      contentComponent () {
-        return this.$refs.content
-      }
-    },
-    methods: {
-      scrollToTop () {
-        this.contentComponent.scrollToTop()
-      },
-      scrollToBottom () {
-        this.contentComponent.scrollToBottom()
-      },
-
-      onScrollStartHandler (ev) {
-        this.scrollState = '滚动开始'
-      },
-      // 滚动
-      onScrollHandler (ev) {
-        this.ev = ev
-        this.scrollState = '滚动中...'
-      },
-      onScrollEndtHandler (ev) {
-        this.scrollState = '滚动结束'
-      },
-
-      scrollBottomBy400 () {
-        this.contentComponent.scrollBy(0, 400).then(function () {
-          console.log('scrollBottomBy400 done')
-        })
-      },
-
-      scrollToElement () {
-        this.contentComponent.scrollToElement(document.getElementById('scrollToHere')).then(function () {
-          console.log('scrollToElement done')
-        })
-      }
-    }
-  }
-</script>

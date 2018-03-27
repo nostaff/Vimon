@@ -6,17 +6,18 @@ import router from './router'
 import store from './store.js'
 
 // 导入所有组件
+/*
 import Vimon from 'vimon/index.js' // demo环境需要带index.js
 Vue.use(Vimon, {
   appConf: APP_CONFIGS,
   pltConf: PLATFORM_CONFIGS,
   router: router
 })
+*/
 
 // 按需导入组件
 // 平台基础安装
-/*
-import { Core, App, Content, Footer, Header, Page, Navigation } from 'vimon'
+import { Core, App, Content, Footer, Header, Nav, Navbar, Page, Title, Navigation } from 'vimon'
 
 Vue.use(Core, {
   appConf: APP_CONFIGS,
@@ -26,14 +27,16 @@ Vue.use(Core, {
 
 // 全局注册的组件(核心组件)
 Vue.component(App.name, App)
+Vue.component(Nav.name, Nav)
 Vue.component(Page.name, Page)
 Vue.component(Header.name, Header)
 Vue.component(Content.name, Content)
 Vue.component(Footer.name, Footer)
+Vue.component(Navbar.name, Navbar)
+Vue.component(Title.name, Title)
 
 // Directive
 Vue.directive(Navigation.name, Navigation)
-*/
 
 // Vue.use(vmGeo, {
 //   enableHighAccuracy: true, // 是否要求高精度地理位置信息

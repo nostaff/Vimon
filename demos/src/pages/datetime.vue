@@ -69,69 +69,77 @@
     </vm-content>
   </vm-page>
 </template>
-<script>
-  export default {
-    data () {
-      return {
-        wwwReleased: '1991',
-        netscapeReleased: '1994-12-15T13:47:20.789',
-        operaReleased: '1995-04-15',
-        webkitReleased: '1998-11-04T11:06Z',
-        firefoxReleased: '2002-09-23T15:03:46.789',
-        chromeReleased: '2008-09-02',
+<script type="text/javascript">
+import {Datetime, List, ListHeader, Item, Label} from 'vimon'
+export default {
+  components: {
+    'vm-datetime': Datetime,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-label': Label
+  },
+  data () {
+    return {
+      wwwReleased: '1991',
+      netscapeReleased: '1994-12-15T13:47:20.789',
+      operaReleased: '1995-04-15',
+      webkitReleased: '1998-11-04T11:06Z',
+      firefoxReleased: '2002-09-23T15:03:46.789',
+      chromeReleased: '2008-09-02',
 
-        tokyoTime: '',
-        parisTime: '',
-        madisonTime: '',
-        alertTime: '10:15',
+      tokyoTime: '',
+      parisTime: '',
+      madisonTime: '',
+      alertTime: '10:15',
 
-        operaShortDay: [
-          's\u00f8n',
-          'man',
-          'tir',
-          'ons',
-          'tor',
-          'fre',
-          'l\u00f8r'
-        ]
-      }
+      operaShortDay: [
+        's\u00f8n',
+        'man',
+        'tir',
+        'ons',
+        'tor',
+        'fre',
+        'l\u00f8r'
+      ]
+    }
+  },
+  created () {
+    this.tokyoTime = this.calculateTime('+9')
+    this.parisTime = this.calculateTime('+1')
+    this.madisonTime = this.calculateTime('-6')
+
+    // If it is Daylight Savings Time
+    if (this.dst(new Date())) {
+      this.parisTime = this.calculateTime('+2')
+      this.madisonTime = this.calculateTime('-5')
+    }
+  },
+  methods: {
+    change (value) {
+      console.log('change:', value)
     },
-    created () {
-      this.tokyoTime = this.calculateTime('+9')
-      this.parisTime = this.calculateTime('+1')
-      this.madisonTime = this.calculateTime('-6')
+    calculateTime (offset) {
+      // create Date object for current location
+      let d = new Date()
 
-      // If it is Daylight Savings Time
-      if (this.dst(new Date())) {
-        this.parisTime = this.calculateTime('+2')
-        this.madisonTime = this.calculateTime('-5')
-      }
+      // create new Date object for different city
+      // using supplied offset
+      let nd = new Date(d.getTime() + (3600000 * offset))
+
+      return nd.toISOString()
     },
-    methods: {
-      change (value) {
-        console.log('change:', value)
-      },
-      calculateTime (offset) {
-        // create Date object for current location
-        let d = new Date()
 
-        // create new Date object for different city
-        // using supplied offset
-        let nd = new Date(d.getTime() + (3600000 * offset))
+    // Determine if the client uses DST
+    stdTimezoneOffset (today) {
+      let jan = new Date(today.getFullYear(), 0, 1)
+      let jul = new Date(today.getFullYear(), 6, 1)
+      return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset())
+    },
 
-        return nd.toISOString()
-      },
-
-      // Determine if the client uses DST
-      stdTimezoneOffset (today) {
-        let jan = new Date(today.getFullYear(), 0, 1)
-        let jul = new Date(today.getFullYear(), 6, 1)
-        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset())
-      },
-
-      dst (today) {
-        return today.getTimezoneOffset() < this.stdTimezoneOffset(today)
-      }
+    dst (today) {
+      return today.getTimezoneOffset() < this.stdTimezoneOffset(today)
     }
   }
+}
 </script>

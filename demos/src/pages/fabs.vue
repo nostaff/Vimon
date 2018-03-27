@@ -118,32 +118,43 @@
     </vm-content>
   </vm-page>
 </template>
-<script>
-  export default {
-    data () {
-      return {
-        array: []
-      }
+<script type="text/javascript">
+import { Button, List, Item, Icon, Fab, FabButton, FabList } from 'vimon'
+export default {
+  name: 'FabIndex',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-fab': Fab,
+    'vm-fab-button': FabButton,
+    'vm-fab-list': FabList
+  },
+  data () {
+    return {
+      array: []
+    }
+  },
+
+  methods: {
+    onClick (item) {
+      console.log(item)
     },
 
-    methods: {
-      onClick (item) {
-        console.log(item)
-      },
+    add () {
+      this.array.push(1)
+    },
 
-      add () {
-        this.array.push(1)
-      },
+    clickMainFAB () {
+      console.log('Clicked open social menu')
+    },
 
-      clickMainFAB () {
-        console.log('Clicked open social menu')
-      },
+    openSocial (componemnt, network) {
+      componemnt.close()
 
-      openSocial (componemnt, network) {
-        componemnt.close()
-
-        console.log('Share in ' + network)
-      }
+      console.log('Share in ' + network)
     }
   }
+}
 </script>

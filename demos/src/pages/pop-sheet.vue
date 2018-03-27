@@ -45,7 +45,7 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci amet blanditiis consequatur, delectus deleniti dolor ea, excepturi fuga laborum nemo provident recusandae rerum soluta vel veritatis vitae voluptatem voluptates!</p>
             </div>
-            <!--paySheet-->
+            <!--shareSheet-->
             <vm-pop-sheet
                     ref="popSheet"
                     slot="fixed"
@@ -75,45 +75,45 @@
     </vm-page>
 </template>
 <script type="text/javascript">
-  export default {
-    name: 'PopSheetDemo',
-    components: {},
-    // data
-    props: {},
-    data () {
-      return {
-        enableBackdropDismiss: true,
-        showBackdrop: true,
-        name: '',
-        password: ''
-      }
+import { Button, List, ListHeader, Item, Icon, Label, PopSheet, Radio, RadioGroup, Toggle, Input } from 'vimon'
+export default {
+  name: 'DemoPopSheet',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-radio': Radio,
+    'vm-radio-group': RadioGroup,
+    'vm-pop-sheet': PopSheet,
+    'vm-toggle': Toggle,
+    'vm-input': Input
+  },
+  data () {
+    return {
+      enableBackdropDismiss: true,
+      showBackdrop: true,
+      name: '',
+      password: ''
+    }
+  },
+  computed: {
+    popSheetComponent () {
+      return this.$refs.popSheet
+    }
+  },
+  // methods
+  methods: {
+    closePopSheet () {
+      return this.popSheetComponent.dismiss()
     },
-    computed: {
-      popSheetComponent () {
-        return this.$refs.popSheet
-      }
-    },
-    // methods
-    methods: {
-      closePopSheet () {
-        return this.popSheetComponent.dismiss()
-      },
-      openPopSheet () {
-        return this.popSheetComponent.present()
-      }
-    },
-    // life hook
-    beforeCreate () {},
-    created () {},
-    beforeMount () {},
-    mounted () {},
-    beforeUpdate () {},
-    updated () {},
-    activated () {},
-    deactivated () {},
-    beforeDestroy () {},
-    destroyed () {}
+    openPopSheet () {
+      return this.popSheetComponent.present()
+    }
   }
+}
 </script>
 <style scoped lang="scss">
     .popSheet {

@@ -16,82 +16,86 @@
 </template>
 
 <script type="text/javascript">
-  import axios from 'axios'
+import axios from 'axios'
+import { Button, CityPicker, Indicator } from 'vimon'
 
-  export default {
-    name: 'name',
-    data () {
-      return {
-        selectedCity: ['140000', '140100', '140106'],
-        province: '山西省',
-        city: '太原市',
-        district: '迎泽区'
-      }
+export default {
+  name: 'name',
+  components: {
+    'vm-button': Button
+  },
+  data () {
+    return {
+      selectedCity: ['140000', '140100', '140106'],
+      province: '山西省',
+      city: '太原市',
+      district: '迎泽区'
+    }
+  },
+  methods: {
+    /**
+     * 打开由Picker组件实现的城市选择器
+     */
+    openCityPicker () {
+      console.log('openCityPicker')
+      const _this = this
+      CityPicker.present({
+        onSelect (data) {
+          let tmp = []
+          if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
+          if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
+          if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
+          _this.selectedCity = tmp
+        },
+        onCancel () {
+          console.log('onCancel')
+        },
+        selectedCity: this.selectedCity
+      })
     },
-    methods: {
-      /**
-       * 打开由Picker组件实现的城市选择器
-       */
-      openCityPicker () {
-        console.log('openCityPicker')
-        const _this = this
-        this.$cityPicker.present({
-          onSelect (data) {
-            let tmp = []
-            if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
-            if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
-            if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
-            _this.selectedCity = tmp
-          },
-          onCancel () {
-            console.log('onCancel')
-          },
-          selectedCity: this.selectedCity
-        })
-      },
-      openCityPicker2 () {
-        console.log('openCityPicker')
-        const _this = this
-        this.$cityPicker.present({
-          onSelect (data) {
-            let tmp = []
-            if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
-            if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
-            if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
-            _this.selectedCity = tmp
-          },
-          onCancel () {
-            console.log('onCancel')
-          },
-          selectedCity: this.selectedCity,
-          fetchData (code) {
-            _this.$indicator.present()
-            return new Promise((resolve) => {
-              if (code) {
-                axios(`https://raw.githubusercontent.com/vm-component/vm-address-json/master/data/${code}.json`)
-                  .then((response) => {
-                    response.data.forEach((item) => {
-                      item.text = item.divisionName
-                      item.value = item.divisionCode
-                      item.disabled = false
-                    })
-                    resolve(response.data)
-                    _this.$indicator.dismiss()
+    openCityPicker2 () {
+      console.log('openCityPicker')
+      const _this = this
+      CityPicker.present({
+        onSelect (data) {
+          let tmp = []
+          if (data.province) { _this.province = data.province.text; tmp.push(data.province.value.toString()) }
+          if (data.city) { _this.city = data.city.text; tmp.push(data.city.value.toString()) }
+          if (data.district) { _this.district = data.district.text; tmp.push(data.district.value.toString()) }
+          _this.selectedCity = tmp
+        },
+        onCancel () {
+          console.log('onCancel')
+        },
+        selectedCity: this.selectedCity,
+        fetchData (code) {
+          Indicator.present()
+          return new Promise((resolve) => {
+            if (code) {
+              axios(`https://raw.githubusercontent.com/vm-component/vm-address-json/master/data/${code}.json`)
+                .then((response) => {
+                  response.data.forEach((item) => {
+                    item.text = item.divisionName
+                    item.value = item.divisionCode
+                    item.disabled = false
                   })
-                  .catch(() => {
-                    resolve([])
-                    console.error('无法获取数据')
-                    _this.$indicator.dismiss()
-                  })
-              } else {
-                resolve([])
-                console.error('没有查询的code值')
-                _this.$indicator.dismiss()
-              }
-            })
-          }
-        })
-      }
+                  resolve(response.data)
+                  Indicator.dismiss()
+                })
+                .catch(() => {
+                  resolve([])
+                  console.error('无法获取数据')
+                  Indicator.dismiss()
+                })
+            } else {
+              resolve([])
+              console.error('没有查询的code值')
+              Indicator.dismiss()
+            }
+          })
+        }
+      })
     }
   }
+}
 </script>

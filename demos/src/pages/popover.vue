@@ -27,14 +27,16 @@
     </vm-content>
   </vm-page>
 </template>
-<script>
+<script type="text/javascript">
 import Popage from './popage.vue'
 
+import { Popover } from 'vimon'
 export default {
+  name: 'DemoPopover',
   methods: {
 
     pageSetting (ev) {
-      this.$popover.present({
+      Popover.present({
         ev: ev,
         component: Popage,
         data: {
@@ -46,7 +48,7 @@ export default {
     popupText (ev, text) {
       let contont = '<p style="padding:0 14px;" text-center>You select the word of <strong>' + text + '</strong>.</p>'
 
-      this.$popover.present({
+      Popover.present({
         ev: ev,
         component: contont
       })

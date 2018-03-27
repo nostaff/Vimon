@@ -45,23 +45,35 @@
         </vm-content>
     </vm-page>
 </template>
-<script>
-    export default{
-      data () {
-        return {
-          gender: '女',
-          genderOptions: ['男', '女', '保密'],
-          selected: false,
-          selected2: false,
-          language: 'Ruby',
-          list: [{value: true, label: '是'}, {value: false, label: '否'}, {value: 'true1', label: '是1', disabled: true}, {value: 'gfgfgf', label: '否2-RED'}],
-          list2: [{value: true, label: 'secondary', color: 'secondary'}, {value: false, label: 'dark', color: 'dark'}, {value: 'true1', label: 'disabled', disabled: true}, {value: 'gfgfgf', label: 'danger', color: 'danger'}]
-        }
-      },
-      methods: {
-        change (value) {
-          console.log('change:', value)
-        }
-      }
+<script type="text/javascript">
+import { Button, List, ListHeader, Item, Icon, Label, Radio, RadioGroup } from 'vimon'
+export default {
+  name: 'DemoRadio',
+  components: {
+    'vm-button': Button,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-icon': Icon,
+    'vm-label': Label,
+    'vm-radio': Radio,
+    'vm-radio-group': RadioGroup
+  },
+  data () {
+    return {
+      gender: '女',
+      genderOptions: ['男', '女', '保密'],
+      selected: false,
+      selected2: false,
+      language: 'Ruby',
+      list: [{value: true, label: '是'}, {value: false, label: '否'}, {value: 'true1', label: '是1', disabled: true}, {value: 'gfgfgf', label: '否2-RED'}],
+      list2: [{value: true, label: 'secondary', color: 'secondary'}, {value: false, label: 'dark', color: 'dark'}, {value: 'true1', label: 'disabled', disabled: true}, {value: 'gfgfgf', label: 'danger', color: 'danger'}]
     }
+  },
+  methods: {
+    change (value) {
+      console.log('change:', value)
+    }
+  }
+}
 </script>

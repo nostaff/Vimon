@@ -207,8 +207,26 @@
   </vm-page>
 </template>
 
-<script>
+<script type="text/javascript">
+import {Button, Icon, List, ListHeader, Item, ItemGroup, ItemDivider, ItemSliding, ItemOptions, Label, Avatar, Note, Radio, Toggle, Thumbnail} from 'vimon'
 export default {
+  components: {
+    'vm-avatar': Avatar,
+    'vm-button': Button,
+    'vm-icon': Icon,
+    'vm-list': List,
+    'vm-list-header': ListHeader,
+    'vm-item': Item,
+    'vm-item-group': ItemGroup,
+    'vm-item-divider': ItemDivider,
+    'vm-item-sliding': ItemSliding,
+    'vm-item-options': ItemOptions,
+    'vm-label': Label,
+    'vm-note': Note,
+    'vm-radio': Radio,
+    'vm-toggle': Toggle,
+    'vm-thumbnail': Thumbnail
+  },
   data () {
     return {
       editing: false,
