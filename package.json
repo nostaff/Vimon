@@ -1,6 +1,6 @@
 {
   "name": "vimon",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "A Vue2.x UI Project For Mobile & HyBrid",
   "author": "nostaff <nostaff@sina.com>, xiangsongtao <280304286@163.com>",
   "homepage": "https://github.com/nostaff/vimon",
@@ -73,10 +73,7 @@
     "ionicons": "^3.0.0",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
-    "swiper": "^4.1.0",
-    "vue": "2.5.13",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "swiper": "^4.1.0"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.10",
@@ -155,10 +152,13 @@
     "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^0.6.2",
     "validate-commit-msg": "^2.14.0",
+    "vue": "2.5.13",
     "vue-jest": "^1.4.0",
     "vue-loader": "^13.7.0",
+    "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "2.5.13",
+    "vuex": "^3.0.1",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",
     "webpack-dev-middleware": "^2.0.4",
