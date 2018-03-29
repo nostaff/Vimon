@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/nostaff/vimon/compare/v1.7.1...v1.8.0) (2018-03-29)
+
+
+### Bug Fixes
+
+* 解决item-reorder 拖动时不能正常移动的问题 ([67d5b4a](https://github.com/nostaff/vimon/commit/67d5b4a))
+
+
+### Features
+
+* Avatar组件改为容器，slot可以是图片、图标、文字，并支持tile属性控制形状为圆形或正方形 ([2c9d8c3](https://github.com/nostaff/vimon/commit/2c9d8c3))
+* Button组件增加圆角radius 样式 ([5dcabb6](https://github.com/nostaff/vimon/commit/5dcabb6))
+* fab-button 可以单独使用 ([3f08d5d](https://github.com/nostaff/vimon/commit/3f08d5d))
+
+
+
 <a name="1.7.1"></a>
 ## [1.7.1](https://github.com/nostaff/vimon/compare/v1.7.0...v1.7.1) (2018-03-28)
 

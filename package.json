@@ -1,6 +1,6 @@
 {
   "name": "vimon",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "A Vue2.x UI Project For Mobile & HyBrid",
   "author": "nostaff <nostaff@sina.com>, xiangsongtao <280304286@163.com>",
   "homepage": "https://github.com/nostaff/vimon",
@@ -39,7 +39,8 @@
     "precommit": "lint-staged",
     "commitmsg": "validate-commit-msg",
     "prepush": "npm run test",
-    "release": "standard-version && npm run pub && git push --follow-tags origin master && npm publish --registry https://registry.npmjs.org/",
+    "release": "standard-version && npm run pub",
+    "release1": "standard-version && npm run pub && git push --follow-tags origin master && npm publish --registry https://registry.npmjs.org/",
     "ci-docs-release": "npm run docs:build && npm run demo:build && node build/docs-publish.js",
     "ci-report-coverage": "cat ./test/coverage/lcov.info | coveralls",
     "ci-github-release": "node build/github-release.js"
