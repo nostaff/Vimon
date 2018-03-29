@@ -1,5 +1,5 @@
 <template>
-  <a class="disable-hover tab-button" @click="onClickHandler" :id="tabId" :aria-selected="isSelected" :class="{
+  <a class="tab-button" @click="onClickHandler" :id="tabId" :aria-selected="isSelected" :class="{
            'has-title':hasTitle,
            'has-icon':hasIcon,
            'has-title-only':hasTitleOnly,

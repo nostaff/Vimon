@@ -190,10 +190,6 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
     color: $color-base;
     background-color: transparent;
 
-    &:hover:not(.disable-hover) {
-      color: $color-base;
-    }
-
     &:active {
       opacity: .4;
     }
@@ -211,10 +207,6 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
   border-color: $toolbar-ios-button-color;
   color: $toolbar-ios-button-color;
   background-color: transparent;
-
-  &:hover:not(.disable-hover) {
-    opacity: .4;
-  }
 
   &:active {
     color: color-contrast($colors-ios, $toolbar-ios-button-color);
@@ -245,11 +237,6 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
 .bar-button-solid-ios {
   color: color-contrast($colors-ios, $toolbar-ios-button-color);
   background-color: $toolbar-ios-button-color;
-
-  &:hover:not(.disable-hover) {
-    color: color-contrast($colors-ios, $toolbar-ios-button-color);
-    opacity: .4;
-  }
 
   &:active {
     color: color-contrast($colors-ios, $toolbar-ios-button-color);

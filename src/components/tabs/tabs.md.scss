@@ -319,7 +319,6 @@ $tabs-md-tab-icon-size:                       2.4rem !default;
     color: rgba($color-contrast, $tabs-md-tab-opacity);
   }
 
-  .tabs-md-#{$color-name} .tab-button:hover:not(.disable-hover),
   .tabs-md-#{$color-name} .tab-button[aria-selected=true],
   .tabs-md-#{$color-name} .tab-button[aria-selected=true] .tab-button-icon {
     color: $color-contrast;

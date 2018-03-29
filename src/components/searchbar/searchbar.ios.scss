@@ -210,10 +210,6 @@ $searchbar-ios-toolbar-input-background:  rgba(0, 0, 0, .08) !default;
     color: $color-base;
   }
 
-  .searchbar-ios-#{$color-name} .searchbar-ios-cancel:hover:not(.disable-hover) {
-    color: color-shade($color-base);
-  }
-
   .toolbar-ios-#{$color-name} .searchbar-ios .searchbar-search-icon {
     @include ios-searchbar-icon($searchbar-ios-input-search-icon-svg, $fg-color);
   }

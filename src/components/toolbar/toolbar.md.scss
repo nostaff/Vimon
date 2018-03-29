@@ -207,10 +207,6 @@ $toolbar-button-md-strong-font-weight:   bold !default;
   .bar-button-md-#{$color-name} {
     color: $color-base;
     background-color: transparent;
-
-    &:hover:not(.disable-hover) {
-      color: $color-base;
-    }
   }
 
 }
@@ -225,10 +221,6 @@ $toolbar-button-md-strong-font-weight:   bold !default;
   border-color: $toolbar-md-button-color;
   color: $toolbar-md-button-color;
   background-color: transparent;
-
-  &:hover:not(.disable-hover) {
-    opacity: .4;
-  }
 
   &:active {
     background-color: transparent;
@@ -265,10 +257,6 @@ $toolbar-button-md-strong-font-weight:   bold !default;
 .bar-button-solid-md {
   color: color-contrast($colors-md, $toolbar-md-button-color, md);
   background-color: $toolbar-md-button-color;
-
-  &:hover:not(.disable-hover) {
-    color: color-contrast($colors-md, $toolbar-md-button-color, md);
-  }
 
   &:active {
     color: color-contrast($colors-md, $toolbar-md-button-color, md);

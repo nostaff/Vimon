@@ -1,5 +1,5 @@
 <template>
-  <div class="ion-app" :version="version" :class="[modeClass,hoverClass,{'disable-scroll':isScrollDisabled}]">
+  <div class="ion-app" :version="version" :class="[modeClass,{'disable-scroll':isScrollDisabled}]">
     <div class="app-viewport"></div>
     <div class="app-root">
       <slot></slot>
@@ -51,10 +51,6 @@ export default {
   computed: {
     modeClass () {
       return `app-root app-root-${this.mode} ${this.mode} platform-${this.mode}`
-    },
-    hoverClass () {
-      let _isMobile = navigator.userAgent.match(/AppleWebKit.*Mobile.*/)
-      return _isMobile ? 'disable-hover' : 'enable-hover'
     }
   },
   created () {

@@ -74,7 +74,6 @@ $tabs-ios-tab-icon-size:            30px !default;
   }
 }
 
-.tabs-ios .tab-button:hover:not(.disable-hover),
 .tabs-ios .tab-button[aria-selected=true] {
   color: $tabs-ios-tab-text-color-active;
 }
@@ -152,9 +151,7 @@ $tabs-ios-tab-icon-size:            30px !default;
   }
 
   .tabs-ios-#{$color-name} .tab-button,
-  .tabs-ios-#{$color-name} .tab-button-icon,
-  .tabs-ios-#{$color-name} .tab-button:hover:not(.disable-hover),
-  .tabs-ios-#{$color-name} .tab-button:hover:not(.disable-hover) .tab-button-icon {
+  .tabs-ios-#{$color-name} .tab-button-icon {
     color: rgba($color-contrast, .7);
   }
 
