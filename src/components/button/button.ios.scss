@@ -54,9 +54,6 @@ $button-ios-background-color-activated:             color-shade($button-ios-back
 /// @prop - Opacity of the activated button
 $button-ios-opacity-activated:                      1 !default;
 
-/// @prop - Opacity of the button on hover
-$button-ios-opacity-hover:                          .8 !default;
-
 
 // iOS Large Button
 // --------------------------------------------------
@@ -157,12 +154,6 @@ $button-ios-clear-background-color-activated:       $button-ios-clear-background
 /// @prop - Opacity of the activated clear button
 $button-ios-clear-opacity-activated:                .4 !default;
 
-/// @prop - Text color of the clear button on hover
-$button-ios-clear-text-color-hover:                 $button-ios-background-color !default;
-
-/// @prop - Opacity of the clear button on hover
-$button-ios-clear-opacity-hover:                    .6 !default;
-
 
 // iOS Round Button
 // --------------------------------------------------
@@ -219,11 +210,6 @@ $button-ios-strong-font-weight:                     600 !default;
   background-color: $button-ios-background-color-activated;
   opacity: $button-ios-opacity-activated;
 }
-
-.button-ios:hover:not(.disable-hover) {
-  opacity: $button-ios-opacity-hover;
-}
-
 
 // iOS Default Button Color Mixin
 // --------------------------------------------------
@@ -285,6 +271,9 @@ $button-ios-strong-font-weight:                     600 !default;
   @include margin-horizontal(0);
   @include border-radius(0);
 
+  display: block;
+  width: 100%;
+  contain: strict;
   border-right-width: 0;
   border-left-width: 0;
 }
@@ -300,6 +289,13 @@ $button-ios-strong-font-weight:                     600 !default;
   border-color: $button-ios-outline-border-color;
   color: $button-ios-outline-text-color;
   background-color: $button-ios-outline-background-color;
+}
+
+.button-full-ios.button-outline-ios {
+  @include border-radius(0);
+
+  border-right-width: 0;
+  border-left-width: 0;
 }
 
 .button-outline-ios:active {
@@ -341,12 +337,6 @@ $button-ios-strong-font-weight:                     600 !default;
   opacity: $button-ios-clear-opacity-activated;
 }
 
-.button-clear-ios:hover:not(.disable-hover) {
-  color: $button-ios-clear-text-color-hover;
-  opacity: $button-ios-clear-opacity-hover;
-}
-
-
 // iOS Clear Button Color Mixin
 // --------------------------------------------------
 
@@ -361,10 +351,6 @@ $button-ios-strong-font-weight:                     600 !default;
 
   .button-clear-ios-#{$color-name}:active {
     opacity: $button-ios-clear-opacity-activated;
-  }
-
-  .button-clear-ios-#{$color-name}:hover:not(.disable-hover) {
-    color: $fg-color;
   }
 }
 
@@ -396,4 +382,25 @@ $button-ios-strong-font-weight:                     600 !default;
 
 .button-strong-ios {
   font-weight: $button-ios-strong-font-weight;
+}
+
+// iOS Radius Button
+// --------------------------------------------------
+
+.button-radius-ios {
+  @include border-radius(50%);
+
+  width: $button-ios-height;
+}
+
+.button-large-ios.button-radius-ios {
+  @include border-radius(50%);
+
+  width: $button-ios-large-height;
+}
+
+.button-small-ios.button-radius-ios {
+  @include border-radius(50%);
+
+  width: $button-ios-small-height;
 }

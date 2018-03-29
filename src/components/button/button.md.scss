@@ -63,9 +63,6 @@ $button-md-transition-duration:            300ms !default;
 /// @prop - Speed curve of the transition of the button
 $button-md-transition-timing-function:     cubic-bezier(.4, 0, .2, 1) !default;
 
-/// @prop - Background color of the button on hover
-$button-md-background-color-hover:         $button-md-background-color !default;
-
 /// @prop - Background color of the activated button
 $button-md-background-color-activated:     color-shade($button-md-background-color) !default;
 
@@ -153,9 +150,6 @@ $button-md-outline-background-color:            transparent !default;
 /// @prop - Box shadow of the outline button
 $button-md-outline-box-shadow:                  none !default;
 
-/// @prop - Background color of the outline button on hover
-$button-md-outline-background-color-hover:      rgba(158, 158, 158, .1) !default;
-
 /// @prop - Background color of the activated outline button
 $button-md-outline-background-color-activated:  transparent !default;
 
@@ -192,9 +186,6 @@ $button-md-clear-background-color-activated:    rgba(158, 158, 158, .2) !default
 
 /// @prop - Box shadow of the activated clear button
 $button-md-clear-box-shadow-activated:          $button-md-clear-box-shadow !default;
-
-/// @prop - Background color of the clear button on hover
-$button-md-clear-background-color-hover:        rgba(158, 158, 158, .1) !default;
 
 /// @prop - Background color of the ripple on the clear button
 $button-md-clear-ripple-background-color:       #999 !default;
@@ -260,10 +251,6 @@ $button-md-strong-font-weight:                  bold !default;
   }
 }
 
-.button-md:hover:not(.disable-hover) {
-  background-color: $button-md-background-color-hover;
-}
-
 .button-md:active {
   background-color: $button-md-background-color-activated;
   box-shadow: $button-md-box-shadow-activated;
@@ -284,10 +271,6 @@ $button-md-strong-font-weight:                  bold !default;
 
   .button-md-#{$color-name} {
     color: $fg-color;
-    background-color: $bg-color;
-  }
-
-  .button-md-#{$color-name}:hover:not(.disable-hover) {
     background-color: $bg-color;
   }
 
@@ -343,6 +326,9 @@ $button-md-strong-font-weight:                  bold !default;
   @include margin-horizontal(0);
   @include border-radius(0);
 
+  display: block;
+  width: 100%;
+  contain: strict;
   border-right-width: 0;
   border-left-width: 0;
 }
@@ -359,8 +345,11 @@ $button-md-strong-font-weight:                  bold !default;
   box-shadow: $button-md-outline-box-shadow;
 }
 
-.button-outline-md:hover:not(.disable-hover) {
-  background-color: $button-md-outline-background-color-hover;
+.button-full-md.button-outline-md {
+  @include border-radius(0);
+
+  border-right-width: 0;
+  border-left-width: 0;
 }
 
 .button-outline-md:active {
@@ -384,10 +373,6 @@ $button-md-strong-font-weight:                  bold !default;
     border-color: $fg-color;
     color: $fg-color;
     background-color: $button-md-outline-background-color;
-  }
-
-  .button-outline-md-#{$color-name}:hover:not(.disable-hover) {
-    background-color: $button-md-outline-background-color-hover;
   }
 
   .button-outline-md-#{$color-name}:active {
@@ -416,10 +401,6 @@ $button-md-strong-font-weight:                  bold !default;
   box-shadow: $button-md-clear-box-shadow-activated;
 }
 
-.button-clear-md:hover:not(.disable-hover) {
-  background-color: $button-md-clear-background-color-hover;
-}
-
 .button-clear-md .button-effect {
   background-color: $button-md-clear-ripple-background-color;
 }
@@ -440,10 +421,6 @@ $button-md-strong-font-weight:                  bold !default;
   .button-clear-md-#{$color-name}:active {
     background-color: $button-md-clear-background-color-activated;
     box-shadow: $button-md-clear-box-shadow-activated;
-  }
-
-  .button-clear-md-#{$color-name}:hover:not(.disable-hover) {
-    color: $fg-color;
   }
 }
 
@@ -512,4 +489,26 @@ $button-md-strong-font-weight:                  bold !default;
 
 .button-strong-md {
   font-weight: $button-md-strong-font-weight;
+}
+
+
+// MD Radius Button
+// --------------------------------------------------
+
+.button-radius-md {
+  @include border-radius(50%);
+
+  width: $button-ios-height;
+}
+
+.button-large-md.button-radius-md {
+  @include border-radius(50%);
+
+  width: $button-md-large-height;
+}
+
+.button-small-md.button-radius-md {
+  @include border-radius(50%);
+
+  width: $button-md-small-height;
 }

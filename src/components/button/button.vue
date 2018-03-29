@@ -1,11 +1,9 @@
 <template>
-  <button class="disable-hover ion-button"
-      :class="[modeClass, itemClass]"
-      @click="clickHandler">
+  <button :class="[modeClass, itemClass]" @click="clickHandler">
     <span class="button-inner">
       <slot></slot>
     </span>
-    <div class="button-effect"></div>
+    <div class="button-effect" v-if="mode == 'md'"></div>
   </button>
 </template>
 <script type="text/javascript">
@@ -38,6 +36,7 @@ export default {
 
     // shape
     round: Boolean,
+    radius: Boolean,
 
     // display
     block: Boolean,
@@ -83,26 +82,12 @@ export default {
     this.addClassInItem()
   },
   methods: {
-    pointerStart () {
-      if (this.$el.hasAttribute('disable-activated')) return
-      setTimeout(() => {
-        this.setElementClass('activated', true)
-      }, 80)
-
-      return true
-    },
-    pointerEnd () {
-      if (this.$el.hasAttribute('disable-activated')) return
-      setTimeout(() => {
-        this.setElementClass('activated', false)
-      }, 80)
-    },
     clickHandler (ev) {
       this.$emit('click', ev)
     },
     getProps () {
       isTrueProperty(this.small) && (this.size = 'small')
-      isTrueProperty(this.default) && (this.size = 'default')
+      isTrueProperty(this.default) && (this.size = '')
       isTrueProperty(this.large) && (this.size = 'large')
 
       isTrueProperty(this.outline) && (this.style = 'outline')
@@ -110,6 +95,7 @@ export default {
       isTrueProperty(this.solid) && (this.style = 'solid')
 
       isTrueProperty(this.round) && (this.shape = 'round')
+      isTrueProperty(this.radius) && (this.shape = 'radius')
 
       isTrueProperty(this.full) && (this.display = 'full')
       isTrueProperty(this.block) && (this.display = 'block')
@@ -122,11 +108,8 @@ export default {
     assignCss (assignCssClass) {
       let role = this.roleName
       if (role) {
-        this.setElementClass(role, assignCssClass) // button
-        this.setElementClass(`${role}-${this.mode}`, assignCssClass) // button
-
         this.setClass(this.style, assignCssClass) // button-clear
-        this.setClass(this.shape, assignCssClass) // button-round
+        this.setClass(this.shape, assignCssClass) // button-round button-radius
         this.setClass(this.display, assignCssClass) // button-full
         this.setClass(this.size, assignCssClass) // button-small
         this.setClass(this.decorator, assignCssClass) // button-strong
@@ -139,11 +122,9 @@ export default {
     setClass (type, assignCssClass) {
       if (type) {
         type = type.toLocaleLowerCase()
-        this.setElementClass(`${this.roleName}-${type}`, assignCssClass)
-        this.setElementClass(
-          `${this.roleName}-${type}-${this.mode}`,
-          assignCssClass
-        )
+        if (type === '') return
+        console.log(type)
+        this.setElementClass(`${this.roleName}-${type}-${this.mode}`, assignCssClass)
       }
     },
 

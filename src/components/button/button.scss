@@ -58,11 +58,6 @@ $button-round-border-radius:      64px !default;
   height: 100%;
 }
 
-
-.ion-button {
-  text-decoration: none;
-}
-
 a[disabled],
 button[disabled],
 .ion-button[disabled] {
@@ -93,20 +88,20 @@ button[disabled],
 // Full Button
 // --------------------------------------------------
 
-.button-full {
-  display: block;
+// .button-full {
+//   display: block;
 
-  width: 100%;
+//   width: 100%;
 
-  contain: strict;
-}
+//   contain: strict;
+// }
 
 // Full Outline Button
 // --------------------------------------------------
 
-.button-full.button-outline {
-  @include border-radius(0);
+// .button-full.button-outline {
+//   @include border-radius(0);
 
-  border-right-width: 0;
-  border-left-width: 0;
-}
+//   border-right-width: 0;
+//   border-left-width: 0;
+// }
