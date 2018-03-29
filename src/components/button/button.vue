@@ -123,7 +123,7 @@ export default {
       if (type) {
         type = type.toLocaleLowerCase()
         if (type === '') return
-        console.log(type)
+        this.setElementClass(`${this.roleName}-${type}`, assignCssClass)
         this.setElementClass(`${this.roleName}-${type}-${this.mode}`, assignCssClass)
       }
     },
