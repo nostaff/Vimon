@@ -7,14 +7,19 @@
             <vm-button color="danger">Danger</vm-button>
             <vm-button color="light">Light</vm-button>
             <vm-button color="dark">Dark</vm-button>
+
             <h4>Shapes</h4>
             <vm-button full>Full ion-button</vm-button>
             <vm-button block>Block ion-button</vm-button>
             <vm-button round>Round ion-button</vm-button>
+            <vm-button radius>R</vm-button>
+
             <h4>Outlines</h4>
             <vm-button color="secondary" full outline>Outline + Full</vm-button>
             <vm-button color="secondary" block outline>Outline + Block</vm-button>
             <vm-button color="secondary" round outline>Outline + Round</vm-button>
+            <vm-button color="secondary" radius outline>OR</vm-button>
+            
             <h4>Icons</h4>
             <vm-button icon-start color="dark">
                 <vm-icon name="star"></vm-icon>
@@ -27,10 +32,19 @@
             <vm-button icon-only color="dark">
                 <vm-icon name="star"></vm-icon>
             </vm-button>
+            <vm-button icon-only radius color="dark">
+                <vm-icon name="star"></vm-icon>
+            </vm-button>
+
             <h4>Sizes</h4>
             <vm-button color="light" large>Large</vm-button>
             <vm-button color="light">Default</vm-button>
             <vm-button color="light" small>Small</vm-button>
+
+            <h4>Sizes & Radius</h4>
+            <vm-button color="light" large radius>L</vm-button>
+            <vm-button color="light" radius>D</vm-button>
+            <vm-button color="light" small radius>S</vm-button>
         </vm-content>
     </vm-page>
 </template>
