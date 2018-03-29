@@ -6,7 +6,6 @@
 
 <script type="text/javascript">
 import ModeMixins from '../../themes/theme.mixins'
-
 export default {
   name: 'vm-badge',
   mixins: [ModeMixins]
