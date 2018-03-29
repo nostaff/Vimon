@@ -20,9 +20,6 @@ export default {
     fabComponent: {
       from: 'fabComponent',
       default () {
-        if (process.env.NODE_ENV !== 'production') {
-          console.error('[Component] FabButton组件 需要与 Fab组件 组合使用!')
-        }
         return null
       }
     },
