@@ -129,7 +129,7 @@
 
         // Update selected item position
         const ydiff = Math.round(posY - this.offset.y + scrollPosition)
-        selectedItem.style['transform'] = `translateY(${ydiff}px)`
+        selectedItem.style[this.$platform.css.transform] = `translateY(${ydiff}px)`
       },
 
       onDragEnd (ev) {

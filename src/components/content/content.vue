@@ -44,7 +44,7 @@ export default {
       headerHeight: 0,
       footerHeight: 0,
 
-      scrollView: null,
+      scrollView: new ScrollView(),
 
       contentTop: 0,
       contentBottom: 0,
@@ -65,6 +65,26 @@ export default {
     }
   },
   computed: {
+    contentHeight: function () {
+      return this.scrollView.ev.contentHeight
+    },
+    contentWidth: function () {
+      return this.scrollView.ev.contentWidth
+    },
+    scrollHeight: function () {
+      return this.scrollView.ev.scrollHeight
+    },
+    scrollWidth: function () {
+      return this.scrollView.ev.scrollWidth
+    },
+    scrollTop: {
+      get: function () {
+        return this.scrollView.ev.scrollTop
+      },
+      set: function (top) {
+        this.scrollView.setTop(top)
+      }
+    },
     scrollElement () {
       return this.$refs.scrollElement
     },
@@ -82,7 +102,7 @@ export default {
     }
   },
   created () {
-    this.scrollView = new ScrollView()
+    // this.scrollView = new ScrollView()
     this.imgs = []
 
     // 窗口变化重新计算容器
@@ -408,7 +428,7 @@ export default {
     imgsUpdate () {
       if (this.scrollView.initialized && this.imgs.length && this.isImgsUpdatable()) {
         this.$nextTick(() => {
-          updateImgs(this.imgs, this.scrollView.ev.scrollTop, this.scrollView.ev.contentHeight, this.scrollView.ev.directionY, this.imgReqBfr, this.imgRndBfr)
+          updateImgs(this.imgs, this.scrollTop, this.contentHeight, this.scrollView.ev.directionY, this.imgReqBfr, this.imgRndBfr)
         })
       }
     }

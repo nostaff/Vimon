@@ -79,7 +79,7 @@ export default {
       let len = children.length
 
       this.setElementClass('reorder-list-active', false)
-      let transform = 'transform'
+      let transform = this.$platform.css.transform
       for (let i = 0; i < len; i++) {
         children[i].style[transform] = ''
       }
@@ -97,7 +97,7 @@ export default {
       let children = this.$el.children
 
       /** ******* DOM WRITE **********/
-      let transform = 'transform'
+      let transform = this.$platform.css.transform
       if (toIndex >= lastToIndex) {
         for (let i = lastToIndex; i <= toIndex; i++) {
           if (i !== fromIndex) {
