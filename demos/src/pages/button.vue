@@ -1,6 +1,6 @@
 <template>
     <vm-page v-nav="{title: 'Button'}">
-        <vm-content text-center>
+        <vm-content text-center padding>
             <h4>Colors</h4>
             <vm-button>Default</vm-button>
             <vm-button color="secondary">Secondary</vm-button>
