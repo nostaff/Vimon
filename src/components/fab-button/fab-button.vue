@@ -1,5 +1,5 @@
 <template>
-  <button @click="clickHandler" :class="[modeClass,colorClass]">
+  <button class="ion-fab-button" :class="[modeClass,colorClass]" @click="clickHandler">
     <vm-icon name="close" class="fab-close-icon" v-if="isMainButton"></vm-icon>
     <span class="button-inner">
       <slot></slot>
@@ -28,11 +28,6 @@ export default {
       default: null
     }
   },
-  data () {
-    return {
-      roleName: 'fab'
-    }
-  },
   computed: {
     isMainButton () {
       return !this.fabListComponent && !!this.fabComponent
@@ -45,23 +40,28 @@ export default {
       this.fabComponent.mainButton = this
     }
   },
-
   methods: {
     /**
-       * 按钮点击处理函数, 如果是主button, 则Fab组件改写此方法
-       * @private
-       **/
+     * 按钮点击处理函数, 如果是主button, 则Fab组件改写此方法
+     * @private
+     **/
     clickHandler () {
       this.$emit('click', this.fabComponent)
       this.isMainButton && this.fabComponent.toggleClicked()
     },
 
     /**
-       * @hidden
-       */
+     * @hidden
+     */
     setActiveClose (closeVisible) {
       this.setElementClass('fab-close-active', closeVisible)
     }
   }
 }
 </script>
+
+<style lang="scss">
+  @import 'fab-button';
+  @import 'fab-button.ios';
+  @import 'fab-button.md';
+</style>

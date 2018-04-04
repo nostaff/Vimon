@@ -88,6 +88,4 @@
 
 <style lang="scss">
   @import 'fab';
-  @import 'fab.ios';
-  @import 'fab.md';
 </style>

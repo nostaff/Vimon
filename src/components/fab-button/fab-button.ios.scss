@@ -1,3 +1,4 @@
+
 @import "../../themes/ionic.globals.ios";
 
 // iOS FAB Button
@@ -31,12 +32,12 @@ $fab-ios-list-button-transition-timing-function:  ease !default;
 $fab-ios-list-button-transition-delay:            10ms !default;
 
 
-.fab-ios {
+.fab-button-ios {
   color: $fab-ios-text-color;
   background-color: $fab-ios-background-color;
 }
 
-.fab-ios:active {
+.fab-button-ios:active {
   background-color: $fab-ios-background-color-activated;
 }
 
@@ -62,12 +63,12 @@ $fab-ios-list-button-transition-delay:            10ms !default;
   $bg-color-activated: color-shade($bg-color);
   $fg-color: $color-contrast;
 
-  .fab-ios-#{$color-name} {
+  .fab-button-ios-#{$color-name} {
     color: $fg-color;
     background-color: $bg-color;
   }
 
-  .fab-ios-#{$color-name}:active {
+  .fab-button-ios-#{$color-name}:active {
     background-color: $bg-color-activated;
   }
 }

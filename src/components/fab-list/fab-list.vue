@@ -59,9 +59,6 @@ export default {
       }, 0)
     },
 
-    /**
-       * @hidden
-       */
     setVisible (val) {
       let visible = isTrueProperty(val)
       if (visible === this.visible) {
@@ -83,3 +80,7 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+  @import 'fab-list';
+</style>
