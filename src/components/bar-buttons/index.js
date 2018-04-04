@@ -1,15 +1,8 @@
-<template>
-  <div class="ion-buttons" :class="[modeClass]">
-    <slot></slot>
-  </div>
-</template>
-
-<script type="text/javascript">
 /**
- * @component Toolbar/Buttons
+ * @component Toolbar/BarButtons
  * @description
  *
- * ## 按钮组(Toolbar) / Buttons
+ * ## 按钮组(Toolbar) / BarButtons
  *
  * 这个组件只在Toolbar中使用. start/left/right/end等位置属性只能在此组组件上起作用. 可以理解为Button的放置盒子
  *
@@ -17,11 +10,11 @@
  *
  * ```
  * // 引入
- * import { Toolbar, Buttons, Title } from 'vimon'
+ * import { Toolbar, BarButtons, Title } from 'vimon'
  * // 安装
  * Vue.component(Toolbar.name, Toolbar)
  * Vue.component(Title.name, Title)
- * Vue.component(Buttons.name, Buttons)
+ * Vue.component(BarButtons.name, BarButtons)
  * ```
  *
  * ### 说明
@@ -36,14 +29,4 @@
  * @see component:Toolbar
  *
  */
-import ModeMixins from '../../themes/theme.mixins'
-export default {
-  name: 'vm-buttons',
-  mixins: [ModeMixins],
-  data () {
-    return {
-      roleName: 'bar-buttons'
-    }
-  }
-}
-</script>
+export { default } from './bar-buttons.vue'
