@@ -271,9 +271,6 @@ $button-ios-strong-font-weight:                     600 !default;
   @include margin-horizontal(0);
   @include border-radius(0);
 
-  display: block;
-  width: 100%;
-  contain: strict;
   border-right-width: 0;
   border-left-width: 0;
 }
@@ -291,14 +288,7 @@ $button-ios-strong-font-weight:                     600 !default;
   background-color: $button-ios-outline-background-color;
 }
 
-.button-full-ios.button-outline-ios {
-  @include border-radius(0);
-
-  border-right-width: 0;
-  border-left-width: 0;
-}
-
-.button-outline-ios:active {
+.button-outline-ios.activated {
   color: $button-ios-outline-text-color-activated;
   background-color: $button-ios-outline-background-color-activated;
   opacity: $button-ios-outline-opacity-activated;
@@ -382,25 +372,4 @@ $button-ios-strong-font-weight:                     600 !default;
 
 .button-strong-ios {
   font-weight: $button-ios-strong-font-weight;
-}
-
-// iOS Radius Button
-// --------------------------------------------------
-
-.button-radius-ios {
-  @include border-radius(50%);
-
-  width: $button-ios-height;
-}
-
-.button-large-ios.button-radius-ios {
-  @include border-radius(50%);
-
-  width: $button-ios-large-height;
-}
-
-.button-small-ios.button-radius-ios {
-  @include border-radius(50%);
-
-  width: $button-ios-small-height;
 }

@@ -1,13 +1,17 @@
 <template>
-  <button :class="[modeClass, itemClass]" @click="clickHandler">
+  <button class="ion-button" :class="[modeClass, itemClass]" 
+    @click="clickHandler"
+    @touchstart="touchStart"
+    @mousedown="mouseDown"
+  >
     <span class="button-inner">
       <slot></slot>
     </span>
-    <div class="button-effect" v-if="mode == 'md'"></div>
   </button>
 </template>
 <script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
+import { addRippleEffect } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
@@ -36,7 +40,6 @@ export default {
 
     // shape
     round: Boolean,
-    radius: Boolean,
 
     // display
     block: Boolean,
@@ -53,15 +56,14 @@ export default {
       itemClass: '',
 
       roleName: this.role,
+      lastClick: -10000,
 
       size: null, // large/small/default
       style: 'default', // outline/clear/solid
       shape: null, // round/fab
       display: null, // block/full
       decorator: null, // strong
-      menuToggle: null, // menutoggle
-
-      isItemCover: false
+      menuToggle: null // menutoggle
     }
   },
   created () {
@@ -85,6 +87,21 @@ export default {
     clickHandler (ev) {
       this.$emit('click', ev)
     },
+    touchStart (ev) {
+      if (this.mode !== 'md') return
+
+      this.lastClick = Date.now()
+      const touches = ev.touches[0]
+      addRippleEffect(this.$el, touches.clientX, touches.clientY)
+    },
+    mouseDown (ev) {
+      if (this.mode !== 'md') return
+
+      const timeStamp = Date.now()
+      if (this.lastClick < (timeStamp - 1000)) {
+        addRippleEffect(this.$el, ev.pageX, ev.pageY)
+      }
+    },
     getProps () {
       isTrueProperty(this.small) && (this.size = 'small')
       isTrueProperty(this.default) && (this.size = '')
@@ -95,7 +112,6 @@ export default {
       isTrueProperty(this.solid) && (this.style = 'solid')
 
       isTrueProperty(this.round) && (this.shape = 'round')
-      isTrueProperty(this.radius) && (this.shape = 'radius')
 
       isTrueProperty(this.full) && (this.display = 'full')
       isTrueProperty(this.block) && (this.display = 'block')
@@ -109,13 +125,17 @@ export default {
       let role = this.roleName
       if (role) {
         this.setClass(this.style, assignCssClass) // button-clear
-        this.setClass(this.shape, assignCssClass) // button-round button-radius
+        this.setClass(this.shape, assignCssClass) // button-round
         this.setClass(this.display, assignCssClass) // button-full
         this.setClass(this.size, assignCssClass) // button-small
         this.setClass(this.decorator, assignCssClass) // button-strong
         this.setClass(this.menuToggle, assignCssClass) // button-menutoggle
 
         this.updateColor(this.color, assignCssClass) // button-secondary, bar-button-secondary
+
+        if (role !== 'button') {
+          this.setElementClass(role)
+        }
       }
     },
 
@@ -191,6 +211,7 @@ export default {
 <style lang="scss">
 @import "button";
 @import "button-icon";
+@import "button-effect";
 @import "button.ios";
 @import "button.md";
 </style>

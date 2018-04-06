@@ -337,3 +337,27 @@ export function prepareComponent (component) {
     }
   })
 }
+
+export function addRippleEffect (el, pageX, pageY) {
+  let x, y, size
+
+  const rect = el.getBoundingClientRect()
+  const width = rect.width
+  const height = rect.height
+  size = Math.min(Math.sqrt(width * width + height * height) * 2, 600)
+  x = pageX - rect.left - (size / 2)
+  y = pageY - rect.top - (size / 2)
+
+  const div = document.createElement('div')
+  div.classList.add('button-effect')
+  const style = div.style
+  const duration = Math.max(800 * Math.sqrt(size / 350) + 0.5, 260)
+  style.top = y + 'px'
+  style.left = x + 'px'
+  style.width = size + 'px'
+  style.height = size + 'px'
+  style.animationDuration = duration + 'ms'
+
+  el.appendChild(div)
+  setTimeout(() => div.remove(), duration + 50)
+}

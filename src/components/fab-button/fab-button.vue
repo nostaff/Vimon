@@ -1,5 +1,10 @@
 <template>
-  <button class="ion-fab-button" :class="[modeClass,colorClass]" @click="clickHandler">
+  <button class="ion-fab-button" 
+      :class="[modeClass,colorClass]" 
+      @click="clickHandler"
+      @touchstart="touchStart"
+      @mousedown="mouseDown"
+    >
     <vm-icon name="close" class="fab-close-icon" v-if="isMainButton"></vm-icon>
     <span class="button-inner">
       <slot></slot>
@@ -7,6 +12,7 @@
   </button>
 </template>
 <script type="text/javascript">
+import { addRippleEffect } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
 import VmIcon from '../icon/icon'
 
@@ -26,6 +32,11 @@ export default {
     fabListComponent: {
       from: 'fabListComponent',
       default: null
+    }
+  },
+  data () {
+    return {
+      lastClick: -10000
     }
   },
   computed: {
@@ -49,7 +60,21 @@ export default {
       this.$emit('click', this.fabComponent)
       this.isMainButton && this.fabComponent.toggleClicked()
     },
+    touchStart (ev) {
+      if (this.mode !== 'md') return
 
+      this.lastClick = Date.now()
+      const touches = ev.touches[0]
+      addRippleEffect(this.$el, touches.clientX, touches.clientY)
+    },
+    mouseDown (ev) {
+      if (this.mode !== 'md') return
+
+      const timeStamp = Date.now()
+      if (this.lastClick < (timeStamp - 1000)) {
+        addRippleEffect(this.$el, ev.pageX, ev.pageY)
+      }
+    },
     /**
      * @hidden
      */
@@ -64,4 +89,5 @@ export default {
   @import 'fab-button';
   @import 'fab-button.ios';
   @import 'fab-button.md';
+  @import '../button/button-effect';
 </style>
