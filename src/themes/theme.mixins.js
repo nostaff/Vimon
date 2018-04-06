@@ -18,7 +18,8 @@ export default {
   },
   computed: {
     modeClass () {
-      return `${this.roleName} ${this.roleName}-${this.mode}`
+      // return `${this.roleName} ${this.roleName}-${this.mode}`
+      return `${this.roleName}-${this.mode}`
     },
     colorClass () {
       return this.color ? (`${this.roleName}-${this.mode}-${this.color}`) : ''

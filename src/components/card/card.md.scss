@@ -143,7 +143,7 @@ $card-md-header-color:                #222 !default;
 
 .card-md > .item:last-child,
 .card-md > .item:last-child .item-inner,
-.card-md > .item-wrapper:last-child .item {
+.card-md > .item-wrapper:last-child .ion-item {
   border-bottom: 0;
 }
 
@@ -168,11 +168,11 @@ $card-md-header-color:                #222 !default;
 }
 
 .card-header-md + .card-content-md,
-.card-md .item + .card-content-md {
+.card-md .ion-item + .card-content-md {
   @include padding(0, null, null, null);
 }
 
-.card .note-md {
+.ion-card .note-md {
   font-size: 1.3rem;
 }
 

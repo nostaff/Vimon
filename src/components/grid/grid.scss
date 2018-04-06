@@ -67,7 +67,7 @@ $grid-padding-widths: (
 // Grid
 // --------------------------------------------------
 
-.grid {
+.ion-grid {
   @include make-grid();
 
   &[fixed] {
@@ -78,21 +78,18 @@ $grid-padding-widths: (
 // Row
 // --------------------------------------------------
 
-.row {
+.ion-row {
   @include make-row();
 }
 
 // Columns
 // --------------------------------------------------
 
-.col {
+.ion-col {
   @include make-column-base();
 }
 
 @include make-grid-columns();
-
-
-
 
 
 // sudoku
@@ -105,11 +102,10 @@ $grid-padding-widths: (
     display: block;
     transform-origin: 0 0;
   }
-
-  .row {
+  .ion-row {
     position: relative;
   }
-  .row::before {
+  .ion-row::before {
     @include hairline();
     transform: scaleY(.5);
     height: 1px;
@@ -120,7 +116,7 @@ $grid-padding-widths: (
     top: 0;
     bottom: auto;
   }
-  .row:nth-last-child(1)::after {
+  .ion-row:nth-last-child(1)::after {
     @include hairline();
     transform: scaleY(.5);
     height: 1px;
@@ -131,8 +127,7 @@ $grid-padding-widths: (
     bottom: 0;
     top: auto;
   }
-
-  .col::before {
+  .ion-col::before {
     @include hairline();
     transform: scaleX(.5);
     height: 100%;
@@ -143,7 +138,7 @@ $grid-padding-widths: (
     left: 0;
     right: auto;
   }
-  .col:nth-child(1)::before {
+  .ion-col:nth-child(1)::before {
     content: none;
   }
 }

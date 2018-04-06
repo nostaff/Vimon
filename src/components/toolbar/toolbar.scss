@@ -6,9 +6,6 @@
 .ion-toolbar {
   position: relative;
   z-index: $z-index-toolbar;
-}
-
-.toolbar {
   display: flex;
   overflow: hidden;
 
@@ -57,7 +54,7 @@
   white-space: nowrap;
 }
 
-.ion-buttons {
+.ion-bar-buttons {
   @include margin(0, .2rem);
 
   display: block;
@@ -67,11 +64,11 @@
   pointer-events: none;
 }
 
-.ion-buttons button,
-.ion-buttons a,
-.ion-buttons input,
-.ion-buttons textarea,
-.ion-buttons div {
+.ion-bar-buttons button,
+.ion-bar-buttons a,
+.ion-bar-buttons input,
+.ion-bar-buttons textarea,
+.ion-bar-buttons div {
   pointer-events: auto;
 }
 
@@ -79,26 +76,16 @@
 // Transparent Toolbar
 // --------------------------------------------------
 
-.toolbar[transparent] .toolbar-background {
+.ion-toolbar[transparent] .toolbar-background {
   border-color: transparent;
   background: transparent;
 }
 
 
 // TODO this is a temp hack to fix segment overlapping .ion-nav-item
-.ion-buttons,
+.ion-bar-buttons,
 .bar-button-menutoggle {
   z-index: 99;
-
-  transform: translateZ(0);
-}
-
-
-// Navbar
-// --------------------------------------------------
-
-.ion-navbar.toolbar {
-  display: flex;
 
   transform: translateZ(0);
 }

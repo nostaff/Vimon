@@ -1,7 +1,6 @@
 <template>
-  <div class="ion-img img"
+  <div class="ion-img"
       :class="{'img-loaded':isLoaded,'img-unloaded':!isLoaded}"
-      :src="src"
       :style="{'width':w,'height':h}">
     <transition name="fade">
       <img v-show="isLoaded" ref="img"

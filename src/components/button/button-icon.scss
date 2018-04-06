@@ -23,7 +23,7 @@
   @include padding-horizontal(.4em, null);
 }
 
-.button[icon-only] {
+.ion-button[icon-only] {
   @include padding(0);
 
   min-width: .9em;

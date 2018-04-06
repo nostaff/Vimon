@@ -87,13 +87,9 @@ $popover-ios-arrow-background:          $popover-ios-background !default;
 
   .item-ios {
     @include padding-horizontal($item-ios-padding-start, null);
-
   }
 
-  .item-ios[detail-push] .item-inner,
-  button.item-ios:not([detail-none]) .item-inner,
-  a.item-ios:not([detail-none]) .item-inner {
+  .item-ios[detail-push] .item-inner {
     @include background-position(end, $item-ios-padding-end - 2, center);
-
   }
 }

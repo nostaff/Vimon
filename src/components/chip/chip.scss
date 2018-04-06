@@ -54,7 +54,7 @@ $chip-avatar-border-radius:   50% !default;
   box-sizing: border-box;
 }
 
-.ion-chip .button {
+.ion-chip .ion-button {
   @include border-radius($chip-button-border-radius);
 
   width: $chip-button-size;

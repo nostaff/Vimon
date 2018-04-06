@@ -138,7 +138,7 @@ $card-ios-header-color:                #333 !default;
 
 .card-ios > .item:last-child,
 .card-ios > .item:last-child .item-inner,
-.card-ios > .item-wrapper:last-child .item {
+.card-ios > .item-wrapper:last-child .ion-item {
   border-bottom: 0;
 }
 
@@ -164,11 +164,11 @@ $card-ios-header-color:                #333 !default;
 }
 
 .card-header-ios + .card-content-ios,
-.card-ios .item + .card-content-ios {
+.card-ios .ion-item + .card-content-ios {
   @include padding(0, null, null, null);
 }
 
-.card .note-ios {
+.ion-card .note-ios {
   font-size: 1.3rem;
 }
 

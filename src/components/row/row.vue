@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="ion-row">
     <slot></slot>
   </div>
 </template>

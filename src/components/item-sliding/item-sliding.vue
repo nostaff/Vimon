@@ -355,5 +355,4 @@ export default {
 
 <style lang="scss">
 @import "item-sliding";
-@import "item-sliding-test";
 </style>

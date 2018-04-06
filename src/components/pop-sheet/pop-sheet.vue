@@ -1,5 +1,5 @@
 <template>
-    <div class="vm-pop-sheet" :class="[modeClass,{'vm-pop-sheet-visible':isVisible}]">
+    <div class="ion-pop-sheet" :class="[modeClass,{'ion-pop-sheet-visible':isVisible}]">
         <vm-backdrop @click="bdClick" :enableBackdropDismiss="enableBackdropDismiss"
                   :isActive="isActive && showBackdrop"></vm-backdrop>
         <transition

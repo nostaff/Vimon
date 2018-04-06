@@ -44,7 +44,7 @@ $reorder-initial-transform: 300% !default;
   @include transform(translate3d(0, 0, 0));
 }
 
-.reorder-list-active .item,
+.reorder-list-active .ion-item,
 .reorder-list-active .item-wrapper {
   transition: transform 300ms;
 

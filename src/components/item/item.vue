@@ -15,6 +15,27 @@ export default {
       default: null
     }
   },
+  props: {
+    /*
+     * 可以是 字符串path，url， 也可以是路由对象
+     */
+    link: [String, Object],
+
+    /*
+     * 是否禁用
+     */
+    disabled: [Boolean, String],
+
+    /*
+     * 是否替换路由
+     */
+    replace: [Boolean, String],
+
+    /*
+     * 如果是在menus中, 可以设置这个值, 当menus完全关闭时再触发跳转动作
+     */
+    wait: Boolean
+  },
   data () {
     return {
       isDisabled: isTrueProperty(this.disabled),
@@ -22,28 +43,13 @@ export default {
       isInMenu: this.wait // 判断是否在menu组件中, 如果在menu中, 则
     }
   },
-  props: {
-    /**
-     * 可以是 字符串path，url， 也可以是路由对象
-     */
-    link: [String, Object],
-
-    /** 是否禁用 */
-    disabled: [Boolean, String],
-
-    /** 是否替换路由 */
-    replace: [Boolean, String],
-
-    /**
-     * 如果是在menus中, 可以设置这个值, 当menus完全关闭时再出发跳转动作
-     **/
-    wait: Boolean
-  },
   created () {
     this.hasReorder = this.itemGroupComponent && this.itemGroupComponent.allowReorder
   },
   mounted () {
-    this.link && this.setElementAttribute('detail-push')
+    if (this.link && !this.$el.hasAttribute('detail-none')) {
+      this.setElementAttribute('detail-push')
+    }
   },
   methods: {
     clickHandler (ev) {
