@@ -54,7 +54,7 @@
   white-space: nowrap;
 }
 
-.ion-bar-buttons {
+.ion-buttons {
   @include margin(0, .2rem);
 
   display: block;
@@ -64,11 +64,11 @@
   pointer-events: none;
 }
 
-.ion-bar-buttons button,
-.ion-bar-buttons a,
-.ion-bar-buttons input,
-.ion-bar-buttons textarea,
-.ion-bar-buttons div {
+.ion-buttons button,
+.ion-buttons a,
+.ion-buttons input,
+.ion-buttons textarea,
+.ion-buttons div {
   pointer-events: auto;
 }
 
@@ -83,7 +83,7 @@
 
 
 // TODO this is a temp hack to fix segment overlapping .ion-nav-item
-.ion-bar-buttons,
+.ion-buttons,
 .bar-button-menutoggle {
   z-index: 99;
 

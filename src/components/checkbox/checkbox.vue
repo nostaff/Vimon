@@ -3,7 +3,7 @@
     <div :class="['checkbox-icon', {'checkbox-checked':isChecked}]">
       <div class="checkbox-inner"></div>
     </div>
-    <vm-button role="checkbox" :disabled="disabled" @click.native="onChecked"></vm-button>
+    <vm-button role="checkbox" :aria-disabled="isDisabled" :aria-checked="isChecked" @click="onChecked"></vm-button>
   </div>
 </template>
 <script type="text/javascript">

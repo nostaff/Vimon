@@ -1,18 +1,10 @@
 <template>
   <div class="ion-datetime"
        :class="[modeClass, colorClass]"
-       @click="clickHandler($event)"
-       :displayFormat="displayFormat"
-       :pickerFormat="pickerFormat"
-       :min="min"
-       :max="max">
+       @click="clickHandler($event)">
     <div v-if="!text" class="datetime-text datetime-placeholder">{{placeholder}}</div>
     <div v-if="text" class="datetime-text">{{text}}</div>
-    <vm-button type="button"
-               :id="_uid"
-               role="item-cover"
-               class="item-cover">
-    </vm-button>
+    <vm-button type="button" role="item-cover" :id="_uid"></vm-button>
   </div>
 </template>
 

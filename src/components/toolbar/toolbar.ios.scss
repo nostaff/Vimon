@@ -146,23 +146,23 @@ $toolbar-button-ios-strong-font-weight:     600 !default;
 // iOS Toolbar Button Placement
 // --------------------------------------------------
 
-.bar-buttons-ios {
+.buttons-ios {
   order: map-get($toolbar-order-ios, buttons-start);
 
   transform: translateZ(0);
 }
 
-.bar-buttons-ios[left] {
+.buttons-ios[left] {
   order: map-get($toolbar-order-ios, buttons-left);
 }
 
-.bar-buttons-ios[end] {
+.buttons-ios[end] {
   @include text-align(end);
 
   order: map-get($toolbar-order-ios, buttons-end);
 }
 
-.bar-buttons-ios[right] {
+.buttons-ios[right] {
   @include text-align(right);
 
   order: map-get($toolbar-order-ios, buttons-right);

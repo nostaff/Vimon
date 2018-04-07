@@ -12,7 +12,7 @@
   </button>
 </template>
 <script type="text/javascript">
-import { addRippleEffect } from '../../util/dom'
+import { addRippleEffect, isActivatedDisabled } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
 import VmIcon from '../icon/icon'
 
@@ -61,14 +61,14 @@ export default {
       this.isMainButton && this.fabComponent.toggleClicked()
     },
     touchStart (ev) {
-      if (this.mode !== 'md') return
+      if (this.mode !== 'md' || isActivatedDisabled(ev, this.$el)) return
 
       this.lastClick = Date.now()
       const touches = ev.touches[0]
       addRippleEffect(this.$el, touches.clientX, touches.clientY)
     },
     mouseDown (ev) {
-      if (this.mode !== 'md') return
+      if (this.mode !== 'md' || isActivatedDisabled(ev, this.$el)) return
 
       const timeStamp = Date.now()
       if (this.lastClick < (timeStamp - 1000)) {

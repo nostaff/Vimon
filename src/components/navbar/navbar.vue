@@ -1,5 +1,5 @@
 <template>
-  <vm-toolbar class="ion-navbar" :color="color" v-show="!hideNavbar">
+  <vm-toolbar :color="color" v-show="!hideNavbar">
     <vm-button slot="buttons" v-if="isShowBackButton"
         :class="['back-button','back-button-'+mode,'show-back-button']"
         :icon-only="!backButtonText || mode !=='ios'"
@@ -41,10 +41,10 @@ export default {
   mixins: [ModeMixins],
   components: {
     VmToolbar,
+    VmButtons,
     VmButton,
     VmTitle,
-    VmIcon,
-    VmButtons
+    VmIcon
   },
   provide () {
     const _this = this
@@ -97,10 +97,7 @@ export default {
     this._initWhenInWebview()
   },
   mounted () {
-    this.$el.classList.remove('ion-toolbar')
-    // this.$nextTick(() => {
     this.refreshBackButtonStatus()
-    // })
   },
   methods: {
     /**

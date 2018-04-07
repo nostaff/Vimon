@@ -1,5 +1,7 @@
 <template>
-  <button class="ion-button" :class="[modeClass, itemClass]" 
+  <button class="ion-button" 
+    :class="[roleClass, modeClass]" 
+    :role="role"
     @click="clickHandler"
     @touchstart="touchStart"
     @mousedown="mouseDown"
@@ -11,7 +13,7 @@
 </template>
 <script type="text/javascript">
 import { isTrueProperty } from '../../util/util'
-import { addRippleEffect } from '../../util/dom'
+import { addRippleEffect, isActivatedDisabled } from '../../util/dom'
 import ModeMixins from '../../themes/theme.mixins'
 
 export default {
@@ -53,7 +55,7 @@ export default {
   },
   data () {
     return {
-      itemClass: '',
+      roleClass: 'button',
 
       roleName: this.role,
       lastClick: -10000,
@@ -77,6 +79,10 @@ export default {
     }
 
     this.getProps()
+
+    if (this.roleName !== 'button') {
+      this.roleClass = this.roleName
+    }
   },
   mounted () {
     this.assignCss(true)
@@ -88,14 +94,14 @@ export default {
       this.$emit('click', ev)
     },
     touchStart (ev) {
-      if (this.mode !== 'md') return
+      if (this.mode !== 'md' || isActivatedDisabled(ev, this.$el)) return
 
       this.lastClick = Date.now()
       const touches = ev.touches[0]
       addRippleEffect(this.$el, touches.clientX, touches.clientY)
     },
     mouseDown (ev) {
-      if (this.mode !== 'md') return
+      if (this.mode !== 'md' || isActivatedDisabled(ev, this.$el)) return
 
       const timeStamp = Date.now()
       if (this.lastClick < (timeStamp - 1000)) {

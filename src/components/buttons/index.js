@@ -1,8 +1,8 @@
 /**
- * @component Toolbar/BarButtons
+ * @component Toolbar/Buttons
  * @description
  *
- * ## 按钮组(Toolbar) / BarButtons
+ * ## 按钮组(Toolbar) / Buttons
  *
  * 这个组件只在Toolbar中使用. start/left/right/end等位置属性只能在此组组件上起作用. 可以理解为Button的放置盒子
  *
@@ -10,11 +10,11 @@
  *
  * ```
  * // 引入
- * import { Toolbar, BarButtons, Title } from 'vimon'
+ * import { Toolbar, Buttons, Title } from 'vimon'
  * // 安装
  * Vue.component(Toolbar.name, Toolbar)
  * Vue.component(Title.name, Title)
- * Vue.component(BarButtons.name, BarButtons)
+ * Vue.component(Buttons.name, Buttons)
  * ```
  *
  * ### 说明
@@ -29,4 +29,4 @@
  * @see component:Toolbar
  *
  */
-export { default } from './bar-buttons.vue'
+export { default } from './buttons.vue'

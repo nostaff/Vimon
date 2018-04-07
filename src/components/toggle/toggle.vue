@@ -3,11 +3,12 @@
     <div class="toggle-icon">
       <div class="toggle-inner"></div>
     </div>
-    <vm-button role="checkbox" :disabled="disabled" :checked="checked"></vm-button>
+    <vm-button role="checkbox" disable-activated :aria-disabled="isDisabled" :aria-checked="checked"></vm-button>
   </div>
 </template>
 
 <script type="text/javascript">
+import { isTrueProperty } from '../../util/util'
 import ModeMixins from '../../themes/theme.mixins'
 import VmButton from '../button'
 
@@ -27,13 +28,14 @@ export default {
       default: false
     },
     disabled: {
-      type: Boolean,
+      type: [Boolean, String],
       default: false
     }
   },
   data () {
     return {
-      checked: false
+      checked: false,
+      isDisabled: isTrueProperty(this.disabled)
     }
   },
   watch: {
@@ -48,7 +50,7 @@ export default {
   },
   methods: {
     onToggle () {
-      if (this.disabled) return
+      if (this.isDisabled) return
       this.checked = !this.checked
       this.$emit('input', this.checked)
       this.$emit('onChange', this.checked)

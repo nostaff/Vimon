@@ -3,6 +3,7 @@
     <div class="ion-backdrop"
       :class="{'backdrop-no-tappable': !isEnableBackdropDismiss}"
       role="presentation"
+      disable-activated
       v-show="activated"
       @click="clickHandler"
       @touchmove="onTouchMoveHandler"></div>

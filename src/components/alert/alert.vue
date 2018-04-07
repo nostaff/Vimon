@@ -27,10 +27,10 @@
 
         <!-- radio -->
         <div class="alert-radio-group" role="radiogroup" v-if="inputs && type==='radio'">
-          <vm-button class="alert-tappable" role="alert-radio" v-for="(input, index) in inputs" :key="index"
+          <vm-button class="alert-tappable" role="radio" v-for="(input, index) in inputs" :key="index"
               :value="input.value"
               :aria-checked="input.checked"
-              :disabled="input.disabled"
+              :aria-disabled="input.disabled"
               @click="onRadioCheck(input)">
             <div class="alert-radio-icon">
               <div class="alert-radio-inner"></div>
@@ -41,10 +41,10 @@
 
         <!-- checkbox -->
         <div class="alert-checkbox-group" v-if="inputs && type==='checkbox'">
-          <vm-button class="alert-tappable" role="alert-checkbox" :key="index" v-for="(input, index) in inputs"
+          <vm-button class="alert-tappable" role="checkbox" :key="index" v-for="(input, index) in inputs"
               :value="input.value"
               :aria-checked="input.checked"
-              :disabled="input.disabled"
+              :aria-disabled="input.disabled"
               @click="onCheckboxCheck(input)">
             <div class="alert-checkbox-icon">
               <div class="alert-checkbox-inner"></div>

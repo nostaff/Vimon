@@ -59,7 +59,7 @@ export default {
       resizeUnReg: null,
 
       imgs: [],
-      imgReqBfr: this.$config && this.$config.getNumber('imgRequestBuffer', 1400),
+      imgReqBfr: this.$config && this.$config.getNumber('imgRequestBuffer', 400),
       imgRndBfr: this.$config && this.$config.getNumber('imgRenderBuffer', 400),
       imgVelMax: this.$config && this.$config.getNumber('imgVelocityMax', 3)
     }

@@ -151,13 +151,13 @@ $toolbar-button-md-strong-font-weight:   bold !default;
 // Material Design Toolbar Button Placement
 // --------------------------------------------------
 
-.bar-buttons-md {
+.buttons-md {
   order: map-get($toolbar-order-md, buttons-start);
 
   transform: translateZ(0);
 }
 
-.bar-buttons-md[left] {
+.buttons-md[left] {
   order: map-get($toolbar-order-md, buttons-left);
 }
 
@@ -165,13 +165,13 @@ $toolbar-button-md-strong-font-weight:   bold !default;
   @include margin-horizontal(0, null);
 }
 
-.bar-buttons-md[end] {
+.buttons-md[end] {
   @include text-align(end);
 
   order: map-get($toolbar-order-md, buttons-end);
 }
 
-.bar-buttons-md[right] {
+.buttons-md[right] {
   @include text-align(right);
 
   order: map-get($toolbar-order-md, buttons-right);
