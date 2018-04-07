@@ -1,13 +1,17 @@
 <template>
-  <div class="ion-item"
-      :class="[itemTypeClass, colorClass]"
-      @click="clickHandler">
+  <div class="ion-item" :class="[itemTypeClass, colorClass]" @click="clickHandler">
     <slot name="item-start"></slot>
     <div class="item-inner">
       <div class="input-wrapper">
-        <slot></slot>
+        <slot>
+          <vm-label v-if="title">
+            {{title}}
+            <p v-if="label">{{label}}</p>
+          </vm-label>
+        </slot>
       </div>
       <slot name="item-end">
+        <vm-note v-if="value" item-end>{{value}}</vm-note>
         <vm-item-reorder v-if="hasReorder"></vm-item-reorder>
       </slot>
     </div>
@@ -18,18 +22,36 @@
 import ModeMixins from '../../themes/theme.mixins'
 import VmItemReorder from './item-reorder'
 import VmLabel from '../label'
+import VmNote from '../note'
 
 export default {
   mixins: [ModeMixins],
   components: {
+    VmItemReorder,
     VmLabel,
-    VmItemReorder
+    VmNote
   },
   provide () {
     const _this = this
     return {
       itemComponent: _this
     }
+  },
+  props: {
+    /**
+     * 左侧标题
+     */
+    title: String,
+
+    /**
+     * 右侧内容
+     */
+    value: String,
+
+    /**
+     * 标题下方的描述
+     */
+    label: String
   },
   data () {
     return {
@@ -43,6 +65,12 @@ export default {
   },
   methods: {
     clickHandler (ev) {
+      console.log('dadada')
+      this.setElementClass('activated')
+      setTimeout(() => {
+        this.setElementClass('activated', false)
+      }, 88)
+
       this.$emit('click', ev)
     }
   },
