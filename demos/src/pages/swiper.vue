@@ -549,17 +549,17 @@
       <vm-swiper :options="zoomOption">
         <vm-swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="../../static/background/6.jpg">
+            <img src="/static/background/6.jpg">
           </div>
         </vm-swiper-slide>
         <vm-swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="../../static/background/1.jpg">
+            <img src="/static/background/1.jpg">
           </div>
         </vm-swiper-slide>
         <vm-swiper-slide>
           <div class="swiper-zoom-container">
-            <img src="../../static/background/3.jpg">
+            <img src="/static/background/3.jpg">
           </div>
         </vm-swiper-slide>
         <div class="swiper-pagination swiper-pagination-white" slot="pagination"></div>
@@ -1075,23 +1075,23 @@ export default {
     align-items: center;
 
     &.slide-1 {
-        background-image:url('../../static/background/1.jpg');
+        background-image:url('/static/background/1.jpg');
       }
 
       &.slide-2 {
-        background-image:url('../../static/background/2.jpg');
+        background-image:url('/static/background/2.jpg');
       }
 
       &.slide-3 {
-        background-image:url('../../static/background/3.jpg');
+        background-image:url('/static/background/3.jpg');
       }
 
       &.slide-4 {
-        background-image:url('../../static/background/4.jpg');
+        background-image:url('/static/background/4.jpg');
       }
 
       &.slide-5 {
-        background-image:url('../../static/background/5.jpg');
+        background-image:url('/static/background/5.jpg');
       }
   }
 
@@ -1230,7 +1230,7 @@ export default {
       -webkit-background-size: cover;
       background-size: cover;
       background-position: center;
-      background-image: url(../../static/background/2.jpg);
+      background-image: url(/static/background/2.jpg);
     }
     .swiper-slide .title {
       font-size: 41px;

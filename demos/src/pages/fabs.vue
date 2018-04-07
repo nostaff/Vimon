@@ -1,7 +1,11 @@
 <template>
   <vm-page v-nav="{title: 'Floating Action Buttons'}">
     <vm-content>
-      <div :key="i" v-for="i in array">num: {{i}}</div>
+      <div :key="idx" v-for="(i, idx) in array">num: {{i}}</div>
+
+      <vm-fab-button color="danger">
+        <vm-icon name="book"></vm-icon>
+      </vm-fab-button>
 
       <vm-fab slot="fixed" top right edge>
         <vm-fab-button mini @click="clickMainFAB()">

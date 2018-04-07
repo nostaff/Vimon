@@ -7,7 +7,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons  slot="buttons" start>
+        <vm-buttons slot="buttons" start>
           <vm-button icon-only>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -24,7 +24,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons  slot="buttons" start>
+        <vm-buttons slot="buttons" start>
           <vm-button icon-only color="danger">
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -41,7 +41,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons  slot="buttons" start>
+        <vm-buttons slot="buttons" start>
           <vm-button icon-only solid>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -56,7 +56,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons  slot="buttons" start>
+        <vm-buttons slot="buttons" start>
           <vm-button icon-only outline>
             <vm-icon name="contact"></vm-icon>
           </vm-button>
@@ -71,7 +71,7 @@
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-button icon-only menutoggle>
+        <vm-button slot="buttons" icon-only menutoggle>
           <vm-icon name="menu"></vm-icon>
         </vm-button>
         <vm-title>Left Menu</vm-title>
@@ -79,13 +79,13 @@
 
       <vm-toolbar no-border-top>
         <vm-title>Right Menu</vm-title>
-        <vm-button menutoggle slot="buttons" end>
+        <vm-button slot="buttons" menutoggle  end>
           <vm-icon name="menu"></vm-icon>
         </vm-button>
       </vm-toolbar>
 
       <vm-toolbar no-border-top>
-        <vm-buttons end>
+        <vm-buttons slot="buttons" end>
           <vm-button icon-only>
             <vm-icon name="search"></vm-icon>
           </vm-button>

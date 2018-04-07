@@ -3,6 +3,12 @@
     <vm-content class="outer-content">
 
       <vm-list>
+        <vm-list-header>Features</vm-list-header>
+        <vm-item title="Detail none" link="/button" value="Button" detail-none></vm-item>
+        <vm-item title="Title" value="Value" label="Label" link="/button"></vm-item>
+      </vm-list>
+
+      <vm-list>
         <vm-list-header>
           Settings
           <vm-button clear icon-only slot="item-end">
@@ -112,7 +118,7 @@
       <vm-list title="Multi Lines">
         <vm-item detail-push>
           <vm-avatar slot="item-start">
-            <img src="../assets/images/avatar/1.png">
+            <img src="/static/avatar/1.png">
           </vm-avatar>
           <vm-label>
             <h2>Cher</h2>
@@ -121,7 +127,7 @@
         </vm-item>
         <vm-item>
           <vm-avatar slot="item-start">
-            <img src="../assets/images/avatar/2.png">
+            <img src="/static/avatar/2.png">
           </vm-avatar>
           <vm-label>
             <h2>Finn</h2>
@@ -131,7 +137,7 @@
         </vm-item>
         <vm-item>
           <vm-thumbnail slot="item-start">
-            <img src="../assets/images/avatar/3.png">
+            <img src="/static/avatar/3.png">
           </vm-thumbnail>
           <vm-label>
             <h2>My Neighbor Totoro</h2>
@@ -141,7 +147,7 @@
         </vm-item>
         <vm-item is-link>
           <vm-thumbnail slot="item-start">
-            <img src="../assets/images/avatar/4.png">
+            <img src="/static/avatar/4.png">
           </vm-thumbnail>
           <vm-label>
             <h2>Pretty Hate Machine</h2>
