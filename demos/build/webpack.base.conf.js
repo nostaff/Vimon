@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './demos/src/main.js'
+    app: ['babel-polyfill', './demos/src/main.js']
   },
   output: {
     path: config.build.assetsRoot,
@@ -51,8 +51,8 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass']
+        test: /\.(sass|scss)$/,
+        loaders: ['style', 'css', 'postcss', 'sass']
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,

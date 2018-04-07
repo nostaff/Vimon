@@ -49,11 +49,12 @@ exports.cssLoaders = function (options) {
 
   // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
   return {
+    postcss: generateLoaders(),
     css: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', {indentedSyntax: true, data: getScssVariables}),
     scss: generateLoaders('sass', {data: getScssVariables}),
-    stylus: generateLoaders('stylus'),
+    stylus: generateLoaders('stylus')
   }
 }
 
