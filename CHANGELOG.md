@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.3"></a>
+## [1.7.3](https://github.com/nostaff/vimon/compare/v1.7.2...v1.7.3) (2018-04-08)
+
+
+### Features
+
+* bar-buttons 组件名称修改 ([ac77543](https://github.com/nostaff/vimon/commit/ac77543))
+* button fab-button 组件增加ripple效果 ([232d3f9](https://github.com/nostaff/vimon/commit/232d3f9))
+* button fab-button 组件增加ripple效果 ([5582c2f](https://github.com/nostaff/vimon/commit/5582c2f))
+* Item 组件增加title value label 属性，快捷使用 ([eab2377](https://github.com/nostaff/vimon/commit/eab2377))
+* 增加ripple效果 之相应调整 ([0fc51e6](https://github.com/nostaff/vimon/commit/0fc51e6))
+
+
+### Performance Improvements
+
+* 组件类名加ion-前缀，避免与项目样式冲突 ([812bfce](https://github.com/nostaff/vimon/commit/812bfce))
+
+
+
 <a name="1.7.2"></a>
 ## [1.7.2](https://github.com/nostaff/vimon/compare/v1.8.1...v1.7.2) (2018-03-29)
 
