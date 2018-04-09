@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>scroll/index.js - Documentation</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="scripts/qrcode.js"></script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+
+    <section class="vimo">
+        <div class="vimo__imgBox">
+            <img class="vimo__imgBox--img" src="./asset/img/vimo.png">
+        </div>
+
+        <div class="vimo__title">
+            <h2>VIMON</h2>
+            <!--<p>beta</p>-->
+            <p>基于Vue2.x的移动端Hybrid框架</p>
+        </div>
+        <div class="vimo__iframe">
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=star&amp;count=true"
+                    frameborder="0" scrolling="0" width="110px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=fork&amp;count=true"
+                    frameborder="0" scrolling="0" width="95px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+        </div>
+    </section>
+    <section class="nav__header"><h2><a href="index.html">首页 / Home</a></h2><h2><a href="https://nostaff.github.io/vimon/example">示例 / Demo</a></h2><h2><a href="https://nostaff.github.io/vimon/">如何开始 / How To Start</a></h2><h2><a href="https://github.com/nostaff/vimon/blob/master/CHANGELOG.md">更新日志 / Change Log</a></h2><h2><a href="#">常见问题 / Question</a></h2></section><h3>组件 / Components</h3><ul><li><a href="component-ActionSheet.html">ActionSheet</a><ul class='methods'><li data-type='method'><a href="component-ActionSheet.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-ActionSheet.html#~present">present</a></li></ul></li><li><a href="component-Alert.html">Alert</a><ul class='methods'><li data-type='method'><a href="component-Alert.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Alert.html#~present">present</a></li></ul></li><li><a href="component-App.html">App</a></li><li><a href="component-Avatar.html">Avatar</a></li><li><a href="component-Backdrop.html">Backdrop</a></li><li><a href="component-Badge.html">Badge</a></li><li><a href="component-Base_Footer.html">Base/Footer</a></li><li><a href="component-Base_Header.html">Base/Header</a></li><li><a href="component-Base_Navbar.html">Base/Navbar</a></li><li><a href="component-Base_Page.html">Base/Page</a></li><li><a href="component-Button.html">Button</a></li><li><a href="component-Checkbox.html">Checkbox</a></li><li><a href="component-ChooseCity.html">ChooseCity</a></li><li><a href="component-CityPicker.html">CityPicker</a></li><li><a href="component-Content.html">Content</a></li><li><a href="component-Grid.html">Grid</a></li><li><a href="component-Grid_Column.html">Grid/Column</a></li><li><a href="component-Grid_Row.html">Grid/Row</a></li><li><a href="component-Icon.html">Icon</a></li><li><a href="component-Img.html">Img</a></li><li><a href="component-InfiniteScroll.html">InfiniteScroll</a></li><li><a href="component-Input.html">Input</a></li><li><a href="component-Item.html">Item</a></li><li><a href="component-Item_ItemDivider.html">Item/ItemDivider</a></li><li><a href="component-Item_ItemGroup.html">Item/ItemGroup</a></li><li><a href="component-Item_ItemOptions.html">Item/ItemOptions</a></li><li><a href="component-Item_ItemSliding.html">Item/ItemSliding</a></li><li><a href="component-Item_ListHeader.html">Item/ListHeader</a></li><li><a href="component-Label.html">Label</a></li><li><a href="component-List.html">List</a></li><li><a href="component-Loading.html">Loading</a></li><li><a href="component-Menu.html">Menu</a><ul class='methods'><li data-type='method'><a href="component-Menu.html#~close">close</a></li><li data-type='method'><a href="component-Menu.html#~open">open</a></li><li data-type='method'><a href="component-Menu.html#~toggle">toggle</a></li></ul></li><li><a href="component-Modal.html">Modal</a><ul class='methods'><li data-type='method'><a href="component-Modal.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Modal.html#~present">present</a></li></ul></li><li><a href="component-Nav.html">Nav</a></li><li><a href="component-Note.html">Note</a></li><li><a href="component-Picker.html">Picker</a></li><li><a href="component-Popover.html">Popover</a></li><li><a href="component-PopSheet.html">PopSheet</a></li><li><a href="component-Radio.html">Radio</a></li><li><a href="component-Range.html">Range</a></li><li><a href="component-Refresher.html">Refresher</a></li><li><a href="component-Scroll.html">Scroll</a></li><li><a href="component-Searchbar.html">Searchbar</a></li><li><a href="component-Segment.html">Segment</a></li><li><a href="component-Segment_SegmentButton.html">Segment/SegmentButton</a></li><li><a href="component-Select.html">Select</a></li><li><a href="component-Select_Option.html">Select/Option</a></li><li><a href="component-Sheet.html">Sheet</a></li><li><a href="component-Slides.html">Slides</a></li><li><a href="component-Slides_Slide.html">Slides/Slide</a></li><li><a href="component-Spinner.html">Spinner</a></li><li><a href="component-Tabs.html">Tabs</a></li><li><a href="component-Tabs_Tab.html">Tabs/Tab</a></li><li><a href="component-Textarea.html">Textarea</a></li><li><a href="component-Thumbnail.html">Thumbnail</a></li><li><a href="component-Toast.html">Toast</a></li><li><a href="component-Toggle.html">Toggle</a></li><li><a href="component-Toolbar.html">Toolbar</a></li><li><a href="component-Toolbar_Buttons.html">Toolbar/Buttons</a></li><li><a href="component-Toolbar_Title.html">Toolbar/Title</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentY">currentY</a></li><li><a href="global.html#deltaY">deltaY</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#fabLists">fabLists</a></li><li><a href="global.html#findReorderItem">findReorderItem</a></li><li><a href="global.html#getHeight">getHeight</a></li><li><a href="global.html#getLeft">getLeft</a></li><li><a href="global.html#getTitle">getTitle</a></li><li><a href="global.html#getTop">getTop</a></li><li><a href="global.html#getWidth">getWidth</a></li><li><a href="global.html#hide">hide</a></li><li><a href="global.html#hideOptionButton">hideOptionButton</a></li><li><a href="global.html#indexForItem">indexForItem</a></li><li><a href="global.html#listsActive">listsActive</a></li><li><a href="global.html#mainButton">mainButton</a></li><li><a href="global.html#present">present</a></li><li><a href="global.html#progress">progress</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#scrollBy">scrollBy</a></li><li><a href="global.html#scrollTo">scrollTo</a></li><li><a href="global.html#scrollToBottom">scrollToBottom</a></li><li><a href="global.html#scrollToElement">scrollToElement</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#setClass">setClass</a></li><li><a href="global.html#setDisableScroll">setDisableScroll</a></li><li><a href="global.html#setDocTitle">setDocTitle</a></li><li><a href="global.html#setEnabled">setEnabled</a></li><li><a href="global.html#setFocus">setFocus</a></li><li><a href="global.html#setLeft">setLeft</a></li><li><a href="global.html#setStyle">setStyle</a></li><li><a href="global.html#setTitle">setTitle</a></li><li><a href="global.html#setTop">setTop</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showOptionButton">showOptionButton</a></li><li><a href="global.html#showPopMenu">showPopMenu</a></li><li><a href="global.html#startY">startY</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#toggle">toggle</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<div id="main">
+
+    <article class="content">
+
+        
+        <h1 class="page-title">scroll/index.js</h1>
+        
+
+        
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @component Scroll
+ * @description
+ *
+ * ## 滚动组件 / Scroll滚动组件
+ *
+ * ### 来源
+ *
+ * Content组件也具有滚动属性, 但是Content组件的定位是页面基础布局的中间层, 也就是内容层, 这个内容层也支持jsScroll, 但是不支持滚动事件, 移除也是为了考虑性能的问题. 当然也有特殊情况, 如果内容层希望能有一个支持jsScroll的子组件这里就需要Scroll组件了.
+ *
+ * 比如:
+ *
+ * - 订单App, 左侧的菜单类别, 右侧类别详情(菜单详情).
+ * - 滑动可切换的tab组件, 能更具我外接触发滚动祖选择等.
+ * - 横向的跑马灯, 根据指令切换到某个位置.
+ * - 对Content组件的拓展, 是的浏览内容支持jsScroll
+ *
+ * ### 传参及事件
+ *
+ * Scroll组件是对 `better-scroll` 组件的封装, 组件书写完毕也是初始化完毕的时候, props就是传入的参数, 如果需要监听事件, 则通过@绑定即可, 例如:
+ *
+ * ```
+ * &lt;Scroll @scroll="scrollHandler" ref="scroll">内容&lt;/Scroll>
+ * ```
+ *
+ * 虽然事件的命名不符合Vimo既有规范, 但这部分是封装了better-scroll, 因此不改变原基础为好, `better-scroll`的文档参看下方链接.
+ *
+ * 通过ref获取组件实例进行操作, 因此使用逻辑完全一致. 其余详情请参考下方链接.
+ *
+ *
+ * ### 获取jsScroll的实例
+ * ```
+ * &lt;Scroll ref="scroll">内容&lt;/Scroll>
+ *
+ * computed: {
+ *    scrollComponent () {
+ *        return this.$refs.scroll.jsScrollInstance
+ *    }
+ * }
+ * ```
+ *
+ * ### 关于销毁
+ *
+ * 组件关闭自动销毁, 因此不存在持续占用内存的问题
+ *
+ * ### 如何引入
+ * ```
+ * // 引入
+ * import { Scroll } from 'vimo'
+ * // 安装
+ * Vue.component(Scroll.name, Scroll)
+ * // 或者
+ * export default{
+ *   components: {
+ *     Scroll
+ *  }
+ * }
+ * ```
+ *
+
+ */
+/**
+ * @component Scroll
+ * @description
+ *
+ * 滚动列表，提供了优质的原生滚动体验，便捷的配置项和事件，是一个基于`better-scroll`进行封装的组件。
+ *
+ * ### 示例
+ *
+ * - 基本使用
+ *
+ * 通过设置 `data` 属性为一个数组，即可生成能够在容器内优雅滚动的列表。
+ *
+ * ```html
+ *  &lt;div class="scroll-wrapper">
+ *   &lt;vm-scroll>
+ *     &lt;vm-list>
+         &lt;vm-item v-for="item in datas">{{item.text}}&lt;/vm-item>
+       &lt;/vm-list>
+ *   &lt;/vm-scroll>
+ * &lt;/div>
+ * ```
+
+- 配置 better-scroll 选项
+
+  通过 options 属性可以配置 better-scroll 的选项，包括滚动条、下拉刷新、上拉加载等，具体可查看 better-scroll 的[官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/options.html)，这里仅对几个常用的配置项进行介绍说明。
+
+  1）滚动条
+
+  默认无滚动条，还可设为淡入淡出滚动条或一直显示滚动条。
+
+  ```html
+  &lt;vm-scroll :options="options">
+    &lt;vm-list>
+      &lt;vm-item v-for="item in datas">{{item.text}}&lt;/vm-item>
+    &lt;/vm-list>
+  &lt;/vm-scroll>
+  ```
+  ```javascript
+  export default {
+    data() {
+      return {
+        datas: [1, 2, 3, 4, 5],
+        options: {
+          scrollbar: {
+            fade: false
+          }
+        }
+      }
+    }
+  }
+  ```
+
+  2）下拉刷新
+
+  默认无下拉刷新功能，可通过配置项`pullDownRefresh`开启`pulling-down`事件派发和下拉动画，你可以监听`pulling-down`事件更新数据。
+
+  ```html
+  &lt;vm-scroll
+    ref="scroll"
+    :options="options"
+    @pulling-down="onPullingDown">
+&lt;vm-list>
+         &lt;vm-item v-for="item in datas">{{item.text}}&lt;/vm-item>
+       &lt;/vm-list>
+  &lt;/vm-scroll>
+  ```
+  ```javascript
+  export default {
+    data() {
+      return {
+        items: [1, 2, 3, 4, 5],
+        options: {
+          pullDownRefresh: {
+            threshold: 90,
+            stop: 40,
+            txt: 'Refresh success'
+          }
+        }
+      }
+    },
+    methods: {
+      onPullingDown() {
+        // 模拟更新数据
+        setTimeout(() => {
+          if (Math.random() > 0.5) {
+            // 如果有新数据
+            this.items.unshift('I am new data: ' + +new Date())
+          } else {
+            // 如果没有新数据
+            this.$refs.scroll.forceUpdate()
+          }
+        }, 1000)
+      }
+    }
+  }
+  ```
+
+  3）上拉加载
+
+  默认无上拉加载功能，可通过配置项`pullUpLoad`开启`pulling-up`事件派发和上拉动画，你可以监听`pulling-up`事件更新数据。
+
+  ```html
+  &lt;vm-scroll
+    ref="scroll"
+    :options="options"
+    @pulling-up="onPullingUp">
+&lt;vm-list>
+         &lt;vm-item v-for="item in datas">{{item.text}}&lt;/vm-item>
+       &lt;/vm-list>
+    &lt;/vm-scroll>
+  ```
+  ```javascript
+  export default {
+    data() {
+      return {
+        items: [1, 2, 3, 4, 5],
+        itemIndex: 5,
+        options: {
+          pullUpLoad: {
+            threshold: 0,
+            txt: {
+              more: 'Load more',
+              noMore: 'No more data'
+            }
+          }
+        }
+      }
+    },
+    methods: {
+      onPullingUp() {
+        // 更新数据
+        setTimeout(() => {
+          if (Math.random() > 0.5) {
+            // 如果有新数据
+            let newPage = [
+              'I am line ' + ++this.itemIndex,
+              'I am line ' + ++this.itemIndex,
+              'I am line ' + ++this.itemIndex,
+              'I am line ' + ++this.itemIndex,
+              'I am line ' + ++this.itemIndex
+            ]
+
+            this.items = this.items.concat(newPage)
+          } else {
+            // 如果没有新数据
+            this.$refs.scroll.forceUpdate()
+          }
+        }, 1000)
+      }
+    }
+  }
+  ```
+
+- 自定义下拉刷新和上拉加载动画
+
+  如果你不喜欢内置的下载刷新插槽和上拉加载，还可以用[作用域插槽](https://cn.vuejs.org/v2/guide/components.html#作用域插槽)做自定义动画。下面这个示例，就是用作用域插槽对下拉刷新做了自定义动画，而上拉加载则保留了缺省的内置动画。
+
+  ```html
+  &lt;vm-scroll
+    ref="scroll"
+    :options="options"
+    @pulling-down="onPullingDown"
+    @pulling-up="onPullingUp">
+    &lt;template slot="pulldown" slot-scope="props">
+      &lt;div
+        v-if="props.pullDownRefresh"
+        class="cube-pulldown-wrapper"
+        :style="props.pullDownStyle">
+        &lt;div
+          v-if="props.beforePullDown"
+          class="before-trigger"
+          :style="{paddingTop: props.bubbleY + 'px'}">
+          &lt;span :class="{rotate: props.bubbleY > 40}">↓&lt;/span>
+        &lt;/div>
+        &lt;div class="after-trigger" v-else>
+          &lt;div v-if="props.isPullingDown" class="loading">
+            &lt;cube-loading>&lt;/cube-loading>
+          &lt;/div>
+          &lt;div v-else>&lt;span>Refresh success&lt;/span>&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/template>
+&lt;vm-list>
+         &lt;vm-item v-for="item in datas">{{item.text}}&lt;/vm-item>
+       &lt;/vm-list>
+  &lt;/vm-scroll>
+  ```
+
+  通过作用域插槽提供的作用域参数，你可以根据各个状态的变化来控制动画流程。具体的作用域参数及其含义详见下面的插槽。
+
+### Props 配置
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| - | - | - | - | - |
+| data | 用于列表渲染的数据 | Array | - | [] |
+| options | better-scroll 配置项 | Object | - | {&lt;br>  observeDOM: true,&lt;br>  click: true,&lt;br>  probeType: 1,&lt;br>  scrollbar: false,&lt;br>  pullDownRefresh: false,&lt;br>  pullUpLoad: false&lt;br>} |
+| direction | 滚动方向 | String | 'vertical', 'horizontal' | 'vertical' |
+| listenScroll | 是否派发 scroll 事件 | Boolean | true/false | false |
+| listenBeforeScroll | 是否派发 before-scroll-start 事件 | Boolean | true/false | false |
+| refreshDelay | data属性的数据更新后，scroll 的刷新延时 | Number | - | 20 |
+
+- `scrollbar` 子配置项
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| - | - | - | - | - |
+| fade | 是否淡入淡出 | Boolean | true/false | false |
+
+- `pullDownRefresh` 子配置项
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| - | - | - | - | - |
+| threshold | 下拉刷新动作的下拉距离阈值 | Number | - | 90 |
+| stop | 回弹停留的位置 | Number | - | 40 |
+| txt | 刷新成功的文案 | String | - | 'Refresh success' |
+
+- `pullUpLoad` 子配置项
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+| - | - | - | - | - |
+| threshold | 上拉刷新动作的上拉距离阈值 | Number | - | 0 |
+| txt | 上拉加载的相关文案 | Object | - | { more: 'Load more', noMore: 'No more data' } |
+
+### 插槽
+
+| 名字 | 说明 | 作用域参数 |
+| - | - | - |
+| default | 基于`data`属性渲染的列表 | - |
+| pulldown | 位于列表上方，会在下拉刷新时显示 | pullDownRefresh: 是否开启了下拉刷新功能 &lt;br> pullDownStyle: 移入移出的样式 &lt;br> beforePullDown: 是否正在做下拉操作 &lt;br> isPullingDown: 是否正在拉取数据 &lt;br> bubbleY: 当前下拉的距离 - 50|
+| pullup | 位于列表下方，会在上拉加载时显示 | pullUpLoad: 是否开启了上拉加载功能 &lt;br> isPullUpLoad: 是否正在加载数据 |
+
+### 事件
+
+| 事件名 | 说明 | 参数 |
+| - | - | - |
+| click | 点击列表项时触发 | item - 该列表项的数据 |
+| scroll | 当 listenScroll 为 true 时，根据 probeType 的值决定派发时机 | Object {x, y} - 滚动的实时坐标 |
+| before-scroll-start | 当 listenBeforeScroll 属性为 true 时，在滚动开始之前触发 | - |
+| pulling-down | 当 pullDownRefresh 属性为 true 时，在下拉超过阈值时触发 | - |
+| pulling-up | 当 pullUpLoad 属性为 true 时，在上拉超过阈值时触发 | - |
+
+ * @see https://www.npmjs.com/package/better-scroll
+ * @see https://github.com/ustbhuangyi/better-scroll
+ * @demo #/scroll
+ */
+export { default } from './scroll.vue'
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    </article>
+</div>
+
+<br class="clear">
+
+<footer>
+    文档根据<a href="ttps://github.com/nostaff/vimon">Vimon源码</a>, 由<a href="https://github.com/jsdoc3/jsdoc">JSDoc3.5.5</a>自动生成。
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

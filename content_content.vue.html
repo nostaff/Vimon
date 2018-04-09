@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>content/content.vue - Documentation</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="scripts/qrcode.js"></script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+
+    <section class="vimo">
+        <div class="vimo__imgBox">
+            <img class="vimo__imgBox--img" src="./asset/img/vimo.png">
+        </div>
+
+        <div class="vimo__title">
+            <h2>VIMON</h2>
+            <!--<p>beta</p>-->
+            <p>基于Vue2.x的移动端Hybrid框架</p>
+        </div>
+        <div class="vimo__iframe">
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=star&amp;count=true"
+                    frameborder="0" scrolling="0" width="110px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=fork&amp;count=true"
+                    frameborder="0" scrolling="0" width="95px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+        </div>
+    </section>
+    <section class="nav__header"><h2><a href="index.html">首页 / Home</a></h2><h2><a href="https://nostaff.github.io/vimon/example">示例 / Demo</a></h2><h2><a href="https://nostaff.github.io/vimon/">如何开始 / How To Start</a></h2><h2><a href="https://github.com/nostaff/vimon/blob/master/CHANGELOG.md">更新日志 / Change Log</a></h2><h2><a href="#">常见问题 / Question</a></h2></section><h3>组件 / Components</h3><ul><li><a href="component-ActionSheet.html">ActionSheet</a><ul class='methods'><li data-type='method'><a href="component-ActionSheet.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-ActionSheet.html#~present">present</a></li></ul></li><li><a href="component-Alert.html">Alert</a><ul class='methods'><li data-type='method'><a href="component-Alert.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Alert.html#~present">present</a></li></ul></li><li><a href="component-App.html">App</a></li><li><a href="component-Avatar.html">Avatar</a></li><li><a href="component-Backdrop.html">Backdrop</a></li><li><a href="component-Badge.html">Badge</a></li><li><a href="component-Base_Footer.html">Base/Footer</a></li><li><a href="component-Base_Header.html">Base/Header</a></li><li><a href="component-Base_Navbar.html">Base/Navbar</a></li><li><a href="component-Base_Page.html">Base/Page</a></li><li><a href="component-Button.html">Button</a></li><li><a href="component-Checkbox.html">Checkbox</a></li><li><a href="component-ChooseCity.html">ChooseCity</a></li><li><a href="component-CityPicker.html">CityPicker</a></li><li><a href="component-Content.html">Content</a></li><li><a href="component-Grid.html">Grid</a></li><li><a href="component-Grid_Column.html">Grid/Column</a></li><li><a href="component-Grid_Row.html">Grid/Row</a></li><li><a href="component-Icon.html">Icon</a></li><li><a href="component-Img.html">Img</a></li><li><a href="component-InfiniteScroll.html">InfiniteScroll</a></li><li><a href="component-Input.html">Input</a></li><li><a href="component-Item.html">Item</a></li><li><a href="component-Item_ItemDivider.html">Item/ItemDivider</a></li><li><a href="component-Item_ItemGroup.html">Item/ItemGroup</a></li><li><a href="component-Item_ItemOptions.html">Item/ItemOptions</a></li><li><a href="component-Item_ItemSliding.html">Item/ItemSliding</a></li><li><a href="component-Item_ListHeader.html">Item/ListHeader</a></li><li><a href="component-Label.html">Label</a></li><li><a href="component-List.html">List</a></li><li><a href="component-Loading.html">Loading</a></li><li><a href="component-Menu.html">Menu</a><ul class='methods'><li data-type='method'><a href="component-Menu.html#~close">close</a></li><li data-type='method'><a href="component-Menu.html#~open">open</a></li><li data-type='method'><a href="component-Menu.html#~toggle">toggle</a></li></ul></li><li><a href="component-Modal.html">Modal</a><ul class='methods'><li data-type='method'><a href="component-Modal.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Modal.html#~present">present</a></li></ul></li><li><a href="component-Nav.html">Nav</a></li><li><a href="component-Note.html">Note</a></li><li><a href="component-Picker.html">Picker</a></li><li><a href="component-Popover.html">Popover</a></li><li><a href="component-PopSheet.html">PopSheet</a></li><li><a href="component-Radio.html">Radio</a></li><li><a href="component-Range.html">Range</a></li><li><a href="component-Refresher.html">Refresher</a></li><li><a href="component-Scroll.html">Scroll</a></li><li><a href="component-Searchbar.html">Searchbar</a></li><li><a href="component-Segment.html">Segment</a></li><li><a href="component-Segment_SegmentButton.html">Segment/SegmentButton</a></li><li><a href="component-Select.html">Select</a></li><li><a href="component-Select_Option.html">Select/Option</a></li><li><a href="component-Sheet.html">Sheet</a></li><li><a href="component-Slides.html">Slides</a></li><li><a href="component-Slides_Slide.html">Slides/Slide</a></li><li><a href="component-Spinner.html">Spinner</a></li><li><a href="component-Tabs.html">Tabs</a></li><li><a href="component-Tabs_Tab.html">Tabs/Tab</a></li><li><a href="component-Textarea.html">Textarea</a></li><li><a href="component-Thumbnail.html">Thumbnail</a></li><li><a href="component-Toast.html">Toast</a></li><li><a href="component-Toggle.html">Toggle</a></li><li><a href="component-Toolbar.html">Toolbar</a></li><li><a href="component-Toolbar_Buttons.html">Toolbar/Buttons</a></li><li><a href="component-Toolbar_Title.html">Toolbar/Title</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentY">currentY</a></li><li><a href="global.html#deltaY">deltaY</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#fabLists">fabLists</a></li><li><a href="global.html#findReorderItem">findReorderItem</a></li><li><a href="global.html#getHeight">getHeight</a></li><li><a href="global.html#getLeft">getLeft</a></li><li><a href="global.html#getTitle">getTitle</a></li><li><a href="global.html#getTop">getTop</a></li><li><a href="global.html#getWidth">getWidth</a></li><li><a href="global.html#hide">hide</a></li><li><a href="global.html#hideOptionButton">hideOptionButton</a></li><li><a href="global.html#indexForItem">indexForItem</a></li><li><a href="global.html#listsActive">listsActive</a></li><li><a href="global.html#mainButton">mainButton</a></li><li><a href="global.html#present">present</a></li><li><a href="global.html#progress">progress</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#scrollBy">scrollBy</a></li><li><a href="global.html#scrollTo">scrollTo</a></li><li><a href="global.html#scrollToBottom">scrollToBottom</a></li><li><a href="global.html#scrollToElement">scrollToElement</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#setClass">setClass</a></li><li><a href="global.html#setDisableScroll">setDisableScroll</a></li><li><a href="global.html#setDocTitle">setDocTitle</a></li><li><a href="global.html#setEnabled">setEnabled</a></li><li><a href="global.html#setFocus">setFocus</a></li><li><a href="global.html#setLeft">setLeft</a></li><li><a href="global.html#setStyle">setStyle</a></li><li><a href="global.html#setTitle">setTitle</a></li><li><a href="global.html#setTop">setTop</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showOptionButton">showOptionButton</a></li><li><a href="global.html#showPopMenu">showPopMenu</a></li><li><a href="global.html#startY">startY</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#toggle">toggle</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<div id="main">
+
+    <article class="content">
+
+        
+        <h1 class="page-title">content/content.vue</h1>
+        
+
+        
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>&lt;template>
+  &lt;div class="ion-content" :class="[modeClass]">
+    &lt;div ref="fixedElement" class="fixed-content">
+      &lt;slot name="fixed">&lt;/slot>
+    &lt;/div>
+    &lt;div ref="scrollElement" class="scroll-content" :class="{'disable-scroll':isScrollDisabled}">
+      &lt;slot>&lt;/slot>
+    &lt;/div>
+    &lt;slot name="refresher">&lt;/slot>
+  &lt;/div>
+&lt;/template>
+&lt;script type="text/javascript">
+import {removeArrayItem, parsePxUnit, cssFormat} from '../../util/util'
+import {transitionEnd, registerListener} from '../../util/dom'
+import ScrollView from './scroll-view'
+import {updateImgs} from './img-util'
+import ModeMixins from '../../themes/theme.mixins'
+import throttle from 'lodash.throttle'
+
+export default {
+  name: 'vm-content',
+  mixins: [ModeMixins],
+  inject: {
+    pageComponent: {
+      from: 'pageComponent',
+      default: null
+    },
+    tabsComponent: {
+      from: 'tabsComponent',
+      default: null
+    }
+  },
+  provide () {
+    let _this = this
+    return {
+      contentComponent: _this
+    }
+  },
+  data () {
+    return {
+      contentMarginTop: 0,
+      contentMarginBottom: 0,
+
+      headerHeight: 0,
+      footerHeight: 0,
+
+      scrollView: new ScrollView(),
+
+      contentTop: 0,
+      contentBottom: 0,
+      fixedTop: 0,
+      fixedBottom: 0,
+      paddingTop: 0,
+      paddingBottom: 0,
+
+      tabsPlacement: null,
+      tabsTop: 0,
+
+      resizeUnReg: null,
+
+      imgs: [],
+      imgReqBfr: this.$config &amp;&amp; this.$config.getNumber('imgRequestBuffer', 400),
+      imgRndBfr: this.$config &amp;&amp; this.$config.getNumber('imgRenderBuffer', 400),
+      imgVelMax: this.$config &amp;&amp; this.$config.getNumber('imgVelocityMax', 3)
+    }
+  },
+  computed: {
+    contentHeight: function () {
+      return this.scrollView.ev.contentHeight
+    },
+    contentWidth: function () {
+      return this.scrollView.ev.contentWidth
+    },
+    scrollHeight: function () {
+      return this.scrollView.ev.scrollHeight
+    },
+    scrollWidth: function () {
+      return this.scrollView.ev.scrollWidth
+    },
+    scrollTop: {
+      get: function () {
+        return this.scrollView.ev.scrollTop
+      },
+      set: function (top) {
+        this.scrollView.setTop(top)
+      }
+    },
+    scrollElement () {
+      return this.$refs.scrollElement
+    },
+    fixedElement () {
+      return this.$refs.fixedElement
+    },
+    headerComponent () {
+      return this.pageComponent.headerComponent
+    },
+    footerComponent () {
+      return this.pageComponent.footerComponent
+    },
+    isScrollDisabled () {
+      return this.$app &amp;&amp; this.$app.isScrollDisabled
+    }
+  },
+  created () {
+    // this.scrollView = new ScrollView()
+    this.imgs = []
+
+    // 窗口变化重新计算容器
+    this.resizeUnReg = registerListener(window, 'resize', throttle(() => { this._calculateContentDimensions() }, 200, {leading: false, trailing: true}))
+
+    const scroll = this.scrollView
+    scroll.onScrollStart = (ev) => {
+      this.$emit('onScrollStart', ev)
+      this.$events &amp;&amp; this.$events.$emit('onScrollStart', ev)
+    }
+
+    scroll.onScroll = (ev) => {
+      this.$emit('onScroll', ev)
+      this.$events &amp;&amp; this.$events.$emit('onScroll', ev)
+      this.imgsUpdate()
+    }
+
+    scroll.onScrollEnd = (ev) => {
+      this.$emit('onScrollEnd', ev)
+      this.$events &amp;&amp; this.$events.$emit('onScrollEnd', ev)
+      this.imgsUpdate()
+    }
+
+    // TODO
+    // directive 插入的header不能被获取到pageComponent，采用监听的方式获得header的加载事件
+    const self = this
+    this.$events.$once('header:mounted', function (ele) {
+      let headerHeight = ele.$el.clientHeight
+      self._calculateContentDimensions(headerHeight)
+    })
+  },
+  mounted () {
+    if (this.$slots &amp;&amp; this.$slots['fixed']) {
+      this.$slots['fixed'].forEach((item) => {
+        item.elm.setAttribute('fixed', '')
+      })
+    }
+
+    this._calculateContentDimensions()
+  },
+  destroyed () {
+    this.resizeUnReg &amp;&amp; this.resizeUnReg()
+
+    this.scrollView &amp;&amp; this.scrollView.destroy()
+  },
+  methods: {
+    getContentDimensions () {
+      const scrollEle = this.scrollElement
+
+      return {
+        contentWidth: scrollEle.clientWidth,
+        contentHeight: scrollEle.clientHeight - this.contentTop - this.contentBottom,
+        contentTop: this.contentTop,
+        contentBottom: this.contentBottom,
+
+        scrollHeight: scrollEle.scrollHeight,
+        scrollTop: scrollEle.scrollTop,
+
+        scrollWidth: scrollEle.scrollWidth,
+        scrollLeft: scrollEle.scrollLeft
+      }
+    },
+    /**
+     * @function scrollTo
+     * @description 滚动到指定位置
+     * @param {Number} [x=0]            - 滚动到指定位置的x值
+     * @param {Number} [y=0]            - 滚动到指定位置的y值
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollTo (x, y, duration = 300, done) {
+      return this.scrollView.scrollTo(x, y, duration, done)
+    },
+    /**
+     * @function scrollToTop
+     * @description 滚动到顶部
+     * @param {Number} [duration=300] - 滚动动画的时间, 默认是300ms
+     * @return {Promise} 当滚动动画完毕后返回promise
+     */
+    scrollToTop (duration = 300) {
+      /* eslint-disable no-console */
+      console.debug(`content, scrollToTop, duration: ${duration}`)
+      return this.scrollView.scrollToTop(duration)
+    },
+    /**
+     * @function scrollToBottom
+     * @description 滚动到顶部
+     * @param {Number} [duration=300] - 滚动动画的时间, 默认是300ms
+     * @return {Promise} 当滚动动画完毕后返回promise
+     */
+    scrollToBottom (duration = 300) {
+      /* eslint-disable no-console */
+      console.debug(`content, scrollToBottom, duration: ${duration}`)
+      return this.scrollView.scrollToBottom(duration)
+    },
+    /**
+     * @function scrollBy
+     * @description
+     * 滚动到指定位置, 这个和scrollTo类似, 只不过是相对当前位置的滚动
+     *
+     * 当前位置为scrollTop为`100px`, 执行`myScroll.scrollBy(0, -10)`, 则滚动到`110px`位置
+     *
+     * @param {Number} x                - 滚动到指定位置的x值
+     * @param {Number} y                - 滚动到指定位置的y值
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollBy (x, y, duration = 300, done) {
+      return this.scrollView.scrollBy(x, y, duration, done)
+    },
+    /**
+     * @function scrollToElement
+     * @description 滚动到指定元素
+     * @param {Element} el
+     * @param {Number} [duration=300]   - 滚动动画的时间
+     * @param {Function=} done          - 当滚动结束时触发的回调
+     * @return {Promise}                - 当回调done未定义的时候, 才返回Promise, 如果定义则返回undefined
+     */
+    scrollToElement (el, duration = 300, done) {
+      return this.scrollView.scrollToElement(el, duration, done)
+    },
+
+    /**
+     * @function resize
+     * @description
+     * 当动态添加Header/Footer/Tabs或者修改了他的属性时, 重新计算Content组件的尺寸.
+     */
+    resize () {
+      this.$nextTick(() => {
+        this._calculateContentDimensions()
+      })
+    },
+
+    _calculateContentDimensions (headerHeight = 0) {
+      console.assert(this.fixedElement, 'fixed element was not found')
+      console.assert(this.scrollElement, 'scroll element was not found')
+
+      this._readDimensions(headerHeight)
+      this._writeDimensions()
+    },
+
+    _readDimensions (headerHeight = 0) {
+      const cachePaddingTop = this.paddingTop
+      const cachePaddingBottom = this.paddingBottom
+      const cacheHeaderHeight = this.headerHeight
+      const cacheTabsPlacement = this.tabsPlacement
+      const cacheFooterHeight = this.footerHeight
+      let tabsTop = 0
+      let scrollEvent = null
+      this.paddingTop = 0
+      this.paddingBottom = 0
+      this.headerHeight = headerHeight
+      this.footerHeight = 0
+      this.tabsPlacement = null
+      this.tabsTop = 0
+      this.fixedTop = 0
+      this.fixedBottom = 0
+
+      // In certain cases this.scrollView is undefined
+      // if that is the case then we should just return
+      if (!this.scrollView) {
+        console.assert(false, 'scrollView should be valid')
+        return
+      }
+
+      scrollEvent = this.scrollView.ev
+
+      if (this.headerComponent) {
+        let ele = this.headerComponent.getNativeElement()
+        this.headerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+      }
+      if (this.footerComponent) {
+        let ele = this.footerComponent.getNativeElement()
+        this.footerHeight = parsePxUnit(window.getComputedStyle(ele).height)
+      }
+
+      // Toolbar height
+      this.contentTop = this.headerHeight
+      this.contentBottom = this.footerHeight
+
+      // In a Tabs
+      if (this.tabsComponent) {
+        let ele = this.tabsComponent.getNativeElement()
+        let tabbarEle = ele.firstElementChild
+        let tabbarHeight = tabbarEle.clientHeight
+
+        if (this.tabsPlacement === null) {
+          // this is the first tabbar found, remember it's position
+          this.tabsPlacement = ele.getAttribute('tabsplacement')
+        }
+
+        // Tabs height
+        if (this.tabsPlacement === 'top') {
+          this.tabsTop = this.headerHeight
+          tabsTop = this.tabsComponent.getTabsTop()
+          this.contentTop += tabbarHeight
+        } else {
+          this.contentBottom += tabbarHeight
+        }
+      }
+
+      // Fixed content shouldn't include content padding
+      this.fixedTop = this.contentTop
+      this.fixedBottom = this.contentBottom
+
+      // ******** DOM READ ****************
+      const contentDimensions = this.getContentDimensions()
+      scrollEvent.scrollHeight = contentDimensions.scrollHeight
+      scrollEvent.scrollWidth = contentDimensions.scrollWidth
+      scrollEvent.contentHeight = contentDimensions.contentHeight
+      scrollEvent.contentWidth = contentDimensions.contentWidth
+      scrollEvent.contentTop = contentDimensions.contentTop
+      scrollEvent.contentBottom = contentDimensions.contentBottom
+
+      this._dirty = (
+        cachePaddingTop !== this.paddingTop ||
+          cachePaddingBottom !== this.paddingBottom ||
+          cacheHeaderHeight !== this.headerHeight ||
+          cacheFooterHeight !== this.footerHeight ||
+          cacheTabsPlacement !== this.tabsPlacement ||
+          tabsTop !== this.tabsTop ||
+          this.contentTop !== this.contentMarginTop ||
+          this.contentBottom !== this.contentMarginBottom
+      )
+
+      this.scrollView.init(this.scrollElement)
+
+      // initial imgs refresh
+      this.imgsUpdate()
+    },
+
+    _writeDimensions () {
+      if (!this._dirty) {
+        console.debug('Skipping writeDimensions')
+        return
+      }
+
+      const scrollEle = this.scrollElement
+      if (!scrollEle) {
+        console.assert(false, 'this.scrollElement should be valid')
+        return
+      }
+
+      const fixedEle = this.fixedElement
+      if (!fixedEle) {
+        console.assert(false, 'this.fixedElement should be valid')
+        return
+      }
+
+      // Tabs height
+      if (this.tabsPlacement === 'bottom' &amp;&amp; this.contentBottom > 0 &amp;&amp; this.footerComponent) {
+        var footerPos = this.contentBottom - this.footerHeight
+        console.assert(footerPos >= 0, 'footerPos has to be positive')
+        this.footerComponent.getNativeElement().style.bottom = cssFormat(footerPos)
+      }
+
+      // Only update top margin if value changed
+      if (this.contentTop !== this.contentMarginTop) {
+        console.assert(this.contentTop >= 0, 'contentTop has to be positive')
+        console.assert(this.fixedTop >= 0, 'fixedTop has to be positive')
+
+        scrollEle.style.marginTop = cssFormat(this.contentTop)
+        fixedEle.style.marginTop = cssFormat(this.fixedTop)
+
+        this.contentMarginTop = this.contentTop
+      }
+
+      // Only update bottom margin if value changed
+      if (this.contentBottom !== this.contentMarginBottom) {
+        console.assert(this.contentBottom >= 0, 'contentBottom has to be positive')
+        console.assert(this.fixedBottom >= 0, 'fixedBottom has to be positive')
+
+        scrollEle.style.marginBottom = cssFormat(this.contentBottom)
+        fixedEle.style.marginBottom = cssFormat(this.fixedBottom)
+
+        this.contentMarginBottom = this.contentBottom
+      }
+
+      if (this.tabsComponent &amp;&amp; this.tabsPlacement !== null) {
+        // set the position of the tabbar
+        if (this.tabsPlacement === 'top') {
+          this.tabsComponent.setTabbarPosition(this.tabsTop, -1)
+        } else {
+          console.assert(this.tabsPlacement === 'bottom', 'tabsPlacement should be bottom')
+          this.tabsComponent.setTabbarPosition(-1, 0)
+        }
+      }
+    },
+
+    // -------- For Refresher Component --------
+    getScrollElement () {
+      return this.scrollElement
+    },
+    onScrollElementTransitionEnd (callback) {
+      transitionEnd(this.getScrollElement(), callback)
+    },
+    setScrollElementStyle (prop, val) {
+      const scrollEle = this.scrollElement
+      if (scrollEle) {
+        this.$nextTick(() => {
+          (scrollEle.style)[prop] = val
+        })
+      }
+    },
+
+    // -------- For Img Component --------
+    addImg (img) {
+      this.imgs.push(img)
+    },
+    removeImg (img) {
+      removeArrayItem(this.imgs, img)
+    },
+    isImgsUpdatable () {
+      // an image is only "updatable" if the content isn't scrolling too fast
+      // if scroll speed is above the maximum velocity, then let current
+      // requests finish, but do not start new requets or render anything
+      // if scroll speed is below the maximum velocity, then it's ok
+      // to start new requests and render images
+      return Math.abs(this.scrollView.ev.velocityY) &lt; this.imgVelMax
+    },
+    imgsUpdate () {
+      if (this.scrollView.initialized &amp;&amp; this.imgs.length &amp;&amp; this.isImgsUpdatable()) {
+        this.$nextTick(() => {
+          updateImgs(this.imgs, this.scrollTop, this.contentHeight, this.scrollView.ev.directionY, this.imgReqBfr, this.imgRndBfr)
+        })
+      }
+    }
+  }
+
+}
+&lt;/script>
+
+&lt;style lang="scss">
+  @import "content";
+  @import "content.ios";
+  @import "content.md";
+&lt;/style>
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    </article>
+</div>
+
+<br class="clear">
+
+<footer>
+    文档根据<a href="ttps://github.com/nostaff/vimon">Vimon源码</a>, 由<a href="https://github.com/jsdoc3/jsdoc">JSDoc3.5.5</a>自动生成。
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>choose-city/city.vue - Documentation</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="scripts/qrcode.js"></script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+
+    <section class="vimo">
+        <div class="vimo__imgBox">
+            <img class="vimo__imgBox--img" src="./asset/img/vimo.png">
+        </div>
+
+        <div class="vimo__title">
+            <h2>VIMON</h2>
+            <!--<p>beta</p>-->
+            <p>基于Vue2.x的移动端Hybrid框架</p>
+        </div>
+        <div class="vimo__iframe">
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=star&amp;count=true"
+                    frameborder="0" scrolling="0" width="110px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=fork&amp;count=true"
+                    frameborder="0" scrolling="0" width="95px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+        </div>
+    </section>
+    <section class="nav__header"><h2><a href="index.html">首页 / Home</a></h2><h2><a href="https://nostaff.github.io/vimon/example">示例 / Demo</a></h2><h2><a href="https://nostaff.github.io/vimon/">如何开始 / How To Start</a></h2><h2><a href="https://github.com/nostaff/vimon/blob/master/CHANGELOG.md">更新日志 / Change Log</a></h2><h2><a href="#">常见问题 / Question</a></h2></section><h3>组件 / Components</h3><ul><li><a href="component-ActionSheet.html">ActionSheet</a><ul class='methods'><li data-type='method'><a href="component-ActionSheet.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-ActionSheet.html#~present">present</a></li></ul></li><li><a href="component-Alert.html">Alert</a><ul class='methods'><li data-type='method'><a href="component-Alert.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Alert.html#~present">present</a></li></ul></li><li><a href="component-App.html">App</a></li><li><a href="component-Avatar.html">Avatar</a></li><li><a href="component-Backdrop.html">Backdrop</a></li><li><a href="component-Badge.html">Badge</a></li><li><a href="component-Base_Footer.html">Base/Footer</a></li><li><a href="component-Base_Header.html">Base/Header</a></li><li><a href="component-Base_Navbar.html">Base/Navbar</a></li><li><a href="component-Base_Page.html">Base/Page</a></li><li><a href="component-Button.html">Button</a></li><li><a href="component-Checkbox.html">Checkbox</a></li><li><a href="component-ChooseCity.html">ChooseCity</a></li><li><a href="component-CityPicker.html">CityPicker</a></li><li><a href="component-Content.html">Content</a></li><li><a href="component-Grid.html">Grid</a></li><li><a href="component-Grid_Column.html">Grid/Column</a></li><li><a href="component-Grid_Row.html">Grid/Row</a></li><li><a href="component-Icon.html">Icon</a></li><li><a href="component-Img.html">Img</a></li><li><a href="component-InfiniteScroll.html">InfiniteScroll</a></li><li><a href="component-Input.html">Input</a></li><li><a href="component-Item.html">Item</a></li><li><a href="component-Item_ItemDivider.html">Item/ItemDivider</a></li><li><a href="component-Item_ItemGroup.html">Item/ItemGroup</a></li><li><a href="component-Item_ItemOptions.html">Item/ItemOptions</a></li><li><a href="component-Item_ItemSliding.html">Item/ItemSliding</a></li><li><a href="component-Item_ListHeader.html">Item/ListHeader</a></li><li><a href="component-Label.html">Label</a></li><li><a href="component-List.html">List</a></li><li><a href="component-Loading.html">Loading</a></li><li><a href="component-Menu.html">Menu</a><ul class='methods'><li data-type='method'><a href="component-Menu.html#~close">close</a></li><li data-type='method'><a href="component-Menu.html#~open">open</a></li><li data-type='method'><a href="component-Menu.html#~toggle">toggle</a></li></ul></li><li><a href="component-Modal.html">Modal</a><ul class='methods'><li data-type='method'><a href="component-Modal.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Modal.html#~present">present</a></li></ul></li><li><a href="component-Nav.html">Nav</a></li><li><a href="component-Note.html">Note</a></li><li><a href="component-Picker.html">Picker</a></li><li><a href="component-Popover.html">Popover</a></li><li><a href="component-PopSheet.html">PopSheet</a></li><li><a href="component-Radio.html">Radio</a></li><li><a href="component-Range.html">Range</a></li><li><a href="component-Refresher.html">Refresher</a></li><li><a href="component-Scroll.html">Scroll</a></li><li><a href="component-Searchbar.html">Searchbar</a></li><li><a href="component-Segment.html">Segment</a></li><li><a href="component-Segment_SegmentButton.html">Segment/SegmentButton</a></li><li><a href="component-Select.html">Select</a></li><li><a href="component-Select_Option.html">Select/Option</a></li><li><a href="component-Sheet.html">Sheet</a></li><li><a href="component-Slides.html">Slides</a></li><li><a href="component-Slides_Slide.html">Slides/Slide</a></li><li><a href="component-Spinner.html">Spinner</a></li><li><a href="component-Tabs.html">Tabs</a></li><li><a href="component-Tabs_Tab.html">Tabs/Tab</a></li><li><a href="component-Textarea.html">Textarea</a></li><li><a href="component-Thumbnail.html">Thumbnail</a></li><li><a href="component-Toast.html">Toast</a></li><li><a href="component-Toggle.html">Toggle</a></li><li><a href="component-Toolbar.html">Toolbar</a></li><li><a href="component-Toolbar_Buttons.html">Toolbar/Buttons</a></li><li><a href="component-Toolbar_Title.html">Toolbar/Title</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentY">currentY</a></li><li><a href="global.html#deltaY">deltaY</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#fabLists">fabLists</a></li><li><a href="global.html#findReorderItem">findReorderItem</a></li><li><a href="global.html#getHeight">getHeight</a></li><li><a href="global.html#getLeft">getLeft</a></li><li><a href="global.html#getTitle">getTitle</a></li><li><a href="global.html#getTop">getTop</a></li><li><a href="global.html#getWidth">getWidth</a></li><li><a href="global.html#hide">hide</a></li><li><a href="global.html#hideOptionButton">hideOptionButton</a></li><li><a href="global.html#indexForItem">indexForItem</a></li><li><a href="global.html#listsActive">listsActive</a></li><li><a href="global.html#mainButton">mainButton</a></li><li><a href="global.html#present">present</a></li><li><a href="global.html#progress">progress</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#scrollBy">scrollBy</a></li><li><a href="global.html#scrollTo">scrollTo</a></li><li><a href="global.html#scrollToBottom">scrollToBottom</a></li><li><a href="global.html#scrollToElement">scrollToElement</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#setClass">setClass</a></li><li><a href="global.html#setDisableScroll">setDisableScroll</a></li><li><a href="global.html#setDocTitle">setDocTitle</a></li><li><a href="global.html#setEnabled">setEnabled</a></li><li><a href="global.html#setFocus">setFocus</a></li><li><a href="global.html#setLeft">setLeft</a></li><li><a href="global.html#setStyle">setStyle</a></li><li><a href="global.html#setTitle">setTitle</a></li><li><a href="global.html#setTop">setTop</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showOptionButton">showOptionButton</a></li><li><a href="global.html#showPopMenu">showPopMenu</a></li><li><a href="global.html#startY">startY</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#toggle">toggle</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<div id="main">
+
+    <article class="content">
+
+        
+        <h1 class="page-title">choose-city/city.vue</h1>
+        
+
+        
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>&lt;template>
+  &lt;vm-content class="outer-content ion-city-selector" ref="content">
+    &lt;div class="city-selector">
+      &lt;!--定位服务-->
+      &lt;div class="city-selector__group" v-if="showLocatedCity">
+        &lt;div sticky color="light" class="city-selector__group--header">
+          &lt;span>你所在的地区&lt;/span>
+        &lt;/div>
+        &lt;div class="city-selector__group--hotBox">
+          &lt;div class="hotBox__wrap" @click="selectCity(currentCity)">
+            &lt;div class="hotBox__wrap--city">{{currentCity.city}}&lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;!--热门城市-->
+      &lt;div class="city-selector__group" v-if="showHotCities &amp;&amp; hotCityList.length>0">
+        &lt;div sticky color="light" class="city-selector__group--header" :id="'★' | getClassifyId">
+          &lt;span>热门城市&lt;/span>
+        &lt;/div>
+        &lt;div class="city-selector__group--hotBox">
+          &lt;div class="hotBox__wrap" @click="selectCity(item)" v-for="item in hotCityList" :key="item.adCode">
+            &lt;div class="hotBox__wrap--city">{{item.city}}&lt;/div>
+          &lt;/div>
+        &lt;/div>
+      &lt;/div>
+      &lt;!--城市列表-->
+      &lt;div class="city-selector__group" v-for="(classify,index) in cityList" :key="index">
+        &lt;!--sticky-->
+        &lt;div class="city-selector__group--header" :id="classify.letter | getClassifyId">{{classify.letter}}
+        &lt;/div>
+        &lt;div class="city-selector__group--item" v-for="item in classify.cities" :key="item.adCode" @click="selectCity(item)">
+          &lt;div>{{item.city}}&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+    &lt;div slot="fixed-top" class="ion-city-shortcut city-shortcut" ref="cityShortcut" @touchstart="onTouchShortcut" @touchmove="onTouchShortcut">
+      &lt;div class="shortcut__item" :data-id="item.name" :key="item" v-for="item in shortcutList">{{item.name}}&lt;/div>
+    &lt;/div>
+  &lt;/vm-content>
+&lt;/template>
+&lt;script type="text/javascript">
+import Modal from '../modal'
+import Content from '../content'
+import { pointerCoord, clamp } from '../../util/util'
+
+export default {
+  name: 'cityList',
+  components: {
+    'vm-content': Content
+  },
+  data () {
+    return {
+      showLocatedCity: false,
+      showHotCities: true,
+      hotCityList: [], // 数据源(最终渲染的数据)
+      cityList: [], // 数据源(最终渲染的数据)
+
+      currentCity: { city: '正在定位', adcode: null }, // 当前城市，如果开启开启了定位的话
+
+      shortcutTop: 0, // shortcutElement距离页面顶部的距离
+      shortcutList: [] // cityShortcut 的数组 A->Z
+    }
+  },
+  filters: {
+    getClassifyId (name) {
+      return 'city-' + name.substr(0, 1)
+    }
+  },
+  computed: {
+    shortcutElement () {
+      return this.$refs.cityShortcut
+    },
+    contentComponent () {
+      return this.$refs.content
+    }
+  },
+  methods: {
+    /**
+       * 触摸开始和移动
+       * @private
+       */
+    onTouchShortcut (ev) {
+      ev.preventDefault()
+      ev.stopPropagation()
+      let index = this.getSelectedIndex(ev)
+      let isIOS =
+        window.navigator.userAgent.toLowerCase().indexOf('iphone') > -1
+      let isAlipay =
+        window.navigator.userAgent.toLowerCase().indexOf('alipay') > -1
+      if (isIOS &amp;&amp; isAlipay) {
+        this.contentComponent.scrollTo(0, this.shortcutList[index].top, 16 * 9)
+      } else {
+        this.contentComponent.scrollTo(0, this.shortcutList[index].top, 0)
+      }
+    },
+
+    /**
+       * 由数据初始化 cityShortcut
+       */
+    initShortCut () {
+      if (this.showHotCities) {
+        this.shortcutList.push({
+          name: '★',
+          top: 0
+        })
+      }
+      this.cityList.forEach(group => {
+        var name = group.letter.substr(0, 1)
+        this.shortcutList.push({
+          name: name,
+          top: 0
+        })
+      })
+    },
+
+    /**
+       * 根据传入的ev值获取当前在Shortcut上点击的是第几个item
+       * @private
+       */
+    getSelectedIndex (ev) {
+      let point = pointerCoord(ev)
+      let index = ((point.y - this.shortcutTop) / 16) >> 0
+      index = clamp(0, index, this.shortcutList.length - 1)
+      return index
+    },
+
+    /**
+       * 点击选择城市
+       * @private
+       */
+    selectCity (result) {
+      if (result.city &amp;&amp; result.adCode) {
+        Modal.dismiss(result)
+      }
+    },
+
+    /**
+       * 获取当前位置
+       * @private
+       */
+    getCurrentLocation () {
+      function getScript (mapJsUrl) {
+        return new Promise((resolve, reject) => {
+          let sc = document.createElement('script')
+          sc.type = 'text/javascript'
+          sc.src = mapJsUrl
+          sc.onload = sc.onreadystatechange = function () {
+            if (
+              !this.readyState ||
+              /^(loaded|complete)$/.test(this.readyState)
+            ) {
+              resolve()
+              sc.onload = sc.onreadystatechange = null
+            }
+          }
+          sc.onerror = function (err) {
+            reject(err)
+            sc.onerror = null
+          }
+          document.body.appendChild(sc)
+        })
+      }
+
+      return new Promise((resolve, reject) => {
+        let getCurrentPosition = () => {
+          new window.AMap.Geolocation().getCurrentPosition((status, result) => {
+            if (status === 'complete') {
+              resolve(result)
+            } else {
+              reject(status)
+            }
+          })
+        }
+
+        if (typeof window.AMap === 'undefined') {
+          getScript(
+            `//webapi.amap.com/maps?v=1.3&amp;key=${this.$options.$data.ak}`
+          ).then(
+            () => {
+              window.setTimeout(function () {
+                if (!window.AMap || !window.AMap.Map) {
+                  return
+                }
+                let map = new window.AMap.Map('')
+                map.plugin('AMap.Geolocation', () => {
+                  /**
+                   * @param {object} posOptions - 传入参数
+                   * @param {boolean} [posOptions.enableHighAccuracy=true] - 是否使用高精度定位，默认:true
+                   * @param {number} [posOptions.timeout=10000] - 超过10秒后停止定位，默认：无穷大
+                   * @param {number} 9posOptions.maximumAge=00 - 定位结果缓存0毫秒，默认：0
+                   */
+                  getCurrentPosition()
+                })
+              }, 100)
+            },
+            err => {
+              reject(err)
+            }
+          )
+        } else {
+          getCurrentPosition()
+        }
+      })
+    },
+
+    /**
+       * 将传入的一维数据按照首字母整理，用于显示
+       * @private
+       */
+    sortCityList (cities) {
+      // hash object for filter
+      let store = {}
+      let cityList = []
+      cities.forEach(city => {
+        let letter = city.spell.charAt(0).toUpperCase()
+        if (store[letter]) {
+          store[letter].push(city)
+        } else {
+          store[letter] = [city]
+        }
+      })
+
+      for (let key in store) {
+        cityList.push({
+          letter: key,
+          cities: store[key]
+        })
+      }
+      return cityList
+    },
+
+    /**
+       * 初始化获取当前城市
+       * @private
+       */
+    initLocatedCity () {
+      if (this.showLocatedCity) {
+        this.getCurrentLocation().then(
+          data => {
+            if (data &amp;&amp; data.addressComponent) {
+              this.currentCity = {
+                adCode: data.addressComponent.adcode,
+                city: data.addressComponent.city
+              }
+            }
+          },
+          () => {
+            this.currentCity = {
+              adCode: null,
+              city: '定位失败'
+            }
+          }
+        )
+      }
+    }
+  },
+  created () {
+    this.showLocatedCity = this.$options.$data.showLocatedCity
+    this.showHotCities = this.$options.$data.showHotCities
+    this.hotCityList = this.$options.$data.hotCities
+    this.cityList = this.sortCityList(this.$options.$data.cities)
+    this.initLocatedCity()
+    this.initShortCut()
+  },
+  mounted () {
+    let clientHeight = this.shortcutElement.clientHeight || 0
+    let docHieght = window.document.documentElement.clientHeight || 0
+    this.shortcutTop = (docHieght - clientHeight) / 2
+    this.shortcutList.forEach(item => {
+      let el = document.getElementById('city-' + item.name)
+      item.top = el.offsetTop + 1
+    })
+  }
+}
+&lt;/script>
+&lt;style lang="scss">
+.ion-city-selector {
+  .city-selector {
+    .city-selector__group--header {
+      font-size: 14px;
+      color: #000;
+      background-color: #f4f4f4;
+      padding-left: 16px;
+      position: relative;
+      transition: background-color 200ms linear;
+      z-index: 100;
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      width: 100%;
+      min-height: 30px;
+    }
+    .city-selector__group--item {
+      position: relative;
+      padding-left: 16px;
+      border-radius: 0;
+      font-size: 16px;
+      color: #000;
+      background-color: #fff;
+      transition: background-color 200ms linear;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+      justify-content: space-between;
+      &amp; > div {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: 44px;
+        line-height: 44px;
+        border: 0;
+        text-decoration: none;
+        border-bottom: 1px solid #c8c7cc;
+        padding-right: 8px;
+        flex: 1;
+        flex-direction: inherit;
+      }
+    }
+    .city-selector__group--item:last-child {
+      border-bottom: 1px solid #c8c7cc;
+      &amp; > div {
+        border: none;
+      }
+    }
+    .city-selector__group--item:active {
+      background-color: #d9d9d9;
+      transition-duration: 0ms;
+    }
+    .city-selector__group--hotBox {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 0 14px;
+      margin: 0 auto;
+      background-color: #f4f4f4;
+      .hotBox__wrap {
+        box-sizing: border-box;
+        width: 25%;
+        .hotBox__wrap--city {
+          margin: 4px;
+          border-radius: 6px;
+          background-color: #fff;
+          background-clip: padding-box;
+          text-align: center;
+          padding: 12px 0;
+          transition: background-color 200ms linear;
+          &amp;:active {
+            background: #d9d9d9;
+          }
+        }
+      }
+    }
+  }
+
+  .city-shortcut {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    flex-direction: column;
+    width: 46px;
+    padding-right: 2px;
+    transform: translateY(-50%);
+    .shortcut__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 16px;
+      width: 16px;
+      font-size: 12px;
+    }
+  }
+}
+&lt;/style>
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    </article>
+</div>
+
+<br class="clear">
+
+<footer>
+    文档根据<a href="ttps://github.com/nostaff/vimon">Vimon源码</a>, 由<a href="https://github.com/jsdoc3/jsdoc">JSDoc3.5.5</a>自动生成。
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

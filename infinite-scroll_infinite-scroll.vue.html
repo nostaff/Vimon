@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>infinite-scroll/infinite-scroll.vue - Documentation</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="scripts/qrcode.js"></script>
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+
+    <section class="vimo">
+        <div class="vimo__imgBox">
+            <img class="vimo__imgBox--img" src="./asset/img/vimo.png">
+        </div>
+
+        <div class="vimo__title">
+            <h2>VIMON</h2>
+            <!--<p>beta</p>-->
+            <p>基于Vue2.x的移动端Hybrid框架</p>
+        </div>
+        <div class="vimo__iframe">
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=star&amp;count=true"
+                    frameborder="0" scrolling="0" width="110px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=nostaff&amp;repo=Vimon&amp;type=fork&amp;count=true"
+                    frameborder="0" scrolling="0" width="95px" height="20px"
+                    class="enter-transition"
+                    style=""></iframe>
+        </div>
+    </section>
+    <section class="nav__header"><h2><a href="index.html">首页 / Home</a></h2><h2><a href="https://nostaff.github.io/vimon/example">示例 / Demo</a></h2><h2><a href="https://nostaff.github.io/vimon/">如何开始 / How To Start</a></h2><h2><a href="https://github.com/nostaff/vimon/blob/master/CHANGELOG.md">更新日志 / Change Log</a></h2><h2><a href="#">常见问题 / Question</a></h2></section><h3>组件 / Components</h3><ul><li><a href="component-ActionSheet.html">ActionSheet</a><ul class='methods'><li data-type='method'><a href="component-ActionSheet.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-ActionSheet.html#~present">present</a></li></ul></li><li><a href="component-Alert.html">Alert</a><ul class='methods'><li data-type='method'><a href="component-Alert.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Alert.html#~present">present</a></li></ul></li><li><a href="component-App.html">App</a></li><li><a href="component-Avatar.html">Avatar</a></li><li><a href="component-Backdrop.html">Backdrop</a></li><li><a href="component-Badge.html">Badge</a></li><li><a href="component-Base_Footer.html">Base/Footer</a></li><li><a href="component-Base_Header.html">Base/Header</a></li><li><a href="component-Base_Navbar.html">Base/Navbar</a></li><li><a href="component-Base_Page.html">Base/Page</a></li><li><a href="component-Button.html">Button</a></li><li><a href="component-Checkbox.html">Checkbox</a></li><li><a href="component-ChooseCity.html">ChooseCity</a></li><li><a href="component-CityPicker.html">CityPicker</a></li><li><a href="component-Content.html">Content</a></li><li><a href="component-Grid.html">Grid</a></li><li><a href="component-Grid_Column.html">Grid/Column</a></li><li><a href="component-Grid_Row.html">Grid/Row</a></li><li><a href="component-Icon.html">Icon</a></li><li><a href="component-Img.html">Img</a></li><li><a href="component-InfiniteScroll.html">InfiniteScroll</a></li><li><a href="component-Input.html">Input</a></li><li><a href="component-Item.html">Item</a></li><li><a href="component-Item_ItemDivider.html">Item/ItemDivider</a></li><li><a href="component-Item_ItemGroup.html">Item/ItemGroup</a></li><li><a href="component-Item_ItemOptions.html">Item/ItemOptions</a></li><li><a href="component-Item_ItemSliding.html">Item/ItemSliding</a></li><li><a href="component-Item_ListHeader.html">Item/ListHeader</a></li><li><a href="component-Label.html">Label</a></li><li><a href="component-List.html">List</a></li><li><a href="component-Loading.html">Loading</a></li><li><a href="component-Menu.html">Menu</a><ul class='methods'><li data-type='method'><a href="component-Menu.html#~close">close</a></li><li data-type='method'><a href="component-Menu.html#~open">open</a></li><li data-type='method'><a href="component-Menu.html#~toggle">toggle</a></li></ul></li><li><a href="component-Modal.html">Modal</a><ul class='methods'><li data-type='method'><a href="component-Modal.html#~dismiss">dismiss</a></li><li data-type='method'><a href="component-Modal.html#~present">present</a></li></ul></li><li><a href="component-Nav.html">Nav</a></li><li><a href="component-Note.html">Note</a></li><li><a href="component-Picker.html">Picker</a></li><li><a href="component-Popover.html">Popover</a></li><li><a href="component-PopSheet.html">PopSheet</a></li><li><a href="component-Radio.html">Radio</a></li><li><a href="component-Range.html">Range</a></li><li><a href="component-Refresher.html">Refresher</a></li><li><a href="component-Scroll.html">Scroll</a></li><li><a href="component-Searchbar.html">Searchbar</a></li><li><a href="component-Segment.html">Segment</a></li><li><a href="component-Segment_SegmentButton.html">Segment/SegmentButton</a></li><li><a href="component-Select.html">Select</a></li><li><a href="component-Select_Option.html">Select/Option</a></li><li><a href="component-Sheet.html">Sheet</a></li><li><a href="component-Slides.html">Slides</a></li><li><a href="component-Slides_Slide.html">Slides/Slide</a></li><li><a href="component-Spinner.html">Spinner</a></li><li><a href="component-Tabs.html">Tabs</a></li><li><a href="component-Tabs_Tab.html">Tabs/Tab</a></li><li><a href="component-Textarea.html">Textarea</a></li><li><a href="component-Thumbnail.html">Thumbnail</a></li><li><a href="component-Toast.html">Toast</a></li><li><a href="component-Toggle.html">Toggle</a></li><li><a href="component-Toolbar.html">Toolbar</a></li><li><a href="component-Toolbar_Buttons.html">Toolbar/Buttons</a></li><li><a href="component-Toolbar_Title.html">Toolbar/Title</a></li></ul><h3>Global</h3><ul><li><a href="global.html#currentY">currentY</a></li><li><a href="global.html#deltaY">deltaY</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#dismiss">dismiss</a></li><li><a href="global.html#fabLists">fabLists</a></li><li><a href="global.html#findReorderItem">findReorderItem</a></li><li><a href="global.html#getHeight">getHeight</a></li><li><a href="global.html#getLeft">getLeft</a></li><li><a href="global.html#getTitle">getTitle</a></li><li><a href="global.html#getTop">getTop</a></li><li><a href="global.html#getWidth">getWidth</a></li><li><a href="global.html#hide">hide</a></li><li><a href="global.html#hideOptionButton">hideOptionButton</a></li><li><a href="global.html#indexForItem">indexForItem</a></li><li><a href="global.html#listsActive">listsActive</a></li><li><a href="global.html#mainButton">mainButton</a></li><li><a href="global.html#present">present</a></li><li><a href="global.html#progress">progress</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resize">resize</a></li><li><a href="global.html#scrollBy">scrollBy</a></li><li><a href="global.html#scrollTo">scrollTo</a></li><li><a href="global.html#scrollToBottom">scrollToBottom</a></li><li><a href="global.html#scrollToElement">scrollToElement</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#setClass">setClass</a></li><li><a href="global.html#setDisableScroll">setDisableScroll</a></li><li><a href="global.html#setDocTitle">setDocTitle</a></li><li><a href="global.html#setEnabled">setEnabled</a></li><li><a href="global.html#setFocus">setFocus</a></li><li><a href="global.html#setLeft">setLeft</a></li><li><a href="global.html#setStyle">setStyle</a></li><li><a href="global.html#setTitle">setTitle</a></li><li><a href="global.html#setTop">setTop</a></li><li><a href="global.html#show">show</a></li><li><a href="global.html#showOptionButton">showOptionButton</a></li><li><a href="global.html#showPopMenu">showPopMenu</a></li><li><a href="global.html#startY">startY</a></li><li><a href="global.html#state">state</a></li><li><a href="global.html#toggle">toggle</a></li><li><a href="global.html#update">update</a></li></ul>
+</nav>
+
+<div id="main">
+
+    <article class="content">
+
+        
+        <h1 class="page-title">infinite-scroll/infinite-scroll.vue</h1>
+        
+
+        
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>&lt;template>
+  &lt;div class="ion-infinite-scroll" :threshold="threshold" :state="state">
+    &lt;slot>
+      &lt;div class="ion-infinite-scroll-content">
+        &lt;div class="infinite-loading">
+          &lt;div class="infinite-loading-spinner" v-if="loadingSpinner">
+            &lt;vm-spinner :name="loadingSpinner">&lt;/vm-spinner>
+          &lt;/div>
+          &lt;div class="infinite-loading-text" v-html="loadingText" v-if="loadingText">&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/slot>
+  &lt;/div>
+&lt;/template>
+
+&lt;script type="text/javascript">
+/**
+ * @component InfiniteScroll
+ * @description
+ *
+ * ## 数据加载 / InfiniteScroll无限滚动组件
+ *
+ * ### 说明
+ *
+ * 当页面滚动到页面底部一定距离时, InfiniteScroll组件会触发`onInfinite`事件, 通过回调传入的参数`infiniteScroll`来处理对应的状态.
+ *
+ * 比如: 当需要异步请求AJAX数据时, 数据请求后, 需要执行`infiniteScroll.complete()` 来变更InfiniteScroll组件的状态,当继续向下滚动时, 还能继续出发`onInfinite`事件, 如此往复.
+ *
+ * 当通过AJAX请求的数据已经全部请求完毕(没有更多的数据时), 则执行`infiniteScroll.enable(false)`, 表明InfiniteScroll任务全部结束. 此时, 将解除对Content组件的`onScroll`事件的监听.
+ *
+ * ### 其他
+ *
+ * InfiniteScroll组件会附带InfiniteScrollContent内容,它只是起到显示状态的作用, 你也可以自己定义显示状态.
+ *
+ * 其中, 标示状态的`state`有三种值: enabled/disabled/loading, 且这三种状态会写在父组件上, 因此可以用这个特性定义子组件的样式. 比如像下面的demo
+ *
+ * ### 建议
+ *
+ * 首屏的数据至少占满两个以上屏幕高度, 通过 InfiniteScroll 加载的数据也至少能占满两个以上的屏幕高度, 这样的体验效果会好点
+ *
+ * ### 注意
+ *
+ * - 组件中的方法是在事件的回调参数中定义的.
+ * - 组件支持js滚动监听, 如何设置参考Content组件
+ *
+ * ### 如何引入
+ * ```
+ * // 引入
+ * import { InfiniteScroll } from 'vimon'
+ * // 安装
+ * Vue.component(InfiniteScroll.name, InfiniteScroll)
+ * // 或者
+ * export default{
+ *   components: {
+ *     InfiniteScroll
+ *  }
+ * }
+ *```
+  *
+  *
+  * @props {Boolean} [enabled=true] - 设置当前组件的可用状态, 如果为false, 则移除当前组件绑定的全部事件处理函数, 隐藏组件并且将状态设置为disabled
+  * @props {String} [threshold='15%'] - 激活`onInfinite`事件的阈值. 阈值可以使百分比也可以是具体的px值. 如果为百分比(10%), 则距离底部10%的位置将为激活点; 如果为具体px值(100px), 则页面底部向下100px出为激活点.
+  *
+  * @fires component:InfiniteScroll#onInfinite
+  *
+  * @demo #/infinite-scroll
+  * @see component:Base/Content
+  *
+  * @usage
+  *
+  * &lt;InfiniteScroll threshold="20%" @onInfinite="onInfinite" loadingSpinner="ios" loadingText="正在加载...">&lt;/InfiniteScroll>
+  *
+  * // ....
+  *  .ion-infinite-scroll{
+  *      .loadedAll{
+  *          display: none;
+  *      }
+  *   }
+  *  .ion-infinite-scroll[state=disabled]{
+  *      .loadedAll{
+  *          display: block;
+  *      }
+  *  }
+  *
+  * // ....
+  *
+  * methods: {
+  *    onInfinite(infiniteScroll){
+  *      let _start = this.i;
+  *      if(_start &lt; 40){
+  *        setTimeout(() => {
+  *          for (; (10 + _start) > this.i; this.i++) {
+  *           this.list.push(`item - ${this.i}`)
+  *         }
+  *         // 当前异步完成
+  *         infiniteScroll.complete();
+  *       }, 100)
+  *     }else{
+  *       // 当前异步结束, 没有新数据了
+  *       infiniteScroll.enable(false);
+  *     }
+  *  }
+  *  // ....
+  */
+import { isTrueProperty } from '../../util/util'
+import ModeMixins from '../../themes/theme.mixins'
+import VmSpinner from '../spinner'
+
+const STATE_ENABLED = 'enabled'
+const STATE_DISABLED = 'disabled'
+const STATE_LOADING = 'loading'
+
+export default {
+  name: 'vm-infinite-scroll',
+  mixins: [ModeMixins],
+  components: {
+    VmSpinner
+  },
+  inject: {
+    contentComponent: {
+      from: 'contentComponent',
+      default: null
+    }
+  },
+  data () {
+    return {
+      lastCheck: 0,
+      isInited: false,
+      isEnabled: isTrueProperty(this.enabled),
+
+      state: STATE_ENABLED
+    }
+  },
+  props: {
+    /**
+     * @input {boolean} If true, Whether or not the infinite scroll should be
+     * enabled or not. Setting to `false` will remove scroll event listeners
+     * and hide the display.
+     */
+    enabled: {
+      type: [Boolean, String],
+      default: true
+    },
+    /**
+     * @input {string} The threshold distance from the bottom
+     * of the content to call the `infinite` output event when scrolled.
+     * The threshold value can be either a percent, or
+     * in pixels. For example, use the value of `10%` for the `infinite`
+     * output event to get called when the user has scrolled 10%
+     * from the bottom of the page. Use the value `100px` when the
+     * scroll is within 100 pixels from the bottom of the page.
+     * Default is `15%`.
+     */
+    threshold: {
+      type: String,
+      default: '15%'
+    },
+    /**
+     * @input {string} An animated SVG spinner that shows while loading.
+     */
+    loadingSpinner: {
+      type: String,
+      default () {
+        return this.$config &amp;&amp; this.$config.get('infiniteLoadingSpinner', this.$config.get('spinner', 'ios')) || 'ios'
+      }
+    },
+    /**
+     * @input {string} Optional text to display while loading.
+     */
+    loadingText: {
+      type: String,
+      default: 'Loading more data...'
+    }
+  },
+  computed: {
+    thr () {
+      return this.threshold
+    },
+    thrPx () {
+      if (this.threshold.indexOf('%') > -1) {
+        return 0
+      } else {
+        return parseFloat(this.threshold)
+      }
+    },
+    thrPc () {
+      if (this.threshold.indexOf('%') > -1) {
+        return parseFloat(this.threshold) / 100
+      } else {
+        return 0
+      }
+    }
+  },
+  watch: {
+    enabled (val) {
+      this.isEnabled = isTrueProperty(val)
+      this.setListeners(this.isEnabled)
+    }
+  },
+  mounted () {
+    console.assert(this.contentComponent, 'InfiniteScroll组件必须要在Content组件下使用')
+    this.contentComponent &amp;&amp;
+      this.contentComponent.setElementClass('has-infinite-scroll', true)
+
+    this.isInited = true
+    this.setListeners(this.isEnabled)
+  },
+  destroy () {
+    this.setListeners(false)
+  },
+  methods: {
+    onScroll (ev) {
+      if (this.state === STATE_LOADING || this.state === STATE_DISABLED) {
+        return 1
+      }
+
+      if (this.lastCheck + 32 > ev.timeStamp) {
+        // no need to check less than every XXms
+        return 2
+      }
+      this.lastCheck = ev.timeStamp
+
+      // ******** DOM READ ****************
+      const infiniteHeight = this.getNativeElement().scrollHeight
+      if (!infiniteHeight) {
+        // if there is no height of this element then do nothing
+        return 3
+      }
+
+      // ******** DOM READ ****************
+      const d = this.contentComponent.getContentDimensions()
+      const height = d.contentHeight
+
+      const threshold = this.thrPc ? height * this.thrPc : this.thrPx
+
+      // ******** DOM READS ABOVE / DOM WRITES BELOW ****************
+
+      let distanceFromInfinite =
+        d.scrollHeight - infiniteHeight - d.scrollTop - height - threshold
+      if (distanceFromInfinite &lt; 0) {
+        if (this.state !== STATE_LOADING &amp;&amp; this.state !== STATE_DISABLED) {
+          this.state = STATE_LOADING
+          this.$emit('onInfinite', this)
+        }
+        return 5
+      }
+
+      return 6
+    },
+
+    /**
+     * Call `complete()` within the `infinite` output event handler when
+     * your async operation has completed. For example, the `loading`
+     * state is while the app is performing an asynchronous operation,
+     * such as receiving more data from an AJAX request to add more items
+     * to a data list. Once the data has been received and UI updated, you
+     * then call this method to signify that the loading has completed.
+     * This method will change the infinite scroll's state from `loading`
+     * to `enabled`.
+     */
+    complete () {
+      if (this.state !== STATE_LOADING) {
+        return
+      }
+
+      this.state = STATE_ENABLED
+      this.contentComponent.resize()
+    },
+
+    /**
+     * Pass a promise inside `waitFor()` within the `infinite` output event handler in order to
+     * change state of infiniteScroll to "complete"
+     */
+    waitFor (action) {
+      const enable = this.complete.bind(this)
+      action.then(enable, enable)
+    },
+
+    /**
+     * Call `enable(false)` to disable the infinite scroll from actively
+     * trying to receive new data while scrolling. This method is useful
+     * when it is known that there is no more data that can be added, and
+     * the infinite scroll is no longer needed.
+     * @param {boolean} shouldEnable  If the infinite scroll should be
+     * enabled or not. Setting to `false` will remove scroll event listeners
+     * and hide the display.
+     */
+    enable (shouldEnable) {
+      this.state = shouldEnable ? STATE_ENABLED : STATE_DISABLED
+      this.setListeners(shouldEnable)
+    },
+
+    /**
+     * @hidden
+     */
+    setListeners (shouldListen) {
+      if (this.isInited) {
+        if (shouldListen) {
+          this.contentComponent.$on('onScroll', this.onScroll)
+        } else {
+          this.contentComponent.$off('onScroll', this.onScroll)
+        }
+      }
+    }
+  }
+}
+&lt;/script>
+
+&lt;style lang="scss">
+@import "infinite-scroll";
+&lt;/style>
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+    </article>
+</div>
+
+<br class="clear">
+
+<footer>
+    文档根据<a href="ttps://github.com/nostaff/vimon">Vimon源码</a>, 由<a href="https://github.com/jsdoc3/jsdoc">JSDoc3.5.5</a>自动生成。
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
